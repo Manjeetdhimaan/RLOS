@@ -1,0 +1,16 @@
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+@function em($unit) {
+    @if(unit($unit) == "px"){
+        @return #{strip-unit($unit)/16}em;
+    } 
+    @else{
+        @return #{strip-unit($unit)/12}em;
+    }
+}

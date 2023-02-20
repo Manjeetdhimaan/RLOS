@@ -1,0 +1,18 @@
+[
+    {
+      "code": "MON",
+      "label": "Monthly"
+    },
+    {
+      "code": "QUA",
+      "label": "Quarterly"
+    },
+    {
+      "code": "HAF",
+      "label": "Half Yearly"
+    },
+    {
+      "code": "ANN",
+      "label": "Annually"
+    }
+  ]

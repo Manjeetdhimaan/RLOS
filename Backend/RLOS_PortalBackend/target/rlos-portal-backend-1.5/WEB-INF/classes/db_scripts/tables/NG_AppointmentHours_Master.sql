@@ -1,0 +1,1 @@
+UPDATE NG_AppointmentHours_Master SET is_Active = 0 WHERE Hours = '16'

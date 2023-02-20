@@ -1,0 +1,12 @@
+{
+    "fileTypes": "JPG,JPEG,PNG,PDF,DOC,DOCX,XLS,XLSX,TXT",
+    "maxCoApplicants": "7",
+    "maxFileSize": "10",
+    "maxGuarantors": "1",
+    "maxPayOffs": "10",
+    "otpFormat": "%06d",
+    "otpValidFor": "300",
+    "resendOtpAfter": "60",
+    "sessionTimeoutInterval": "7200",
+    "signalTimeoutInterval": "120"
+}

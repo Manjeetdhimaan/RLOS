@@ -1,0 +1,1534 @@
+{
+    "application": {
+        "applicant": {
+            "header": "Applicant Information",
+            "primaryHeader": "Primary Applicant",
+            "dlLabel": "Save time by using your Driver’s License.",
+            "chooseFileLabel": "Upload the back image of your ID and it will prefill your information.",
+            "isBankEmployee": {
+                "label": "Are you Employee of the Bank?",
+                "validation.required": "Please select Option"
+            },
+            "arn": {
+                "label": "Loan Application Number",
+                "validation.required": "Please enter Loan Application Number",
+                "validation.minlength": "Loan Application Number must be at least 12 digits long",
+                "validation.maxlength": "Loan Application Number cannot be more than 12 digits long"
+            },
+            "prefix": {
+                "label": "Prefix",
+                "validation.required": "Please enter Prefix",
+                "validation.minlength": "Prefix must be at least {{value}} characters long",
+                "validation.maxlength": "Prefix cannot be more than {{value}} characters long"
+            },
+            "suffix": {
+                "label": "Suffix",
+                "validation.required": "Please enter Suffix",
+                "validation.minlength": "Suffix must be at least {{value}} characters long",
+                "validation.maxlength": "Suffix cannot be more than {{value}} characters long"
+            },
+            "firstName": {
+                "label": "First Name",
+                "validation.required": "Please enter First Name",
+                "validation.minlength": "First name must be at least {{value}} characters long",
+                "validation.maxlength": "First name cannot be more than {{value}} characters long",
+                "validation.pattern": "First name can contain only alphabetic values"
+            },
+            "middleName": {
+                "label": "Middle Name",
+                "validation.minlength": "Middle name must be at least {{value}} characters long",
+                "validation.maxlength": "Middle name cannot be more than {{value}} characters long",
+                "validation.pattern": "Middle Name should not contain invalid characters"
+            },
+            "lastName": {
+                "label": "Last Name",
+                "validation.required": "Please enter Last Name",
+                "validation.minlength": "Last name must be at least {{value}} characters long",
+                "validation.maxlength": "Last name cannot be more than {{value}} characters long"
+            },
+            "email": {
+                "label": "Email ID",
+                "validation.required": "Please enter Email ID",
+                "validation.pattern": "Please enter Email ID in valid format. Special characters are not allowed in Email",
+                "validation.minlength": "Email ID must be at least {{value}} characters long",
+                "validation.maxlength": "Email ID cannot be more than {{value}} characters long",
+                "validation.mismatch": "Email ID and Confirm Email ID should be same"
+            },
+            "appNo": {
+                "label": "Application Number",
+                "validation.required": "Please enter Application Number",
+                "validation.minlength": "Last name must be at least {{value}} characters long",
+                "validation.maxlength": "Last name cannot be more than {{value}} characters long"
+            },
+            "confirmEmail": {
+                "label": "Confirm Email ID",
+                "validation.required": "Please enter Confirm Email ID",
+                "validation.pattern": "Please enter Confirm Email ID in valid format",
+                "validation.minlength": "Confirm Email ID must be at least {{value}} characters long",
+                "validation.maxlength": "Email ID cannot be more than {{value}} characters long",
+                "validation.mismatch": " Confirm Email ID and Email ID should be same"
+            },
+            "dob": {
+                "label": "Date of Birth",
+                "validation.required": "Please enter Date of Birth",
+                "note": "Applicant should be minimum 18 years old",
+                "invalidDate": "Please enter valid Date of Birth",
+                "validation.minlength": "Date Of birth should be more than 18"
+            },
+            "number": {
+                "validation.required": "Please enter One Time Password",
+                "validation.minlength": "One Time Password must be at least {{value}} characters long",
+                "validation.pattern": "First name can contain only alphabetic values"
+            },
+            "maritalStatus": {
+                "label": "Marital Status",
+                "validation.required": "Please select Marital Status",
+                "validation.minlength": "Marital Status must be at least {{value}} characters long",
+                "validation.maxlength": "Marital Status cannot be more than {{value}} characters long"
+            },
+            "gender": {
+                "label": "Gender",
+                "validation.required": "Please select Gender",
+                "validation.minlength": "Gender must be at least {{value}} characters long",
+                "validation.maxlength": "Gender cannot be more than {{value}} characters long"
+            },
+            "idType": {
+                "label": "ID Type",
+                "validation.required": "Please select ID Type",
+                "validation.minlength": "ID Type must be at least {{value}} characters long",
+                "validation.maxlength": "ID Type cannot be more than {{value}} characters long"
+            },
+            "idExpDate": {
+                "label": "ID Expiration Date",
+                "invalidDate": "Please enter valid ID Expiration Date"
+            },
+            "idIssueDate": {
+                "label": "ID Issue Date",
+                "invalidDate": "Please enter valid ID Issue Date"
+            },
+            "idNumber": {
+                "label": "ID Number",
+                "validation.required": "Please enter ID Number",
+                "validation.minlength": "ID Number must be at least {{value}} characters long",
+                "validation.maxlength": "ID Number cannot be more than {{value}} characters long"
+            },
+            "idIssuingCountry": {
+                "label": "Issuing Country",
+                "validation.required": "Please select Issuing Country"
+            },
+            "ssn": {
+                "label": "NIB Number",
+                "validation.required": "Please enter NIB Number",
+                "validation.minlength": "NIB Number must be at least 8 characters long",
+                "validation.maxlength": "NIB Number cannot be more than 8 characters long",
+                "validation.pattern": "NIB Number can contain only numeric values"
+            },
+            "pepFieldsHeader": "PEP Details",
+            "pepRelation": {
+                "label": "PEP Relation",
+                "validation.required": "Please select PEP Relation"
+            },
+            "pepCountry": {
+                "label": "PEP Country",
+                "validation.required": "Please select PEP Country"
+            },
+            "pep": {
+                "label": "Are you a Politically Exposed Person?",
+                "validation.required": "Please select Option"
+            },
+            "homePhoneNo": {
+                "label": "Home Phone Number",
+                "validation.required": "Please enter Home Phone Number",
+                "validation.minlength": "Home Phone Number must be at least 10 characters long",
+                "validation.maxlength": "Home Phone Number cannot be more than 10 characters long",
+                "validation.pattern": "Home Phone Number can contain only numeric values"
+            },
+            "workPhoneNo": {
+                "label": "Work Phone Number",
+                "validation.required": "Please enter Work Phone Number",
+                "validation.minlength": "Work Phone Number must be at least 10 characters long",
+                "validation.maxlength": "Work Phone Number cannot be more than 10 characters long",
+                "validation.pattern": "Work Phone Number can contain only numeric values"
+            },
+            "homePhoneType": {
+                "label": "Primary Phone Type",
+                "validation.required": "Please select Phone Type"
+            },
+            "altPhoneNo": {
+                "label": "Mobile Phone Number",
+                "validation.required": "Please enter Mobile Phone Number",
+                "validation.minlength": "Mobile Phone Number must be at least 10 characters long",
+                "validation.maxlength": "Mobile Phone Number cannot be more than 10 characters long",
+                "validation.pattern": "Mobile Phone Number can contain only numeric values"
+            },
+            "altPhoneType": {
+                "label": "Secondry Phone Type"
+            },
+            "addressDetails": {
+                "address": {
+                    "header": "Address Information",
+                    "addressLine1": {
+                        "label": "Street Address",
+                        "validation.required": "Please enter Street Address",
+                        "validation.minlength": "Street Address must be at least {{value}} characters long",
+                        "validation.maxlength": "Street Address cannot be more than {{value}} characters long"
+                    },
+                    "addressLine2": {
+                        "label": "Apartment / Suite Number",
+                        "validation.required": "Please enter Apartment / Suite Number",
+                        "validation.minlength": "Apartment / Suite Number must be at least {{value}} characters long",
+                        "validation.maxlength": "Apartment / Suite Number cannot be more than {{value}} characters long"
+                    },
+                    "zipCode": {
+                        "label": "Zip Code",
+                        "validation.required": "Please enter Zip Code",
+                        "validation.minlength": "Zip Code must be at least {{value}} characters long",
+                        "validation.maxlength": "Zip Code cannot be more than {{value}} characters long",
+                        "validation.pattern": "Zip Code can contain only numeric values"
+                    },
+                    "city": {
+                        "label": "City/Settlement",
+                        "validation.required": "Please select City/Settlement",
+                        "validation.minlength": "City/Settlement must be at least {{value}} characters long",
+                        "validation.maxlength": "City/Settlement cannot be more than {{value}} characters long"
+                    },
+                    "state": {
+                        "label": "Island/State",
+                        "validation.required": "Please select Island/State",
+                        "validation.minlength": "Island/State must be at least {{value}} characters long",
+                        "validation.maxlength": "Island/State cannot be more than {{value}} characters long"
+                    },
+                    "country": {
+                        "label": "Country",
+                        "validation.required": "Please select Country",
+                        "validation.minlength": "Country must be at least {{value}} characters long",
+                        "validation.maxlength": "Country cannot be more than {{value}} characters long"
+                    },
+                    "county": {
+                        "label": "County",
+                        "validation.required": "Please select County"
+                    }
+                },
+                "isAddressSameAsPrimary": {
+                    "label": "Is the current address of this applicant same as primary applicant?"
+                },
+                "currentAddress": "Your Current Address (No P.O. Box Addresses please)",
+                "currentAdd": "Current Address",
+                "durationAtAddress": "Duration at this Address",
+                "mailingAdd": "Your Mailing Address",
+                "mailingAddressLine1": {
+                    "label": "Street Address"
+                },
+                "ownRent": {
+                    "label": "Do You Own or Rent ?",
+                    "validation.required": "Please select"
+                },
+                "amtOfRent": {
+                    "label": "Monthly Rent Payment ",
+                    "validation.required": "Please enter Rent Amount",
+                    "validation.minlength": "Rent Amount must be at least {{value}} characters long",
+                    "validation.maxlength": "Rent Amount cannot be more than {{value}} characters long"
+                },
+                "own": "Own",
+                "family": "family",
+                "rent": "Rent",
+                "diffAddMail": "Check here if your mailing address is different than your current address.",
+                "timeAtCurrAdd": "Time at Current Address",
+                "currYears": {
+                    "label": "Years",
+                    "validation.required": "Please select Years",
+                    "validation.minlength": "Years must be at least {{value}} characters long",
+                    "validation.maxlength": "Years cannot be more than {{value}} characters long"
+                },
+                "currMonths": {
+                    "label": "Months",
+                    "validation.required": "Please select Months",
+                    "validation.minlength": "Months must be at least {{value}} characters long",
+                    "validation.maxlength": "Months cannot be more than {{value}} characters long"
+                },
+                "prevAdd": "Your Previous Address in Last 2 Years",
+                "prevAddLabel": "Previous Address in Last 2 Years",
+                "yearAtPrevAdd": "Years at This Address",
+                "monthAtPrevAdd": "Months at This Address"
+            },
+            "empDetails": {
+                "empHeader": "Employment Details",
+                "currEmpLabel": "Provide information about your current employment.",
+                "prevEmpLabel": "Provide information about your previous employment.",
+                "empDuration": "Duration of Employment.",
+                "selfDuration": "Duration of being Self Employed",
+                "empAddress": "Employer Address",
+                "empType": {
+                    "label": "Employment Type",
+                    "validation.required": "Please select Employment Type"
+                },
+                "empName": {
+                    "label": "Employer Name",
+                    "validation.required": "Please enter Employer Name",
+                    "validation.minlength": "Employer Name must be at least {{value}} characters long",
+                    "validation.maxlength": "Employer Name cannot be more than {{value}} characters long"
+                },
+                "sector": {
+                    "label": "Employment Sector",
+                    "validation.required": "Please enter Employment Sector",
+                    "validation.minlength": "Employment Sector must be at least {{value}} characters long",
+                    "validation.maxlength": "Employment Sector cannot be more than {{value}} characters long"
+                },
+                "jobTitle": {
+                    "label": "Job Title",
+                    "validation.required": "Please enter Job Title",
+                    "validation.minlength": "Job Title must be at least {{value}} characters long",
+                    "validation.maxlength": "Job Title cannot be more than {{value}} characters long"
+                },
+                "occupation": {
+                    "label": "Occupation",
+                    "validation.required": "Please enter Occupation",
+                    "validation.minlength": "Occupation must be at least {{value}} characters long",
+                    "validation.maxlength": "Occupation cannot be more than {{value}} characters long"
+                },
+                "empYears": {
+                    "label": "Employment Length (Years)",
+                    "validation.required": "Please enter Employment Length (Years)",
+                    "validation.minlength": "Employment Length (Years) must be at least {{value}} characters long",
+                    "validation.maxlength": "Employment Length (Years) cannot be more than {{value}} characters long"
+                },
+                "empMonths": {
+                    "label": "Employment Length (Months)",
+                    "validation.required": "Please enter Employment Length (Months)",
+                    "validation.minlength": "Employment Length (Months) must be at least {{value}} characters long",
+                    "validation.maxlength": "Employment Length (Months) cannot be more than {{value}} characters long"
+                },
+                "addressLine1": {
+                    "label": "Apartment/Suite Number",
+                    "validation.required": "Please enter Apartment/Suite Number",
+                    "validation.minlength": "Apartment/Suite Number must be at least {{value}} characters long",
+                    "validation.maxlength": "Apartment/Suite Number cannot be more than {{value}} characters long"
+                },
+                "addressLine2": {
+                    "label": "Street Name",
+                    "validation.required": "Please enter Street Name",
+                    "validation.minlength": "Street Name must be at least {{value}} characters long",
+                    "validation.maxlength": "Street Name cannot be more than {{value}} characters long"
+                },
+                "city": {
+                    "label": "City/Settlement",
+                    "validation.required": "Please select City/Settlement",
+                    "validation.minlength": "City/Settlement must be at least {{value}} characters long",
+                    "validation.maxlength": "City/Settlement cannot be more than {{value}} characters long"
+                },
+                "state": {
+                    "label": "Island/State",
+                    "validation.required": "Please enter Island/State",
+                    "validation.minlength": "Island/State must be at least {{value}} characters long",
+                    "validation.maxlength": "Island/State cannot be more than {{value}} characters long"
+                },
+                "country": {
+                    "label": "Country",
+                    "validation.required": "Please enter Country",
+                    "validation.minlength": "Country must be at least {{value}} characters long",
+                    "validation.maxlength": "Country cannot be more than {{value}} characters long"
+                },
+                "businessName": {
+                    "label": "Business Name",
+                    "validation.required": "Please enter Business Name",
+                    "validation.minlength": "Business Name must be at least {{value}} characters long",
+                    "validation.maxlength": "Business Name cannot be more than {{value}} characters long"
+                },
+                "businessYears": {
+                    "label": "Business Length(Years)",
+                    "validation.required": "Please enter Business Length(Years)",
+                    "validation.minlength": "Business Length(Years) must be at least {{value}} characters long",
+                    "validation.maxlength": "Business Length(Years) cannot be more than {{value}} characters long"
+                },
+                "businessMonths": {
+                    "label": "Business Length(Months)",
+                    "validation.required": "Please enter Business Length(Months)",
+                    "validation.minlength": "Business Length(Months) must be at least {{value}} characters long",
+                    "validation.maxlength": "Business Length(Months) cannot be more than {{value}} characters long"
+                },
+                "lastCompanyName": {
+                    "label": "Last Company Name",
+                    "validation.required": "Please enter Last Company Name",
+                    "validation.minlength": "Last Company Name must be at least {{value}} characters long",
+                    "validation.maxlength": "Last Company Name cannot be more than {{value}} characters long"
+                },
+                "retireYears": {
+                    "label": "Years After Retirement",
+                    "validation.required": "Please enter Years After Retirement",
+                    "validation.minlength": "Years After Retirement must be at least {{value}} characters long",
+                    "validation.maxlength": "Years After Retirement cannot be more than {{value}} characters long"
+                },
+                "sourceOfIncome": {
+                    "label": "Source Of Income",
+                    "validation.required": "Please enter Source Of Income",
+                    "validation.minlength": "Source Of Income must be at least {{value}} characters long",
+                    "validation.maxlength": "Source Of Income cannot be more than {{value}} characters long"
+                },
+                "note": "Alimony, child support, or separate maintenance income need not to be revealed if you do not wish to have it considered as a basis for repaying this obligation.",
+                "incomeLabel": "Income details",
+                "incomeType": {
+                    "label": "Income Type",
+                    "validation.required": "Please select Income Type"
+                },
+                "amount": {
+                    "label": "Amount",
+                    "validation.required": "Please enter Amount",
+                    "validation.minlength": "Amount must be at least {{value}} characters long",
+                    "validation.maxlength": "Amount cannot be more than {{value}} characters long",
+                    "validation.pattern": "Amount can contain only numeric values"
+                },
+                "frequency": {
+                    "label": "Frequency",
+                    "validation.required": "Please select Frequency"
+                },
+                "comment": {
+                    "label": "Comment",
+                    "validation.required": "Please enter Comment",
+                    "validation.minlength": "Comment must be at least {{value}} characters long",
+                    "validation.maxlength": "Comment cannot be more than {{value}} characters long"
+                },
+                "income": {
+                    "label": "Monthly Income",
+                    "validation.minlength": "Monthly Income must be at least {{value}} characters long",
+                    "validation.maxlength": "Monthly Income cannot be more than {{value}} characters long",
+                    "validation.pattern": "Income can contain only numeric values"
+                }
+            },
+            "incomeDetails": {
+                "note": "Alimony, child support, or separate maintenance income need not to be revealed if you do not wish to have it considered as a basis for repaying this obligation.",
+                "incomeLabel": "Income details",
+                "incomeType": {
+                    "label": "Income Type",
+                    "validation.required": "Please select Income Type"
+                },
+                "amount": {
+                    "label": "Amount",
+                    "validation.required": "Please enter Amount",
+                    "validation.minlength": "Amount must be at least {{value}} characters long",
+                    "validation.maxlength": "Amount cannot be more than {{value}} characters long",
+                    "validation.pattern": "Amount can contain only numeric values"
+                },
+                "frequency": {
+                    "label": "Frequency",
+                    "validation.required": "Please select Frequency"
+                },
+                "comment": {
+                    "label": "Comment",
+                    "validation.required": "Please enter Comment",
+                    "validation.minlength": "Comment must be at least {{value}} characters long",
+                    "validation.maxlength": "Comment cannot be more than {{value}} characters long"
+                },
+                "income": {
+                    "label": "Monthly Income",
+                    "validation.minlength": "Monthly Income must be at least {{value}} characters long",
+                    "validation.maxlength": "Monthly Income cannot be more than {{value}} characters long",
+                    "validation.pattern": "Income can contain only numeric values"
+                }
+            },
+            "assetDetails": {
+                "chooseFileLabel": "Upload Tax Returns and Personal Financial Documents",
+                "updateFileLabel": "Update Tax Returns and Personal Financial Documents",
+                "assetLabel": "Personal Financial Information",
+                "assetType": {
+                    "label": "Asset Type",
+                    "validation.required": "Please select Asset Type"
+                },
+                "amount": {
+                    "label": "Amount",
+                    "validation.required": "Please enter Amount",
+                    "validation.minlength": "Amount must be at least 1 characters long",
+                    "validation.maxlength": "Amount cannot be more than 8 characters long",
+                    "validation.pattern": "Amount can contain only numeric values"
+                },
+                "instName": {
+                    "label": "Institution Name",
+                    "validation.required": "Please enter Institution Name",
+                    "validation.minlength": "Institution Name must be at least 1 characters long",
+                    "validation.maxlength": "Institution Name cannot be more than 20 characters long"
+                },
+                "comment": {
+                    "label": "Comments",
+                    "validation.required": "Please enter Comments",
+                    "validation.minlength": "Comments must be at least 1 characters long",
+                    "validation.maxlength": "Comments cannot be more than 50 characters long"
+                }
+            },
+            "referenceDetails": {
+                "header": "Reference Information",
+                "refenceLabel": "Reference",
+                "addressLine1": {
+                    "label": "Street Address",
+                    "validation.required": "Please enter Street Address",
+                    "validation.minlength": "Street Address must be at least {{value}} characters long",
+                    "validation.maxlength": "Street Address cannot be more than {{value}} characters long"
+                },
+                "addressLine2": {
+                    "label": "Apartment / Suite Number",
+                    "validation.required": "Please enter Apartment / Suite Number",
+                    "validation.minlength": "Apartment / Suite Number must be at least {{value}} characters long",
+                    "validation.maxlength": "Apartment / Suite Number cannot be more than {{value}} characters long"
+                },
+                "zipCode": {
+                    "label": "Zip Code",
+                    "validation.required": "Please enter Zip Code",
+                    "validation.minlength": "Zip Code must be at least {{value}} characters long",
+                    "validation.maxlength": "Zip Code cannot be more than {{value}} characters long",
+                    "validation.pattern": "Zip Code can contain only numeric values"
+                },
+                "city": {
+                    "label": "City/Settlement",
+                    "validation.required": "Please select City/Settlement",
+                    "validation.minlength": "City/Settlement must be at least {{value}} characters long",
+                    "validation.maxlength": "City/Settlement cannot be more than {{value}} characters long"
+                },
+                "state": {
+                    "label": "Island/State",
+                    "validation.required": "Please select Island/State",
+                    "validation.minlength": "Island/State must be at least {{value}} characters long",
+                    "validation.maxlength": "Island/State cannot be more than {{value}} characters long"
+                },
+                "county": {
+                    "label": "County",
+                    "validation.required": "Please select County"
+                },
+                "currentAddress": "Your Current Address (No P.O. Box Addresses please)",
+                "currentAdd": "Current Address",
+                "mailingAdd": "Your Mailing Address",
+                "mailingAddressLine1": {
+                    "label": "Street Address"
+                },
+                "ownRent": {
+                    "label": "Do You Own or Rent ?",
+                    "validation.required": "Please select"
+                },
+                "amtOfRent": {
+                    "label": "Monthly Rent Payment ",
+                    "validation.required": "Please enter Rent Amount",
+                    "validation.minlength": "Rent Amount must be at least {{value}} characters long",
+                    "validation.maxlength": "Rent Amount cannot be more than {{value}} characters long"
+                },
+                "title": {
+                    "label": "Title",
+                    "validation.required": "Please select Title."
+                },
+                "relationship": {
+                    "label": "Relationship",
+                    "validation.required": "Please enter Relationship."
+                },
+                "phoneNo": {
+                    "label": "Phone Number",
+                    "validation.required": "Please enter Phone Number."
+                },
+                "firstName": {
+                    "label": "First Name",
+                    "validation.required": "Please enter First Name."
+                },
+                "middleName": {
+                    "label": "Middle Name"
+                },
+                "lastName": {
+                    "label": "Last Name",
+                    "validation.required": "Please enter Last Name."
+                },
+                "employer": {
+                    "label": "Employer",
+                    "validation.required": "Please enter Employer Name."
+                },
+                "diffAddMail": "Check here if your mailing address is different than your current address."
+            }
+        },
+        "coapplicant": {
+            "header": " Co-Applicant Information",
+            "basicDetails": {
+                "header": "Co-Applicant"
+            }
+        },
+        "buttons": {
+            "submit": "Submit",
+            "continue": "Continue",
+            "back": "Back",
+            "nextSection": "Next Section",
+            "next": "Next",
+            "prevSection": "Previous Section",
+            "prev": "Previous",
+            "chooseFile": "Select File",
+            "editFile": "Edit ID Document",
+            "remove": "Remove",
+            "addEmpDetails": "Add Additional Employment",
+            "addIncomeDetails": "Add Income Details",
+            "addAssetDetails": "Add Asset",
+            "save": "Save",
+            "edit": "Edit",
+            "exit": "Exit",
+            "accept": "ACCEPT",
+            "decline": "NOT ACCEPT",
+            "upload": "Upload",
+            "editDoc": "Edit Documents",
+            "addReferenceDetails": "Add Reference"
+        },
+        "loanDetails": {
+            "header": "Loan Details",
+            "loanAmount": {
+                "label": "Loan Amount",
+                "validation.required": "Please enter Loan Amount",
+                "validation.minlength": "Loan Amount must be at least {{value}} digit long",
+                "validation.maxlength": "Loan Amount cannot be more than {{value}} digit long",
+                "validation.numberRange": "Loan Amount should be between {{value1}} and {{value2}}"
+            },
+            "loanTerm": {
+                "label": "Loan Term (months)",
+                "validation.required": "Please select Loan Term (months)",
+                "validation.maxlength": "Loan Term (months) cannot be more than {{value}} digit long",
+                "validation.pattern": "Please enter a valid loan term"
+            },
+            "loanTermInMonth": {
+                "label": "Loan Term (months)"
+            },
+            "interestRate": {
+                "label": "Annual Percentage Rate (APR)"
+            },
+            "typeOfLoan": {
+                "label": "Loan Type",
+                "validation.required": "Please select Loan Type"
+            },
+            "loanProductType": {
+                "label": "Would you be securing it with collateral?",
+                "validation.required": "Please select the option"
+            },
+            "collateralType": {
+                "label": "Loan Sub-Type",
+                "validation.required": "Please select Loan Sub-Type"
+            },
+            "collateralTypeSecured": {
+                "label": "What would you be providing as a collateral?"
+            },
+            "collateralTypeUnsecured": {
+                "label": "Which unsecured loan are you looking for?"
+            },
+            "loanPurposeType": {
+                "label": "Loan Purpose",
+                "validation.required": "Please select Loan Purpose"
+            },
+            "financeType": {
+                "label": "Loan Purpose",
+                "validation.required": "Please select Loan Purpose"
+            },
+            "autoDebitOrNot": {
+                "label": "Auto Debit"
+            },
+            "collateralTypeDetails": {
+                "vechicleLoan": {
+                    "vehicleOwner": {
+                        "label": "Owner",
+                        "validation.required": "Please enter Owner",
+                        "validation.minlength": "Owner name must be at least {{value}} characters long",
+                        "validation.maxlength": "Owner name cannot be more than {{value}} characters long"
+                    },
+                    "vehicleCoOwner": {
+                        "label": "Co-Owner",
+                        "validation.minlength": "Co-Owner name must be at least {{value}} characters long",
+                        "validation.maxlength": "Co-Owner name cannot be more than {{value}} characters long"
+                    },
+                    "vehicleVinNumber": {
+                        "label": "Vin Number (Body)",
+                        "validation.required": "Please enter VIN Number",
+                        "validation.minlength": "VIN Number must be at least {{value}} digit long",
+                        "validation.maxlength": "VIN Number cannot be more than {{value}} digit long"
+                    },
+                    "vehicleYear": {
+                        "label": "Year(Body)",
+                        "validation.required": "Please enter Year",
+                        "validation.minlength": "Year name must be at least {{value}} digit long",
+                        "validation.maxlength": "Year name cannot be more than {{value}} digit long",
+                        "validation.pattern": "Please enter a valid year"
+                    },
+                    "vehicleMake": {
+                        "label": "Make(Body)",
+                        "validation.required": "Please enter Make",
+                        "validation.minlength": "Make must be at least {{value}} digit long",
+                        "validation.maxlength": "Make cannot be more than {{value}} digit long"
+                    },
+                    "vehicleModel": {
+                        "label": "Model(Body)",
+                        "validation.required": "Please enter Model",
+                        "validation.minlength": "Model must be at least {{value}} digit long",
+                        "validation.maxlength": "Model cannot be more than {{value}} digit long"
+                    },
+                    "bodyFullLength": {
+                        "label": "Full Length(Body)",
+                        "validation.required": "Please enter Body Full Length",
+                        "validation.minlength": "Full Length(Body) name must be at least {{value}} digit long",
+                        "validation.maxlength": "Full Length(Body) name cannot be more than {{value}} digit long"
+                    },
+                    "cashDown": {
+                        "label": "Cash Down",
+                        "validation.required": "Please enter Cash Down",
+                        "validation.minlength": "Cash Down must be at least {{value}} characters long",
+                        "validation.maxlength": " Cash Down cannot be more than {{value}} characters long"
+                    },
+                    "vehicleValue": {
+                        "label": "Value(Body)",
+                        "validation.required": "Please enter Marine Equipment/JetSki Value",
+                        "validation.minlength": "Cash Down must be at least {{value}} digit long",
+                        "validation.maxlength": "Value(Body) cannot be more than {{value}} digit long"
+                    },
+                    "motorVINNumber": {
+                        "label": "Vin Number (Motor)",
+                        "validation.required": "Please enter Motor VIN Number",
+                        "validation.minlength": "VIN Number must be at least {{value}} digit long",
+                        "validation.maxlength": "VIN Number cannot be more than {{value}} digit long"
+                    },
+                    "motorYear": {
+                        "label": "Year(Motor)",
+                        "validation.required": "Please enter Motor Year",
+                        "validation.minlength": "Year(Motor) must be at least {{value}} digit long",
+                        "validation.maxlength": "Year(Motor) cannot be more than {{value}} digit long",
+                        "validation.pattern": "Please enter a valid year"
+                    },
+                    "motorMake": {
+                        "label": "Make(Motor)",
+                        "validation.required": "Please enter Motor Make",
+                        "validation.minlength": "Make name must be at least {{value}} digit long",
+                        "validation.maxlength": "Make cannot be more than {{value}} digit long"
+                    },
+                    "motorModel": {
+                        "label": "Model(Motor)",
+                        "validation.required": "Please enter Motor Model No",
+                        "validation.minlength": "Model must be at least {{value}} digit long",
+                        "validation.maxlength": "Model cannot be more than {{value}} digit long"
+                    },
+                    "motorValue": {
+                        "label": "Value(Motor)",
+                        "validation.required": "Please enter Motor Value",
+                        "validation.minlength": "Value must be at least {{value}} digit long",
+                        "validation.maxlength": "Value cannot be more than {{value}} digit long"
+                    },
+                    "collateralValue": {
+                        "label": "Collateral Value",
+                        "validation.required": "Please enter Collateral Value",
+                        "validation.minlength": "Collateral Value must be at least {{value}} digit long",
+                        "validation.maxlength": "Collateral Value cannot be more than {{value}} digit long",
+                        "validation.pattern": "Please enter a valid collateral value"
+                    },
+                    "collateralDescription": {
+                        "label": "Collateral Description",
+                        "validation.minlength": "Collateral Description must be at least {{value}} characters long",
+                        "validation.maxlength": "Collateral Description cannot be more than {{value}} characters long"
+                    },
+                    "typeOfVehicle": {
+                        "label": "Type of Marine Equipment/JetSki",
+                        "validation.required": "Please select Type of Marine Equipment / JetSki"
+                    },
+                    "isVehicleDetailsAvailable": {
+                        "label": "Details of the Body Available",
+                        "validation.required": "Please select Details Available"
+                    },
+                    "isMotorDetailsAvailable": {
+                        "label": "Details of the Motor Available",
+                        "validation.required": "Please select Details Available"
+                    },
+                    "isTitleRequired": {
+                        "label": "Title Required",
+                        "validation.required": "Please select Title Required"
+                    },
+                    "isInsuranceRequired": {
+                        "label": "Insurance Required",
+                        "validation.required": "Please select Insurance Required"
+                    },
+                    "vehicleSourceOfValue": {
+                        "label": "Source of Value (Body)"
+                    },
+                    "motorSourceOfValue": {
+                        "label": "Source of Value (Motor)"
+                    }
+                },
+                "autoVehicleLoan": {
+                    "vehicleOwner": {
+                        "label": "Owner Of Vehicle",
+                        "validation.required": "Please enter Owner",
+                        "validation.minlength": "Owner name must be at least {{value}} characters long",
+                        "validation.maxlength": "Owner name cannot be more than {{value}} characters long"
+                    },
+                    "vehicleCoOwner": {
+                        "label": "Co-Owner Of Vehicle",
+                        "validation.minlength": "Co-Owner name must be at least {{value}} characters long",
+                        "validation.maxlength": "Co-Owner name cannot be more than {{value}} characters long"
+                    },
+                    "loanPurchaseType": {
+                        "label": "Purchase Type"
+                    },
+                    "vehicleVinNumber": {
+                        "label": "VIN Number",
+                        "validation.required": "Please enter VIN Number",
+                        "validation.minlength": "VIN Number must be at least {{value}} digit long",
+                        "validation.maxlength": "VIN Number cannot be more than {{value}} digit long"
+                    },
+                    "vehicleYear": {
+                        "label": "Year",
+                        "validation.required": "Please enter Year",
+                        "validation.minlength": "Year must be at least {{value}} digit long",
+                        "validation.maxlength": "Year cannot be more than {{value}} digit long",
+                        "validation.pattern": "Please enter a valid year"
+                    },
+                    "vehicleMake": {
+                        "label": "Make",
+                        "validation.required": "Please enter Make",
+                        "validation.minlength": "Make must be at least {{value}} digit long",
+                        "validation.maxlength": "Make cannot be more than {{value}} digit long"
+                    },
+                    "autoStyle": {
+                        "label": "Style",
+                        "validation.required": "Please enter Style",
+                        "validation.minlength": "Style must be at least {{value}} characters long",
+                        "validation.maxlength": "Style cannot be more than {{value}} characters long"
+                    },
+                    "vehicleModel": {
+                        "label": "Model",
+                        "validation.required": "Please enter Model",
+                        "validation.minlength": "Model must be at least {{value}} digit long",
+                        "validation.maxlength": "Model cannot be more than {{value}} digit long"
+                    },
+                    "autoTrimPackage": {
+                        "label": "Trim Package",
+                        "validation.required": "Please enter Trim Package",
+                        "validation.minlength": "Trim Package must be at least {{value}} characters long",
+                        "validation.maxlength": "Trim Package cannot be more than {{value}} characters long"
+                    },
+                    "autoColor": {
+                        "label": "Color",
+                        "validation.required": "Please enter Color",
+                        "validation.minlength": "Color name must be at least {{value}} characters long",
+                        "validation.maxlength": "Color name cannot be more than {{value}} characters long"
+                    },
+                    "autoMileage": {
+                        "label": "Mileage",
+                        "validation.required": "Please enter Mileage",
+                        "validation.minlength": "Mileage must be at least {{value}} digit long",
+                        "validation.maxlength": "Mileage cannot be more than {{value}} digit long",
+                        "validation.pattern": "Please enter a valid value"
+                    },
+                    "tagNumber": {
+                        "label": "Tag Number",
+                        "validation.required": "Please enter Tag Number",
+                        "validation.minlength": "Tag Number name must be at least {{value}} characters long",
+                        "validation.maxlength": "Tag Number name cannot be more than {{value}} characters long",
+                        "validation.pattern": "Please enter a valid tag number"
+                    },
+                    "cashDown": {
+                        "label": "Cash Down",
+                        "validation.required": "Please enter Cash Down",
+                        "validation.minlength": "Cash Down name must be at least {{value}} characters long",
+                        "validation.maxlength": "Cash Down name cannot be more than {{value}} characters long"
+                    },
+                    "vehicleValue": {
+                        "label": "Value(Body)",
+                        "validation.required": "Please enter Vehicle Value",
+                        "validation.minlength": " Vehicle Value must be at least {{value}} digit long",
+                        "validation.maxlength": " Vehicle Value cannot be more than {{value}} digit long"
+                    },
+                    "collateralValue": {
+                        "label": "Collateral Value",
+                        "validation.required": "Please enter Collateral Value",
+                        "validation.minlength": "Collateral Value must be at least {{value}} digit long",
+                        "validation.maxlength": "Collateral Value cannot be more than {{value}} digit long"
+                    },
+                    "collateralValueApprox": {
+                        "label": "Approximate value of vehicle",
+                        "validation.required": "Please enter Approximate value of vehicle",
+                        "validation.minlength": "Value must be at least {{value}} digit long",
+                        "validation.maxlength": "Value cannot be more than {{value}} digit long"
+                    },
+                    "collateralDescription": {
+                        "label": "Collateral Description",
+                        "validation.minlength": "Collateral Description name must be at least {{value}} characters long",
+                        "validation.maxlength": "Collateral Description name cannot be more than {{value}} characters long"
+                    },
+                    "insuranceRequired": {
+                        "label": "Insurance Required",
+                        "validation.required": "Please enter Insurance"
+                    },
+                    "purchaseType": {
+                        "label": "Purchase Type",
+                        "validation.required": "Please enter Purchase Type"
+                    },
+                    "titleRequired": {
+                        "label": "Title Required",
+                        "validation.required": "Please enter Title"
+                    },
+                    "detailsAvailable": {
+                        "label": "Details of the Vehicle Available",
+                        "validation.required": "Please enter Details of Vehicle"
+                    },
+                    "typeOfVehicle": {
+                        "label": "Is it New or Used?",
+                        "validation.required": "Please select Type of Vehicle"
+                    },
+                    "isVehicleDetailsAvailable": {
+                        "label": "Details of the Vehicle Available",
+                        "validation.required": "Please select Details Available"
+                    },
+                    "isTitleRequired": {
+                        "label": "Title Required",
+                        "validation.required": "Please select Title Required"
+                    },
+                    "isInsuranceRequired": {
+                        "label": "Insurance Required",
+                        "validation.required": "Please select Insurance Required"
+                    },
+                    "vehicleSourceOfValue": {
+                        "label": "Source of Value "
+                    }
+                },
+                "anbtxstock": {
+                    "detailsAvailable": {
+                        "label": "Details Available",
+                        "validation.required": "Please select Details Available"
+                    },
+                    "stockIssueDate": {
+                        "label": "Share Issue Date (MM/DD/YYYY)",
+                        "validation.required": "Please enter Share issue date"
+                    },
+                    "owner": {
+                        "label": "Owner",
+                        "validation.required": "Please enter Owner",
+                        "validation.minlength": "Owner name must be at least {{value}} characters long",
+                        "validation.maxlength": "Owner name cannot be more than {{value}} characters long"
+                    },
+                    "coOwner": {
+                        "label": "Co-Owner",
+                        "validation.minlength": "Co-Owner name must be at least 2 characters long",
+                        "validation.maxlength": "Co-Owner name cannot be more than {{value}} characters long"
+                    },
+                    "sourceOfValue": {
+                        "label": "Source of Value "
+                    },
+                    "cusip": {
+                        "label": "CUSIP Number",
+                        "validation.required": "Please enter Cusip Number",
+                        "validation.minlength": "Cusip must be at least {{value}} characters long",
+                        "validation.maxlength": "Cusip cannot be more than {{value}} characters long"
+                    },
+                    "stockCertificateNumber": {
+                        "label": "Share Certificate Number",
+                        "validation.required": "Please enter Share Certificate Number",
+                        "validation.minlength": "Share Certificate Number must be at least {{value}} digit long",
+                        "validation.maxlength": "Share Certificate Number cannot be more than {{value}} digit long"
+                    },
+                    "noOfStocks": {
+                        "label": "No of Shares",
+                        "validation.required": "Please enter No Of Shares",
+                        "validation.minlength": "No Of Shares must be at least {{value}} digit long",
+                        "validation.maxlength": "No Of Shares cannot be more than {{value}} digit long",
+                        "validation.pattern": "Please enter valid number of stocks"
+                    },
+                    "collateralValue": {
+                        "label": "Collateral Value",
+                        "validation.required": "Please enter Collateral Value",
+                        "validation.minlength": "Collateral Value must be at least {{value}} digit long",
+                        "validation.maxlength": "Collateral Value cannot be more than {{value}} digit long"
+                    },
+                    "collateralDescription": {
+                        "label": "Collateral Description",
+                        "validation.minlength": "Collateral Description must be at least 1 characters long",
+                        "validation.maxlength": "Collateral Description cannot be more than {{value}} characters long"
+                    }
+                },
+                "PayOffs": {
+                    "hasPayOff": {
+                        "label": "Is there a Payoff",
+                        "validation.required": "Please select PayOff"
+                    },
+                    "accountNumber": {
+                        "label": "Account Number",
+                        "validation.required": "Please enter Account Number",
+                        "validation.minlength": "Account Number must be at least {{value}} digit long",
+                        "validation.maxlength": "Account Number cannot be more than {{value}} digit long",
+                        "validation.pattern": "Please enter a valid account number"
+                    },
+                    "bankName": {
+                        "label": "Bank Name",
+                        "validation.required": "Please enter Institution Name",
+                        "validation.minlength": "Institution Name must be at least {{value}} digit long",
+                        "validation.maxlength": "Institution Name cannot be more than {{value}} digit long"
+                    },
+                    "typeOfAccount": {
+                        "label": "Type Of Account",
+                        "validation.required": "Please enter Type Of Account",
+                        "validation.minlength": "Type Of Account must be at least {{value}} characters long",
+                        "validation.maxlength": "Type Of Account cannot be more than {{value}} characters long"
+                    },
+                    "amount": {
+                        "label": "Amount",
+                        "validation.required": "Please enter Amount",
+                        "validation.minlength": "Amount must be at least {{value}} digit long",
+                        "validation.maxlength": "Amount cannot be more than {{value}} digit long"
+                    },
+                    "collateralDescription": {
+                        "label": "Collateral Description",
+                        "validation.minlength": "Collateral Description name must be at least 1 characters long",
+                        "validation.maxlength": "Collateral Description name cannot be more than {{value}} characters long"
+                    },
+                    "note": "<i>Please provide details of your existing loan(s) that you would like to payoff using this loan</i>"
+                },
+                "cdSavings": {
+                    "cdNumber": {
+                        "label": "CD Number",
+                        "validation.required": "Please enter CD Number",
+                        "validation.minlength": "CD Number name must be at least 2 digit long",
+                        "validation.maxlength": "CD Number name cannot be more than {{value}} digit long"
+                    },
+                    "coOwner": {
+                        "label": "Co-Owner",
+                        "validation.minlength": "Co-Owner name must be at least 2 characters long",
+                        "validation.maxlength": "Co-Owner name cannot be more than {{value}} characters long"
+                    },
+                    "certificateOfDepositValue": {
+                        "label": " Collateral Value",
+                        "validation.required": "Please enter Collateral Value",
+                        "validation.minlength": "Value name must be at least 2 digit long",
+                        "validation.maxlength": "Value name cannot be more than 8 digit long"
+                    },
+                    "sourceOfValue": {
+                        "label": "Source of Value "
+                    },
+                    "owner": {
+                        "label": "Owner",
+                        "validation.required": "Please enter Owner",
+                        "validation.minlength": "Owner name must be at least 2 characters long",
+                        "validation.maxlength": "Owner name cannot be more than {{value}} characters long"
+                    },
+                    "collateralValue": {
+                        "label": "Collateral Value",
+                        "validation.required": "Please enter Collateral Value",
+                        "validation.minlength": "Collateral Value must be at least 1 digit long",
+                        "validation.maxlength": "Collateral Value cannot be more than {{value}} digit long"
+                    },
+                    "collateralDescription": {
+                        "label": "Collateral Description",
+                        "validation.minlength": "Collateral Description name must be at least 1 characters long",
+                        "validation.maxlength": "Collateral Description name cannot be more than {{value}} characters long"
+                    },
+                    "detailsAvailable": {
+                        "label": "Details Available",
+                        "validation.required": "Please select Details Available"
+                    }
+                },
+                "investmentAccount": {
+                    "owner": {
+                        "label": "Owner",
+                        "validation.required": "Please enter Owner",
+                        "validation.minlength": "Owner name must be at least 2 characters long",
+                        "validation.maxlength": "Owner name cannot be more than {{value}} characters long"
+                    },
+                    "collateralValue": {
+                        "label": "Collateral Value",
+                        "validation.required": "Please enter Collateral Value",
+                        "validation.minlength": "Collateral Value must be at least {{value}} digit long",
+                        "validation.maxlength": "Collateral Value cannot be more than {{value}} digit long"
+                    },
+                    "coOwner": {
+                        "label": "Co-Owner",
+                        "validation.minlength": "Co-Owner name must be at least 2 characters long",
+                        "validation.maxlength": "Co-Owner name cannot be more than {{value}} characters long"
+                    },
+                    "collateralDescription": {
+                        "label": "Collateral Description",
+                        "validation.minlength": "Collateral Description must be at least 1 characters long",
+                        "validation.maxlength": "Collateral Description cannot be more than {{value}} characters long"
+                    },
+                    "detailsAvailable": {
+                        "label": "Details Available",
+                        "validation.required": "Please select Details Available"
+                    },
+                    "investmentAccountNumber": {
+                        "label": "Investment Account Number",
+                        "validation.required": "Please enter Investment Account Number",
+                        "validation.minlength": "Investment Account Number must be at least {{value}} digit long",
+                        "validation.maxlength": "Investment Account Number cannot be more than {{value}} digit long",
+                        "validation.pattern": "Please enter a valid account number"
+                    },
+                    "investmentControllerName": {
+                        "label": "Investment Controller Name",
+                        "validation.required": "Please enter Investment Controller Name",
+                        "validation.minlength": "Investment Controller Name must be at least {{value}} characters long",
+                        "validation.maxlength": "Investment Controller Name cannot be more than {{value}} characters long"
+                    },
+                    "investmentAccountValue": {
+                        "label": "Investment Account Value",
+                        "validation.required": "Please enter Investment Account Value",
+                        "validation.minlength": " investment Account Value must be at least {{value}} digit long",
+                        "validation.maxlength": " investment Account Value cannot be more than {{value}} digit long"
+                    },
+                    "zipCode": {
+                        "label": "Zip Code",
+                        "validation.required": "Please enter Zip Code",
+                        "validation.minlength": "Zip Code must be at least {{value}} digit long",
+                        "validation.maxlength": "Zip Code cannot be more than {{value}} digit long"
+                    },
+                    "city": {
+                        "label": "City/Settlement",
+                        "validation.required": "Please select City/Settlement",
+                        "validation.minlength": "City/Settlement must be at least {{value}} characters long",
+                        "validation.maxlength": "City/Settlement cannot be more than {{value}} characters long"
+                    },
+                    "state": {
+                        "label": "Island/State",
+                        "validation.required": "Please select Island/State",
+                        "validation.minlength": "Island/State must be at least {{value}} characters long",
+                        "validation.maxlength": "Island/State cannot be more than {{value}} characters long"
+                    },
+                    "sourceOfValue": {
+                        "label": "Source of Value "
+                    },
+                    "address1": {
+                        "label": "Street address ",
+                        "validation.required": "Please enter Street address",
+                        "validation.minlength": "Street address must be at least 2 characters long",
+                        "validation.maxlength": "Street address cannot be more than 100 characters long"
+                    },
+                    "address2": {
+                        "label": "Apartment / Suite Number",
+                        "validation.minlength": "Apartment / Suite Number must be at least 2 characters long",
+                        "validation.maxlength": "Apartment / Suite Number cannot be more than 100 characters long"
+                    },
+                    "country": {
+                        "label": "County"
+                    }
+                },
+                "lifeInsurancePolicy": {
+                    "detailsAvailable": {
+                        "label": "Details Available",
+                        "validation.required": "Please select Details Available"
+                    },
+                    "collateralValue": {
+                        "label": "Collateral Value",
+                        "validation.required": "Please enter Collateral Value",
+                        "validation.minlength": "Collateral Value must be at least {{value}} digit long",
+                        "validation.maxlength": "Collateral Value cannot be more than {{value}} digit long"
+                    },
+                    "owner": {
+                        "label": "Owner",
+                        "validation.required": "Please enter Owner",
+                        "validation.minlength": "Owner name must be at least 2 characters long",
+                        "validation.maxlength": "Owner name cannot be more than {{value}} characters long"
+                    },
+                    "coOwner": {
+                        "label": "Co-Owner",
+                        "validation.minlength": "Co-Owner name must be at least {{value}} characters long",
+                        "validation.maxlength": "Co-Owner name cannot be more than {{value}} characters long"
+                    },
+                    "policyNumber": {
+                        "label": "Policy Number",
+                        "validation.required": "Please enter Policy Number",
+                        "validation.maxlength": "Policy Number name cannot be more than {{value}} digit long"
+                    },
+                    "sourceOfValue": {
+                        "label": "Source of Value "
+                    },
+                    "insuranceCompanyName": {
+                        "label": "Insurance Company Name",
+                        "validation.required": "Please enter insurance company name",
+                        "validation.maxlength": "Insurance company name cannot be more than {{value}} characters long"
+                    },
+                    "zipCode": {
+                        "label": "Zip Code",
+                        "validation.required": "Please enter Zip Code",
+                        "validation.minlength": "Zip Code must be at least {{value}} digit long",
+                        "validation.maxlength": "Zip Code cannot be more than {{value}} digit long"
+                    },
+                    "city": {
+                        "label": "City/Settlement",
+                        "validation.required": "Please select City/Settlement",
+                        "validation.minlength": "City/Settlement must be at least {{value}} characters long",
+                        "validation.maxlength": "City/Settlement cannot be more than {{value}} characters long"
+                    },
+                    "state": {
+                        "label": "Island/State",
+                        "validation.required": "Please select Island/State",
+                        "validation.minlength": "Island/State must be at least {{value}} characters long",
+                        "validation.maxlength": "Island/State cannot be more than {{value}} characters long"
+                    },
+                    "address1": {
+                        "label": "Street address ",
+                        "validation.required": "Please enter Street address ",
+                        "validation.minlength": "Street address must be at least 2 characters long",
+                        "validation.maxlength": "Street address cannot be more than 100 characters long"
+                    },
+                    "address2": {
+                        "label": "Apartment / Suite Number",
+                        "validation.minlength": "Apartment / Suite Number must be at least 2 characters long",
+                        "validation.maxlength": "Apartment / Suite Number cannot be more than 100 characters long"
+                    },
+                    "country": {
+                        "label": "County"
+                    },
+                    "cashValue": {
+                        "label": "Cash Value Of Policy",
+                        "validation.required": "Please enter Cash Value of Policy",
+                        "validation.minlength": "Cash Value of policy must be at least 1 digit long",
+                        "validation.maxlength": "Cash Value Of Policy cannot be more than {{value}} digit long"
+                    }
+                },
+                "farmEquipment": {
+                    "equipmentType": {
+                        "label": "Type of Equipment",
+                        "validation.required": "Please select Type of Equipment"
+                    },
+                    "owner": {
+                        "label": "Owner",
+                        "validation.required": "Please enter Owner",
+                        "validation.minlength": "Owner name must be at least 2 characters long",
+                        "validation.maxlength": "Owner name cannot be more than {{value}} characters long"
+                    },
+                    "coOwner": {
+                        "label": "Co-Owner",
+                        "validation.minlength": "Co-Owner name must be at least 2 characters long",
+                        "validation.maxlength": "Co-Owner name cannot be more than {{value}} characters long"
+                    },
+                    "collateralValue": {
+                        "label": "Collateral Value",
+                        "validation.required": "Please enter Collateral Value",
+                        "validation.minlength": "Collateral Value must be at least {{value}} digit long",
+                        "validation.maxlength": "Collateral Value cannot be more than {{value}} digit long"
+                    },
+                    "detailsAvailable": {
+                        "label": "Details Available",
+                        "validation.required": "Please select Details Available"
+                    },
+                    "titleRequired": {
+                        "label": "Title Required",
+                        "validation.required": "Please select Title Required"
+                    },
+                    "insuranceRequired": {
+                        "label": "Insurance Required",
+                        "validation.required": "Please select Insurance Required"
+                    },
+                    "vin": {
+                        "label": "VIN Number / Serial Number",
+                        "validation.required": "Please enter VIN Number / Serial Number",
+                        "validation.minlength": "VIN Number / Serial Number must be at least {{value}} digit long",
+                        "validation.maxlength": "VIN Number / Serial Number cannot be more than {{value}} digit long"
+                    },
+                    "year": {
+                        "label": "Year",
+                        "validation.required": "Please enter Year",
+                        "validation.minlength": "Year name must be at least {{value}} digit long",
+                        "validation.maxlength": "Year name cannot be more than {{value}} digit long",
+                        "validation.pattern": "Please enter a valid year"
+                    },
+                    "make": {
+                        "label": "Make",
+                        "validation.required": "Please enter Make",
+                        "validation.minlength": "Make must be at least {{value}} digit long",
+                        "validation.maxlength": "Make cannot be more than {{value}} digit long"
+                    },
+                    "model": {
+                        "label": "Model",
+                        "validation.required": "Please enter Model",
+                        "validation.minlength": "Model must be at least {{value}} digit long",
+                        "validation.maxlength": "Model cannot be more than {{value}} digit long"
+                    },
+                    "trimPackage": {
+                        "label": "Trim Package",
+                        "validation.required": "Please enter Trim Package",
+                        "validation.minlength": "Trim Package must be at least {{value}} characters long",
+                        "validation.maxlength": "Trim Package cannot be more than {{value}} characters long"
+                    },
+                    "color": {
+                        "label": "Color",
+                        "validation.required": "Please enter Color",
+                        "validation.minlength": "Color name must be at least {{value}} characters long",
+                        "validation.maxlength": "Color name cannot be more than {{value}} characters long"
+                    },
+                    "mileage": {
+                        "label": "Mileage",
+                        "validation.required": "Please enter Mileage",
+                        "validation.minlength": "Mileage must be at least {{value}} digit long",
+                        "validation.maxlength": "Mileage cannot be more than {{value}} digit long",
+                        "validation.pattern": "Please enter a valid value"
+                    },
+                    "tagNumber": {
+                        "label": "Tag Number",
+                        "validation.required": "Please enter Tag Number",
+                        "validation.minlength": "Tag Number must be at least {{value}} characters long",
+                        "validation.maxlength": "Tag Number cannot be more than {{value}} characters long"
+                    },
+                    "cashDown": {
+                        "label": "Cash Down",
+                        "validation.required": "Please enter Cash Down",
+                        "validation.minlength": "Cash Down must be at least {{value}} characters long",
+                        "validation.maxlength": "Cash Down cannot be more than {{value}} characters long"
+                    },
+                    "style": {
+                        "label": "Style",
+                        "validation.required": "Please enter Style",
+                        "validation.minlength": "Style must be at least {{value}} characters long",
+                        "validation.maxlength": "Style cannot be more than {{value}} characters long"
+                    },
+                    "loanPurchaseType": {
+                        "label": "Purchase Type"
+                    },
+                    "sourceOfValue": {
+                        "label": "Source of Value "
+                    }
+                },
+                "commoncollateral": {
+                    "owner": {
+                        "label": "Owner",
+                        "validation.required": "Please enter Owner",
+                        "validation.minlength": "Owner name must be at least 2 characters long",
+                        "validation.maxlength": "Owner name cannot be more than {{value}} characters long"
+                    },
+                    "coOwner": {
+                        "label": "Co-Owner",
+                        "validation.minlength": "Co-Owner name must be at least 2 characters long",
+                        "validation.maxlength": "Co-Owner name cannot be more than {{value}} characters long"
+                    },
+                    "collateralValue": {
+                        "label": "Collateral Value",
+                        "validation.required": "Please enter Collateral Value",
+                        "validation.minlength": "Value must be at least 1 digit long",
+                        "validation.maxlength": "Value cannot be more than {{value}} digit long"
+                    },
+                    "collateralDescription": {
+                        "label": "Collateral Description",
+                        "validation.minlength": "Collateral Description must be at least 1 characters long",
+                        "validation.maxlength": "Collateral Description cannot be more than {{value}} characters long"
+                    },
+                    "vehicleVinNumber": {
+                        "label": "VIN Number",
+                        "validation.required": "Please enter VIN Number",
+                        "validation.minlength": "VIN Number must be at least {{value}} digit long",
+                        "validation.maxlength": "VIN Number cannot be more than {{value}} digit long"
+                    },
+                    "year": {
+                        "label": "Year",
+                        "validation.required": "Please enter Year",
+                        "validation.minlength": "Year name must be at least {{value}} digit long",
+                        "validation.maxlength": "Year name cannot be more than {{value}} digit long",
+                        "validation.pattern": "Please enter a valid year"
+                    },
+                    "make": {
+                        "label": "Make",
+                        "validation.required": "Please enter Make",
+                        "validation.minlength": "Make must be at least {{value}} digit long",
+                        "validation.maxlength": "Make cannot be more than {{value}} digit long"
+                    },
+                    "sourceOfValue": {
+                        "label": "Source of Value "
+                    },
+                    "model": {
+                        "label": "Model",
+                        "validation.required": "Please enter Model",
+                        "validation.minlength": "Model must be at least {{value}} digit long",
+                        "validation.maxlength": "Model cannot be more than {{value}} digit long"
+                    },
+                    "isVehicleDetailsAvailable": {
+                        "label": "Details Available",
+                        "validation.required": "Please select Details Available"
+                    },
+                    "isDetailsAvailable": {
+                        "label": "Details Available",
+                        "validation.required": "Please select Details Available"
+                    },
+                    "serialNumber": {
+                        "label": "Serial Number",
+                        "validation.required": "Please enter Serial Number",
+                        "validation.minlength": "Serial Number must be at least {{value}} digit long",
+                        "validation.maxlength": "Serial Number cannot be more than {{value}} digit long"
+                    }
+                },
+                "otherscollateral": {
+                    "vehicleOwner": {
+                        "label": "Owner",
+                        "validation.required": "Please enter Owner",
+                        "validation.minlength": "Owner name must be at least 2 characters long",
+                        "validation.maxlength": "Owner name cannot be more than {{value}} characters long"
+                    },
+                    "vehicleCoOwner": {
+                        "label": "Co-Owner",
+                        "validation.minlength": "Co-Owner name must be at least 2 characters long",
+                        "validation.maxlength": "Co-Owner name cannot be more than {{value}} characters long"
+                    },
+                    "collateralValue": {
+                        "label": "Collateral Value",
+                        "validation.required": "Please enter Collateral Value",
+                        "validation.minlength": "Value must be at least 1 digit long",
+                        "validation.maxlength": "Value cannot be more than {{value}} digit long"
+                    },
+                    "collateralDescription": {
+                        "label": "Collateral Description",
+                        "validation.minlength": "Collateral Description must be at least 1 characters long",
+                        "validation.maxlength": "Collateral Description cannot be more than {{value}} characters long"
+                    },
+                    "vehicleVinNumber": {
+                        "label": "VIN Number",
+                        "validation.required": "Please enter VIN Number",
+                        "validation.minlength": "VIN Number must be at least {{value}} digit long",
+                        "validation.maxlength": "VIN Number cannot be more than {{value}} digit long"
+                    },
+                    "vehicleYear": {
+                        "label": "Year",
+                        "validation.required": "Please enter Year",
+                        "validation.minlength": "Year name must be at least {{value}} digit long",
+                        "validation.maxlength": "Year name cannot be more than {{value}} digit long",
+                        "validation.pattern": "Please enter a valid year"
+                    },
+                    "vehicleMake": {
+                        "label": "Make",
+                        "validation.required": "Please enter Make",
+                        "validation.minlength": "Make must be at least {{value}} digit long",
+                        "validation.maxlength": "Make cannot be more than {{value}} digit long"
+                    },
+                    "sourceOfValue": {
+                        "label": "Source of Value "
+                    },
+                    "vehicleModel": {
+                        "label": "Model",
+                        "validation.required": "Please enter Model",
+                        "validation.minlength": "Model must be at least {{value}} digit long",
+                        "validation.maxlength": "Model cannot be more than {{value}} digit long"
+                    },
+                    "isVehicleDetailsAvailable": {
+                        "label": "Details Available",
+                        "validation.required": "Please select Details Available"
+                    },
+                    "isDetailsAvailable": {
+                        "label": "Details Available",
+                        "validation.required": "Please select Details Available"
+                    },
+                    "serialNumber": {
+                        "label": "Serial Number",
+                        "validation.required": "Please enter Serial Number",
+                        "validation.minlength": "Serial Number must be at least {{value}} digit long",
+                        "validation.maxlength": "Serial Number cannot be more than {{value}} digit long"
+                    }
+                }
+            }
+        },
+        "consents": {
+            "branchCode": {
+                "label": "Preferred BOB banking center for loan servicing purposes",
+                "validation.required": "Please select preferred banking center"
+            },
+            "declaration": {
+                "validation.required": "Please select declaration"
+            }
+        },
+        "customerAcceptance": {
+            "congrats.message": "Congratulations!",
+            "approve.message": "Your loan application has been approved. Here is a quick summary for your easy reference:",
+            "acceptDecline.message": "If you accept the terms mentioned above, please click on ACCEPT. If you no longer wish to proceed with your loan application, please click on NOT ACCEPT.",
+            "accept.message": "Thank you for accepting the terms. In order to proceed with your loan closing, we need some additional details:-",
+            "monthlyPayment": {
+                "label": "Monthly Payment",
+                "message": "Based on the above, your estimated monthly payment will be:-",
+                "messageALine": "Your monthly payment would be 3% of the outstanding amount or $ 75, whichever is greater.",
+                "note": "<i>** Note: this is an estimate of your monthly payment. Your actual amount may vary and will be detailed in your loan documents.</i>"
+            },
+            "autoDebit.message": "Auto Debit instructions:",
+            "insuranceDetails.message": "Insurance details:",
+            "declined.line1": "We understand you do not accept the terms offered and no longer wish to proceed.",
+            "declined.line2": "In case you would like to apply for a new loan, please visit us at <a href='https://jm.jmmb.com/'>https://jm.jmmb.com/</a>.",
+            "declined.line3": "Please feel free to contact Customer Service @ 1-800-837-6584 with any questions.",
+            "accepted.line1": "Thank you!",
+            "accepted.line2": "We have received your details and will get in touch with you shortly. Please check your email and for questions, contact 800.837.6584",
+            "firstPayment": {
+                "label": "1st Payment Date"
+            },
+            "accountNumber": {
+                "label": "Account Number",
+                "validation.mismatch": "Account Number and Confirm Account Number should be same"
+            },
+            "confirmAccountNumber": {
+                "label": "Confirm Account Number",
+                "validation.mismatch": "Account Number and Confirm Account Number should be same"
+            },
+            "routingNumber": {
+                "label": "Routing Number"
+            },
+            "insuranceCompanyName": {
+                "label": "Name of Insurance Company"
+            },
+            "policyNumber": {
+                "label": "Policy Number"
+            },
+            "policyStartDate": {
+                "label": "Policy Start Date"
+            },
+            "policyEndDate": {
+                "label": "Policy End Date"
+            },
+            "closingMethod": {
+                "label": "Preferred Loan Closing Method "
+            },
+            "branchClosingMethod": {
+                "label": "in Branch"
+            },
+            "eSignClosingMethod": {
+                "label": " e Sign (Docu Sign)"
+            },
+            "closingLocation": {
+                "label": "Closing Location"
+            },
+            "preferredDate": {
+                "label": "Preferred Date"
+            },
+            "hours": {
+                "label": "HH"
+            },
+            "minutes": {
+                "label": "MM"
+            },
+            "amOrPm": {
+                "label": "AM/PM"
+            }
+        }
+    },
+    "exception.server": {
+        "http": {
+            "400": {
+                "exception": {
+                    "1007": {
+                        "message": ""
+                    },
+                    "1009": {
+                        "message": ""
+                    }
+                }
+            }
+        }
+    },
+    "exception.critical": {
+        "http": {
+            "400": {
+                "exception": {
+                    "1007": {
+                        "header": "",
+                        "message": ""
+                    },
+                    "1009": {
+                        "header": "",
+                        "message": ""
+                    }
+                }
+            },
+            "408": {
+                "exception": {
+                    "5001": {
+                        "header": "Unauthorized Access ",
+                        "message": "Unauthorized access is prohibited. "
+                    }
+                }
+            },
+            "500": {
+                "exception": {
+                    "5001": {
+                        "header": "Session TimeOut",
+                        "message": "Your Session has been timed out"
+                    }
+                }
+            }
+        }
+    }
+}

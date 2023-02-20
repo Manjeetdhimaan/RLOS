@@ -1,0 +1,19 @@
+<div class="row">
+  <mat-error>
+    <span *ngIf="showFileTypeError">Only {{allowedFileType}} file type allowed.
+      <br/>
+    </span>
+    <span *ngIf="showFileSizeError">
+      Maximum {{appConfig.maxFileSize}} mb file allowed. </span>
+  </mat-error>
+  <div class="col-md-4 col-sm-5 documents-container" *ngFor="let document of getArray(bucket.size);let i=index">
+    <upload [order]="i+1" [imageData]="bucket.images[i]" [isDocumentModule]="true" (showError)="showError($event)" (saveData)="saveData($event)"
+      [isReadOnly]="bucket.uploaded"></upload>
+  </div>
+</div>
+<!-- <mat-action-row *ngIf="!bucket.isComponentReadOnly">
+  <button mat-raised-button color="primary" (click)="uploadFiles()">{{ 'application.buttons.save' | translate }}</button>
+</mat-action-row> -->
+<!-- <mat-action-row *ngIf="bucket.isComponentReadOnly">
+  <button mat-raised-button color="primary" (click)="editPanel()">{{ 'application.buttons.edit' | translate }}</button>
+</mat-action-row> -->

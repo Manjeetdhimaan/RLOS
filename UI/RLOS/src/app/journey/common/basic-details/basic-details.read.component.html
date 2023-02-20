@@ -1,0 +1,276 @@
+<div class="row">
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="existingCustomer">{{ 'application.applicant.existingCustomer.label' | translate
+            }}</label>
+        <div class="label-font" id="existingCustomer">
+            {{(model.existingCustomer || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="model.existingCustomer === 'Yes'">
+        <label class="heading-font" for="accountType">{{ 'application.applicant.accountType.label' | translate
+            }}</label>
+        <div class="label-font" id="accountType">
+            {{(model.accountType || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="model.existingCustomer === 'Yes'">
+        <label class="heading-font" for="accountNumber">{{ 'application.applicant.accountNumber.label' | translate
+            }}</label>
+        <div class="label-font" id="accountNumber">
+            {{(model.accountNumber || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="isCoApplicant">
+        <label class="heading-font" for="relation"> {{ 'application.applicant.loanRelationship.label' | translate
+            }}</label>
+        <div class="label-font" id="relation">
+            {{(model.loanRelationship || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="citizenship">{{'application.applicant.citizenship.label' | translate}}</label>
+        <div class="label-font" id="citizenship">
+            {{(model.citizenship || notSpecified) | translate}}
+        </div>
+    </div>
+    <!-- <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="tinNumber">{{'application.applicant.tinNumber.label' | translate}}</label>
+        <div class="label-font" id="tinNumber">
+            {{(model.tinNumber || notSpecified) | translate}}
+        </div>
+    </div> -->
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="prefix">{{ 'application.applicant.prefix.label' | translate }}</label>
+        <div class="label-font" id="prefix">
+            {{(model.prefix || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="suffix">{{ 'application.applicant.suffix.label' | translate }}</label>
+        <div class="label-font" id="suffix">
+            {{(model.suffix || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="firstName">{{ 'application.applicant.firstName.label' | translate }}</label>
+        <div class="label-font" id="firstName">
+            {{(model.firstName || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="middlename">{{ 'application.applicant.middleName.label' | translate }}</label>
+        <div class="label-font" id="middlename">
+            {{(model.middleName || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="lastName">{{ 'application.applicant.lastName.label' | translate }}</label>
+        <div class="label-font" id="lastName">
+            {{(model.lastName || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="gender">{{ 'application.applicant.gender.label' | translate }}</label>
+        <div class="label-font" id="gender">
+            {{(model.gender || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="model.gender !== 'Male'">
+        <label class="heading-font" for="maidenName">{{ 'application.applicant.maidenName.label' | translate }}</label>
+        <div class="label-font" id="maidenName">
+            {{(model.maidenName || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="motherMaidenName">{{ 'application.applicant.motherMaidenName.label' | translate
+            }}</label>
+        <div class="label-font" id="motherMaidenName">
+            {{(model.motherMaidenName || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="email">{{ 'application.applicant.email.label' | translate }}</label>
+        <div class="label-font" id="email">
+            {{(model.email || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="maritalStatus">{{ 'application.applicant.maritalStatus.label' | translate
+            }}</label>
+        <div class="label-font" id="maritalStatus">
+            {{(model.maritalStatus || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="placeOfBirth">{{ 'application.applicant.placeOfBirth.label' | translate
+            }}</label>
+        <div class="label-font" id="placeOfBirth">
+            {{(model.placeOfBirth || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="model.maritalStatus ==='Married'">
+        <label class="heading-font" for="howLongInYears">{{ 'application.applicant.howLongInYears.label' | translate
+            }}</label>
+        <div class="label-font" id="howLongInYears">
+            {{(model.howLongInYears || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="dob">{{ 'application.applicant.dob.label' | translate }}</label>
+        <div class="label-font" id="dob">
+            {{model.dob | date : 'MM/dd/yyyy'}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="age">{{ 'application.applicant.age.label' | translate }}</label>
+        <div class="label-font" id="age">
+            {{(model.age || notSpecified) }}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="isCoApplicant">
+        <label class="heading-font" for="relation"> {{ 'application.applicant.relation.label' | translate }}</label>
+        <div class="label-font" id="relation">
+            {{(model.relation || notSpecified) | translate}}
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="ssn">{{ 'application.applicant.ssn.label' | translate }}</label>
+        <div class="label-font" id="ssn">
+            {{(model.ssn || notSpecified) }}
+            <!-- XXX-XX-XXXX -->
+            <!-- {{(model.ssn ? 'XXX-XXX-XXX' : notSpecified)}} -->
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="isBankEmployee">{{ 'application.applicant.isBankEmployee.label' | translate
+            }}</label>
+        <div class="label-font" id="isBankEmployee">
+            {{(model.isBankEmployee || notSpecified) | translate}}
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="bankRelationCommentRelative">{{
+            'application.applicant.isBankEmployeeRelative.label' | translate
+            }}</label>
+        <div class="label-font" id="isBankEmployeeRelative">
+            {{(model.isBankEmployeeRelative || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="bankRelationComment">{{ 'application.applicant.bankRelationComment.label' |
+            translate
+            }}</label>
+        <div class="label-font" id="bankRelationComment">
+            {{(model.bankRelationComment || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="isGovernmentEmployee">{{ 'application.applicant.isGovernmentEmployee.label' |
+            translate }}</label>
+        <div class="label-font" id="isGovernmentEmployee">
+            {{(model.isGovernmentEmployee || notSpecified) | translate}}
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="isGovernmentEmployee">{{
+            'application.applicant.familyDetails.noOfdependent.label' | translate }}</label>
+        <div class="label-font" id="isGovernmentEmployee">
+            {{(model.noOfDependent || notSpecified) | translate}}
+        </div>
+    </div>
+
+    <!-- <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="lifeInsuranceRequired">{{ 'application.applicant.lifeInsuranceRequired.label' | translate }}</label>
+        <div class="label-font" id="lifeInsuranceRequired">
+            {{(model.lifeInsuranceRequired || notSpecified) | translate}}
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="model.lifeInsuranceRequired==='No'">
+        <label class="heading-font" for="lifeInsuranceAlreadyPresent">{{ 'application.applicant.lifeInsuranceAlreadyPresent.label' | translate }}</label>
+        <div class="label-font" id="lifeInsuranceAlreadyPresent">
+            {{(model.lifeInsuranceAlreadyPresent || notSpecified) | translate}}
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="model.lifeInsuranceAlreadyPresent==='Yes'">
+        <label class="heading-font" for="lifeInsuranceProviderName">{{ 'application.applicant.lifeInsuranceProviderName.label' | translate }}</label>
+        <div class="label-font" id="lifeInsuranceProviderName">
+            {{(model.lifeInsuranceProviderName || notSpecified) | translate}}
+        </div>
+    </div> -->
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="cellPhoneNo">{{'application.applicant.cellPhoneNo.label' | translate}}</label>
+        <div class="label-font" id="cellPhoneNo">
+            {{(model.cellPhoneNo | mask: '(000)-000-0000') || notSpecified }}
+
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="homePhoneNo">{{'application.applicant.homePhoneNo.label' | translate}}</label>
+        <div class="label-font" id="homePhoneNo">
+            {{(model.homePhoneNo | mask: '(000)-000-0000') || notSpecified }}
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="workPhoneNo">{{'application.applicant.workPhoneNo.label' | translate}}</label>
+        <div class="label-font" id="workPhoneNo">
+            {{(model.workPhoneNo | mask: '(000)-000-0000') || notSpecified }}
+        </div>
+    </div>
+
+</div>
+
+<span
+    style="color: #000795;font-size: 18px;padding: 0px 0px 0px;font-weight: 600;display: inline-block;margin-bottom: 10px;border-bottom: 2px solid #FFDC5B;"
+    *ngIf="model.idDetails.length > 0">
+    Identification Details
+</span>
+<div class="row" *ngFor="let idData of model.idDetails; let i = index;">
+    <div class="col-md-12 col-sm-12 col-xs-12 margin-b" tabindex="0">
+        <label
+            style="  color: #000795;font-size: 16px;padding: 0px 0px 0px;font-weight: normal;display: inline-block;margin-bottom: 10px;border-bottom: 2px solid #FFDC5B;"
+            for="name">
+            ID Type {{i+1}}
+        </label>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="idType">{{ 'application.applicant.idType.label' | translate }}</label>
+        <div class="label-font" id="idType">
+            {{(idData.idType || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="idNumber">{{ 'application.applicant.idNumber.label' | translate }}</label>
+        <div class="label-font" id="idNumber">
+            {{(idData.idNumber || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="idData.idType !== 'NIB'">
+        <label class="heading-font" for="idIssueDate">{{ 'application.applicant.idIssueDate.label' | translate
+            }}</label>
+        <div class="label-font" id="idIssueDate">
+            {{(idData.idIssueDate | date: 'MM/dd/yyyy') || notSpecified}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="idExpDate">{{ 'application.applicant.idExpDate.label' | translate }}</label>
+        <div class="label-font" id="idExpDate">
+            {{(idData.idExpDate | date: 'MM/dd/yyyy') || notSpecified}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="idIssuingCountry">{{ 'application.applicant.idIssuingCountry.label' | translate
+            }}</label>
+        <div class="label-font" id="idIssuingCountry">
+            {{(idData.idIssuingCountry || notSpecified) | translate}}
+        </div>
+    </div>
+</div>

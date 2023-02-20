@@ -1,0 +1,12 @@
+<div class="row">
+    <mat-error>
+        <span *ngIf="showFileTypeError">Only {{allowedFileType}} file type allowed.
+      <br/>
+    </span>
+        <span *ngIf="showFileSizeError">
+      Maximum {{appConfig.maxFileSize}} mb file allowed. </span>
+    </mat-error>
+    <div class="col-md-4 col-sm-5 documents-container">
+        <upload [imageData]="bucket" [isDocumentModule]="true" (showError)="showError($event)" (saveData)="saveData($event)" [isReadOnly]="bucket.uploaded"></upload>
+    </div>
+</div>

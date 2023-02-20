@@ -1,0 +1,20 @@
+[
+  {
+    "appType": "Account Opening Application",
+    "appStatus": "Submission Pending",
+    "arnNumber": "20200302-0207",
+    "actionItem": "Resume",
+    "initiationDate": "03-15-2020",
+    "modifyDate": "05-15-2020",
+    "message": null
+  },
+  {
+    "appType": "Loans Application",
+    "appStatus": "Under Review by Bank",
+    "arnNumber": "20200514-1207",
+    "actionItem": "Upload Document",
+    "initiationDate": "05-05-2020",
+    "modifyDate": "06-04-2020",
+    "message": null
+  }
+]

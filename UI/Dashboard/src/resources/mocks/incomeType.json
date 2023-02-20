@@ -1,0 +1,22 @@
+[
+  {
+    "code": "WST",
+    "label": "Wages, Salaries, Tips"
+  },
+  {
+    "code": "MIL_INC",
+    "label": "Military Income"
+  },
+  {
+    "code": "RETIREMENT",
+    "label": "Retirement Income"
+  },
+  {
+    "code": "SOCIAL",
+    "label": "Social Security Benefits / Child Support, Alimony or Separate Maintenance"
+  },
+  {
+    "code": "INT_DEV",
+    "label": "TaxableInterest/Dividend"
+  }
+]

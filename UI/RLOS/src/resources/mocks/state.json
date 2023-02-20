@@ -1,0 +1,238 @@
+[
+    {
+        "code": "AK",
+        "label": "Alaska"
+    },
+    {
+        "code": "AL",
+        "label": "Alabama"
+    },
+    {
+        "code": "AR",
+        "label": "Arkansas"
+    },
+    {
+        "code": "AS",
+        "label": "American Samoa"
+    },
+    {
+        "code": "AZ",
+        "label": "Arizona"
+    },
+    {
+        "code": "CA",
+        "label": "California"
+    },
+    {
+        "code": "CO",
+        "label": "Colorado"
+    },
+    {
+        "code": "CT",
+        "label": "Connecticut"
+    },
+    {
+        "code": "DC",
+        "label": "District of Columbia"
+    },
+    {
+        "code": "DE",
+        "label": "Delaware"
+    },
+    {
+        "code": "FL",
+        "label": "Florida"
+    },
+    {
+        "code": "FM",
+        "label": "Fed States of Micro"
+    },
+    {
+        "code": "GA",
+        "label": "Georgia"
+    },
+    {
+        "code": "GU",
+        "label": "Guam"
+    },
+    {
+        "code": "HI",
+        "label": "Hawaii"
+    },
+    {
+        "code": "IA",
+        "label": "Iowa"
+    },
+    {
+        "code": "ID",
+        "label": "Idaho"
+    },
+    {
+        "code": "IL",
+        "label": "Illinois"
+    },
+    {
+        "code": "IN",
+        "label": "Indiana"
+    },
+    {
+        "code": "KS",
+        "label": "Kansas"
+    },
+    {
+        "code": "KY",
+        "label": "Kentucky"
+    },
+    {
+        "code": "LA",
+        "label": "Louisiana"
+    },
+    {
+        "code": "MA",
+        "label": "Massachusetts"
+    },
+    {
+        "code": "MD",
+        "label": "Maryland"
+    },
+    {
+        "code": "ME",
+        "label": "Maine"
+    },
+    {
+        "code": "MH",
+        "label": "Marshall Islands"
+    },
+    {
+        "code": "MI",
+        "label": "Michigan"
+    },
+    {
+        "code": "MN",
+        "label": "Minnesota"
+    },
+    {
+        "code": "MO",
+        "label": "Missouri"
+    },
+    {
+        "code": "MP",
+        "label": "Northern Mariana Islands"
+    },
+    {
+        "code": "MS",
+        "label": "Mississippi"
+    },
+    {
+        "code": "MT",
+        "label": "Montana"
+    },
+    {
+        "code": "NC",
+        "label": "North Carolina"
+    },
+    {
+        "code": "ND",
+        "label": "North Dakota"
+    },
+    {
+        "code": "NE",
+        "label": "Nebraska"
+    },
+    {
+        "code": "NH",
+        "label": "New Hampshire"
+    },
+    {
+        "code": "NJ",
+        "label": "New Jersey"
+    },
+    {
+        "code": "NM",
+        "label": "New Mexico"
+    },
+    {
+        "code": "NV",
+        "label": "Nevada"
+    },
+    {
+        "code": "NY",
+        "label": "New York"
+    },
+    {
+        "code": "OH",
+        "label": "Ohio"
+    },
+    {
+        "code": "OK",
+        "label": "Oklahoma"
+    },
+    {
+        "code": "OR",
+        "label": "Oregon"
+    },
+    {
+        "code": "PA",
+        "label": "Pennsylvania"
+    },
+    {
+        "code": "PR",
+        "label": "Puerto Rico"
+    },
+    {
+        "code": "PW",
+        "label": "Palau"
+    },
+    {
+        "code": "RI",
+        "label": "Rhode Island"
+    },
+    {
+        "code": "SC",
+        "label": "South Carolina"
+    },
+    {
+        "code": "SD",
+        "label": "South Dakota"
+    },
+    {
+        "code": "TN",
+        "label": "Tennessee"
+    },
+    {
+        "code": "TX",
+        "label": "Texas"
+    },
+    {
+        "code": "UT",
+        "label": "Utah"
+    },
+    {
+        "code": "VA",
+        "label": "Virginia"
+    },
+    {
+        "code": "VI",
+        "label": "Virgin Islands (U.S.)"
+    },
+    {
+        "code": "VT",
+        "label": "Vermont"
+    },
+    {
+        "code": "WA",
+        "label": "Washington"
+    },
+    {
+        "code": "WI",
+        "label": "Wisconsin"
+    },
+    {
+        "code": "WV",
+        "label": "West Virginia"
+    },
+    {
+        "code": "WY",
+        "label": "Wyoming"
+    }
+]

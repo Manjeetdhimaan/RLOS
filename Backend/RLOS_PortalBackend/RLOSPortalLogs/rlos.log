@@ -1,0 +1,140 @@
+29-08-2022 17:21:49.304 [main] INFO  com.jmmb.los.pb.RlosApplication.logStarting - Starting RlosApplication on LPT3835 with PID 1576 (started by richa.nagpal in D:\Workbench\JMMB\JMMB - SVN\Code\Portal\Backend\RLOS_PortalBackend)
+29-08-2022 17:21:49.309 [main] DEBUG com.jmmb.los.pb.RlosApplication.logStarting - Running with Spring Boot v2.0.5.RELEASE, Spring v5.0.9.RELEASE
+29-08-2022 17:21:49.309 [main] INFO  com.jmmb.los.pb.RlosApplication.logStartupProfileInfo - The following profiles are active: ibps,integration,common,dev
+29-08-2022 17:27:36.295 [main] INFO  com.jmmb.los.pb.RlosApplication.logStarting - Starting RlosApplication on LPT3835 with PID 7080 (started by richa.nagpal in D:\Workbench\JMMB\JMMB - SVN\Code\Portal\Backend\New folder\RLOS_PortalBackend)
+29-08-2022 17:27:36.309 [main] DEBUG com.jmmb.los.pb.RlosApplication.logStarting - Running with Spring Boot v2.0.5.RELEASE, Spring v5.0.9.RELEASE
+29-08-2022 17:27:36.309 [main] INFO  com.jmmb.los.pb.RlosApplication.logStartupProfileInfo - The following profiles are active: ibps,integration,common,dev
+29-08-2022 17:28:25.969 [main] INFO  com.jmmb.los.pb.RlosApplication.logStarting - Starting RlosApplication on LPT3835 with PID 18088 (started by richa.nagpal in D:\Workbench\JMMB\JMMB - SVN\Code\Portal\Backend\New folder\RLOS_PortalBackend)
+29-08-2022 17:28:25.973 [main] DEBUG com.jmmb.los.pb.RlosApplication.logStarting - Running with Spring Boot v2.0.5.RELEASE, Spring v5.0.9.RELEASE
+29-08-2022 17:28:25.974 [main] INFO  com.jmmb.los.pb.RlosApplication.logStartupProfileInfo - The following profiles are active: ibps,integration,common,dev
+29-08-2022 17:28:51.267 [main] INFO  com.jmmb.los.pb.RlosApplication.logStarting - Starting RlosApplication on LPT3835 with PID 1584 (started by richa.nagpal in D:\Workbench\JMMB\JMMB - SVN\Code\Portal\Backend\New folder\RLOS_PortalBackend)
+29-08-2022 17:28:51.270 [main] DEBUG com.jmmb.los.pb.RlosApplication.logStarting - Running with Spring Boot v2.0.5.RELEASE, Spring v5.0.9.RELEASE
+29-08-2022 17:28:51.271 [main] INFO  com.jmmb.los.pb.RlosApplication.logStartupProfileInfo - The following profiles are active: ibps,integration,common,dev
+29-08-2022 17:28:54.519 [localhost-startStop-1] INFO  c.j.l.p.s.ApplicationSecurityConfig.generateAllowedURLList - Allowed URL List Generated!!!
+29-08-2022 17:28:54.520 [localhost-startStop-1] DEBUG c.j.l.p.s.ApplicationSecurityConfig.generateAllowedURLList - URL Lists: [swagger.*$, api-docs.*$, /api/master/config.*$, /api/lookup/master.*$, /api/applications/validateApplication.*$, /api/applications/verifyOTP.*$, /api/applications/resendOTP.*$, /api/applications/createApplication.*$, /api/applications/getApplication.*$]
+29-08-2022 17:28:54.633 [localhost-startStop-1] DEBUG c.j.l.p.s.UserAuthenticationFilter.init - Initializing filter 'userAuthenticationFilter'
+29-08-2022 17:28:54.634 [localhost-startStop-1] DEBUG c.j.l.p.s.UserAuthenticationFilter.init - Filter 'userAuthenticationFilter' configured successfully
+29-08-2022 17:30:10.527 [main] INFO  com.jmmb.los.pb.RlosApplication.logStarting - Starting RlosApplication on LPT3835 with PID 8812 (started by richa.nagpal in D:\Workbench\JMMB\JMMB - SVN\Code\Portal\Backend\New folder\RLOS_PortalBackend)
+29-08-2022 17:30:10.529 [main] DEBUG com.jmmb.los.pb.RlosApplication.logStarting - Running with Spring Boot v2.0.5.RELEASE, Spring v5.0.9.RELEASE
+29-08-2022 17:30:10.530 [main] INFO  com.jmmb.los.pb.RlosApplication.logStartupProfileInfo - The following profiles are active: ibps,integration,common,dev
+29-08-2022 17:30:12.648 [localhost-startStop-1] INFO  c.j.l.p.s.ApplicationSecurityConfig.generateAllowedURLList - Allowed URL List Generated!!!
+29-08-2022 17:30:12.649 [localhost-startStop-1] DEBUG c.j.l.p.s.ApplicationSecurityConfig.generateAllowedURLList - URL Lists: [swagger.*$, api-docs.*$, /api/master/config.*$, /api/lookup/master.*$, /api/applications/validateApplication.*$, /api/applications/verifyOTP.*$, /api/applications/resendOTP.*$, /api/applications/createApplication.*$, /api/applications/getApplication.*$]
+29-08-2022 17:30:12.731 [localhost-startStop-1] DEBUG c.j.l.p.s.UserAuthenticationFilter.init - Initializing filter 'userAuthenticationFilter'
+29-08-2022 17:30:12.731 [localhost-startStop-1] DEBUG c.j.l.p.s.UserAuthenticationFilter.init - Filter 'userAuthenticationFilter' configured successfully
+29-08-2022 17:31:18.127 [main] INFO  com.jmmb.los.pb.RlosApplication.logStarting - Starting RlosApplication on LPT3835 with PID 21300 (started by richa.nagpal in D:\Workbench\JMMB\JMMB - SVN\Code\Portal\Backend\New folder\RLOS_PortalBackend)
+29-08-2022 17:31:18.130 [main] DEBUG com.jmmb.los.pb.RlosApplication.logStarting - Running with Spring Boot v2.0.5.RELEASE, Spring v5.0.9.RELEASE
+29-08-2022 17:31:18.132 [main] INFO  com.jmmb.los.pb.RlosApplication.logStartupProfileInfo - The following profiles are active: ibps,integration,common,dev
+29-08-2022 17:31:20.427 [localhost-startStop-1] INFO  c.j.l.p.s.ApplicationSecurityConfig.generateAllowedURLList - Allowed URL List Generated!!!
+29-08-2022 17:31:20.428 [localhost-startStop-1] DEBUG c.j.l.p.s.ApplicationSecurityConfig.generateAllowedURLList - URL Lists: [swagger.*$, api-docs.*$, /api/master/config.*$, /api/lookup/master.*$, /api/applications/validateApplication.*$, /api/applications/verifyOTP.*$, /api/applications/resendOTP.*$, /api/applications/createApplication.*$, /api/applications/getApplication.*$]
+29-08-2022 17:31:20.510 [localhost-startStop-1] DEBUG c.j.l.p.s.UserAuthenticationFilter.init - Initializing filter 'userAuthenticationFilter'
+29-08-2022 17:31:20.510 [localhost-startStop-1] DEBUG c.j.l.p.s.UserAuthenticationFilter.init - Filter 'userAuthenticationFilter' configured successfully
+29-08-2022 17:31:42.407 [main] INFO  com.jmmb.los.pb.RlosApplication.logStarting - Starting RlosApplication on LPT3835 with PID 19484 (started by richa.nagpal in D:\Workbench\JMMB\JMMB - SVN\Code\Portal\Backend\New folder\RLOS_PortalBackend)
+29-08-2022 17:31:42.410 [main] DEBUG com.jmmb.los.pb.RlosApplication.logStarting - Running with Spring Boot v2.0.5.RELEASE, Spring v5.0.9.RELEASE
+29-08-2022 17:31:42.411 [main] INFO  com.jmmb.los.pb.RlosApplication.logStartupProfileInfo - The following profiles are active: ibps,integration,common,dev
+29-08-2022 17:31:44.805 [localhost-startStop-1] INFO  c.j.l.p.s.ApplicationSecurityConfig.generateAllowedURLList - Allowed URL List Generated!!!
+29-08-2022 17:31:44.806 [localhost-startStop-1] DEBUG c.j.l.p.s.ApplicationSecurityConfig.generateAllowedURLList - URL Lists: [swagger.*$, api-docs.*$, /api/master/config.*$, /api/lookup/master.*$, /api/applications/validateApplication.*$, /api/applications/verifyOTP.*$, /api/applications/resendOTP.*$, /api/applications/createApplication.*$, /api/applications/getApplication.*$]
+29-08-2022 17:31:44.910 [localhost-startStop-1] DEBUG c.j.l.p.s.UserAuthenticationFilter.init - Initializing filter 'userAuthenticationFilter'
+29-08-2022 17:31:44.910 [localhost-startStop-1] DEBUG c.j.l.p.s.UserAuthenticationFilter.init - Filter 'userAuthenticationFilter' configured successfully
+29-08-2022 17:31:46.047 [main] INFO  com.jmmb.los.pb.config.BeanConfig.getRestTemplate - Initializing restTemplate bean inside BeanConfig...
+29-08-2022 17:31:47.441 [main] INFO  com.jmmb.los.pb.RlosApplication.logStarted - Started RlosApplication in 5.532 seconds (JVM running for 5.99)
+29-08-2022 17:31:47.444 [main] INFO  com.jmmb.los.pb.RlosApplication.main - Application Started
+29-08-2022 17:39:03.481 [main] INFO  com.jmmb.los.pb.RlosApplication.logStarting - Starting RlosApplication on LPT3835 with PID 3500 (started by richa.nagpal in D:\Workbench\JMMB\JMMB - SVN\Code\Portal\Backend\RLOS_PortalBackend)
+29-08-2022 17:39:03.483 [main] DEBUG com.jmmb.los.pb.RlosApplication.logStarting - Running with Spring Boot v2.0.5.RELEASE, Spring v5.0.9.RELEASE
+29-08-2022 17:39:03.484 [main] INFO  com.jmmb.los.pb.RlosApplication.logStartupProfileInfo - The following profiles are active: ibps,integration,common,dev
+29-08-2022 17:39:06.018 [localhost-startStop-1] INFO  c.j.l.p.s.ApplicationSecurityConfig.generateAllowedURLList - Allowed URL List Generated!!!
+29-08-2022 17:39:06.019 [localhost-startStop-1] DEBUG c.j.l.p.s.ApplicationSecurityConfig.generateAllowedURLList - URL Lists: [swagger.*$, api-docs.*$, /api/master/config.*$, /api/lookup/master.*$, /api/applications/validateApplication.*$, /api/applications/verifyOTP.*$, /api/applications/resendOTP.*$, /api/applications/createApplication.*$, /api/applications/getApplication.*$]
+29-08-2022 17:39:06.112 [localhost-startStop-1] DEBUG c.j.l.p.s.UserAuthenticationFilter.init - Initializing filter 'userAuthenticationFilter'
+29-08-2022 17:39:06.113 [localhost-startStop-1] DEBUG c.j.l.p.s.UserAuthenticationFilter.init - Filter 'userAuthenticationFilter' configured successfully
+29-08-2022 17:39:07.220 [main] INFO  com.jmmb.los.pb.config.BeanConfig.getRestTemplate - Initializing restTemplate bean inside BeanConfig...
+29-08-2022 17:39:08.543 [main] INFO  com.jmmb.los.pb.RlosApplication.logStarted - Started RlosApplication in 5.725 seconds (JVM running for 6.421)
+29-08-2022 17:39:08.547 [main] INFO  com.jmmb.los.pb.RlosApplication.main - Application Started
+29-08-2022 17:39:24.240 [http-nio-8081-exec-1] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Invoking doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:24.242 [http-nio-8081-exec-1] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - Getting token from Header
+29-08-2022 17:39:24.242 [http-nio-8081-exec-1] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - token -> null
+29-08-2022 17:39:24.242 [http-nio-8081-exec-1] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - Checking isWhiteListed
+29-08-2022 17:39:24.243 [http-nio-8081-exec-1] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - URI /rlos/swagger-ui.html is whitelisted
+29-08-2022 17:39:24.285 [http-nio-8081-exec-1] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Exiting doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:24.303 [http-nio-8081-exec-3] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Invoking doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:24.304 [http-nio-8081-exec-3] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - Getting token from Header
+29-08-2022 17:39:24.305 [http-nio-8081-exec-3] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - token -> null
+29-08-2022 17:39:24.306 [http-nio-8081-exec-3] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - Checking isWhiteListed
+29-08-2022 17:39:24.306 [http-nio-8081-exec-3] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - URI /rlos/webjars/springfox-swagger-ui/springfox.css is whitelisted
+29-08-2022 17:39:24.306 [http-nio-8081-exec-2] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Invoking doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:24.306 [http-nio-8081-exec-2] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - Getting token from Header
+29-08-2022 17:39:24.306 [http-nio-8081-exec-2] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - token -> null
+29-08-2022 17:39:24.307 [http-nio-8081-exec-2] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - Checking isWhiteListed
+29-08-2022 17:39:24.310 [http-nio-8081-exec-2] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - URI /rlos/webjars/springfox-swagger-ui/swagger-ui.css is whitelisted
+29-08-2022 17:39:24.312 [http-nio-8081-exec-6] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Invoking doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:24.312 [http-nio-8081-exec-4] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Invoking doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:24.312 [http-nio-8081-exec-6] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - Getting token from Header
+29-08-2022 17:39:24.312 [http-nio-8081-exec-4] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - Getting token from Header
+29-08-2022 17:39:24.313 [http-nio-8081-exec-6] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - token -> null
+29-08-2022 17:39:24.313 [http-nio-8081-exec-6] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - Checking isWhiteListed
+29-08-2022 17:39:24.313 [http-nio-8081-exec-4] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - token -> null
+29-08-2022 17:39:24.313 [http-nio-8081-exec-6] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - URI /rlos/webjars/springfox-swagger-ui/swagger-ui-standalone-preset.js is whitelisted
+29-08-2022 17:39:24.313 [http-nio-8081-exec-4] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - Checking isWhiteListed
+29-08-2022 17:39:24.313 [http-nio-8081-exec-4] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - URI /rlos/webjars/springfox-swagger-ui/swagger-ui-bundle.js is whitelisted
+29-08-2022 17:39:24.315 [http-nio-8081-exec-5] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Invoking doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:24.318 [http-nio-8081-exec-5] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - Getting token from Header
+29-08-2022 17:39:24.318 [http-nio-8081-exec-5] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - token -> null
+29-08-2022 17:39:24.318 [http-nio-8081-exec-5] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - Checking isWhiteListed
+29-08-2022 17:39:24.318 [http-nio-8081-exec-3] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Exiting doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:24.319 [http-nio-8081-exec-5] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - URI /rlos/webjars/springfox-swagger-ui/springfox.js is whitelisted
+29-08-2022 17:39:24.342 [http-nio-8081-exec-6] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Exiting doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:24.343 [http-nio-8081-exec-5] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Exiting doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:24.344 [http-nio-8081-exec-2] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Exiting doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:24.380 [http-nio-8081-exec-4] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Exiting doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:24.557 [http-nio-8081-exec-7] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Invoking doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:24.559 [http-nio-8081-exec-7] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - Getting token from Header
+29-08-2022 17:39:24.561 [http-nio-8081-exec-7] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - token -> null
+29-08-2022 17:39:24.561 [http-nio-8081-exec-8] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Invoking doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:24.562 [http-nio-8081-exec-7] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - Checking isWhiteListed
+29-08-2022 17:39:24.562 [http-nio-8081-exec-8] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - Getting token from Header
+29-08-2022 17:39:24.562 [http-nio-8081-exec-8] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - token -> null
+29-08-2022 17:39:24.562 [http-nio-8081-exec-7] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - URI /rlos/swagger-resources/configuration/ui is whitelisted
+29-08-2022 17:39:24.562 [http-nio-8081-exec-8] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - Checking isWhiteListed
+29-08-2022 17:39:24.562 [http-nio-8081-exec-8] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - URI /rlos/webjars/springfox-swagger-ui/favicon-32x32.png is whitelisted
+29-08-2022 17:39:24.570 [http-nio-8081-exec-8] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Exiting doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:24.633 [http-nio-8081-exec-7] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Exiting doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:24.637 [http-nio-8081-exec-9] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Invoking doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:24.637 [http-nio-8081-exec-9] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - Getting token from Header
+29-08-2022 17:39:24.638 [http-nio-8081-exec-9] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - token -> null
+29-08-2022 17:39:24.638 [http-nio-8081-exec-9] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - Checking isWhiteListed
+29-08-2022 17:39:24.638 [http-nio-8081-exec-9] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - URI /rlos/swagger-resources/configuration/security is whitelisted
+29-08-2022 17:39:24.644 [http-nio-8081-exec-9] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Exiting doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:24.647 [http-nio-8081-exec-10] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Invoking doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:24.648 [http-nio-8081-exec-10] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - Getting token from Header
+29-08-2022 17:39:24.648 [http-nio-8081-exec-10] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - token -> null
+29-08-2022 17:39:24.648 [http-nio-8081-exec-10] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - Checking isWhiteListed
+29-08-2022 17:39:24.648 [http-nio-8081-exec-10] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - URI /rlos/swagger-resources is whitelisted
+29-08-2022 17:39:24.654 [http-nio-8081-exec-10] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Exiting doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:24.675 [http-nio-8081-exec-1] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Invoking doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:24.675 [http-nio-8081-exec-1] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - Getting token from Header
+29-08-2022 17:39:24.675 [http-nio-8081-exec-1] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - token -> null
+29-08-2022 17:39:24.675 [http-nio-8081-exec-1] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - Checking isWhiteListed
+29-08-2022 17:39:24.675 [http-nio-8081-exec-1] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - URI /rlos/v2/api-docs is whitelisted
+29-08-2022 17:39:24.704 [http-nio-8081-exec-3] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Invoking doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:24.704 [http-nio-8081-exec-3] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - Getting token from Header
+29-08-2022 17:39:24.704 [http-nio-8081-exec-3] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - token -> null
+29-08-2022 17:39:24.704 [http-nio-8081-exec-3] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - Checking isWhiteListed
+29-08-2022 17:39:24.704 [http-nio-8081-exec-3] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - URI /rlos/webjars/springfox-swagger-ui/fonts/titillium-web-v6-latin-700.woff2 is whitelisted
+29-08-2022 17:39:24.714 [http-nio-8081-exec-3] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Exiting doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:24.855 [http-nio-8081-exec-1] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Exiting doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:25.049 [http-nio-8081-exec-5] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Invoking doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:25.050 [http-nio-8081-exec-5] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - Getting token from Header
+29-08-2022 17:39:25.050 [http-nio-8081-exec-5] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - token -> null
+29-08-2022 17:39:25.050 [http-nio-8081-exec-5] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - Checking isWhiteListed
+29-08-2022 17:39:25.050 [http-nio-8081-exec-2] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Invoking doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:25.050 [http-nio-8081-exec-5] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - URI /rlos/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-700.woff2 is whitelisted
+29-08-2022 17:39:25.050 [http-nio-8081-exec-2] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - Getting token from Header
+29-08-2022 17:39:25.050 [http-nio-8081-exec-2] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - token -> null
+29-08-2022 17:39:25.050 [http-nio-8081-exec-2] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - Checking isWhiteListed
+29-08-2022 17:39:25.050 [http-nio-8081-exec-6] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Invoking doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:25.050 [http-nio-8081-exec-2] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - URI /rlos/webjars/springfox-swagger-ui/fonts/open-sans-v15-latin-regular.woff2 is whitelisted
+29-08-2022 17:39:25.050 [http-nio-8081-exec-6] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - Getting token from Header
+29-08-2022 17:39:25.051 [http-nio-8081-exec-6] INFO  c.j.l.p.s.UserAuthenticationFilter.getTokenFromHeader - token -> null
+29-08-2022 17:39:25.051 [http-nio-8081-exec-6] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - Checking isWhiteListed
+29-08-2022 17:39:25.052 [http-nio-8081-exec-6] INFO  c.j.l.p.s.UserAuthenticationFilter.isWhiteListed - URI /rlos/webjars/springfox-swagger-ui/fonts/source-code-pro-v7-latin-300.woff2 is whitelisted
+29-08-2022 17:39:25.056 [http-nio-8081-exec-2] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Exiting doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:25.060 [http-nio-8081-exec-5] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Exiting doFilterInternal in UserAuthenticationFilter...
+29-08-2022 17:39:25.064 [http-nio-8081-exec-6] INFO  c.j.l.p.s.UserAuthenticationFilter.doFilterInternal - Exiting doFilterInternal in UserAuthenticationFilter...

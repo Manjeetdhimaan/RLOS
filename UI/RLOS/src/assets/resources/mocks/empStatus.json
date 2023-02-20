@@ -1,0 +1,14 @@
+[
+  {
+    "code": "FUL",
+    "label": "Full Time"
+  },
+  {
+    "code": "PAR",
+    "label": "Part Time"
+  },
+  {
+    "code": "W9",
+    "label": "Contract"
+  }
+]

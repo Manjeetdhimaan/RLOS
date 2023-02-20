@@ -1,0 +1,284 @@
+<div id="customer-acceptance-container" class="container-fluid">
+
+  <div class="row">
+    <div class="col-12">
+      {{ 'application.customerAcceptance.accept.message' | translate }}
+    </div>
+  </div>
+
+  <div class="customer-app-container">
+    <form [formGroup]="customerAcceptanceForm" autocomplete="off" (ngSubmit)="continue()">
+      <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+          <mat-label>
+            <label for="firstName">
+              {{ 'application.customerAcceptance.firstPayment.label' | translate }}
+              <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+            </label>
+          </mat-label>
+          <mat-form-field appearance="outline" class="full-width">
+            <input id="dob" matInput formControlName="firstPaymentDate" [matDatepicker]="picker1" [max]="maxPaymentDate" [min]="minPaymentDate">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row" *ngIf="showAutoDebit">
+        <div class="col-12">
+          <label class="heading-font">
+            {{ 'application.customerAcceptance.autoDebit.message' | translate }}
+          </label>
+        </div>
+      </div>
+      <div class="row" *ngIf="showAutoDebit">
+        <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+          <mat-label>
+            <label for="accountNumber">
+              {{ 'application.customerAcceptance.accountNumber.label' | translate }}
+              <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+            </label>
+          </mat-label>
+          <mat-form-field appearance="outline" class="full-width">
+            <input id="accountNumber" min="10" max="10" inputType="number" onCopy="return false" onDrag="return false" onDrop="return false"
+              onPaste="return false" (blur)="checkAccountNumber()" matInput formControlName="accountNumber">
+          </mat-form-field>
+          <mat-error id="msg9" *ngIf="!customerAcceptanceForm.get('accountNumber').valid && (customerAcceptanceForm.get('accountNumber').touched || submitted) && customerAcceptanceForm.get('accountNumber').hasError('notUnique')">{{'application.customerAcceptance.accountNumber.validation.mismatch' | translate}}</mat-error>
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+          <mat-label>
+            <label for="firstName">
+              {{ 'application.customerAcceptance.confirmAccountNumber.label' | translate }}
+              <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+            </label>
+          </mat-label>
+          <mat-form-field appearance="outline" class="full-width">
+            <input id="firstName" min="10" max="10" inputType="number" (blur)="checkAccountNumber()" onCopy="return false" onDrag="return false"
+              onDrop="return false" onPaste="return false" matInput formControlName="confirmAccountNumber">
+          </mat-form-field>
+          <mat-error id="msg9" *ngIf="!customerAcceptanceForm.get('confirmAccountNumber').valid && (customerAcceptanceForm.get('confirmAccountNumber').touched || submitted) && customerAcceptanceForm.get('confirmAccountNumber').hasError('notUnique')">{{'application.customerAcceptance.confirmAccountNumber.validation.mismatch' | translate}}</mat-error>
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+          <mat-label>
+            <label for="firstName">
+              {{ 'application.customerAcceptance.routingNumber.label' | translate }}
+              <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+            </label>
+          </mat-label>
+          <mat-form-field appearance="outline" class="full-width">
+            <input id="firstName" inputType="number" min="1" max="10" matInput formControlName="routingNumber">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="showInsuranceDetail">
+        <div class="col-12">
+          <label class="heading-font">
+            {{ 'application.customerAcceptance.insuranceDetails.message' | translate }}
+          </label>
+        </div>
+      </div>
+      <div class="row" *ngIf="showInsuranceDetail">
+        <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+          <mat-label>
+            <label for="nameOfInsuranceCompany">
+              {{ 'application.customerAcceptance.insuranceCompanyName.label' | translate }}
+              <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+            </label>
+          </mat-label>
+          <mat-form-field appearance="outline" class="full-width">
+            <input id="nameOfInsuranceCompany" matInput formControlName="nameOfInsuranceCompany">
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+          <mat-label>
+            <label for="policyNumber">
+              {{ 'application.customerAcceptance.policyNumber.label' | translate }}
+              <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+            </label>
+          </mat-label>
+          <mat-form-field appearance="outline" class="full-width">
+            <input id="policyNumber" min="10" max="10" inputType="number" matInput formControlName="policyNumber">
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+          <mat-label>
+            <label for="firstName">
+              {{ 'application.customerAcceptance.policyStartDate.label' | translate }}
+              <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+            </label>
+          </mat-label>
+          <mat-form-field appearance="outline" class="full-width">
+            <input id="dob" matInput formControlName="policyStartDate" [matDatepicker]="picker2">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+          <mat-label>
+            <label for="firstName">
+              {{ 'application.customerAcceptance.policyEndDate.label' | translate }}
+              <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+            </label>
+          </mat-label>
+          <mat-form-field appearance="outline" class="full-width">
+            <input id="dob" matInput formControlName="policyEndDate" [matDatepicker]="picker3">
+            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+            <mat-datepicker #picker3></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row" *ngIf="isESignAllowed">
+        <div class="col-12">
+          <label class="heading-font">
+            {{ 'application.customerAcceptance.closingMethod.label' | translate }}
+          </label>
+        </div>
+        <!-- <div class="col-12">
+          <label class="heading-font">
+            {{ 'application.customerAcceptance.closingMethod.label' | translate }}
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2 col-sm-6 col-xs-12 margin-b" style="margin-bottom:2%">
+          <section>
+            <mat-checkbox formControlName="closingMethod">
+            </mat-checkbox>
+            <mat-label>{{ 'application.customerAcceptance.eSignClosingMethod.label' | translate }}
+            </mat-label>
+          </section>
+        </div>-->
+      </div>
+      <div class="row" *ngIf="isESignAllowed">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <br/>
+          <mat-radio-group formControlName="closingMethod">
+            <mat-radio-button value="eSign" type="radio">
+              <span class="radio-label">{{ 'application.customerAcceptance.eSignClosingMethod.label' | translate }}
+              </span>
+            </mat-radio-button>
+            &nbsp;&nbsp;
+            <mat-radio-button value="branch" type="radio">
+              <span class="radio-label">{{ 'application.customerAcceptance.branchClosingMethod.label' | translate }}
+              </span>
+            </mat-radio-button>
+          </mat-radio-group>
+          <!-- <mat-error>
+            <span *ngIf="!addressForm.get('ownOrRent').valid && (addressForm.get('ownOrRent').touched || submitted)">Please select.
+            </span>
+          </mat-error> -->
+        </div>
+        <!-- <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+          
+        </div> -->
+      </div>
+      <div class="row" *ngIf="customerAcceptanceForm.get('closingMethod').value === 'branch'">
+        <!-- <div class="col-md-2 col-sm-6 col-xs-12 margin-b">
+          <section>
+            <mat-checkbox formControlName="closingMethod">
+            </mat-checkbox>
+            <mat-label>{{ 'application.customerAcceptance.branchClosingMethod.label' | translate }}
+            </mat-label>
+          </section>
+        </div> -->
+
+        <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+          <mat-label>
+            <label for="closingLocation">
+              {{ 'application.customerAcceptance.closingLocation.label' | translate }}
+              <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+            </label>
+          </mat-label>
+          <mat-form-field appearance="outline" class="full-width">
+            <input id="closingLocation" matInput formControlName="closingLocation">
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+          <mat-label>
+            <label for="preferredDate">
+              {{ 'application.customerAcceptance.preferredDate.label' | translate }}
+              <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+            </label>
+          </mat-label>
+          <mat-form-field appearance="outline" class="full-width">
+            <input id="preferredDate" matInput formControlName="preferredDate" [matDatepicker]="picker4">
+            <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+            <mat-datepicker #picker4></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12 margin-b">
+              <mat-label>
+                <label for="hours">
+                  {{ 'application.customerAcceptance.hours.label' | translate }}
+                  <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+                </label>
+              </mat-label>
+              <mat-form-field appearance="outline" class="full-width">
+                <!-- <input id="hours" inputType="number" matInput formControlName="timeHour"> -->
+                <select id="hours" matNativeControl formControlName="timeHour" aria-invalid="true" aria-describedby="msg" aria-labelledby="msg">
+                  <option value=null selected disabled>Please Select</option>
+                  <option *ngFor="let val of hoursList" [value]="val">{{val}}</option>
+                </select>
+              </mat-form-field>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12 margin-b">
+              <mat-label>
+                <label for="minutes">
+                  {{ 'application.customerAcceptance.minutes.label' | translate }}
+                  <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+                </label>
+              </mat-label>
+              <mat-form-field appearance="outline" class="full-width">
+                <!-- <input id="minutes" matInput formControlName="timeMinute"> -->
+                <select id="minutes" matNativeControl formControlName="timeMinute" aria-invalid="true" aria-describedby="msg" aria-labelledby="msg">
+                  <option value=null selected disabled>Please Select</option>
+                  <option *ngFor="let val of minutesList" [value]="val">{{val}}</option>
+                </select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 col-sm-6 col-xs-12 margin-b">
+          <mat-label>
+            <label for="amOrPm">{{ 'application.customerAcceptance.amOrPm.label' | translate }}
+              <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+            </label>
+          </mat-label>
+          <mat-form-field appearance="outline" class="select-option full-width">
+            <select id="amOrPm" matNativeControl formControlName="amOrPm" aria-invalid="true" aria-describedby="msg" aria-labelledby="msg">
+              <option value=null selected disabled>Please Select</option>
+              <option *ngFor="let val of amOrPmList" [value]="val">{{val}}</option>
+            </select>
+            <!-- <mat-select formControlName="amOrPm" class="select-option" aria-label="amOrPm" [placeholder]="dropdownPlaceHolder">
+              <ng-container *ngFor="let val of amOrPmList">
+                <mat-option [value]="val">
+                  {{val}}
+                </mat-option>
+              </ng-container>
+            </mat-select> -->
+          </mat-form-field>
+          <!-- <ng-container *ngFor="let validation of basicDetailValues.prefix">
+              <mat-error *ngIf="!customerAcceptanceForm.get('prefix').valid && (customerAcceptanceForm.get('prefix').touched || submitted) && customerAcceptanceForm.get('prefix').hasError(validation.type)">{{'application.applicant.prefix.validation' | translateValidation:validation}}</mat-error>
+            </ng-container> -->
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="row  justify-content-md-center customer-app-container">
+    <div class="col-sm-6 col-xs-12 col-sm-auto col-md-auto col-xs-auto">
+      <div>
+        <button color="primary" (click)="continue()" mat-raised-button>{{ 'application.buttons.submit' | translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+{
+    "sessionTimeoutInterval": "1800",
+    "signalTimeoutInterval": "120",
+    "maxFileSize": "5",
+    "maxCoApplicants": "7",
+    "fileTypes": "JPG,JPEG,PNG,PDF,TIF,TIFF",
+    "maxPayOffs": "10"
+}

@@ -1,0 +1,26 @@
+[
+    {
+      "code": "EMP001",
+      "label": "Employed"
+    },
+    {
+      "code": "SEMP001",
+      "label": "Self Employed/Business Owner"
+    },
+    {
+      "code": "STU",
+      "label": "Student"
+    },
+    {
+      "code": "RT001",
+      "label": "Retired"
+    },
+    {
+      "code": "NEMP001",
+      "label": "Not Employed"
+    },
+    {
+      "code": "OT001",
+      "label": "Others"
+    }
+  ]

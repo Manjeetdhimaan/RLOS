@@ -1,0 +1,1952 @@
+{
+    "application": {
+        "applicant": {
+            "prefix": [],
+            "suffix": [{
+                    "type": "minlength",
+                    "value": "1"
+                },
+                {
+                    "type": "maxlength",
+                    "value": "20"
+                }
+            ],
+            "firstName": [{
+                    "type": "block-pattern",
+                    "value": "[^a-zA-Z@`_=\\' .\",-]+"
+                },
+                {
+                    "type": "required"
+                },
+                {
+                    "type": "minlength",
+                    "value": "1"
+                },
+                {
+                    "type": "maxlength",
+                    "value": "20"
+                }
+            ],
+            "middleName": [{
+                    "type": "block-pattern",
+                    "value": "[^a-zA-Z]+"
+                },
+                {
+                    "type": "minlength",
+                    "value": "1"
+                },
+                {
+                    "type": "maxlength",
+                    "value": "20"
+                }
+            ],
+            "lastName": [{
+                    "type": "block-pattern",
+                    "value": "[^a-zA-Z@`_=\\' .\",-]+"
+                },
+                {
+                    "type": "required"
+                },
+                {
+                    "type": "minlength",
+                    "value": "1"
+                },
+                {
+                    "type": "maxlength",
+                    "value": "20"
+                }
+            ],
+            "email": [{
+                    "type": "pattern",
+                    "value": "^[A-Za-z][A-Za-z0-9._-]+@[A-Za-z][A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$"
+                },
+                {
+                    "type": "required"
+                },
+                {
+                    "type": "maxlength",
+                    "value": "100"
+                }
+            ],
+            "confirmEmail": [{
+                    "type": "required"
+                },
+                {
+                    "type": "maxlength",
+                    "value": "100"
+                }
+            ],
+            "dob": [{
+                "type": "required"
+            }],
+            "appNo": [{
+                    "type": "required"
+                },
+                {
+                    "type": "maxlength",
+                    "value": "20"
+                }
+            ],
+            "number": [{
+                    "type": "block-pattern",
+                    "value": "[^0-9]+"
+                },
+                {
+                    "type": "required"
+                },
+                {
+                    "type": "minlength",
+                    "value": "6"
+                }
+            ],
+            "pep": [{
+                "type": "required"
+            }],
+            "pepRelation": [{
+                "type": "required"
+            }],
+            "pepCountry": [{
+                "type": "required"
+            }],
+            "maritalStatus": [{
+                "type": "required"
+            }],
+            "gender": [{
+                "type": "required"
+            }],
+            "idType": [{
+                "type": "required"
+            }],
+            "idIssuingCountry": [{
+                "type": "required"
+            }],
+            "idExpDate": [],
+            "idIssueDate": [],
+            "idNumber": [{
+                    "type": "block-pattern",
+                    "value": "[^a-zA-Z0-9]+"
+                },
+                {
+                    "type": "minlength",
+                    "value": "2"
+                },
+                {
+                    "type": "maxlength",
+                    "value": "16"
+                }
+            ],
+            "ssn": [{
+                "type": "maxlength",
+                "value": "10"
+            }],
+            "homePhoneNo": [{
+                "type": "maxlength",
+                "value": "14"
+            }],
+            "workPhoneNo": [{
+                "type": "maxlength",
+                "value": "14"
+            }],
+            "homePhoneType": [{
+                "type": "required"
+            }],
+            "altPhoneNo": [{
+                "type": "maxlength",
+                "value": "14"
+            }],
+            "arn": [{
+                    "type": "required"
+                },
+                {
+                    "type": "minlength",
+                    "value": "13"
+                },
+                {
+                    "type": "maxlength",
+                    "value": "13"
+                }
+            ],
+            "addressDetails": {
+                "addressLine1": [{
+                        "type": "required"
+                    },
+                    {
+                        "type": "minlength",
+                        "value": "2"
+                    },
+                    {
+                        "type": "maxlength",
+                        "value": "100"
+                    }
+                ],
+                "addressLine2": [{
+                        "type": "minlength",
+                        "value": "2"
+                    },
+                    {
+                        "type": "maxlength",
+                        "value": "100"
+                    }
+                ],
+                "zipCode": [{
+                        "type": "block-pattern",
+                        "value": "[^0-9]+"
+                    },
+                    {
+                        "type": "required"
+                    },
+                    {
+                        "type": "minlength",
+                        "value": "3"
+                    },
+                    {
+                        "type": "maxlength",
+                        "value": "5"
+                    }
+                ],
+                "city": [{
+                    "type": "required"
+                }],
+                "state": [{
+                    "type": "required"
+                }],
+                "country": [{
+                    "type": "required"
+                }],
+                "currYears": [{
+                    "type": "required"
+                }],
+                "currMonths": [{
+                    "type": "required"
+                }],
+                "county": [],
+                "ownRent": [{
+                    "type": "required"
+                }],
+                "amtOfRent": [{
+                        "type": "required"
+                    },
+                    {
+                        "type": "minlength",
+                        "value": "2"
+                    },
+                    {
+                        "type": "maxlength",
+                        "value": "8"
+                    }
+                ],
+                "isAddressSameAsPrimary": [{
+                    "type": "required"
+                }]
+            },
+            "assetDetails": {
+                "assetType": [],
+                "amount": [],
+                "instName": [],
+                "comment": []
+            },
+            "referenceDetails": {
+                "assetType": [{
+                    "type": "required"
+                }],
+                "amount": [{
+                    "type": "required"
+                }],
+                "instName": [{
+                    "type": "required"
+                }],
+                "comment": [{
+                    "type": "required"
+                }],
+                "title": [{
+                    "type": "required"
+                }],
+                "firstName": [{
+                    "type": "required"
+                }],
+                "middleName": [],
+                "lastName": [{
+                    "type": "required"
+                }],
+                "employer": [{
+                    "type": "required"
+                }],
+                "addressLine1": [{
+                    "type": "required"
+                }],
+                "addressLine2": [{
+                    "type": "required"
+                }],
+                "city": [{
+                    "type": "required"
+                }],
+                "state": [{
+                    "type": "required"
+                }],
+                "diffAddMail": [],
+                "relationship": [{
+                    "type": "required"
+                }],
+                "phoneNo": [{
+                    "type": "required"
+                }]
+            },
+            "incomeDetails": {
+                "incomeType": [{
+                    "type": "required"
+                }],
+                "amount": [{
+                        "type": "required"
+                    },
+                    {
+                        "type": "minlength",
+                        "value": "1"
+                    },
+                    {
+                        "type": "maxlength",
+                        "value": "8"
+                    }
+                ],
+                "frequency": [{
+                    "type": "required"
+                }],
+                "income": [{
+                        "type": "minlength",
+                        "value": "1"
+                    },
+                    {
+                        "type": "maxlength",
+                        "value": "8"
+                    }
+                ],
+                "comment": [{
+                        "type": "minlength",
+                        "value": "1"
+                    },
+                    {
+                        "type": "maxlength",
+                        "value": "50"
+                    }
+                ]
+            },
+            "empDetails": {
+                "empType": [{
+                    "type": "required"
+                }],
+                "incomeType": [{
+                    "type": "required"
+                }],
+                "amount": [{
+                        "type": "minlength",
+                        "value": "1"
+                    },
+                    {
+                        "type": "maxlength",
+                        "value": "8"
+                    },
+                    {
+                        "type": "required"
+                    }
+                ],
+                "frequency": [{
+                    "type": "required"
+                }],
+                "income": [{
+                        "type": "minlength",
+                        "value": "1"
+                    },
+                    {
+                        "type": "maxlength",
+                        "value": "8"
+                    }
+                ],
+                "comment": [{
+                        "type": "minlength",
+                        "value": "1"
+                    },
+                    {
+                        "type": "maxlength",
+                        "value": "50"
+                    }
+                ],
+                "empName": [{
+                    "type": "required"
+                }],
+                "sector": [{
+                    "type": "required"
+                }],
+                "jobTitle": [{
+                    "type": "required"
+                }],
+                "occupation": [{
+                    "type": "required"
+                }],
+                "empYears": [{
+                    "type": "required"
+                }],
+                "empMonths": [{
+                    "type": "required"
+                }],
+                "addressLine1": [{
+                    "type": "required"
+                }],
+                "addressLine2": [],
+                "city": [{
+                    "type": "required"
+                }],
+                "state": [{
+                    "type": "required"
+                }],
+                "country": [{
+                    "type": "required"
+                }],
+                "businessName": [{
+                    "type": "required"
+                }],
+                "businessYears": [{
+                    "type": "required"
+                }],
+                "businessMonths": [{
+                    "type": "required"
+                }],
+                "lastCompanyName": [{
+                    "type": "required"
+                }],
+                "retireYears": [{
+                    "type": "required"
+                }],
+                "sourceOfIncome": [{
+                    "type": "required"
+                }]
+            }
+        },
+        "loanDetails": {
+            "loanAmount": [{
+                    "type": "required"
+                },
+                {
+                    "type": "minlength",
+                    "value": "1"
+                },
+                {
+                    "type": "maxlength",
+                    "value": "8"
+                }
+            ],
+            "loanTerm": [{
+                    "type": "pattern",
+                    "value": "^[1-9][0-9]*$"
+                },
+                {
+                    "type": "block-pattern",
+                    "value": "[^0-9]+"
+                },
+                {
+                    "type": "required"
+                },
+                {
+                    "type": "maxlength",
+                    "value": "3"
+                }
+            ],
+            "loanProductType": [{
+                "type": "required"
+            }],
+            "typeOfLoan": [{
+                "type": "required"
+            }],
+            "collateralType": [{
+                "type": "required"
+            }],
+            "loanPurposeType": [{
+                "type": "required"
+            }],
+            "financeType": [{
+                "type": "required"
+            }],
+            "loanType": [{
+                "type": "required"
+            }],
+            "facilityType": [{
+                "type": "required"
+            }],
+            "collateralTypeDetails": {
+                "vechicleLoan": {
+                    "vehicleOwner": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z ]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "vehicleCoOwner": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z ]+"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "vehicleVinNumber": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z0-9]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "20"
+                        }
+                    ],
+                    "vehicleYear": [{
+                            "type": "pattern",
+                            "value": "^[12][0-9]*$"
+                        },
+                        {
+                            "type": "block-pattern",
+                            "value": "[^0-9]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "4"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "4"
+                        }
+                    ],
+                    "vehicleMake": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z0-9 ]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "vehicleModel": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z0-9 ]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "bodyFullLength": [{
+                            "type": "block-pattern",
+                            "value": "[^0-9]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "10"
+                        }
+                    ],
+                    "cashDown": [{
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "8"
+                        }
+                    ],
+                    "vehicleValue": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "10"
+                        }
+                    ],
+                    "motorVINNumber": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z0-9]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "20"
+                        }
+                    ],
+                    "motorYear": [{
+                            "type": "pattern",
+                            "value": "^[12][0-9]*$"
+                        },
+                        {
+                            "type": "block-pattern",
+                            "value": "[^0-9]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "4"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "4"
+                        }
+                    ],
+                    "motorMake": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z0-9 ]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "motorModel": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z0-9 ]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "motorValue": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "10"
+                        }
+                    ],
+                    "collateralValue": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "8"
+                        }
+                    ],
+                    "collateralDescription": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "100"
+                        }
+                    ],
+                    "typeOfVehicle": [{
+                        "type": "required"
+                    }],
+                    "isVehicleDetailsAvailable": [{
+                        "type": "required"
+                    }],
+                    "isMotorDetailsAvailable": [{
+                        "type": "required"
+                    }],
+                    "isTitleRequired": [{
+                        "type": "required"
+                    }],
+                    "isInsuranceRequired": [{
+                        "type": "required"
+                    }]
+                },
+                "autoVehicleLoan": {
+                    "loanPurchaseType": [],
+                    "vehicleOwner": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z ]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "vehicleCoOwner": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z ]+"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "vehicleVinNumber": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z0-9]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "20"
+                        }
+                    ],
+                    "vehicleYear": [{
+                        "type": "required"
+                    }],
+                    "vehicleMake": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z0-9 ]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "vehicleModel": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z0-9 ]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "autoStyle": [{
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "autoTrimPackage": [{
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "20"
+                        }
+                    ],
+                    "autoColor": [{
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "20"
+                        }
+                    ],
+                    "autoMileage": [{
+                            "type": "pattern",
+                            "value": "^[1-9][0-9]*$"
+                        },
+                        {
+                            "type": "block-pattern",
+                            "value": "[^0-9]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "5"
+                        }
+                    ],
+                    "tagNumber": [{
+                            "type": "pattern",
+                            "value": "^[1-9][0-9]*$"
+                        },
+                        {
+                            "type": "block-pattern",
+                            "value": "[^0-9]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "20"
+                        }
+                    ],
+                    "cashDown": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "8"
+                        }
+                    ],
+                    "bodyFullLength": [{
+                        "type": "required"
+                    }],
+                    "vehicleValue": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "10"
+                        }
+                    ],
+                    "collateralValue": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "10"
+                        }
+                    ],
+                    "collateralDescription": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "100"
+                        }
+                    ],
+                    "purchaseType": [{
+                        "type": "required"
+                    }],
+                    "timeRequired": [{
+                        "type": "required"
+                    }],
+                    "typeOfVehicle": [{
+                        "type": "required"
+                    }],
+                    "isVehicleDetailsAvailable": [{
+                        "type": "required"
+                    }],
+                    "isTitleRequired": [{
+                        "type": "required"
+                    }],
+                    "isInsuranceRequired": [{
+                        "type": "required"
+                    }]
+                },
+                "anbtxstock": {
+                    "detailsAvailable": [{
+                        "type": "required"
+                    }],
+                    "owner": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z ]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "cusip": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "20"
+                        }
+                    ],
+                    "stockCertificateNumber": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "20"
+                        }
+                    ],
+                    "stockIssueDate": [{
+                        "type": "required"
+                    }],
+                    "noOfStocks": [{
+                            "type": "pattern",
+                            "value": "^[1-9][0-9]*$"
+                        },
+                        {
+                            "type": "block-pattern",
+                            "value": "[^0-9]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "10"
+                        }
+                    ],
+                    "collateralValue": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "8"
+                        }
+                    ],
+                    "collateralDescription": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "100"
+                        }
+                    ],
+                    "coOwner": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z ]+"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ]
+                },
+                "PayOffs": {
+                    "hasPayOff": [{
+                        "type": "required"
+                    }],
+                    "accountNumber": [{
+                            "type": "pattern",
+                            "value": "^[1-9][0-9]*$"
+                        },
+                        {
+                            "type": "block-pattern",
+                            "value": "[^0-9]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "10"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "10"
+                        }
+                    ],
+                    "typeOfAccount": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z ]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "10"
+                        }
+                    ],
+                    "amount": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "8"
+                        }
+                    ],
+                    "bankName": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "20"
+                        }
+                    ]
+                },
+                "cdSavings": {
+                    "cdNumber": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "20"
+                        }
+                    ],
+                    "certificateOfDepositValue": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "10"
+                        }
+                    ],
+                    "owner": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z ]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "detailsAvailable": [{
+                        "type": "required"
+                    }],
+                    "collateralDescription": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "100"
+                        }
+                    ],
+                    "coOwner": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z ]+"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ]
+                },
+                "investmentAccount": {
+                    "owner": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z ]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "coOwner": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z ]+"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "investmentAccountNumber": [{
+                            "type": "pattern",
+                            "value": "^[1-9][0-9]*$"
+                        },
+                        {
+                            "type": "block-pattern",
+                            "value": "[^0-9]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "20"
+                        }
+                    ],
+                    "investmentControllerName": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "20"
+                        }
+                    ],
+                    "investmentAccountValue": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "10"
+                        }
+                    ],
+                    "zipCode": [{
+                            "type": "block-pattern",
+                            "value": "[^0-9]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "3"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "5"
+                        }
+                    ],
+                    "city": [{
+                        "type": "required"
+                    }],
+                    "state": [{
+                        "type": "required"
+                    }],
+                    "address1": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "100"
+                        }
+                    ],
+                    "address2": [{
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "100"
+                        }
+                    ],
+                    "county": [],
+                    "detailsAvailable": [{
+                        "type": "required"
+                    }],
+                    "collateralDescription": [{
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "100"
+                        }
+                    ],
+                    "collateralValue": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "10"
+                        }
+                    ]
+                },
+                "lifeInsurancePolicy": {
+                    "policyNumber": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "20"
+                        }
+                    ],
+                    "collateralValue": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "10"
+                        }
+                    ],
+                    "collateralDescription": [{
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "100"
+                        }
+                    ],
+                    "insuranceCompanyName": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "zipCode": [{
+                            "type": "block-pattern",
+                            "value": "[^0-9]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "3"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "5"
+                        }
+                    ],
+                    "city": [{
+                        "type": "required"
+                    }],
+                    "state": [{
+                        "type": "required"
+                    }],
+                    "address1": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "100"
+                        }
+                    ],
+                    "address2": [{
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "100"
+                        }
+                    ],
+                    "county": [],
+                    "detailsAvailable": [{
+                        "type": "required"
+                    }],
+                    "cashValue": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "10"
+                        }
+                    ],
+                    "owner": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z ]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "coOwner": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z ]+"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ]
+                },
+                "farmEquipment": {
+                    "detailsAvailable": [{
+                        "type": "required"
+                    }],
+                    "collateralValue": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "10"
+                        }
+                    ],
+                    "collateralDescription": [{
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "100"
+                        }
+                    ],
+                    "owner": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z ]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "coOwner": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z ]+"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "equipmentType": [{
+                        "type": "required"
+                    }],
+                    "titleRequired": [{
+                        "type": "required"
+                    }],
+                    "insuranceRequired": [{
+                        "type": "required"
+                    }],
+                    "vin": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z0-9]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "20"
+                        }
+                    ],
+                    "year": [{
+                            "type": "pattern",
+                            "value": "^[12][0-9]*$"
+                        },
+                        {
+                            "type": "block-pattern",
+                            "value": "[^0-9]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "4"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "4"
+                        }
+                    ],
+                    "make": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z0-9 ]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "model": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z0-9 ]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "style": [{
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "trimPackage": [{
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "20"
+                        }
+                    ],
+                    "color": [{
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "20"
+                        }
+                    ],
+                    "mileage": [{
+                            "type": "pattern",
+                            "value": "^[1-9][0-9]*$"
+                        },
+                        {
+                            "type": "block-pattern",
+                            "value": "[^0-9]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "5"
+                        }
+                    ],
+                    "tagNumber": [{
+                            "type": "pattern",
+                            "value": "^[1-9][0-9]*$"
+                        },
+                        {
+                            "type": "block-pattern",
+                            "value": "[^0-9]+"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "20"
+                        }
+                    ],
+                    "cashDown": [{
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "8"
+                        }
+                    ],
+                    "loanPurchaseType": []
+                },
+                "commoncollateral": {
+                    "owner": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z ]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "collateralValue": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "8"
+                        }
+                    ],
+                    "collateralDescription": [{
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "100"
+                        }
+                    ],
+                    "vehicleVinNumber": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z0-9]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "20"
+                        }
+                    ],
+                    "year": [{
+                            "type": "pattern",
+                            "value": "^[12][0-9]*$"
+                        },
+                        {
+                            "type": "block-pattern",
+                            "value": "[^0-9]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "4"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "4"
+                        }
+                    ],
+                    "make": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z0-9 ]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "model": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z0-9 ]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "isVehicleDetailsAvailable": [{
+                        "type": "required"
+                    }],
+                    "isDetailsAvailable": [{
+                        "type": "required"
+                    }],
+                    "serialNumber": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z0-9]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "20"
+                        }
+                    ],
+                    "coOwner": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z ]+"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ]
+                },
+                "otherscollateral": {
+                    "vehicleOwner": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z ]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "collateralValue": [{
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "8"
+                        }
+                    ],
+                    "collateralDescription": [{
+                            "type": "minlength",
+                            "value": "1"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "100"
+                        }
+                    ],
+                    "vehicleVinNumber": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z0-9]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "20"
+                        }
+                    ],
+                    "vehicleYear": [{
+                            "type": "pattern",
+                            "value": "^[12][0-9]*$"
+                        },
+                        {
+                            "type": "block-pattern",
+                            "value": "[^0-9]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "4"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "4"
+                        }
+                    ],
+                    "vehicleMake": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z0-9 ]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "vehicleModel": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z0-9 ]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ],
+                    "isVehicleDetailsAvailable": [{
+                        "type": "required"
+                    }],
+                    "isDetailsAvailable": [{
+                        "type": "required"
+                    }],
+                    "serialNumber": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z0-9]+"
+                        },
+                        {
+                            "type": "required"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "20"
+                        }
+                    ],
+                    "vehicleCoOwner": [{
+                            "type": "block-pattern",
+                            "value": "[^a-zA-Z ]+"
+                        },
+                        {
+                            "type": "minlength",
+                            "value": "2"
+                        },
+                        {
+                            "type": "maxlength",
+                            "value": "50"
+                        }
+                    ]
+                }
+            }
+        },
+        "consents": {
+            "branchCode": [{
+                "type": "required"
+            }]
+        }
+    }
+}

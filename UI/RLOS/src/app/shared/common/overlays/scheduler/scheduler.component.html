@@ -1,0 +1,88 @@
+<div id="schedular-dialog-container" modal-focus aria-modal="true" role="dialog" aria-labelledby="docUploadModal" class="schedular-container">
+    <div class="dialog-title-container">
+        <h3 mat-dialog-title class="bold" tabindex="0">Best Available Time</h3>
+        <i class="material-icons close-icon" (click)="onNoClick()" tabindex="0">close</i>
+    </div>
+
+    <div class="row" *ngIf="showAlert">
+        <div class="col-12" role="alert" aria-live="assertive" aria-atomic="true">
+            <error-alert [errorObject]="alert" (close)="closeError()"></error-alert>
+        </div>
+    </div>
+
+    <div>
+        <div mat-dialog-content>
+            <div class="document-panel">
+                <div class="row">
+                    <form [formGroup]="schedularForm" (ngSubmit)="confirmOrNot('Y')">
+
+                        <div class="col-md-12 margin-b">
+                            <h5>Select Date of Appointment</h5>
+                            <mat-label class="sub-heading">
+                                <label for="meetingDate">
+                                    Date(MM/DD/YYYY)
+                                </label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="full-width">
+                                <input id="meetingDate" matInput (keyup)="dateMask($event)" [max]="maxDate" [min]="minDate" [matDatepicker]="picker2" placeholder="MM/DD/YYYY" aria-invalid="true" aria-describedby="meetingDateError" formControlName="meetingDate" #dateOfAppointment appMaskDate>
+                                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                <mat-datepicker #picker2></mat-datepicker>
+                            </mat-form-field>
+                            <mat-error id="meetingDateError" *ngIf="!schedularForm.get('meetingDate').valid && (schedularForm.get('meetingDate').touched || submitted) && (schedularForm.get('meetingDate').errors.required || schedularForm.get('meetingDate').errors.matDatepickerParse)">
+                                Please enter Date
+                            </mat-error>
+                            <mat-error id="meetingDateError" *ngIf="!schedularForm.get('meetingDate').valid && (schedularForm.get('meetingDate').touched || submitted) && (schedularForm.get('meetingDate').errors.matDatepickerMin)">
+                                Please enter valid Date
+                            </mat-error>
+                            <mat-error id="meetingDateError" *ngIf="!schedularForm.get('meetingDate').valid && (schedularForm.get('meetingDate').touched || submitted) && (schedularForm.get('meetingDate').errors.matDatepickerMax )">
+                                Please enter valid Date
+                            </mat-error>
+                        </div>
+
+                        <div class="col-md-8 margin-b">
+                            <h5>Select Time of Appointment</h5>
+                            <mat-label class="sub-heading">
+                                <label for="hour">Hour(HH)</label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="select-option full-width">
+                                <mat-select role="listbox" id="hour" matNativeControl placeholder="HH" formControlName="hour" aria-invalid="true" aria-describedby="appointmentHourError">
+                                    <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                    <mat-option role="option" *ngFor="let val of hourList" [value]="val.code">{{val.label}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <ng-container *ngFor="let validation of scheduleAppointmentValues.hour">
+                                <mat-error id="appointmentHourError" *ngIf="!schedularForm.get('hour').valid && (schedularForm.get('hour').touched || submitted) && schedularForm.get('hour').hasError(validation.type)">
+                                    Please enter Hour(HH)
+                                </mat-error>
+                            </ng-container>
+                        </div>
+
+                        <div class="col-md-8 margin-b">
+                            <mat-label class="sub-heading">
+                                <label for="minute">Minute(MM)</label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="select-option full-width">
+                                <mat-select role="listbox" id="minute" matNativeControl formControlName="minute" placeholder="MM" aria-invalid="true" aria-describedby="appointmentMinError">
+                                    <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                    <mat-option role="option" *ngFor="let val of minuteList" [value]="val.code">{{val.label}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <ng-container *ngFor="let validation of scheduleAppointmentValues.minute">
+                                <mat-error id="appointmentMinError" *ngIf="!schedularForm.get('minute').valid && (schedularForm.get('minute').touched || submitted) && schedularForm.get('minute').hasError(validation.type)">
+                                    Please enter Minute(MM)
+                                </mat-error>
+                            </ng-container>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div mat-dialog-actions class="modal-btns">
+                    <button color="primary" type="submit" mat-raised-button class="margin-r" (click)="confirmOrNot('Y')">Confirm</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

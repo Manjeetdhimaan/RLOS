@@ -1,0 +1,32 @@
+@import './src/assets/styles/sass/theme/anbtx/_anbtx-variables.scss';
+@import './src/assets/styles/sass/global/_mixins';
+#view-container {
+    // min-height: calc(100vh - 170px);
+    min-height: 56.2%;
+    // border-top: 1px solid #249fce;
+    padding-bottom: 15px;
+    // margin-bottom:65px;
+    // url("foreground.png") 0 0 no-repeat, url("middle-ground.png") 0 0 no-repeat, url("background.png") 0 0 no-repeat;
+    @include mobile {
+        min-height: calc(100% - 240px);
+    }
+}
+
+app-footer {
+    display: block;
+}
+
+.timeoutsection {
+    text-align: center;
+    border: 2px solid red;
+    margin: 5px 20px 5px 20px;
+    color: red;
+    font-weight: bold;
+    padding: 5px;
+    position: fixed;
+    margin-left: 33%;
+    background: #20558a;
+    @include mobile {
+        margin-left: 20px;
+    }
+}

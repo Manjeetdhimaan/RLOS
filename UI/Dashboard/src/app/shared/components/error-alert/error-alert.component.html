@@ -1,0 +1,143 @@
+<div *ngIf="showAlert" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="alert error error-alert" *ngIf="errorObject.type==='error'">
+        <div class="row">
+            <div class="col-md-11 col-sm-11 col-xs-11" style="padding-top: 0px;">
+
+                <div class="inline-flex">
+                    <div style="margin-right: 5px;">
+                        <i class="material-icons">error</i>
+                    </div>
+                    <div *ngIf="!showMessage" class="label-font no-break">{{errorObject.message}}
+                    </div>
+                    <div *ngIf="showMessage" class="label-font">Service is temporarily not available. Please try after some time.
+                    </div>
+                </div>
+                <div *ngIf=" errorObject && errorObject.exceptionCode">Exception Code: {{errorObject.exceptionCode}}
+                </div>
+                <div class="row" *ngIf="errorObject.stackTrace && errorObject.stackTrace.length > 0">
+                    <div class="col-md-11 col-sm-11 col-xs-11" style="padding-top: 0px;">
+                        <span class="bold pointer" *ngIf="viewMore && errorObject.stackTrace" (click)="toggleStackTrace()" style="display: inline-flex;">Show details
+                            <i class="material-icons">keyboard_arrow_down</i>
+                        </span>
+                        <span class="bold pointer" *ngIf="!viewMore && errorObject.stackTrace" (click)="toggleStackTrace()" style="display: inline-flex;">Collapse Details
+                            <i class="material-icons">keyboard_arrow_up</i>
+                        </span>
+                        <div *ngIf="!viewMore && errorObject.stackTrace.length > 0">
+                            <span class="bold">StackTrace:&nbsp;</span>
+                            <ul>
+                                <li *ngFor="let errorLine of errorObject.stackTrace;index as i">
+                                    {{errorLine}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" *ngIf="errorObject.fieldErrors && errorObject.fieldErrors.length > 0">
+                    <div class="col-md-11 col-sm-11 col-xs-11" style="padding-top: 0px;">
+                        <ul>
+                            <li *ngFor="let errorLine of errorObject.fieldErrors;index as i">
+                                {{errorLine}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <label class="pull-right close-button" aria-label="close alert message" (click)="closeError()">
+                    <u>Close</u>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="alert success success-alert" *ngIf="errorObject.type==='success'">
+        <div class="row">
+            <div class="col-md-11 col-sm-11 col-xs-11" style="padding-top: 0px;">
+                <div class="inline-flex">
+                        <!-- <i class="material-icons">notification_important</i> -->
+                    <div style="margin-left: 2px;">{{errorObject.message}}
+                    </div>
+                </div>
+                <div class="row" *ngIf="errorObject.stackTrace && errorObject.stackTrace.length > 0">
+                    <div class="col-md-11 col-sm-11 col-xs-11" style="padding-top: 0px;">
+                        <span class="bold pointer" *ngIf="viewMore && errorObject.stackTrace" (click)="toggleStackTrace()" style="display: inline-flex;">Show details
+                            <i class="material-icons">keyboard_arrow_down</i>
+                        </span>
+                        <span class="bold pointer" *ngIf="!viewMore && errorObject.stackTrace" (click)="toggleStackTrace()" style="display: inline-flex;">Collapse Details
+                            <i class="material-icons">keyboard_arrow_up</i>
+                        </span>
+                        <div *ngIf="!viewMore && errorObject.stackTrace.length > 0">
+                            <span class="bold">StackTrace:&nbsp;</span>
+                            <ul>
+                                <li *ngFor="let errorLine of errorObject.stackTrace;index as i">
+                                    {{errorLine}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" *ngIf="errorObject.fieldErrors && errorObject.fieldErrors.length > 0">
+                    <div class="col-md-11 col-sm-11 col-xs-11" style="padding-top: 0px;">
+                        <ul>
+                            <li *ngFor="let errorLine of errorObject.fieldErrors;index as i">
+                                {{errorLine}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <label class="pull-right close-button" aria-label="close alert message" (click)="closeError()">
+                    <u>Close</u>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="alert success warning-alert" *ngIf="errorObject.type==='warning'">
+        <div class="row">
+            <div class="col-md-11 col-sm-11 col-xs-11" style="padding-top: 0px;">
+                <div class="inline-flex">
+                    <div style="margin-right: 5px;">
+                        <i class="material-icons">warning</i>
+                    </div>
+                    <div>{{errorObject.message}}
+                    </div>
+                </div>
+                <div class="row" *ngIf="errorObject.stackTrace && errorObject.stackTrace.length > 0">
+                    <div class="col-md-11 col-sm-11 col-xs-11" style="padding-top: 0px;">
+                        <span class="bold pointer" *ngIf="viewMore && errorObject.stackTrace" (click)="toggleStackTrace()" style="display: inline-flex;">Show details
+                            <i class="material-icons">keyboard_arrow_down</i>
+                        </span>
+                        <span class="bold pointer" *ngIf="!viewMore && errorObject.stackTrace" (click)="toggleStackTrace()" style="display: inline-flex;">Collapse Details
+                            <i class="material-icons">keyboard_arrow_up</i>
+                        </span>
+                        <div *ngIf="!viewMore && errorObject.stackTrace.length > 0">
+                            <span class="bold">StackTrace:&nbsp;</span>
+                            <ul>
+                                <li *ngFor="let errorLine of errorObject.stackTrace;index as i">
+                                    {{errorLine}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" *ngIf="errorObject.fieldErrors && errorObject.fieldErrors.length > 0">
+                    <div class="col-md-11 col-sm-11 col-xs-11" style="padding-top: 0px;">
+                        <ul>
+                            <li *ngFor="let errorLine of errorObject.fieldErrors;index as i">
+                                {{errorLine}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <label class="pull-right close-button" aria-label="close alert message" (click)="closeError()">
+                    <u>Close</u>
+                </label>
+            </div>
+        </div>
+    </div>
+
+</div>

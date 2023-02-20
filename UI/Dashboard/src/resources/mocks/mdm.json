@@ -1,0 +1,1961 @@
+{
+    "COMMON_Loan_Product": [
+        {
+            "code": "AL",
+            "label": "Auto Loan",
+            "loanType": "TL"
+        },
+        {
+            "code": "CC",
+            "label": "Credit Card",
+            "loanType": "LC"
+        },
+        {
+            "code": "DC",
+            "label": "Debt Consolidation",
+            "loanType": "TL"
+        },
+        {
+            "code": "HEL",
+            "label": "Home Equity Loan",
+            "loanType": "TL"
+        },
+        {
+            "code": "OVF",
+            "label": "Overdraft Facility",
+            "loanType": "LC"
+        },
+        {
+            "code": "PL",
+            "label": "Personal Loan",
+            "loanType": "TL"
+        },
+        {
+            "code": "RM",
+            "label": "Mortgage Loan",
+            "loanType": "TL"
+        }
+    ],
+    "COMMON_Loan_Purpose": [
+        {
+            "code": "UV",
+            "label": "Buy a Used Vehicle",
+            "loanProduct": "AL",
+            "loanType": "Unsecured"
+        },
+        {
+            "code": "NV",
+            "label": "Buy a New Vehicle",
+            "loanProduct": "AL",
+            "loanType": "Secured"
+        },
+        {
+            "code": "VP",
+            "label": "Purchase vacant land",
+            "loanProduct": "PL",
+            "loanType": "Secured"
+        },
+        {
+            "code": "VA",
+            "label": "Take a Vacation",
+            "loanProduct": "PL",
+            "loanType": "Unsecured"
+        },
+        {
+            "code": "HR",
+            "label": "Home Renovations",
+            "loanProduct": "HEL",
+            "loanType": "Secured"
+        },
+        {
+            "code": "PUP",
+            "label": "Purchase Properties",
+            "loanProduct": "HEL",
+            "loanType": "Secured"
+        },
+        {
+            "code": "HP",
+            "label": "Home Purchase",
+            "loanProduct": "RML",
+            "loanType": "Secured"
+        },
+        {
+            "code": "HC",
+            "label": "Home Constructions",
+            "loanProduct": "RML",
+            "loanType": "Secured"
+        },
+        {
+            "code": "SOF",
+            "label": "Secured Overdraft Facility",
+            "loanProduct": "OVF",
+            "loanType": "Secured"
+        },
+        {
+            "code": "UOF",
+            "label": "Unsecured Overdraft Facility",
+            "loanProduct": "OVF",
+            "loanType": "Unsecured"
+        },
+        {
+            "code": "UDC",
+            "label": "Unsecured Debt Consolidation",
+            "loanProduct": "DC",
+            "loanType": "Unsecured"
+        },
+        {
+            "code": "SDC",
+            "label": "Secured Debt Consolidation",
+            "loanProduct": "DC",
+            "loanType": "Secured"
+        },
+        {
+            "code": "VMGCC",
+            "label": "VISA MEDLINE GOLD CREDIT CARD",
+            "loanProduct": "CC",
+            "loanType": "Unsecured"
+        },
+        {
+            "code": "VCCC",
+            "label": "VISA CLASSIC CREDIT CARD",
+            "loanProduct": "CC",
+            "loanType": "Secured"
+        },
+        {
+            "code": "VGCC",
+            "label": "VISA GOLD CREDIT CARD",
+            "loanProduct": "CC",
+            "loanType": "Secured"
+        },
+        {
+            "code": "VCOCC",
+            "label": "VISA CORPORATE CREDIT CARD",
+            "loanProduct": "CC",
+            "loanType": "Secured"
+        },
+        {
+            "code": "VSMGC",
+            "label": "VISA MEDLINE GOLD CREDIT CARD",
+            "loanProduct": "CC",
+            "loanType": "Secured"
+        }
+    ],
+    "COMMON_GENDER_TYPE": [
+        {
+            "code": "M",
+            "label": "Male"
+        },
+        {
+            "code": "F",
+            "label": "Female"
+        },
+        {
+            "code": "O",
+            "label": "Other"
+        }
+    ],
+    "COMMON_STATE": [
+        {
+            "code": "0",
+            "label": "New Providence"
+        },
+        {
+            "code": "1",
+            "label": "Grand Bahama"
+        },
+        {
+            "code": "2",
+            "label": "Abaco"
+        },
+        {
+            "code": "3",
+            "label": "Andros"
+        },
+        {
+            "code": "4",
+            "label": "Long Island"
+        },
+        {
+            "code": "5",
+            "label": "Eleuthera"
+        },
+        {
+            "code": "6",
+            "label": "Cat Island"
+        },
+        {
+            "code": "7",
+            "label": "San Salvador"
+        },
+        {
+            "code": "8",
+            "label": "Exuma and Cays"
+        },
+        {
+            "code": "9",
+            "label": "Biminis"
+        },
+        {
+            "code": "10",
+            "label": "Inagua Islands"
+        },
+        {
+            "code": "11",
+            "label": "Acklins Island"
+        },
+        {
+            "code": "12",
+            "label": "Berry Island"
+        },
+        {
+            "code": "13",
+            "label": "Crooked Island"
+        },
+        {
+            "code": "14",
+            "label": "Mayaguana"
+        },
+        {
+            "code": "15",
+            "label": "Rum Cay"
+        },
+        {
+            "code": "16",
+            "label": "Ragged Island"
+        }
+    ],
+    "COMMON_POLITICALLY_EXPOSED_RELATIONSHIP": [
+        {
+            "code": "Mother or father",
+            "label": "Mother or father"
+        },
+        {
+            "code": "Child of the person",
+            "label": "Child of the person"
+        },
+        {
+            "code": "Spouse or common-law partner",
+            "label": "Spouse or common-law partner"
+        },
+        {
+            "code": "Spouse or common-law partners mother or father",
+            "label": "Spouse or common-law partners mother or father"
+        },
+        {
+            "code": "A child of their mother or father (sibling)",
+            "label": "A child of their mother or father (sibling)"
+        }
+    ],
+    "COMMON_EMP_SECTOR": [
+        {
+            "code": "G",
+            "label": "Government"
+        },
+        {
+            "code": "AcD",
+            "label": "Approved Company/Deductions"
+        },
+        {
+            "code": "PS",
+            "label": "Private Sector"
+        },
+        {
+            "code": "R",
+            "label": "Retired"
+        }
+    ],
+    "INCOME_Income_Type": [
+        {
+            "code": "S",
+            "label": "Salary"
+        },
+        {
+            "code": "B",
+            "label": "Bonuses"
+        },
+        {
+            "code": "C",
+            "label": "Commissions"
+        },
+        {
+            "code": "I",
+            "label": "Interest"
+        },
+        {
+            "code": "DB",
+            "label": "Dividends/Business Drawings"
+        },
+        {
+            "code": "RI",
+            "label": "Rental Income"
+        },
+        {
+            "code": "AC",
+            "label": "Alimony/Child Support"
+        },
+        {
+            "code": "O",
+            "label": "Other"
+        }
+    ],
+    "ADDRESS_CITY": [
+        {
+            "code": "0",
+            "label": "Nassau"
+        },
+        {
+            "code": "1",
+            "label": "Freeport"
+        },
+        {
+            "code": "2",
+            "label": "West End"
+        },
+        {
+            "code": "3",
+            "label": "Coopers Town"
+        },
+        {
+            "code": "4",
+            "label": "Marsh Harbour"
+        },
+        {
+            "code": "5",
+            "label": "Freetown"
+        },
+        {
+            "code": "6",
+            "label": "Bahamas City"
+        },
+        {
+            "code": "7",
+            "label": "Andros Town"
+        },
+        {
+            "code": "8",
+            "label": "Clarence Town"
+        },
+        {
+            "code": "9",
+            "label": "Dunmore Town"
+        },
+        {
+            "code": "10",
+            "label": "Rock Sound"
+        },
+        {
+            "code": "11",
+            "label": "Arthurs Town"
+        },
+        {
+            "code": "12",
+            "label": "Cockburn Town"
+        },
+        {
+            "code": "13",
+            "label": "George Town"
+        },
+        {
+            "code": "14",
+            "label": "Alice Town"
+        },
+        {
+            "code": "15",
+            "label": "Sweeting Cay"
+        },
+        {
+            "code": "16",
+            "label": "Matthew Town"
+        },
+        {
+            "code": "17",
+            "label": "Snug Corner"
+        },
+        {
+            "code": "18",
+            "label": "Great Harbour Cay"
+        },
+        {
+            "code": "19",
+            "label": "Nicholls Town"
+        },
+        {
+            "code": "20",
+            "label": "Colonel Hill"
+        },
+        {
+            "code": "21",
+            "label": "Pirates Well"
+        },
+        {
+            "code": "22",
+            "label": "Port Nelson"
+        },
+        {
+            "code": "23",
+            "label": "Duncan Town"
+        },
+        {
+            "code": "24",
+            "label": "Albert Town"
+        }
+    ],
+    "INCOME_Income_Frequency": [
+        {
+            "code": "BIW",
+            "label": "Bi-Weekly"
+        },
+        {
+            "code": "W",
+            "label": "Weekly"
+        },
+        {
+            "code": "MON",
+            "label": "Monthly"
+        },
+        {
+            "code": "QUA",
+            "label": "Quarterly"
+        },
+        {
+            "code": "HAF",
+            "label": "Semi Yearly"
+        },
+        {
+            "code": "ANN",
+            "label": "Yearly"
+        }
+    ],
+    "ADDRESS_State": [
+        {
+            "code": "0",
+            "label": "New Providence"
+        },
+        {
+            "code": "1",
+            "label": "Grand Bahama"
+        },
+        {
+            "code": "2",
+            "label": "Abaco"
+        },
+        {
+            "code": "3",
+            "label": "Andros"
+        },
+        {
+            "code": "4",
+            "label": "Long Island"
+        },
+        {
+            "code": "5",
+            "label": "Eleuthera"
+        },
+        {
+            "code": "6",
+            "label": "Cat Island"
+        },
+        {
+            "code": "7",
+            "label": "San Salvador"
+        },
+        {
+            "code": "8",
+            "label": "Exuma and Cays"
+        },
+        {
+            "code": "9",
+            "label": "Biminis"
+        },
+        {
+            "code": "10",
+            "label": "Inagua Islands"
+        },
+        {
+            "code": "11",
+            "label": "Acklins Island"
+        },
+        {
+            "code": "12",
+            "label": "Berry Island"
+        },
+        {
+            "code": "13",
+            "label": "Crooked Island"
+        },
+        {
+            "code": "14",
+            "label": "Mayaguana"
+        },
+        {
+            "code": "15",
+            "label": "Rum Cay"
+        },
+        {
+            "code": "16",
+            "label": "Ragged Island"
+        }
+    ],
+    "COMMON_OCCUPATION": [
+        {
+            "code": "EMP",
+            "label": "Executive/Manager/Professional"
+        },
+        {
+            "code": "C",
+            "label": "Clerical"
+        },
+        {
+            "code": "SIS",
+            "label": "Service Industry/Skilled"
+        },
+        {
+            "code": "UnS",
+            "label": "Unskilled/Seasonal"
+        },
+        {
+            "code": "S",
+            "label": "Student"
+        }
+    ],
+    "COMMON_Asset_Type": [
+        {
+            "code": "CBB",
+            "label": "Cash at JMMB"
+        },
+        {
+            "code": "COB",
+            "label": "Cash at Other Banks/Credit Unions "
+        },
+        {
+            "code": "MSB",
+            "label": "Marketable Securities & Bonds "
+        },
+        {
+            "code": "CVLI",
+            "label": "Cash Value Life Insurance  "
+        },
+        {
+            "code": "VP",
+            "label": "Vested Pensions "
+        },
+        {
+            "code": "ALR",
+            "label": "Accounts/Loans Receivable "
+        },
+        {
+            "code": "FR",
+            "label": "Furniture "
+        },
+        {
+            "code": "JW",
+            "label": "Jewelry "
+        },
+        {
+            "code": "VBM",
+            "label": "Vehicles, Boats, Machinery "
+        },
+        {
+            "code": "OPP",
+            "label": "Other Personal Property "
+        },
+        {
+            "code": "REP",
+            "label": "Real Estate-Primary "
+        },
+        {
+            "code": "BIN",
+            "label": "Bus. Interests/Investments/Non-mktbl sec. "
+        },
+        {
+            "code": "ORE",
+            "label": "Other Real Estate "
+        },
+        {
+            "code": "OA",
+            "label": "Other Assests"
+        }
+    ],
+    "COMMON_Loan_Terms": [
+        {
+            "code": "12",
+            "label": "12"
+        },
+        {
+            "code": "24",
+            "label": "24"
+        },
+        {
+            "code": "36",
+            "label": "36"
+        },
+        {
+            "code": "48",
+            "label": "48"
+        },
+        {
+            "code": "60",
+            "label": "60"
+        },
+        {
+            "code": "72",
+            "label": "72"
+        },
+        {
+            "code": "84",
+            "label": "84"
+        },
+        {
+            "code": "96",
+            "label": "96"
+        },
+        {
+            "code": "108",
+            "label": "108"
+        },
+        {
+            "code": "120",
+            "label": "120"
+        }
+    ],
+    "COMMON_Country": [
+        {
+            "code": "AA",
+            "label": "Aruba"
+        },
+        {
+            "code": "AC",
+            "label": "Antigua & Barbuda"
+        },
+        {
+            "code": "AF",
+            "label": "Afghanistan"
+        },
+        {
+            "code": "AG",
+            "label": "Algeria"
+        },
+        {
+            "code": "AJ",
+            "label": "Azerbaijan"
+        },
+        {
+            "code": "AL",
+            "label": "Albania"
+        },
+        {
+            "code": "AM",
+            "label": "Armenia"
+        },
+        {
+            "code": "AN",
+            "label": "Andorra"
+        },
+        {
+            "code": "AO",
+            "label": "Angola"
+        },
+        {
+            "code": "AQ",
+            "label": "American Samoa"
+        },
+        {
+            "code": "AR",
+            "label": "Argentina"
+        },
+        {
+            "code": "AS",
+            "label": "Australia"
+        },
+        {
+            "code": "AT",
+            "label": "Ashmore & Cartier Is"
+        },
+        {
+            "code": "AU",
+            "label": "Austria"
+        },
+        {
+            "code": "AV",
+            "label": "Anguilla"
+        },
+        {
+            "code": "AY",
+            "label": "Antarctica"
+        },
+        {
+            "code": "BA",
+            "label": "Bahrain"
+        },
+        {
+            "code": "BB",
+            "label": "Barbados"
+        },
+        {
+            "code": "BC",
+            "label": "Botswana"
+        },
+        {
+            "code": "BD",
+            "label": "Bermuda"
+        },
+        {
+            "code": "BE",
+            "label": "Belgium"
+        },
+        {
+            "code": "BF",
+            "label": "Bahamas, The"
+        },
+        {
+            "code": "BG",
+            "label": "Bangladesh"
+        },
+        {
+            "code": "BH",
+            "label": "Belize"
+        },
+        {
+            "code": "BK",
+            "label": "Bosnia"
+        },
+        {
+            "code": "BL",
+            "label": "Bolivia"
+        },
+        {
+            "code": "BM",
+            "label": "Burma"
+        },
+        {
+            "code": "BN",
+            "label": "Benin"
+        },
+        {
+            "code": "BO",
+            "label": "Belarus"
+        },
+        {
+            "code": "BP",
+            "label": "Solomon Islands"
+        },
+        {
+            "code": "BQ",
+            "label": "Navassa Island"
+        },
+        {
+            "code": "BR",
+            "label": "Brazil"
+        },
+        {
+            "code": "BS",
+            "label": "Bassas Da India"
+        },
+        {
+            "code": "BT",
+            "label": "Bhutan"
+        },
+        {
+            "code": "BU",
+            "label": "Bulgaria"
+        },
+        {
+            "code": "BV",
+            "label": "Bouvet Island"
+        },
+        {
+            "code": "BX",
+            "label": "Brunei"
+        },
+        {
+            "code": "BY",
+            "label": "Burundi"
+        },
+        {
+            "code": "CA",
+            "label": "Canada"
+        },
+        {
+            "code": "CB",
+            "label": "Cambodia"
+        },
+        {
+            "code": "CD",
+            "label": "Chad"
+        },
+        {
+            "code": "CE",
+            "label": "Sri Lanka"
+        },
+        {
+            "code": "CF",
+            "label": "Congo"
+        },
+        {
+            "code": "CG",
+            "label": "Zaire"
+        },
+        {
+            "code": "CH",
+            "label": "China, People's Rep"
+        },
+        {
+            "code": "CI",
+            "label": "Chile"
+        },
+        {
+            "code": "CJ",
+            "label": "Cayman Islands"
+        },
+        {
+            "code": "CK",
+            "label": "Cocos (Keeling) Isl."
+        },
+        {
+            "code": "CM",
+            "label": "Cameroon"
+        },
+        {
+            "code": "CN",
+            "label": "Comoros"
+        },
+        {
+            "code": "CO",
+            "label": "Colombia"
+        },
+        {
+            "code": "CQ",
+            "label": "No Mariana Islands"
+        },
+        {
+            "code": "CR",
+            "label": "Coral Sea Islands"
+        },
+        {
+            "code": "CS",
+            "label": "Costa Rica"
+        },
+        {
+            "code": "CT",
+            "label": "Central African Rep"
+        },
+        {
+            "code": "CU",
+            "label": "Cuba"
+        },
+        {
+            "code": "CV",
+            "label": "Cape Verde"
+        },
+        {
+            "code": "CW",
+            "label": "Cook Islands"
+        },
+        {
+            "code": "CY",
+            "label": "Cyprus"
+        },
+        {
+            "code": "DA",
+            "label": "Denmark"
+        },
+        {
+            "code": "DJ",
+            "label": "Djibouti"
+        },
+        {
+            "code": "DO",
+            "label": "Dominica"
+        },
+        {
+            "code": "DR",
+            "label": "Dominican Republic"
+        },
+        {
+            "code": "EC",
+            "label": "Ecuador"
+        },
+        {
+            "code": "EG",
+            "label": "Egypt"
+        },
+        {
+            "code": "EI",
+            "label": "Ireland"
+        },
+        {
+            "code": "EK",
+            "label": "Equatorial Guinea"
+        },
+        {
+            "code": "EN",
+            "label": "Estonia"
+        },
+        {
+            "code": "ER",
+            "label": "Eritrea"
+        },
+        {
+            "code": "ES",
+            "label": "El Salvador"
+        },
+        {
+            "code": "ET",
+            "label": "Ethiopia"
+        },
+        {
+            "code": "EU",
+            "label": "Europa Island"
+        },
+        {
+            "code": "EZ",
+            "label": "Czech Republic"
+        },
+        {
+            "code": "FG",
+            "label": "French Guiana"
+        },
+        {
+            "code": "FI",
+            "label": "Finland"
+        },
+        {
+            "code": "FJ",
+            "label": "Fiji"
+        },
+        {
+            "code": "FK",
+            "label": "Falkland Islands"
+        },
+        {
+            "code": "FM",
+            "label": "Micronesia, Fed Sts"
+        },
+        {
+            "code": "FO",
+            "label": "Faroe Islands"
+        },
+        {
+            "code": "FP",
+            "label": "French Polynesia"
+        },
+        {
+            "code": "FQ",
+            "label": "Baker Island"
+        },
+        {
+            "code": "FR",
+            "label": "France"
+        },
+        {
+            "code": "FS",
+            "label": "French So & Antarctc"
+        },
+        {
+            "code": "GA",
+            "label": "Gambia, The"
+        },
+        {
+            "code": "GB",
+            "label": "Gabon"
+        },
+        {
+            "code": "GG",
+            "label": "Georgia"
+        },
+        {
+            "code": "GH",
+            "label": "Ghana"
+        },
+        {
+            "code": "GI",
+            "label": "Gibraltar"
+        },
+        {
+            "code": "GJ",
+            "label": "Grenada"
+        },
+        {
+            "code": "GK",
+            "label": "Guernsey"
+        },
+        {
+            "code": "GL",
+            "label": "Greenland"
+        },
+        {
+            "code": "GM",
+            "label": "Germany"
+        },
+        {
+            "code": "GO",
+            "label": "Glorioso Islands"
+        },
+        {
+            "code": "GP",
+            "label": "Guadeloupe"
+        },
+        {
+            "code": "GQ",
+            "label": "Guam"
+        },
+        {
+            "code": "GR",
+            "label": "Greece"
+        },
+        {
+            "code": "GT",
+            "label": "Guatemala"
+        },
+        {
+            "code": "GV",
+            "label": "Guinea"
+        },
+        {
+            "code": "GY",
+            "label": "Guyana"
+        },
+        {
+            "code": "GZ",
+            "label": "Gaza Strip"
+        },
+        {
+            "code": "HA",
+            "label": "Haiti"
+        },
+        {
+            "code": "HK",
+            "label": "Hong Kong"
+        },
+        {
+            "code": "HM",
+            "label": "Heard & Mcdonald Isl"
+        },
+        {
+            "code": "HO",
+            "label": "Honduras"
+        },
+        {
+            "code": "HQ",
+            "label": "Howland Island"
+        },
+        {
+            "code": "HR",
+            "label": "Croatia"
+        },
+        {
+            "code": "HU",
+            "label": "Hungary"
+        },
+        {
+            "code": "IC",
+            "label": "Iceland"
+        },
+        {
+            "code": "ID",
+            "label": "Indonesia"
+        },
+        {
+            "code": "IM",
+            "label": "Isle Of Man"
+        },
+        {
+            "code": "IN",
+            "label": "India"
+        },
+        {
+            "code": "IO",
+            "label": "Ocean Territory"
+        },
+        {
+            "code": "IP",
+            "label": "Clipperton Island"
+        },
+        {
+            "code": "IR",
+            "label": "Iran"
+        },
+        {
+            "code": "IS",
+            "label": "Israel"
+        },
+        {
+            "code": "IT",
+            "label": "Italy"
+        },
+        {
+            "code": "IV",
+            "label": "Ivory Coast"
+        },
+        {
+            "code": "IY",
+            "label": "Iraq"
+        },
+        {
+            "code": "IZ",
+            "label": "Iraq"
+        },
+        {
+            "code": "JA",
+            "label": "Japan"
+        },
+        {
+            "code": "JE",
+            "label": "Jersey"
+        },
+        {
+            "code": "JM",
+            "label": "Jamaica"
+        },
+        {
+            "code": "JN",
+            "label": "Jan Mayen"
+        },
+        {
+            "code": "JO",
+            "label": "Jordan"
+        },
+        {
+            "code": "JQ",
+            "label": "Johnston Atoll"
+        },
+        {
+            "code": "JU",
+            "label": "Juan De Nova Island"
+        },
+        {
+            "code": "KE",
+            "label": "Kenya"
+        },
+        {
+            "code": "KG",
+            "label": "Kyrgyzstan"
+        },
+        {
+            "code": "KN",
+            "label": "Korea, North"
+        },
+        {
+            "code": "KQ",
+            "label": "Kingman Reef"
+        },
+        {
+            "code": "KR",
+            "label": "Christmas Is.Pacific"
+        },
+        {
+            "code": "KS",
+            "label": "Korea, South"
+        },
+        {
+            "code": "KT",
+            "label": "Christmas Is.Indian"
+        },
+        {
+            "code": "KU",
+            "label": "Kuwait"
+        },
+        {
+            "code": "KZ",
+            "label": "Kazakhstan"
+        },
+        {
+            "code": "LA",
+            "label": "Laos"
+        },
+        {
+            "code": "LE",
+            "label": "Lebanon"
+        },
+        {
+            "code": "LG",
+            "label": "Latvia"
+        },
+        {
+            "code": "LH",
+            "label": "Lithuania"
+        },
+        {
+            "code": "LI",
+            "label": "Liberia"
+        },
+        {
+            "code": "LO",
+            "label": "Slovakia"
+        },
+        {
+            "code": "LQ",
+            "label": "Palmyra Atoll"
+        },
+        {
+            "code": "LS",
+            "label": "Liechtenstein"
+        },
+        {
+            "code": "LT",
+            "label": "Lesotho"
+        },
+        {
+            "code": "LU",
+            "label": "Luxembourg"
+        },
+        {
+            "code": "LY",
+            "label": "Libya"
+        },
+        {
+            "code": "MA",
+            "label": "Madagascar"
+        },
+        {
+            "code": "MB",
+            "label": "Martinique"
+        },
+        {
+            "code": "MC",
+            "label": "Macau"
+        },
+        {
+            "code": "MD",
+            "label": "Moldova"
+        },
+        {
+            "code": "MF",
+            "label": "Mayotte"
+        },
+        {
+            "code": "MG",
+            "label": "Mongolia"
+        },
+        {
+            "code": "MH",
+            "label": "Montserrat"
+        },
+        {
+            "code": "MI",
+            "label": "Malawi"
+        },
+        {
+            "code": "MK",
+            "label": "Macedonia"
+        },
+        {
+            "code": "ML",
+            "label": "Mali"
+        },
+        {
+            "code": "MN",
+            "label": "Monaco"
+        },
+        {
+            "code": "MO",
+            "label": "Morocco"
+        },
+        {
+            "code": "MP",
+            "label": "Mauritius"
+        },
+        {
+            "code": "MQ",
+            "label": "Midway Islands"
+        },
+        {
+            "code": "MR",
+            "label": "Mauritania"
+        },
+        {
+            "code": "MT",
+            "label": "Malta"
+        },
+        {
+            "code": "MU",
+            "label": "Oman"
+        },
+        {
+            "code": "MV",
+            "label": "Maldives"
+        },
+        {
+            "code": "MW",
+            "label": "Montenegro"
+        },
+        {
+            "code": "MX",
+            "label": "Mexico"
+        },
+        {
+            "code": "MY",
+            "label": "Malaysia"
+        },
+        {
+            "code": "MZ",
+            "label": "Mozambique"
+        },
+        {
+            "code": "NC",
+            "label": "New Caledonia"
+        },
+        {
+            "code": "NE",
+            "label": "Niue"
+        },
+        {
+            "code": "NF",
+            "label": "Norfolk Island"
+        },
+        {
+            "code": "NG",
+            "label": "Niger"
+        },
+        {
+            "code": "NH",
+            "label": "Vanuatu"
+        },
+        {
+            "code": "NI",
+            "label": "Nigeria"
+        },
+        {
+            "code": "NL",
+            "label": "Netherlands"
+        },
+        {
+            "code": "NO",
+            "label": "Norway"
+        },
+        {
+            "code": "NP",
+            "label": "Nepal"
+        },
+        {
+            "code": "NR",
+            "label": "Nauru"
+        },
+        {
+            "code": "NS",
+            "label": "Suriname"
+        },
+        {
+            "code": "NT",
+            "label": "Netherlands Antilles"
+        },
+        {
+            "code": "NU",
+            "label": "Nicaragua"
+        },
+        {
+            "code": "NZ",
+            "label": "New Zealand"
+        },
+        {
+            "code": "OC",
+            "label": "Other Country"
+        },
+        {
+            "code": "PA",
+            "label": "Paraguay"
+        },
+        {
+            "code": "PC",
+            "label": "Pitcairn Islands"
+        },
+        {
+            "code": "PE",
+            "label": "Peru"
+        },
+        {
+            "code": "PF",
+            "label": "Paracel Islands"
+        },
+        {
+            "code": "PG",
+            "label": "Spratly Islands"
+        },
+        {
+            "code": "PK",
+            "label": "Pakistan"
+        },
+        {
+            "code": "PL",
+            "label": "Poland"
+        },
+        {
+            "code": "PM",
+            "label": "Panama"
+        },
+        {
+            "code": "PO",
+            "label": "Portugal"
+        },
+        {
+            "code": "PP",
+            "label": "Papua New Guinea"
+        },
+        {
+            "code": "PS",
+            "label": "Trust Ter/Pacific Is"
+        },
+        {
+            "code": "PU",
+            "label": "Guinea"
+        },
+        {
+            "code": "QA",
+            "label": "Qatar"
+        },
+        {
+            "code": "RE",
+            "label": "Reunion"
+        },
+        {
+            "code": "RM",
+            "label": "Marshall Islands"
+        },
+        {
+            "code": "RO",
+            "label": "Romania"
+        },
+        {
+            "code": "RP",
+            "label": "Philippines"
+        },
+        {
+            "code": "RQ",
+            "label": "Puerto Rico"
+        },
+        {
+            "code": "RS",
+            "label": "Russia"
+        },
+        {
+            "code": "RW",
+            "label": "Rwanda"
+        },
+        {
+            "code": "SA",
+            "label": "Saudi Arabia"
+        },
+        {
+            "code": "SB",
+            "label": "St Peirre & Miquelon"
+        },
+        {
+            "code": "SC",
+            "label": "St. Kitts & Nevis"
+        },
+        {
+            "code": "SE",
+            "label": "Seychelles"
+        },
+        {
+            "code": "SF",
+            "label": "South Africa"
+        },
+        {
+            "code": "SG",
+            "label": "Senegal"
+        },
+        {
+            "code": "SH",
+            "label": "St. Helena"
+        },
+        {
+            "code": "SI",
+            "label": "Slovenia"
+        },
+        {
+            "code": "SL",
+            "label": "Sierra Leone"
+        },
+        {
+            "code": "SM",
+            "label": "San Marino"
+        },
+        {
+            "code": "SN",
+            "label": "Singapore"
+        },
+        {
+            "code": "SO",
+            "label": "Federal Republic Of Somalia"
+        },
+        {
+            "code": "SP",
+            "label": "Spain"
+        },
+        {
+            "code": "SR",
+            "label": "Serbia"
+        },
+        {
+            "code": "ST",
+            "label": "St. Lucia"
+        },
+        {
+            "code": "SU",
+            "label": "Sudan"
+        },
+        {
+            "code": "SV",
+            "label": "Svalbard"
+        },
+        {
+            "code": "SW",
+            "label": "Sweden"
+        },
+        {
+            "code": "SX",
+            "label": "So Geo&Sandwich Isl"
+        },
+        {
+            "code": "SY",
+            "label": "Syria"
+        },
+        {
+            "code": "SZ",
+            "label": "Switzerland"
+        },
+        {
+            "code": "TC",
+            "label": "United Arab Emirates"
+        },
+        {
+            "code": "TD",
+            "label": "Trinidad & Tobago"
+        },
+        {
+            "code": "TE",
+            "label": "Tromelin Island"
+        },
+        {
+            "code": "TH",
+            "label": "Thailand"
+        },
+        {
+            "code": "TI",
+            "label": "Tajikistan"
+        },
+        {
+            "code": "TK",
+            "label": "Turks&Caicos Islands"
+        },
+        {
+            "code": "TL",
+            "label": "Tokelau"
+        },
+        {
+            "code": "TN",
+            "label": "Tonga"
+        },
+        {
+            "code": "TO",
+            "label": "Togo"
+        },
+        {
+            "code": "TP",
+            "label": "Sao Tome & Principe"
+        },
+        {
+            "code": "TS",
+            "label": "Tunisia"
+        },
+        {
+            "code": "TU",
+            "label": "Turkey"
+        },
+        {
+            "code": "TV",
+            "label": "Tuvalu"
+        },
+        {
+            "code": "TW",
+            "label": "Taiwan"
+        },
+        {
+            "code": "TX",
+            "label": "Turkmenistan"
+        },
+        {
+            "code": "TZ",
+            "label": "Tanzania, Un Rep Of"
+        },
+        {
+            "code": "UG",
+            "label": "Uganda"
+        },
+        {
+            "code": "UK",
+            "label": "United Kingdom"
+        },
+        {
+            "code": "UP",
+            "label": "Ukraine"
+        },
+        {
+            "code": "UV",
+            "label": "Burkina Faso"
+        },
+        {
+            "code": "UY",
+            "label": "Uruguay"
+        },
+        {
+            "code": "UZ",
+            "label": "Uzbekistan"
+        },
+        {
+            "code": "VC",
+            "label": "St Vincent&Grenadins"
+        },
+        {
+            "code": "VE",
+            "label": "Venezuela"
+        },
+        {
+            "code": "VI",
+            "label": "Virgin Islands(Brit)"
+        },
+        {
+            "code": "VM",
+            "label": "Vietnam"
+        },
+        {
+            "code": "VQ",
+            "label": "Virgin Islands (US)"
+        },
+        {
+            "code": "VT",
+            "label": "Vatican City"
+        },
+        {
+            "code": "WA",
+            "label": "Namibia"
+        },
+        {
+            "code": "WE",
+            "label": "West Bank"
+        },
+        {
+            "code": "WF",
+            "label": "Wallis & Futuna"
+        },
+        {
+            "code": "WI",
+            "label": "Western Sahara"
+        },
+        {
+            "code": "WQ",
+            "label": "Wake Island"
+        },
+        {
+            "code": "WS",
+            "label": "Western Samoa"
+        },
+        {
+            "code": "WZ",
+            "label": "Swaziland"
+        },
+        {
+            "code": "YM",
+            "label": "Yemen"
+        },
+        {
+            "code": "ZA",
+            "label": "Zambia"
+        },
+        {
+            "code": "ZI",
+            "label": "Zimbabwe"
+        },
+        {
+            "code": "UC",
+            "label": "Curacao"
+        },
+        {
+            "code": "NN",
+            "label": "Saint Maarten"
+        },
+        {
+            "code": "KV",
+            "label": "Kosovo"
+        },
+        {
+            "code": "USA",
+            "label": "United States of America"
+        }
+    ],
+    "COMMON_IDType": [
+        {
+            "code": "DL",
+            "label": "Driver License"
+        },
+        {
+            "code": "P",
+            "label": "Passport"
+        },
+        {
+            "code": "V",
+            "label": "Voters Id"
+        }
+    ],
+    "COMMON_MaritalStatus": [
+        {
+            "code": "S",
+            "label": "Single"
+        },
+        {
+            "code": "M",
+            "label": "Married"
+        },
+        {
+            "code": "Separated",
+            "label": "Seperated"
+        },
+        {
+            "code": "Divorced",
+            "label": "Divorced"
+        },
+        {
+            "code": "Widow(er)",
+            "label": "Widow(er)"
+        }
+    ],
+    "EMPLOYMENT_Employment_Type": [
+        {
+            "code": "EMP001",
+            "label": "Employed"
+        },
+        {
+            "code": "SEMP001",
+            "label": "Self Employed"
+        },
+        {
+            "code": "RT001",
+            "label": "Retired"
+        },
+        {
+            "code": "NEMP001",
+            "label": "Non Employed"
+        },
+        {
+            "code": "OT001",
+            "label": "Other"
+        }
+    ],
+    "COMMON_Vehicle_Year": [
+        {
+            "code": "1970",
+            "label": "1970"
+        },
+        {
+            "code": "1971",
+            "label": "1971"
+        },
+        {
+            "code": "1972",
+            "label": "1972"
+        },
+        {
+            "code": "1973",
+            "label": "1973"
+        },
+        {
+            "code": "1974",
+            "label": "1974"
+        },
+        {
+            "code": "1975",
+            "label": "1975"
+        },
+        {
+            "code": "1976",
+            "label": "1976"
+        },
+        {
+            "code": "1977",
+            "label": "1977"
+        },
+        {
+            "code": "1978",
+            "label": "1978"
+        },
+        {
+            "code": "1979",
+            "label": "1979"
+        },
+        {
+            "code": "1980",
+            "label": "1980"
+        },
+        {
+            "code": "1981",
+            "label": "1981"
+        },
+        {
+            "code": "1982",
+            "label": "1982"
+        },
+        {
+            "code": "1983",
+            "label": "1983"
+        },
+        {
+            "code": "1984",
+            "label": "1984"
+        },
+        {
+            "code": "1985",
+            "label": "1985"
+        },
+        {
+            "code": "1986",
+            "label": "1986"
+        },
+        {
+            "code": "1987",
+            "label": "1987"
+        },
+        {
+            "code": "1988",
+            "label": "1988"
+        },
+        {
+            "code": "1989",
+            "label": "1989"
+        },
+        {
+            "code": "1990",
+            "label": "1990"
+        },
+        {
+            "code": "1991",
+            "label": "1991"
+        },
+        {
+            "code": "1992",
+            "label": "1992"
+        },
+        {
+            "code": "1993",
+            "label": "1993"
+        },
+        {
+            "code": "1994",
+            "label": "1994"
+        },
+        {
+            "code": "1995",
+            "label": "1995"
+        },
+        {
+            "code": "1996",
+            "label": "1996"
+        },
+        {
+            "code": "1997",
+            "label": "1997"
+        },
+        {
+            "code": "1998",
+            "label": "1998"
+        },
+        {
+            "code": "1999",
+            "label": "1999"
+        },
+        {
+            "code": "2000",
+            "label": "2000"
+        },
+        {
+            "code": "2001",
+            "label": "2001"
+        },
+        {
+            "code": "2002",
+            "label": "2002"
+        },
+        {
+            "code": "2003",
+            "label": "2003"
+        },
+        {
+            "code": "2004",
+            "label": "2004"
+        },
+        {
+            "code": "2005",
+            "label": "2005"
+        },
+        {
+            "code": "2006",
+            "label": "2006"
+        },
+        {
+            "code": "2007",
+            "label": "2007"
+        },
+        {
+            "code": "2008",
+            "label": "2008"
+        },
+        {
+            "code": "2009",
+            "label": "2009"
+        },
+        {
+            "code": "2010",
+            "label": "2010"
+        },
+        {
+            "code": "2011",
+            "label": "2011"
+        },
+        {
+            "code": "2012",
+            "label": "2012"
+        },
+        {
+            "code": "2013",
+            "label": "2013"
+        },
+        {
+            "code": "2014",
+            "label": "2014"
+        },
+        {
+            "code": "2015",
+            "label": "2015"
+        },
+        {
+            "code": "2016",
+            "label": "2016"
+        },
+        {
+            "code": "2017",
+            "label": "2017"
+        },
+        {
+            "code": "2018",
+            "label": "2018"
+        },
+        {
+            "code": "2019",
+            "label": "2019"
+        },
+        {
+            "code": "2020",
+            "label": "2020"
+        }
+    ],
+    "COMMON_Loan_Type": [
+        {
+            "code": "TL",
+            "label": "Term Loan"
+        },
+        {
+            "code": "LC",
+            "label": "Line of Credit"
+        }
+    ]
+}

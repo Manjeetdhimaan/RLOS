@@ -1,0 +1,116 @@
+<div class="row">
+    <div class="col-12">
+        <h4 tabindex="0"> Vehicle Collateral Details</h4>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="vehicleVinNumber"> VIN Number</label>
+        <div class="label-font" id="vehicleVinNumber">
+            {{(model.collateralTypeDetails.vehicleVinNumber || notSpecified) | translate}}
+        </div>
+    </div>
+
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="vehicleYear">Year</label>
+        <div class="label-font" id="vehicleYear">
+            {{(model.collateralTypeDetails.vehicleYear || notSpecified) | translate}}
+        </div>
+    </div>
+
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="vehicleMake">Make</label>
+        <div class="label-font" id="vehicleMake">
+            {{(model.collateralTypeDetails.vehicleMake || notSpecified) | translate}}
+        </div>
+    </div>
+
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="vehicleModel">Model</label>
+        <div class="label-font" id="vehicleModel">
+            {{(model.collateralTypeDetails.vehicleModel || notSpecified) | translate}}
+        </div>
+    </div>
+
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="autoStyle">Style</label>
+        <div class="label-font" id="autoStyle">
+            {{(model.collateralTypeDetails.autoStyle || notSpecified) | translate}}
+        </div>
+    </div>
+
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="autoTrimPackage">Trim Package</label>
+        <div class="label-font" id="autoTrimPackage">
+            {{(model.collateralTypeDetails.autoTrimPackage || notSpecified) | translate}}
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="autoColor">Color</label>
+        <div class="label-font" id="autoColor">
+            {{(model.collateralTypeDetails.autoColor || notSpecified) | translate}}
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="autoMileage">Mileage</label>
+        <div class="label-font" id="autoMileage">
+            {{(model.collateralTypeDetails.autoMileage || notSpecified) | translate}}
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="tagNumber">Tag Number</label>
+        <div class="label-font" id="tagNumber">
+            {{(model.collateralTypeDetails.tagNumber || notSpecified) | translate}}
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="cashDown">Cash Down </label>
+        <div class="label-font" id="cashDown">
+            <!-- {{model.collateralTypeDetails.cashDown}} -->
+            {{(model.collateralTypeDetails.cashDown || notSpecified) | translate}}
+        </div>
+    </div>
+
+    <!-- <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+        <label class="heading-font">Purchase Type</label>
+        <div class="label-font">
+            {{(model.collateralTypeDetails.loanPurchaseType || notSpecified) | translate}}
+        </div>
+    </div> -->
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="isTitleRequired">Title Required</label>
+        <div class="label-font" id="isTitleRequired">
+            {{(model.collateralTypeDetails.isTitleRequired || notSpecified) | translate}}
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="isInsuranceRequired">Insurance Required</label>
+        <div class="label-font" id="isInsuranceRequired">
+            {{(model.collateralTypeDetails.isInsuranceRequired || notSpecified) | translate}}
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="collateralValue">Collateral Value ($)</label>
+        <div class="label-font" id="collateralValue">
+            {{model.collateralTypeDetails.collateralValue}}
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="collateralDescription">Collateral Description</label>
+        <div class="label-font" id="collateralDescription">
+            {{(model.collateralTypeDetails.collateralDescription || notSpecified) | translate}}
+        </div>
+    </div>
+</div>

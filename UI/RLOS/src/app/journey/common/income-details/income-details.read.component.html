@@ -1,0 +1,44 @@
+<div class="row">
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="incomeType">{{ 'application.applicant.incomeDetails.incomeType.label' | translate }}</label>
+        <div class="label-font" id="incomeType">
+            {{(model.incomeType || notSpecified) | translate}}
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="amount">{{ 'application.applicant.incomeDetails.amount.label' | translate }}</label>
+        <div class="label-font" id="amount">
+            B{{(model.amount | currency )}}
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="frequency">{{ 'application.applicant.incomeDetails.frequency.label' | translate }}</label>
+        <div class="label-font" id="frequency">
+            {{(model.frequency || notSpecified) | translate}}
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="monthlyIncome">{{ 'application.applicant.incomeDetails.income.label' | translate }}</label>
+        <div class="label-font" id="monthlyIncome">
+            B{{(model.income | currency)}}
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="comment"> {{ 'application.applicant.incomeDetails.comment.label' | translate }}</label>
+        <div class="label-font" id="comment">
+            {{(model.comment || notSpecified) | translate}}
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="primarySourceOfIncome">{{ 'application.applicant.incomeDetails.primarySourceOfIncome.label' | translate }}</label>
+        <div class="label-font" id="primarySourceOfIncome">
+            {{(model.primarySourceOfIncome === true ? 'YES' : 'NO' || notSpecified)}}
+        </div>
+    </div>
+</div>

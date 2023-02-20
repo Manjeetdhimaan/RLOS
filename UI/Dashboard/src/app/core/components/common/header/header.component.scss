@@ -1,0 +1,15 @@
+@import './src/assets/styles/sass/global/_default-variables';
+@import './src/assets/styles/sass/global/_mixins';
+@import './src/assets/styles/sass/theme/anbtx/_anbtx-variables';
+
+.bg{
+  background-color: white;
+  box-shadow: 0 0 6px 0 #999999;
+  margin-bottom: 5px;
+}
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}

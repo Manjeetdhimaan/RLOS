@@ -1,0 +1,67 @@
+<div id="schedular-dialog-container" modal-focus aria-modal="true" role="dialog" aria-labelledby="docUploadModal" class="schedular-container">
+    <div class="dialog-title-container">
+        <h3 mat-dialog-title class="bold" tabindex="0">Schedule Appointment</h3>
+        <i class="material-icons close-icon" (click)="onNoClick()" tabindex="0">close</i>
+
+    </div>
+
+    <div>
+        <div mat-dialog-content>
+            <div class="document-panel">
+                <div class="row">
+                    <form [formGroup]="schedularForm">
+
+                        <div class="col-md-12 margin-b">
+                            <h5>Select Date of Appointment</h5>
+                            <mat-label class="sub-heading">
+                                <label for="meetingDate">
+                                        Date(MM/DD/YYYY)
+                                    </label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="full-width">
+                                <input id="meetingDate" matInput (keyup)="dateMask($event)" [matDatepicker]="picker2" [max]="maxDate" [min]="minDate" placeholder="MM/DD/YYYY" aria-invalid="true" aria-describedby="msg15" aria-labelledby="msg15" formControlName="meetingDate">
+                                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                <mat-datepicker #picker2></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                        <br>
+
+                        <div class="col-md-8 margin-b">
+                            <h5>Select Time of Appointment</h5>
+                            <mat-label class="sub-heading">
+                                <label for="hour">Hour(HH)</label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="select-option full-width">
+                                <mat-select role="listbox" id="hour" matNativeControl placeholder="HH" formControlName="hour" aria-invalid="true" aria-describedby="msg" aria-labelledby="msg">
+                                    <mat-option role="option" value=null selected>Please Select</mat-option>
+                                    <mat-option role="option" *ngFor="let val of hourList" [value]="val">{{val}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <!-- <mat-error id="msg" *ngIf="!schedularForm.get('hour').valid && (schedularForm.get('hour').touched) && schedularForm.get('hour').hasError('required')">{{'application.applicant.hour.validation' | translateValidation:validation}}</mat-error> -->
+                        </div>
+
+                        <div class="col-md-8 margin-b">
+                            <mat-label class="sub-heading">
+                                <label for="minute">Minute(MM)</label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="select-option full-width">
+                                <mat-select role="listbox" id="minute" matNativeControl formControlName="minute" placeholder="MM" aria-invalid="true" aria-describedby="msg" aria-labelledby="msg">
+                                    <mat-option role="option" value=null selected>Please Select</mat-option>
+                                    <mat-option role="option" *ngFor="let val of minuteList" [value]="val">{{val}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <!-- <mat-error id="msg" *ngIf="!schedularForm.get('minute').valid && (schedularForm.get('minute').touched) && schedularForm.get('minute').hasError('required')">{{'application.applicant.minute.validation' | translateValidation:validation}}</mat-error> -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div mat-dialog-actions class="modal-btns">
+                    <button color="primary" mat-raised-button class="margin-r" (click)="confirmOrNot('Y')">Confirm</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

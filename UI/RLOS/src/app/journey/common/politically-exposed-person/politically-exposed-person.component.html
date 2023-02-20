@@ -1,0 +1,401 @@
+<div class="PEP-container" *ngIf="!isComponentReadOnly">
+    <div class="row">
+        <div class="col-12">
+            <form [formGroup]="PEP" autocomplete="off" class="container-body">
+
+
+
+                <!-- Politically Exposed Person -->
+                <span class="bold"> PEP Declaration (Politically Exposed Person)</span>
+                <em class="material-icons" style="margin-top:-13px;" [matTooltip]="tooltipValue" (click)="tooltip2.toggle()" #tooltip2="matTooltip">
+                    info
+                </em>
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-lg-4  margin-b" margin-b>
+                                <mat-label>
+                                    <label for="pepFlag">
+                                    {{'application.applicant.politicallyExposedPersonDetails.pep.label' | translate}}      
+                                        <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+                                    </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <mat-select role="listbox" aria-describedby="pepFlagErrorMsg" id="pepFlag" matNativeControl formControlName="pepFlag" placeholder="Please select" (ngModelChange)="pepStatus()">
+                                        <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                        <mat-option role="option" *ngFor="let val of optionList" [value]="val">{{val}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of pepDetailValues.pep">
+                                    <mat-error id="pepFlagErrorMsg" *ngIf="!PEP.get('pepFlag').valid && (PEP.get('pepFlag').touched || submitted) && PEP.get('pepFlag').hasError(validation.type)">
+                                        {{'application.applicant.politicallyExposedPersonDetails.pep.validation' | translateValidation:validation}}</mat-error>
+                                </ng-container>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-lg-4 margin-b" *ngIf="(this.PEP.get('pepFlag').value === 'No')">
+                                <mat-label>
+                                    <label for="previousPep">
+                                         {{'application.applicant.politicallyExposedPersonDetails.previouspep.label' | translate}}
+                                        <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+                                    </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <mat-select role="listbox" aria-describedby="previousPepErrorMsg" id="previousPep" matNativeControl formControlName="previousPep" (ngModelChange)="pepStatus()" placeholder="Please select">
+                                        <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                        <mat-option role="option" *ngFor="let val of prevPEPOptionList" [value]="val">{{val}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of pepDetailValues.previousPep">
+                                    <mat-error id="previousPepErrorMsg" *ngIf="!PEP.get('previousPep').valid && (PEP.get('previousPep').touched || submitted) && PEP.get('previousPep').hasError(validation.type)">
+                                        {{'application.applicant.politicallyExposedPersonDetails.previouspep.validation' | translateValidation:validation}}</mat-error>
+                                </ng-container>
+
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-lg-4 margin-b" *ngIf="((this.PEP.get('pepFlag').value === 'Yes - Domestic' || this.PEP.get('pepFlag').value === 'Yes - International')) || (this.PEP.get('previousPep').value === 'Yes') ">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="tinNumber">{{'application.applicant.politicallyExposedPersonDetails.pepRelation.label' | translate}} <span class="red"
+                                                aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span></label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="select-option full-width">
+                                        <mat-select role="listbox" aria-describedby="tinNumberErrorMsg" id="pepRelation" matNativeControl formControlName="pepRelation" (ngModelChange)="pepStatus()" placeholder="Select Relation to Pep">
+                                            <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                            <mat-option role="option" *ngFor="let val of pepRelationList" [value]="val.code">{{val.label}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of pepDetailValues.pepRelation">
+                                        <mat-error id="tinNumberErrorMsg" *ngIf="!PEP.get('pepRelation').valid && (PEP.get('pepRelation').touched || submitted) && PEP.get('pepRelation').hasError(validation.type)">
+                                            {{'application.applicant.politicallyExposedPersonDetails.pepRelation.validation' | translateValidation:validation}}</mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-lg-4 margin-b" *ngIf="(((this.PEP.get('pepFlag').value === 'Yes - Domestic' || this.PEP.get('pepFlag').value === 'Yes - International') || (this.PEP.get('previousPep').value === 'Yes'))&&(!(this.PEP.get('pepRelation').value === '6')))">
+                                <mat-label>
+                                    <label for="pepFirstName">
+                                            {{ 'application.applicant.politicallyExposedPersonDetails.firstName.label' | translate }}
+                                            <span class="red" aria-label="Mandatory" aria-hidden="true" tabindex="-1">*</span>
+                                          </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="pepFirstName" aria-describedby="pepFirstNameErrorMsg" uppercase matInput formControlName="pepFirstName" placeholder="First Name">
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of pepDetailValues.firstName">
+                                    <mat-error id="pepFirstNameErrorMsg" *ngIf="!PEP.get('pepFirstName').valid && (PEP.get('pepFirstName').touched || submitted) && PEP.get('pepFirstName').hasError(validation.type)">
+                                        {{'application.applicant.politicallyExposedPersonDetails.firstName.validation' | translateValidation:validation}}</mat-error>
+                                </ng-container>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-lg-4 margin-b" *ngIf="(((this.PEP.get('pepFlag').value === 'Yes - Domestic' || this.PEP.get('pepFlag').value === 'Yes - International') || (this.PEP.get('previousPep').value === 'Yes'))&&(!(this.PEP.get('pepRelation').value === '6')))">
+                                <mat-label>
+                                    <label for="pepMiddleName">
+                                                {{ 'application.applicant.middleName.label' | translate }}
+                                              </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="pepMiddleName" aria-describedby="pepMiddleNameErrorMsg" uppercase matInput formControlName="pepMiddleName" placeholder="Middle Name">
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of pepDetailValues.middleName">
+                                    <mat-error id="pepMiddleNameErrorMsg" *ngIf="!PEP.get('pepMiddleName').valid && (PEP.get('pepMiddleName').touched || submitted) && PEP.get('pepMiddleName').hasError(validation.type)">
+                                        {{'application.applicant.politicallyExposedPersonDetails.middleName.validation' | translateValidation:validation}}</mat-error>
+                                </ng-container>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-lg-4 margin-b" *ngIf="(((this.PEP.get('pepFlag').value === 'Yes - Domestic' || this.PEP.get('pepFlag').value === 'Yes - International') || (this.PEP.get('previousPep').value === 'Yes'))&&(!(this.PEP.get('pepRelation').value === '6')))">
+                                <mat-label>
+                                    <label for="pepLastName">
+                                        {{ 'application.applicant.lastName.label' | translate }}
+                                         <span class="red" aria-label="Mandatory" aria-hidden="true" tabindex="-1">*</span>
+                                    </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="pepLastName" aria-describedby="pepLastNameErrorMsg" uppercase matInput formControlName="pepLastName" aria-invalid="true" placeholder="Last Name">
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of pepDetailValues.lastName">
+                                    <mat-error id="pepLastNameErrorMsg" *ngIf="!PEP.get('pepLastName').valid && (PEP.get('pepLastName').touched || submitted) && PEP.get('pepLastName').hasError(validation.type)">
+                                        {{'application.applicant.politicallyExposedPersonDetails.lastName.validation' | translateValidation:validation}}</mat-error>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-12 col-sm-6 col-lg-4 margin-b" *ngIf="(((this.PEP.get('pepFlag').value === 'Yes - Domestic' || this.PEP.get('pepFlag').value === 'Yes - International') || (this.PEP.get('previousPep').value === 'Yes'))&&(!(this.PEP.get('pepRelation').value === '6')))">
+                                <mat-label>
+                                    <label for="pepSuffix">
+                                        {{ 'application.applicant.suffix.label' | translate }}
+                                    </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="pepSuffix" aria-describedby="pepSuffixErrorMsg" formControlName="pepSuffix" placeholder="Suffix" matInput>
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of pepDetailValues.suffix">
+                                    <mat-error id="pepSuffixErrorMsg" *ngIf="!PEP.get('pepSuffix').valid && (PEP.get('pepSuffix').touched || submitted) && PEP.get('pepSuffix').hasError(validation.type)">
+                                        {{'application.applicant.politicallyExposedPersonDetails.suffix.validation' | translateValidation:validation}}</mat-error>
+                                </ng-container>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-lg-4 margin-b" *ngIf="((this.PEP.get('pepFlag').value === 'Yes - Domestic' || this.PEP.get('pepFlag').value === 'Yes - International')) || (this.PEP.get('previousPep').value === 'Yes') ">
+                                <mat-label>
+                                    <label for="pepCountry">
+                                        {{'application.applicant.politicallyExposedPersonDetails.pepCountry.label' | translate}}
+                                        <span class="red" aria-label="Mandatory" aria-hidden="true" tabindex="-1">*</span>
+                                     </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <mat-select role="listbox" aria-describedby="pepCountryErrorMsg" id="pepCountry" matNativeControl placeholder="Please select Country" formControlName="pepCountry" (change)="selectedIssuingCountry($event.target.value)">
+                                        <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                        <mat-option role="option" *ngFor="let val of countryList" [value]="val.code">{{val.label | uppercase}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of pepDetailValues.pepCountry">
+                                    <mat-error id="pepCountryErrorMsg" *ngIf="!PEP.get('pepCountry').valid && (PEP.get('pepCountry').touched || submitted) && PEP.get('pepCountry').hasError(validation.type)">
+                                        {{'application.applicant.politicallyExposedPersonDetails.pepCountry.validation' | translateValidation:validation}}</mat-error>
+                                </ng-container>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-lg-4 margin-b" *ngIf="((this.PEP.get('pepFlag').value === 'Yes - Domestic' || this.PEP.get('pepFlag').value === 'Yes - International')) || (this.PEP.get('previousPep').value === 'Yes') ">
+                                <mat-label>
+                                    <label for="positionTitle">
+                                        {{'application.applicant.politicallyExposedPersonDetails.PositionTitle.label' | translate}}
+                                          <span class="red" aria-label="Mandatory" aria-hidden="true" tabindex="-1">*</span>
+                                    </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="positionTitle" aria-describedby="positionTitleErrorMsg" matInput formControlName="positionTitle" aria-invalid="true" placeholder="Position PEP">
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of pepDetailValues.PositionTitle">
+                                    <mat-error id="positionTitleErrorMsg" *ngIf="!PEP.get('positionTitle').valid && (PEP.get('positionTitle').touched || submitted) && PEP.get('positionTitle').hasError(validation.type)">
+                                        {{'application.applicant.politicallyExposedPersonDetails.PositionTitle.validation' | translateValidation:validation}}</mat-error>
+                                </ng-container>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <!-- <div class="col-12 col-sm-6 col-lg-4 margin-b" *ngIf="((this.PEP.get('pepFlag').value === 'Yes - Domestic' || this.PEP.get('pepFlag').value === 'Yes - International')) || (this.PEP.get('previousPep').value === 'Yes') ">
+                                <mat-label>
+                                    <label for="detailsOfPositonHeld">
+                                              {{'application.applicant.politicallyExposedPersonDetails.detailsOfPositonHeld.label' | translate}}
+                                            <span class="red" aria-label="Mandatory" aria-hidden="true" tabindex="-1">*</span>
+                                          </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="detailsOfPositonHeld" aria-describedby="detailsOfPositonHeldErrorMsg" matInput formControlName="detailsOfPositonHeld" placeholder="Details of Position">
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of pepDetailValues.detailsOfPositonHeld">
+                                    <mat-error id="detailsOfPositonHeldErrorMsg" *ngIf="!PEP.get('detailsOfPositonHeld').valid && (PEP.get('detailsOfPositonHeld').touched || submitted) && PEP.get('detailsOfPositonHeld').hasError(validation.type)">
+                                        {{'application.applicant.politicallyExposedPersonDetails.detailsOfPositonHeld.validation' | translateValidation:validation}}</mat-error>
+                                </ng-container>
+                            </div> -->
+
+                            <div class="col-12 col-sm-6 col-lg-4 margin-b" *ngIf="((this.PEP.get('pepFlag').value === 'Yes - Domestic' || this.PEP.get('pepFlag').value === 'Yes - International')) || (this.PEP.get('previousPep').value === 'Yes') ">
+                                <mat-label>
+                                    <label for="dateAddedToPepList">
+                                          {{'application.applicant.politicallyExposedPersonDetails.dateAddedToPepList.label' | translate}}
+                                        <span class="red" aria-label="Mandatory">*</span>
+                                      </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="dateAddedToPepList" aria-describedby="dateAddedToPepListErrorMsg" (keyup)="dateMask($event)" matInput [matDatepicker]="picker3" placeholder="MM/DD/YYYY" formControlName="dateAddedToPepList" [max]="maxDateAllowed" [min]="minDateAllowed" (dateChange)="calculateYearsInPosition(PEP)">
+                                    <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker3></mat-datepicker>
+                                </mat-form-field>
+                                <mat-error id="dateAddedToPepListErrorMsg" *ngIf="!PEP.get('dateAddedToPepList').valid && (PEP.get('dateAddedToPepList').touched || submitted) && PEP.get('dateAddedToPepList').errors.required">
+                                    Please enter Date Appointed to Position
+                                </mat-error>
+                                <mat-error id="dateAddedToPepListErrorMsg" *ngIf="!PEP.get('dateAddedToPepList').valid && (PEP.get('dateAddedToPepList').touched || submitted) && !PEP.get('dateAddedToPepList').errors.required && PEP.get('dateAddedToPepList').hasError('matDatepickerParse')">
+                                    Please enter valid Date Appointed to Position
+                                </mat-error>
+                                <mat-error id="dateAddedToPepListErrorMsg" *ngIf="!PEP.get('dateAddedToPepList').valid && (PEP.get('dateAddedToPepList').touched || submitted) && PEP.get('dateAddedToPepList').hasError('matDatepickerMax')">
+                                    Please enter valid Date Appointed to Position
+                                </mat-error>
+                                <mat-error id="dateAddedToPepListErrorMsg" *ngIf="!PEP.get('dateAddedToPepList').valid && (PEP.get('dateAddedToPepList').touched || submitted) && PEP.get('dateAddedToPepList').hasError('matDatepickerMin')">
+                                    Please enter valid Date Appointed to Position
+                                </mat-error>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-lg-4 margin-b" *ngIf="((this.PEP.get('pepFlag').value === 'No')) && (this.PEP.get('previousPep').value === 'Yes') ">
+                                <mat-label>
+                                    <label for="dateRemovedFromPep">
+                                          {{'application.applicant.politicallyExposedPersonDetails.dateRemovedFromPep.label' | translate}}
+                                        <span class="red" aria-label="Mandatory">*</span>
+                                      </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="dateRemovedFromPep" aria-describedby="dateRemovedFromPepErrorMsg" matInput (keyup)="dateMask($event)" [matDatepicker]="picker2" aria-invalid="true" placeholder="MM/DD/YYYY" formControlName="dateRemovedFromPep" (dateChange)="calculateYearsInPosition(PEP)"
+                                        [max]="maxDateAllowed" [min]="minDateAllowed">
+                                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker2></mat-datepicker>
+                                </mat-form-field>
+                                <mat-error id="dateRemovedFromPepErrorMsg" *ngIf="!PEP.get('dateRemovedFromPep').valid && (PEP.get('dateRemovedFromPep').touched || submitted) && PEP.get('dateRemovedFromPep').errors.required">
+                                    Please enter Date removed from PEP
+                                </mat-error>
+                                <mat-error id="dateRemovedFromPepErrorMsg" *ngIf="!PEP.get('dateRemovedFromPep').valid && (PEP.get('dateRemovedFromPep').touched || submitted) && !PEP.get('dateRemovedFromPep').errors.required && PEP.get('dateRemovedFromPep').hasError('matDatepickerParse')">
+                                    Please enter valid Date removed from PEP
+                                </mat-error>
+                                <mat-error id="dateRemovedFromPepErrorMsg" *ngIf="!PEP.get('dateRemovedFromPep').valid && (PEP.get('dateRemovedFromPep').touched || submitted) && PEP.get('dateRemovedFromPep').hasError('matDatepickerMax')">
+                                    Please enter valid Date removed from PEP
+                                </mat-error>
+                                <mat-error id="dateRemovedFromPepErrorMsg" *ngIf="!PEP.get('dateRemovedFromPep').valid && (PEP.get('dateRemovedFromPep').touched || submitted) && PEP.get('dateRemovedFromPep').hasError('matDatepickerMin')">
+                                    Please enter valid Date removed from PEP
+                                </mat-error>
+                                <mat-error id="dateRemovedFromPepErrorMsg" *ngIf="!PEP.get('dateRemovedFromPep').valid && (PEP.get('dateRemovedFromPep').touched) && (PEP.get('dateRemovedFromPep').errors.removedDateLessThanAddedData)">
+                                    Date removed from PEP List cannot be earlier than Date Appointed to Position
+                                </mat-error>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-lg-4 margin-b" *ngIf="((this.PEP.get('pepFlag').value === 'Yes - Domestic' || this.PEP.get('pepFlag').value === 'Yes - International')) || (this.PEP.get('previousPep').value === 'Yes') ">
+                                <mat-label>
+                                    <label for="yearsInPosition">
+                                        {{'application.applicant.politicallyExposedPersonDetails.yearsInPosition.label' | translate}}
+                                    </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="yearsInPosition" matInput formControlName="yearsInPosition" placeholder="Years in Position" [readonly]="true">
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="col-md-12" formArrayName="relationshipDetails" *ngIf="(!((this.PEP.get('previousPep').value === 'No') && (this.PEP.get('pepFlag').value === 'No'))&&((this.PEP.get('pepRelation').value === '6')))">
+                            <div class="row">
+                                <span class="bold"> Relationship Details</span>
+                            </div>
+                            <div *ngFor="let relationshipDetail of PEP.controls.relationshipDetails['controls']; let i = index;" [formGroupName]="i">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <span class="sub-heading" *ngIf="!isCoApplicant">Relationship {{i + 1}}</span>
+
+                                        <div class="row">
+                                            <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                                <div class="mat-grp">
+                                                    <mat-label>
+                                                        <label for="firstName">{{'application.applicant.firstName.label' | translate}}
+                                                            <!-- <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                                *</span> -->
+                                                        </label>
+                                                    </mat-label>
+                                                    <mat-form-field appearance="outline" class="full-width">
+                                                        <input id="firstName" aria-describedby="firstNameErrorMsg" uppercase placeholder="First Name" formControlName="firstName" placeholder="First Name" matInput>
+                                                    </mat-form-field>
+                                                    <ng-container *ngFor="let validation of pepDetailValues.firstName">
+                                                        <mat-error id="firstNameErrorMsg" *ngIf="!relationshipDetail.get('firstName').valid && (relationshipDetail.get('firstName').touched || submitted) && relationshipDetail.get('firstName').hasError(validation.type)">
+                                                            {{'application.applicant.politicallyExposedPersonDetails.firstName.validation' | translateValidation:validation}}</mat-error>
+                                                    </ng-container>
+                                                </div>
+                                            </div>
+
+                                            <div class=" col-12 col-sm-6 col-lg-4 margin-b">
+                                                <div class="mat-grp">
+                                                    <mat-label>
+                                                        <label for="middleName">{{'application.applicant.middleName.label' | translate}}</label>
+                                                    </mat-label>
+                                                    <mat-form-field appearance="outline" class="full-width">
+                                                        <input id="middleName" aria-describedby="middleNameErrorMsg" uppercase formControlName="middleName" placeholder="Middle Name" [readonly]="isMiddleNameReadOnly && !isJointApplicant" matInput>
+                                                    </mat-form-field>
+                                                    <ng-container *ngFor="let validation of pepDetailValues.middleName">
+                                                        <mat-error id="middleNameErrorMsg" *ngIf="!relationshipDetail.get('middleName').valid && (relationshipDetail.get('middleName').touched || submitted) && relationshipDetail.get('middleName').hasError(validation.type)">
+                                                            {{'application.applicant.politicallyExposedPersonDetails.middleName.validation' | translateValidation:validation}}</mat-error>
+                                                    </ng-container>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                                <div class="mat-grp">
+                                                    <mat-label>
+                                                        <label for="lastName">{{'application.applicant.lastName.label' | translate}}
+                                                            <!-- <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                                *</span> -->
+                                                        </label>
+                                                    </mat-label>
+                                                    <mat-form-field appearance="outline" class="full-width">
+                                                        <input id="lastName" aria-describedby="lastNameErrorMsg" uppercase formControlName="lastName" placeholder="Last Name" matInput>
+                                                    </mat-form-field>
+                                                    <ng-container *ngFor="let validation of pepDetailValues.lastName">
+                                                        <mat-error id="lastNameErrorMsg" *ngIf="!relationshipDetail.get('lastName').valid && (relationshipDetail.get('lastName').touched || submitted) && relationshipDetail.get('lastName').hasError(validation.type)">
+                                                            {{'application.applicant.politicallyExposedPersonDetails.lastName.validation' | translateValidation:validation}}</mat-error>
+                                                    </ng-container>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                                <div class="mat-grp">
+                                                    <mat-label>
+                                                        <label for="Relationship">{{'application.applicant.Relationship.label' | translate}}
+                                                            <!-- <span class="red" aria-label="Mandatory" aria-hidden="true" tabindex="-1">*</span> -->
+                                                        </label>
+                                                    </mat-label>
+                                                    <mat-form-field appearance="outline" class="full-width">
+                                                        <input id="Relationship" aria-describedby="relationshipErrorMsg" formControlName="relationship" placeholder="Relationship" [readonly]="isMiddleNameReadOnly && !isJointApplicant" matInput>
+                                                    </mat-form-field>
+                                                    <ng-container *ngFor="let validation of pepDetailValues.Relationship">
+                                                        <mat-error id="relationshipErrorMsg" *ngIf="!relationshipDetail.get('relationship').valid && (relationshipDetail.get('relationship').touched || submitted) && relationshipDetail.get('relationship').hasError(validation.type)">
+                                                            {{'application.applicant.Relationship.validation' | translateValidation:validation}}
+                                                        </mat-error>
+                                                    </ng-container>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                                <mat-label>
+                                                    <label for="dob">
+                                                        {{ 'application.applicant.dob.label' | translate }}
+                                                        <!-- <span class="red" aria-label="Mandatory">*</span> -->
+                                                    </label>
+                                                </mat-label>
+                                                <mat-form-field appearance="outline" class="full-width">
+                                                    <input id="dob" aria-activedescendant="dobErrorMsg" matInput (keyup)="dateMask($event)" [matDatepicker]="picker1" aria-invalid="true" formControlName="dob" [max]="maxDateDob" [min]="minDateDob" placeholder="MM/DD/YYYY">
+                                                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                                    <mat-datepicker #picker1></mat-datepicker>
+                                                </mat-form-field>
+                                                <div class="height-space" *ngIf="!relationshipDetail.get('dob').valid && (relationshipDetail.get('dob').touched || submitted) && relationshipDetail.get('dob').hasError('required')">
+                                                    <mat-error id="dobErrorMsg">
+                                                        {{'application.applicant.dob.validation.required' | translate}}
+                                                    </mat-error>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 col-sm-6 col-lg-4">
+                                                <mat-label>
+                                                    <label for="xyz">                                              
+                                                
+                                                    </label>
+                                                </mat-label>
+                                                <div style="padding-top: 5px; float: right;">
+                                                    <button class="add-btn pull-right" *ngIf="i>0" (click)="deleteDetails(relationshipDetail,i)" mat-raised-button>Remove</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+
+                        <div class="row" *ngIf="(!((this.PEP.get('previousPep').value === 'No') && (this.PEP.get('pepFlag').value === 'No'))&&((this.PEP.get('pepRelation').value === '6')))">
+                            <div class="col-12">
+                                <button type="button" mat-raised-button color="primary" class="add-btn pull-right" (click)="addRelationshipDetails()">ADD RELATION</button>
+                            </div>
+                        </div>
+
+                        <hr aria-hidden="true" tabindex="-1" />
+                        <div id="buttons-container">
+                            <button type="button" mat-raised-button color="primary" id="prev-btn" (click)="back()">{{ 'application.buttons.prevSection' | translate }}</button>
+                            <button type="button" *ngIf="!isJointApplicant" mat-raised-button color="primary" id="next-btn" color="primary" (click)="continue()">{{ 'application.buttons.nextSection' | translate }}</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngIf="isComponentReadOnly">
+    <app-politically-exposed-person-readonly [model]="tabData"></app-politically-exposed-person-readonly>
+</ng-container>

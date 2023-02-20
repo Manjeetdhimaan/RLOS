@@ -1,0 +1,83 @@
+<div id="experian-dialog-container" modal-focus aria-modal="true" role="dialog" aria-labelledby="docUploadModal" class="documents-upload-container">
+    <div class="dialog-title-container" id="dialog-header">
+        <h3 mat-dialog-title class="dialog-title proxima-modal-heading" *ngIf="firstPage" tabindex="0">FCRA Disclosure</h3>
+        <h3 mat-dialog-title class="dialog-title proxima-modal-heading" *ngIf="secondPage" tabindex="0">Please verify your Identity</h3>
+        <!--<mat-icon class="close-icon no-print" (click)="close('N')" tabindex="0" aria-label="close">close</mat-icon>-->
+        <button mat-icon-button aria-label="close" tabindex="0" class="pull-right" (click)="close()">
+            <mat-icon class="close-icon no-print">close</mat-icon>
+        </button>
+        <button mat-raised-button color="primary" (click)="continue()" style="display: none;" cdkFocusInitial>Continue</button>
+        <button mat-raised-button color="primary" (click)="clickHere()" style="display: none;" cdkFocusInitial>Click Here</button>
+
+        <!-- <i class="material-icons close-icon" (click)="onNoClick()">close</i> -->
+    </div>
+
+    <div mat-dialog-content>
+        <div class="document-panel">
+            <div *ngIf="firstPage" tabindex="0">
+                You understand that by clicking on the I AGREE button immediately following this notice, you are providing 'written instructions'
+                to Jamaica Money Market Brokers (NEWGEN) under the Fair Credit Reporting Act authorizing NEWGEN to obtain
+                information from your personal credit profile or other information from Experian. You authorize NEWGEN to
+                obtain such information solely to confirm your identity for the prevention of identity theft.
+                <div style="width: 100%;text-align: right;" class="no-print">
+                    <button mat-icon-button aria-label="print" (click)="print()">
+                        <mat-icon class="material-icons" *ngIf="firstPage">print</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <form [formGroup]="experianForm" *ngIf="secondPage" autocomplete="off" (ngSubmit)="continue()" novalidate>
+                <div class="row">
+                    <div class="col-12">
+                        <div *ngFor="let question of questions; let i = index;">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 margin-b">
+                                        <mat-label>
+                                            <label for="{{'Question'+(i+1)}}" style="font-weight: bold;">{{ question.question }}
+                                            </label>
+                                        </mat-label>
+                                        <mat-radio-group [formControlName]="'Answer'+(i+1)">
+                                            <div *ngFor="let option of question.options; let j = index;">
+                                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                                    <mat-radio-button value="{{j+1}}" type="radio" aria-invalid="true" aria-describedby="msg25" aria-labelledby="msg25">
+                                                        <span class="radio-label">{{option}}
+                                                        </span>
+                                                    </mat-radio-button>
+                                                    &nbsp;&nbsp;
+                                                </div>
+                                            </div>
+                                        </mat-radio-group>
+                                        <mat-error id="msg25" *ngIf="!experianForm.get('Answer'+(i+1)).valid && (experianForm.get('Answer'+(i+1)).touched || submitted) && experianForm.get('Answer'+(i+1)).hasError('required')">Please select option
+                                        </mat-error>
+                                        <!-- <mat-form-field appearance="outline" class="full-width">
+
+                                            <input id="{{'Question'+(i+1)}}" aria-invalid="true" matInput [formControlName]="'Answer'+(i+1)" aria-describedby="msg" aria-labelledby="msg">
+                                        </mat-form-field>
+                                        <mat-error id="msg" role="alert" aria-live="assertive" aria-atomic="true" *ngIf="!experianForm.get('Answer'+(i+1)).valid && (experianForm.get('Answer'+(i+1)).touched || submitted) && experianForm.get('Answer'+(i+1)).hasError('required')"
+                                            id="{{'msg'+(i+1)}}">Please select any option.</mat-error> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <hr *ngIf="i< 5" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <div mat-dialog-actions class="modal-footer">
+        <!-- <div style="width: 100%;text-align: right;">
+            <mat-icon class="material-icons" *ngIf="firstPage">print</mat-icon>
+        </div> -->
+        <div class="modal-btns no-print">
+            <!-- <button mat-stroked-button class="margin-r" (click)="onNoClick()">No Thanks</button> -->
+            <label *ngIf="firstPage">
+                {{name}} &nbsp;&nbsp;
+            </label>
+            <button mat-raised-button color="primary" (click)="continue()" *ngIf="secondPage" cdkFocusInitial>Continue</button>
+            <button mat-raised-button color="primary" (click)="clickHere()" *ngIf="firstPage" cdkFocusInitial>I Agree</button>
+        </div>
+    </div>
+</div>

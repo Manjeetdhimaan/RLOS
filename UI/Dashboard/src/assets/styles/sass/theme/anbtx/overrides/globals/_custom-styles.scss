@@ -1,0 +1,394 @@
+@import './src/assets/styles/sass/theme/anbtx/_anbtx-variables';
+@import './src/assets/styles/sass/global/custom-styles';
+.garamond_bolditalic {
+    font-family: $body-font;
+    font-size: $body-font-medium;
+}
+
+.garamond_bolditalic {
+    font-family: $question-font;
+    font-size: $body-font-medium;
+}
+
+.garamond_bolditalic {
+    font-family: $headings-font;
+    font-size: $body-font-medium;
+}
+
+label,
+span {
+    font-family: $label-font;
+}
+
+//*************************** MATERIAL THEME OVERRIDE **********************************//
+ ::ng-deep .mat-form-field-wrapper {
+    padding-bottom: 0px;
+}
+
+ ::ng-deep .mat-form-field-label-wrapper {
+    padding-top: 0px;
+}
+
+ ::ng-deep .mat-form-field-outline {
+    top: 15px !important;
+    bottom: 5px !important;
+    transition: none;
+    border: 1px solid black !important;
+    border-radius: 5px;
+}
+
+.custom-legend {
+    border: none !important;
+    width: fit-content !important;
+    color: #003E7E !important;
+    padding: 5px !important;
+    font-weight: bolder !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    // font-size: 1.875em !important;
+    // margin: 0.5em 0 0 0 !important;
+}
+
+.mat-card-actions {
+    background: #003E7E;
+    color: white;
+    text-align: center;
+    padding-bottom: 5px !important;
+}
+
+.mat-card-button {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.mat-card {
+    background: #E5E5EE;
+}
+
+.mat-card-image {
+    height: 160px;
+}
+
+.material-icons {
+    font-size: 20px !important;
+}
+
+ ::ng-deep .mat-select-arrow-wrapper {
+    vertical-align: bottom !important;
+}
+
+ ::ng-deep .mat-focused {
+    color: black !important;
+}
+
+//  ::ng-deep  .mat-select-content{
+//     background-color: $primary-blue-2;
+//   }
+//  ::ng-deep .mat-option {
+//     color: $white;
+//  }
+//  ::ng-deep  .mat-select-panel{
+//     background-color: $primary-blue-2;
+//   }
+//  ::ng-deep  .mat-option:hover:not(.mat-option-disabled),{
+//     background-color: $secondary-blue-6;
+//     color:$white;
+//   }
+//  ::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+//     color: $white;
+//   }
+//  ::ng-deep .mat-option.mat-active {
+//     background-color: $primary-blue-2;
+//     color:$white;
+//   }
+ ::ng-deep mat-expansion-panel.mat-expansion-panel {
+    background: transparent;
+}
+
+ ::ng-deep .mat-expansion-panel-header {
+    background-color: $primary-blue-4;
+}
+
+//::ng-deep .mat-expansion-panel-header:hover{
+//   background-color:$secondary-blue-6;
+// }
+//::ng-deep .mat-expansion-panel-header.mat-expanded:focus, .mat-expansion-panel-header.mat-expanded:hover {
+//   background: $secondary-blue-6 !important;
+// }
+//  ::ng-deep .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled='true']):hover{
+//     background: $secondary-blue-6 !important;
+//   }
+//  ::ng-deep .mat-expansion-panel-header.mat-expanded:hover{
+//     background: $secondary-blue-6 !important;
+//   }
+ ::ng-deep .mat-expansion-panel-header.mat-expanded {
+    height: 48px !important;
+    background-color: $primary-blue-4 !important;
+}
+
+ ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: transparent;
+}
+
+ ::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+    border: none !important;
+}
+
+ ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    border: none !important;
+}
+
+ ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: .75em 0 .75em 0;
+}
+
+ ::ng-deep .mat-fab .mat-button-wrapper {
+    padding: 11px 12px !important;
+    font-size: 16px !important;
+}
+
+ ::ng-deep .mat-fab {
+    width: 45px !important;
+    height: 45px !important;
+}
+
+ ::ng-deep .mat-tab-label-content {
+    font-family: $headings-font;
+    font-size: 14px !important;
+    font-weight: $body-font-bold;
+}
+
+ ::ng-deep .mat-step-label {
+    font-family: $body-font;
+    font-size: 16px !important;
+}
+
+ ::ng-deep .mat-option-text {
+    font-family: $dropdown-field-font;
+}
+
+ ::ng-deep .mat-input-element {
+    font-family: $form-field-font;
+}
+
+ ::ng-deep .mat-select-placeholder {
+    font-family: $dropdown-field-font;
+}
+
+ ::ng-deep .mat-select-value-text {
+    color: rgba(0, 0, 0, .88);
+    font-family: $label-font;
+}
+
+.select-option {
+    font-family: $label-font;
+}
+
+ ::ng-deep .mat-expansion-panel-content {
+    font-family: $body-font;
+    font-size: $body-font-medium;
+}
+
+ ::ng-deep .mat-tab-label:focus:not(.mat-tab-disabled) {
+    opacity: 1 !important;
+}
+
+// ::ng-deep .mat-tab-label{
+//   pointer-events: none !important;
+// }
+ ::ng-deep .mat-select-trigger {
+    bottom: 2px !important;
+}
+
+ ::ng-deep .mat-select-arrow {
+    margin-bottom: 1px;
+}
+
+.absolute-center {
+    @include mobile {
+        width: 100% !important;
+    }
+}
+
+ ::ng-deep mat-label {
+    font-family: $label-font !important;
+}
+
+::ng-deep .mat-horizontal-stepper-header {
+    padding-right: 10px !important;
+    padding-left: 0px !important;
+}
+
+::ng-deep .mat-stepper-horizontal-line {
+    margin: 0 8px !important;
+}
+
+::ng-deep .mat-checkbox-layout {
+    white-space: normal !important;
+    margin-top: 3px;
+}
+
+::ng-deep .mat-checkbox-inner-container {
+    margin-top: 2px !important;
+}
+
+::ng-deep .mat-tab-group {
+    font-family: $body-font;
+}
+
+.error-alert {
+    color: $primary-red-1;
+    border: 1px solid $primary-red-1;
+}
+
+.success-alert {
+    color: #008000;
+    border: 1px solid #008000;
+}
+
+.warning-alert {
+    color: #F7DC6F;
+    border: 1px solid $primary-blue-1;
+}
+
+.inline-flex {
+    display: inline-flex;
+    line-height: inherit;
+}
+
+.button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: $body-font;
+}
+
+input,
+optgroup,
+select,
+textarea {
+    font-family: $label-font;
+}
+
+::ng-deep .mat-expansion-panel-header-title {
+    width: 90% !important;
+    font-size: 16px !important;
+}
+
+.heading-font {
+    font-family: $label-font;
+    font-weight: bold;
+    margin-bottom: 0px !important;
+}
+
+.label-heading-font {
+    font-family: $label-font;
+    font-weight: bold;
+    // margin-bottom: 0px !important;
+}
+
+.label-font {
+    font-family: $label-font;
+    word-break: break-all;
+}
+
+.mat-error {
+    font-family: $label-font;
+}
+
+::ng-deep .mat-form-field-prefix {
+    top: 0px !important;
+}
+
+::ng-deep .mat-icon-button {
+    top: 0.5em;
+    display: inline !important;
+}
+
+::ng-deep .mat-horizontal-content-container {
+    padding: 0px !important
+}
+
+hr {
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+}
+
+label {
+    margin-bottom: 0px !important;
+}
+
+::ng-deep .mat-form-field-infix {
+    cursor: pointer;
+    pointer-events: inherit;
+}
+
+@media (min-width: 960px) {
+    .offset-md-1-5 {
+        margin-left: 12.5%;
+    }
+}
+
+::ng-deep .mat-error {
+    font-size: .875em !important;
+}
+
+::ng-deep .mat-button,
+.mat-raised-button,
+.mat-icon-button,
+.mat-stroked-button,
+.mat-flat-button,
+.mat-fab,
+.mat-mini-fab {
+    font-size: 16px !important;
+}
+
+button {
+    font-size: 16px !important;
+}
+
+.mat-expansion-panel-content {
+    font-size: 16px !important;
+}
+
+.mat-raised-button {
+    background: #EE1B2A;
+    color:white;
+    //border: 1px solid #58595b;
+    font-size: 12px;
+    padding: 7px 14px;
+    text-align: center;
+    font-weight: 400;
+    line-height: 1.42857143;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+}
+
+.mat-input-element {
+    font: inherit;
+    background: 0 0;
+    color: currentColor;
+    border: none;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    vertical-align: bottom;
+    text-align: inherit;
+    height: 20px;
+    padding-bottom: 3.5px;
+}
+
+::ng-deep .mat-datepicker-toggle-default-icon {
+    margin: 5px auto !important;
+}
+
+::ng-deep .mat-cell,
+.mat-footer-cell {
+    font-size: 15px !important;
+}

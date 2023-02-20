@@ -1,0 +1,71 @@
+@import './src/assets/styles/sass/global/_default-variables.scss';
+//=============================================================================
+//  Application Level Variables
+//=============================================================================
+
+/* ===========================  Colour Palette ================================ */
+
+$primary-teal: #0097A9;
+$accent-light-blue: #99CCCC;
+$warn-orange: #D94529;
+$grey-dark:#40424B;
+$grey-light:#666666;
+$slate-dark:#999999;
+$slate-light:#CCCCCC;
+$white:#FFFFFF;
+$primary-blue-1:#0956A4;
+$primary-blue-2:#20558A;
+$primary-blue-3:#9CD1F2;
+$primary-blue-4:#DCE7EF;
+$secondary-blue-5:#2E465A;
+$secondary-blue-6:#83A2BB;
+$primary-green-1: #008000;
+$primary-red-1:#EE3428;
+$secondary-gray-1:#5C5A5A;
+$secondary-gray-2:#9A8B7D;
+$h1-color:$primary-blue-2;
+$h2-color:$grey-dark;
+$h3-color:$grey-dark;
+$h4-color:$grey-dark;
+$h5-color:$grey-light;
+$theme-line-spacing-headlines: 120%;
+
+/**************************** SIZE PALETTE ********************************/
+
+$h1-font:em(36px);
+$h2-font:em(32px);
+$h3-font:em(10px);
+$h4-font:em(20px);
+$h5-font:em(18px);
+$circle-button-height:em(60px);
+$circle-button-width:em(60px);
+$circle-button-font-size: em(18px);
+$button-border-radius:em(5px);
+$icon-height:em(60px);
+$icon-width:em(60px);
+$icon-font-size: em(16px);
+$tooltip-icon-size:em(22px);
+$high-bar-height:em(20px);
+$high-bar-background:$grey-light;
+$header-height:em(130px);
+$header-background:$white;
+$high-overlay-bar:em(45px);
+$high-overlay-background:$primary-blue-2;
+$footer-height:em(75px);
+$footer-background:$white;
+$body-font:'open-sans_bolditalic',
+'open-sans_bold',
+'open-sans_regular' !important;
+$question-font:'open-sans_bolditalic' !important;
+$label-font : 'open-sans_regular' !important;
+$headings-font:'open-sans_bolditalic',
+'open-sans_bold',
+'open-sans_regular _bold' !important;
+$body-font-medium:em(16px) !important;
+$body-font-bold:bold !important;
+$form-field-font : 'open-sans_regular' !important;
+$dropdown-field-font : 'open-sans_regular' !important;
+$modal-italic-font:'open-sans_bolditalic' !important;
+$modal-italic-bold-font:'open-sans_bolditalic' !important;
+$modal-heading-font:'open-sans_bolditalic' !important;
+$footer-font-size:em(16px) !important;

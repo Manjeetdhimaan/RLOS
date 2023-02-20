@@ -1,0 +1,105 @@
+.footer {
+    background: #ee1b2a;
+    display: block;
+    color: white;
+    font-family: Raleway;
+    margin-bottom: 0%;
+    left: 0;
+    right: 0;
+   // height: 170px; 
+    padding-top: 30px;
+    padding-bottom: 1px;
+    position: relative;
+    
+}
+
+.footer .footer-content {
+    //height: 8px;
+    display: flex;
+}
+
+.footer .footer-content .footer-section {
+    float: none;
+    padding: 0 0 40px;
+    margin-left: 20px;
+}
+
+::ng-deep .footerText{
+    text-align: center;
+    color: white;
+    margin-left: 20px;
+}
+.socialAlign{
+    float: right;
+   // margin-left: 40%;
+}
+
+.footer .footer-content .logo {
+    float: right;
+    //margin-right: 30px;
+}
+
+.footer.footer-bottom {
+    float: none;
+    padding: 0 0 40px;
+}
+.footer .footer-content .top-part{
+    margin-top: 40px;
+    float: right;
+}
+
+// .top-part{
+//     margin-top: 40px; 
+// }
+.footer-logo-link{
+    display: block;
+    position: relative;
+    left: -32px;
+    top: -10px;
+    margin-left: 40px;
+}
+
+footer .footer-menu ul {
+    margin: 0;
+    padding: 0 7px;
+    list-style-position: inside;
+    -webkit-column-count: 3;
+    column-count: 3;
+    list-style-type: none;
+  }
+  ul {
+    margin: 0;
+    padding: 0 7px;
+    list-style-position: inside;
+    -webkit-column-count: 3;
+    column-count: 3;
+    list-style-type: none;
+  }
+  footer a:active {
+    color: #d8d8d8;
+}
+footer a{
+    text-decoration: none;
+    color: white;
+}
+
+footer .footer-menu{
+    width: 20%;
+}
+
+
+// html, body {
+//     height: 100%;
+//   }
+//   .page-wrap {
+//     min-height: 100%;
+//     /* equal to footer height */
+//     margin-bottom: -142px; 
+//   }
+//   .page-wrap:after {
+//     content: "";
+//     display: block;
+//   }
+//   .site-footer, .page-wrap:after {
+//     height: 142px; 
+//   }

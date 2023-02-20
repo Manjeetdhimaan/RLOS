@@ -1,0 +1,53 @@
+<div id="add-coapplicant-dialog-container" modal-focus aria-modal="true" role="dialog" aria-labelledby="docUploadModal">
+    <div class="row" *ngIf="showAlert">
+        <div class="col-12" role="alert" aria-live="assertive" aria-atomic="true">
+            <error-alert [errorObject]="alert" (close)="closeError()"></error-alert>
+        </div>
+    </div>
+    <div mat-dialog-content>
+        <div class="document-panel">
+            <form [formGroup]="resumeForm" class="resume-form" (ngSubmit)="continue()">
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12 otp-description">
+                                <mat-label>
+                                    <label for="number">
+                                        <strong class="dark-blue">One Time Password has been sent to your email address. Enter One Time Password to proceed (One Time Password will be valid for  <span class="pale-blue">{{otpTime | formatTime}}</span> only)</strong>
+                                    </label>
+                                </mat-label>
+                            </div>
+
+                            <div class="mat-grp col-md-5 col-sm-6 col-xs-12">
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="number" type="password" matInput formControlName="number" mask="000000">
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of resumeValues.number">
+                                    <mat-error id="msg" *ngIf="!resumeForm.get('number').valid && (resumeForm.get('number').touched || submitted) && resumeForm.get('number').hasError(validation.type)">
+                                        {{'application.applicant.number.validation' | translateValidation:validation}}
+                                    </mat-error>
+                                </ng-container>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12 margin-b">
+                                <span tabindex="0" class="resend-otp-label">
+                                    Once One Time Password has been sent then next One Time Password can be RESEND only after {{resendOtpAfterTime | formatTime}} 
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="modal-footer">
+            <div mat-dialog-actions class="modal-btns">
+                <button mat-raised-button color="primary" [disabled]="disableButtonFlag" class="margin-r" (click)="resendOTP()">Resend One Time Password</button>
+                <span class="mr-10"></span>
+                <button mat-raised-button color="primary" class="margin-r" (click)="continue()">Submit</button>
+            </div>
+        </div>
+
+
+    </div>
+</div>

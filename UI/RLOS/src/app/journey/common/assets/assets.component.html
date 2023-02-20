@@ -1,0 +1,924 @@
+<div class="asset-details-container" *ngIf="!isComponentReadOnly">
+    <div class="no-padding-lr col-md-12">
+        <form [formGroup]="assetForm" autocomplete="off" (ngSubmit)="continue(assetForm?.value)">
+            <div class="col-md-12 col-lg-12" formArrayName="assetDetails">
+                <div class="row">
+                    <!-- *ngFor="let assetDetail of formControls.assetDetails.controls; let i = index;" -->
+
+                    <div class="col-md-12" *ngFor="let assetDetail of assetDetailsFormGroup.controls; let i = index"
+                        [formGroupName]="i">
+                        <div class="col-md-12 col-sm-6 col-xs-12 margin-b" style="padding-left: 0!important;">
+                            <div class="heightDiv"></div>
+                            <p class="heading-font">Asset-{{i+1}}</p>
+                        </div>
+                        <div class="form-group">
+                            <div class="row"
+                                *ngIf="assetDetail.get('assetLabel')?.value !== 'Cash at Jamaica Money Market Brokers'">
+
+                                <!--Asset add on-->
+
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+
+                                    <div role="form" id="personal-info" aria-label="Personal Information">
+
+                                        <mat-label>
+                                            <label for="Assets">Asset Type
+                                                <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                    aria-hidden="true">
+                                                    *</span>
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <mat-select role="listbox" placeholder="Please Select"
+                                                formControlName="assetTypeList"
+                                                (selectionChange)="onResetFieldsAssetShow($event, i)">
+                                                <mat-option role="option" value=null selected disabled>Please Select
+                                                </mat-option>
+                                                <mat-option role="option" *ngFor="let val of assetTypeList"
+                                                    [value]="val.code">
+                                                    {{val.label}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                        <!--<mat-error>
+            <span id="msg18"
+                *ngIf="(personalForm.get('branch').touched)  && personalForm.get('branch').hasError('required')">
+                Please select Asset Type
+            </span>
+        </mat-error>-->
+
+                                    </div>
+                                </div>
+
+                                <!--Asset add on-->
+
+
+
+
+
+
+                                <!--Value-->
+
+
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b" *ngIf="false">
+                                    <mat-label>
+                                        <label for="assetType">
+                                            {{ 'application.applicant.assetDetails.assetType.label' | translate }}
+                                            <span class="red" aria-label="Mandatory" *ngIf="required" aria-hidden="true"
+                                                tabindex="-1"> *</span>
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <span matPrefix class="dollar-space">J$ &nbsp;</span>
+                                        <input id="assetType" matInput maxlength="14" currencyMask
+                                            [options]="{ allowNegative: false, thousands: ',', decimal: '.', precision: 2 }"
+                                            formControlName="type">
+                                    </mat-form-field>
+                                </div>
+
+
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                    <mat-label>
+                                        <label for="amount">
+                                            {{ 'application.applicant.assetDetails.amount.label' | translate }}
+                                            <span class="red" aria-label="Mandatory" *ngIf="required" aria-hidden="true"
+                                                tabindex="-1"> *</span>
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <span matPrefix class="dollar-space">J$ &nbsp;</span>
+                                        <input id="amount" aria-invalid="true" aria-describedby="msg1"
+                                            aria-labelledby="msg1"
+                                            [readonly]="assetDetail.get('assetLabel')?.value === 'Cash at Jamaica Money Market Brokers' ? true : false"
+                                            matInput maxlength="14" currencyMask
+                                            [options]="{ allowNegative: false, thousands: ',', decimal: '.', precision: 2 }"
+                                            formControlName="amount">
+                                    </mat-form-field>
+                                    <mat-error id="msg1"
+                                        *ngIf="!assetDetail.get('amount')?.valid && (assetDetail.get('amount')?.touched || submitted) && assetDetail.get('amount').hasError('required')">
+                                        {{'application.applicant.assetDetails.amount.validation.required' | translate}}
+                                    </mat-error>
+                                    <mat-error id="msg1"
+                                        *ngIf="!assetDetail.get('amount')?.valid && (assetDetail.get('amount')?.touched || submitted) && assetDetail.get('amount').hasError('minlength')">
+                                        {{'application.applicant.assetDetails.amount.validation.minlength' | translate}}
+                                    </mat-error>
+                                    <mat-error id="msg1"
+                                        *ngIf="!assetDetail.get('amount')?.valid && (assetDetail.get('amount')?.touched || submitted) && assetDetail.get('amount').hasError('maxlength')">
+                                        {{'application.applicant.assetDetails.amount.validation.maxlength' | translate}}
+                                    </mat-error>
+                                </div>
+
+                                <!--Value-->
+
+
+
+
+
+                                <!--Currency-add-On-->
+
+                                <div>
+                                    <mat-label>
+                                        <label for="Assets">Currency
+                                            <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span>
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <mat-select role="listbox" placeholder="Please Select"
+                                            formControlName="currecncyTypeList">
+                                            <mat-option role="option" value=null selected disabled>Please Select
+                                            </mat-option>
+                                            <mat-option role="option" *ngFor="let val of currecncyTypeList"
+                                                [value]="val.code">
+                                                {{val.label}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+
+                                <!--Currency-add-On-->
+
+
+
+
+                                <div
+                                    *ngIf="assetDetail.get('assetTypeList').value=='FR' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='jw' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='vbm' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='ovbm' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='opp' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='rep' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='bin' ">
+                                    <!--Insititution Name-->
+                                    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" *ngIf="showOtherAssets && i==idx">
+
+                                        <mat-label>
+                                            <label for="instName">
+                                                {{ 'application.applicant.assetDetails.instName.label' | translate }}
+                                                <span class="red" aria-label="Mandatory" *ngIf="required"
+                                                    aria-hidden="true" tabindex="-1"> *</span>
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="instName" matInput formControlName="instName" aria-invalid="true"
+                                                aria-describedby="msg2" maxlength="40" aria-labelledby="msg2">
+                                        </mat-form-field>
+                                        <mat-error id="msg2"
+                                            *ngIf="!assetDetail.get('instName')?.valid && (assetDetail.get('instName')?.touched || submitted) && assetDetail.get('instName').hasError('required')">
+                                            {{'application.applicant.assetDetails.instName.validation.required' |
+                                            translate}}</mat-error>
+                                        <mat-error id="msg2"
+                                            *ngIf="!assetDetail.get('instName')?.valid && (assetDetail.get('instName')?.touched || submitted) && assetDetail.get('instName').hasError('minlength')">
+                                            {{'application.applicant.assetDetails.instName.validation.minlength' |
+                                            translate}}</mat-error>
+                                        <mat-error id="msg2"
+                                            *ngIf="!assetDetail.get('instName')?.valid && (assetDetail.get('instName')?.touched || submitted) && assetDetail.get('instName').hasError('maxlength')">
+                                            {{'application.applicant.assetDetails.instName.validation.maxlength' |
+                                            translate}}</mat-error>
+                                    </div>
+
+                                    <!--Insititution Name-->
+
+
+
+
+
+                                    <!--Registered-Owner-Name-->
+                                    <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                        <!-- *ngIf="assetDetail.get('assetTypeList')?.value?.toLowerCase()=='fr' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='jw' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='vbm' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='ovbm' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='opp' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='rep' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='bin' "> -->
+                                        <mat-label>
+                                            <label for="lienHoldername">
+                                                Registered Owner Name
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="Registered-Owner-Name" matInput
+                                                formControlName="Registered-Owner-Name" aria-invalid="true"
+                                                aria-describedby="msg3" maxlength="40" aria-labelledby="msg3">
+                                        </mat-form-field>
+                                        <!--<mat-error id="msg3"
+                                        *ngIf="!assetDetail.get('lienHoldername')?.valid && (assetDetail.get('lienHoldername')?.touched || submitted) && assetDetail.get('lienHoldername').hasError('minlength')">
+                                        {{'application.applicant.assetDetails.lienHoldername.validation.minlength' |
+                                        translate}}</mat-error>
+                                    <mat-error id="msg3"
+                                        *ngIf="!assetDetail.get('lienHoldername')?.valid && (assetDetail.get('lienHoldername')?.touched || submitted) && assetDetail.get('lienHoldername').hasError('maxlength')">
+                                        {{'application.applicant.assetDetails.lienHoldername.validation.maxlength' |
+                                        translate}}</mat-error>-->
+                                    </div>
+
+                                    <!--Registered Owner Name-->
+
+
+
+
+
+
+
+
+                                    <!--lienHoldername-->
+                                    <div class="col-md-3 col-sm-6 col-xs-12 margin-b"
+                                        *ngIf="assetDetail.get('assetTypeList')?.value?.toLowerCase()=='fr' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='jw' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='vbm' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='ovbm' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='opp' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='rep' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='bin'">
+                                        <mat-label>
+                                            <label for="lienHoldername">
+                                                lienHoldername
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="lienHoldername" matInput formControlName="lienHoldername"
+                                                aria-invalid="true" aria-describedby="msg3" maxlength="40"
+                                                aria-labelledby="msg3">
+                                        </mat-form-field>
+                                        <!--<mat-error id="msg3"
+                                        *ngIf="!assetDetail.get('lienHoldername')?.valid && (assetDetail.get('lienHoldername')?.touched || submitted) && assetDetail.get('lienHoldername').hasError('minlength')">
+                                        {{'application.applicant.assetDetails.lienHoldername.validation.minlength' |
+                                        translate}}</mat-error>
+                                    <mat-error id="msg3"
+                                        *ngIf="!assetDetail.get('lienHoldername')?.valid && (assetDetail.get('lienHoldername')?.touched || submitted) && assetDetail.get('lienHoldername').hasError('maxlength')">
+                                        {{'application.applicant.assetDetails.lienHoldername.validation.maxlength' |
+                                        translate}}</mat-error>-->
+                                    </div>
+
+                                    <!--lienHoldername-->
+
+
+
+
+                                    <!--lien-Value-->
+                                    <div class="col-md-3 col-sm-6 col-xs-12 margin-b"
+                                        *ngIf="assetDetail.get('assetTypeList').value=='FR' ">
+                                        <mat-label>
+                                            <label for="lien-Value">
+                                                lien Value
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="lien-Value" matInput formControlName="lien-Value"
+                                                aria-invalid="true" aria-describedby="msg3" maxlength="40"
+                                                aria-labelledby="msg3">
+                                        </mat-form-field>
+                                        <!--<mat-error id="msg3"
+                                        *ngIf="!assetDetail.get('lienHoldername')?.valid && (assetDetail.get('lienHoldername')?.touched || submitted) && assetDetail.get('lienHoldername').hasError('minlength')">
+                                        {{'application.applicant.assetDetails.lienHoldername.validation.minlength' |
+                                        translate}}</mat-error>
+                                    <mat-error id="msg3"
+                                        *ngIf="!assetDetail.get('lienHoldername')?.valid && (assetDetail.get('lienHoldername')?.touched || submitted) && assetDetail.get('lienHoldername').hasError('maxlength')">
+                                        {{'application.applicant.assetDetails.lienHoldername.validation.maxlength' |
+                                        translate}}</mat-error>-->
+                                    </div>
+                                </div>
+                                <!--lien Value-->
+
+
+                                <!--Comment-->
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                    <mat-label>
+                                        <label for="comment">
+                                            {{ 'application.applicant.assetDetails.comment.label' | translate }}
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="comment" matInput formControlName="comment" aria-invalid="true"
+                                            aria-describedby="msg3" maxlength="40" aria-labelledby="msg3">
+                                    </mat-form-field>
+                                    <mat-error id="msg3"
+                                        *ngIf="!assetDetail.get('comment')?.valid && (assetDetail.get('comment')?.touched || submitted) && assetDetail.get('comment').hasError('minlength')">
+                                        {{'application.applicant.assetDetails.comment.validation.minlength' |
+                                        translate}}</mat-error>
+                                    <mat-error id="msg3"
+                                        *ngIf="!assetDetail.get('comment')?.valid && (assetDetail.get('comment')?.touched || submitted) && assetDetail.get('comment').hasError('maxlength')">
+                                        {{'application.applicant.assetDetails.comment.validation.maxlength' |
+                                        translate}}</mat-error>
+                                </div>
+
+                                <!--Comment-->
+
+                                <!--Remove Button add-->
+
+
+
+                            </div>
+                            <div *ngIf="i>0" id="buttons-container-Remove">
+                                <button type="button" class="btn btn-primary" aria-label="Continue"
+                                    (click)="removeAsset(i)">Remove</button>
+                            </div>
+                            <!--Remove Button add-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!--commented html New WireFrame According-->
+
+
+
+            <!--Button for asset added-->
+
+            <div id="buttons-container">
+                <button type="button" class="btn btn-primary" aria-label="Continue" (click)="addAsset()">Add More
+                    Asset</button>
+            </div>
+
+            <!--Button for asset added-->
+
+
+
+
+
+            <br>
+            <br>
+            <!-- Liability  -->
+            <h3>Liabilities</h3>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-xs-12" formArrayName="liabilityDetails">
+
+
+                    <div class="row" *ngFor="let liability of assetForm.get('liabilityDetails').controls; let i = index"
+                        [formGroupName]="i">
+                        <div class="heightDiv"></div>
+                        <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+
+
+                            <p class="heading-font">Liabilities Type</p>
+
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-select role="listbox" placeholder="Please Select" formControlName="liabilityList">
+                                    <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                    <mat-option role="option" *ngFor="let val of liabilityList" [value]="val.code">
+                                        {{val.label}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <!--<mat-error>
+                        <span id="msg18"
+                            *ngIf="(personalForm.get('branch').touched)  && personalForm.get('branch').hasError('required')">
+                            Please select Asset Type
+                        </span>
+                    </mat-error>-->
+                        </div>
+
+
+
+
+                        <!--Currency-add-On-->
+
+                        <div>
+                            <mat-label>
+                                <label for="Assets">Currency
+                                    <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                        *</span>
+                                </label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-select role="listbox" placeholder="Please Select"
+                                    formControlName="currecncyTypeList">
+                                    <mat-option role="option" value=null selected disabled>Please Select
+                                    </mat-option>
+                                    <mat-option role="option" *ngFor="let val of currecncyTypeList" [value]="val.code">
+                                        {{val.label}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                        <!--Currency-add-On-->
+
+
+                        <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                            <mat-label>
+                                <label for="Original Amount/Credit Limit">
+                                    Original Amount/Credit Limit
+                                    <span class="red" aria-label="Mandatory"> *</span>
+                                </label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="full-width">
+                                <input id="OACL" uppercase placeholder="OACL" aria-labelledby="OACL" matInput
+                                    formControlName="OACL" [readonly]="isReadOnly">
+                            </mat-form-field>
+                        </div>
+
+
+
+                        <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                            <mat-label>
+                                <label for="Outstanding Amount/Balance Amount">
+                                    Outstanding Amount/Balance Amount
+                                    <span class="red" aria-label="Mandatory"> *</span>
+                                </label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="full-width">
+                                <input id="OABA" uppercase placeholder="OABA" aria-labelledby="OABA" matInput
+                                    formControlName="OABA" [readonly]="isReadOnly">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                            <mat-label>
+                                <label for="Monthly Payment">
+                                    Monthly Payment
+                                    <span class="red" aria-label="Mandatory"> *</span>
+                                </label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="full-width">
+                                <input id="Monthly-Payment" uppercase placeholder="Monthly-Payment"
+                                    aria-labelledby="Monthly-Payment" matInput formControlName="Monthly-Payment"
+                                    [readonly]="isReadOnly">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                            <mat-label>
+                                <label for="Institution-Name">
+                                    Institution Name
+                                    <span class="red" aria-label="Mandatory"> *</span>
+                                </label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="full-width">
+                                <input id="Institution-Name" uppercase placeholder="Institution-Name"
+                                    aria-labelledby="Institution-Name" matInput formControlName="Institution-Name"
+                                    [readonly]="isReadOnly">
+                            </mat-form-field>
+                        </div>
+
+
+                        <!--Button for Remove Liabilities-->
+
+                        <div *ngIf="i>0" id="buttons-container">
+                            <button type="button" class="btn btn-primary" aria-label="Continue"
+                                (click)="removeLiability(i)">Remove</button>
+                        </div>
+
+                        <!--Button for Remove Liabilities-->
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!--Button for Liability added-->
+
+            <div id="buttons-container">
+                <button type="button" class="btn btn-primary" aria-label="Continue" (click)="addMoreLoan()">Add
+                    Liabilities</button>
+            </div>
+
+            <!--Button for  added-->
+
+            <!-- Liability  -->
+
+
+            <br>
+            <br>
+
+
+
+
+
+
+
+
+
+            <!--Expenses-->
+
+
+
+            <h3>Expenses</h3>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-xs-12" formArrayName="expensesDetails">
+                    <div class="row" *ngFor="let liability of assetForm.get('expensesDetails').controls; let i = index"
+                        [formGroupName]="i">
+
+                        <div class="heightDiv"></div>
+                        <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                            <p class="heading-font">Expenses Type</p>
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-select role="listbox" placeholder="Please Select" formControlName="liabilityList">
+                                    <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                    <mat-option role="option" *ngFor="let val of liabilityList" [value]="val.code">
+                                        {{val.label}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                            <p class="heading-font">Frequency</p>
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-select role="listbox" placeholder="Please Select" formControlName="frequencyLis">
+                                    <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                    <mat-option role="option" *ngFor="let val of frequencyLis" [value]="val.code">
+                                        {{val.label}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+
+
+                        <!--Currency-add-On-->
+
+                        <div>
+                            <mat-label>
+                                <label for="Assets">Currency
+                                    <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                        *</span>
+                                </label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-select role="listbox" placeholder="Please Select"
+                                    formControlName="currecncyTypeList">
+                                    <mat-option role="option" value=null selected disabled>Please Select
+                                    </mat-option>
+                                    <mat-option role="option" *ngFor="let val of currecncyTypeList" [value]="val.code">
+                                        {{val.label}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                        <!--Currency-add-On-->
+
+
+                        <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                            <p class="heading-font">Amount</p>
+                            <mat-form-field appearance="outline" class="full-width">
+                                <input id="AMOUNT" uppercase placeholder="AMOUNT" aria-labelledby="AMOUNT" matInput
+                                    formControlName="amount">
+                            </mat-form-field>
+                        </div>
+
+                        <!--Button for Remove Expenses-->
+
+                        <div *ngIf="i>0" id="buttons-container" style="float:right">
+                            <button type="button" class="btn btn-primary" aria-label="Continue"
+                                (click)="removeExpenses(i)">Remove</button>
+                        </div>
+
+                        <!--Button for Remove Expenses-->
+
+
+
+                    </div>
+
+                    <div id="buttons-container">
+                        <button type="button" class="btn btn-primary" aria-label="Continue"
+                            (click)="addMoreExpenses()">Add Expenses</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+            <!--Expenses-->
+
+
+        </form>
+    </div>
+</div>
+
+
+
+
+
+<ng-container *ngIf="isComponentReadOnly">
+    <asset-details-readonly [model]="assetInfo"></asset-details-readonly>
+</ng-container>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--commented html old-->
+
+<!--Asset add on-->
+
+<!--<div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+
+    <form role="form" id="personal-info" aria-label="Personal Information" [formGroup]="assetForm">
+
+        <mat-label>
+            <label for="Assets">Assets
+                <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                    *</span>
+            </label>
+        </mat-label>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-select role="listbox" placeholder="Please Select" formControlName="assetTypeList">
+                <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                <mat-option role="option" *ngFor="let val of assetTypeList" [value]="val.code">
+                    {{val.label}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-error>
+        <span id="msg18"
+            *ngIf="(personalForm.get('branch').touched)  && personalForm.get('branch').hasError('required')">
+            Please select Asset Type
+        </span>
+    </mat-error>
+
+    </form>
+</div>-->
+
+<!--Asset add on-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="asset-details-container" *ngIf="!isComponentReadOnly">
+    <div class="no-padding-lr col-md-12">
+        <form [formGroup]="assetForm" autocomplete="off" (ngSubmit)="continue(assetForm?.value)">
+            <div class="col-md-12 col-lg-12" formArrayName="assetDetails">
+                <div class="row">
+                    <div class="col-md-12"
+                        *ngFor="let assetDetail of formControls.assetDetails.controls; let i = index;"
+                        [formGroupName]="i">
+                        <div class="col-md-12 col-sm-6 col-xs-12 margin-b" style="padding-left: 0!important;">
+                            <div class="heightDiv"></div>
+                            <p class="heading-font">{{assetDetail.get('assetLabel')?.value}}</p>
+                        </div>
+                        <div class="form-group">
+                            <div class="row"
+                                *ngIf="assetDetail.get('assetLabel')?.value !== 'Cash at Jamaica Money Market Brokers'">
+
+
+                                
+                               
+
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b" *ngIf="false">
+                                    <mat-label>
+                                        <label for="assetType">
+                                            {{ 'application.applicant.assetDetails.assetType.label' | translate }}
+                                            <span class="red" aria-label="Mandatory" *ngIf="required" aria-hidden="true"
+                                                tabindex="-1"> *</span>
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <span matPrefix class="dollar-space">J$ &nbsp;</span>
+                                        <input id="assetType" matInput maxlength="14" currencyMask
+                                            [options]="{ allowNegative: false, thousands: ',', decimal: '.', precision: 2 }"
+                                            formControlName="type">
+                                    </mat-form-field>
+                                </div>
+
+
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b" >
+                                    <mat-label>
+                                        <label for="amount">
+                                            {{ 'application.applicant.assetDetails.amount.label' | translate }}
+                                            <span class="red" aria-label="Mandatory" *ngIf="required" aria-hidden="true"
+                                                tabindex="-1"> *</span>
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <span matPrefix class="dollar-space">J$ &nbsp;</span>
+                                        <input id="amount" aria-invalid="true" aria-describedby="msg1"
+                                            aria-labelledby="msg1"
+                                            [readonly]="assetDetail.get('assetLabel')?.value === 'Cash at Jamaica Money Market Brokers' ? true : false"
+                                            matInput maxlength="14" currencyMask
+                                            [options]="{ allowNegative: false, thousands: ',', decimal: '.', precision: 2 }"
+                                            formControlName="amount">
+                                    </mat-form-field>
+                                    <mat-error id="msg1"
+                                        *ngIf="!assetDetail.get('amount')?.valid && (assetDetail.get('amount')?.touched || submitted) && assetDetail.get('amount').hasError('required')">
+                                        {{'application.applicant.assetDetails.amount.validation.required' | translate}}
+                                    </mat-error>
+                                    <mat-error id="msg1"
+                                        *ngIf="!assetDetail.get('amount')?.valid && (assetDetail.get('amount')?.touched || submitted) && assetDetail.get('amount').hasError('minlength')">
+                                        {{'application.applicant.assetDetails.amount.validation.minlength' | translate}}
+                                    </mat-error>
+                                    <mat-error id="msg1"
+                                        *ngIf="!assetDetail.get('amount')?.valid && (assetDetail.get('amount')?.touched || submitted) && assetDetail.get('amount').hasError('maxlength')">
+                                        {{'application.applicant.assetDetails.amount.validation.maxlength' | translate}}
+                                    </mat-error>
+                                </div>
+
+                            
+
+
+
+
+
+                          
+
+                                <div >
+                                    <mat-label>
+                                        <label for="Assets">Currency
+                                            <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span>
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <mat-select role="listbox" placeholder="Please Select"
+                                            formControlName="currecncyTypeList">
+                                            <mat-option role="option" value=null selected disabled>Please Select
+                                            </mat-option>
+                                            <mat-option role="option" *ngFor="let val of currecncyTypeList"
+                                                [value]="val.code">
+                                                {{val.label}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+
+                         
+
+
+
+
+
+                        
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b" 
+                                    *ngIf="assetDetail.get('assetTypeList')?.value?.toLowerCase()=='cob' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='msb' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='cvli' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='vp' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='alr'">
+
+                                    <mat-label>
+                                        <label for="instName">
+                                            {{ 'application.applicant.assetDetails.instName.label' | translate }}
+                                            <span class="red" aria-label="Mandatory" *ngIf="required" aria-hidden="true"
+                                                tabindex="-1"> *</span>
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="instName" matInput formControlName="instName" aria-invalid="true"
+                                            aria-describedby="msg2" maxlength="40" aria-labelledby="msg2">
+                                    </mat-form-field>
+                                    <mat-error id="msg2"
+                                        *ngIf="!assetDetail.get('instName')?.valid && (assetDetail.get('instName')?.touched || submitted) && assetDetail.get('instName').hasError('required')">
+                                        {{'application.applicant.assetDetails.instName.validation.required' |
+                                        translate}}</mat-error>
+                                    <mat-error id="msg2"
+                                        *ngIf="!assetDetail.get('instName')?.valid && (assetDetail.get('instName')?.touched || submitted) && assetDetail.get('instName').hasError('minlength')">
+                                        {{'application.applicant.assetDetails.instName.validation.minlength' |
+                                        translate}}</mat-error>
+                                    <mat-error id="msg2"
+                                        *ngIf="!assetDetail.get('instName')?.valid && (assetDetail.get('instName')?.touched || submitted) && assetDetail.get('instName').hasError('maxlength')">
+                                        {{'application.applicant.assetDetails.instName.validation.maxlength' |
+                                        translate}}</mat-error>
+                                </div>
+
+              
+
+
+
+
+
+                  
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b"
+                                    *ngIf="assetDetail.get('assetTypeList')?.value?.toLowerCase()=='fr' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='jw' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='vbm' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='ovbm' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='opp' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='rep' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='bin' ">
+                                    <mat-label>
+                                        <label for="lienHoldername">
+                                            Registered Owner Name
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="Registered-Owner-Name" matInput
+                                            formControlName="Registered-Owner-Name" aria-invalid="true"
+                                            aria-describedby="msg3" maxlength="40" aria-labelledby="msg3">
+                                    </mat-form-field>
+                                    <mat-error id="msg3"
+                                        *ngIf="!assetDetail.get('lienHoldername')?.valid && (assetDetail.get('lienHoldername')?.touched || submitted) && assetDetail.get('lienHoldername').hasError('minlength')">
+                                        {{'application.applicant.assetDetails.lienHoldername.validation.minlength' |
+                                        translate}}</mat-error>
+                                    <mat-error id="msg3"
+                                        *ngIf="!assetDetail.get('lienHoldername')?.valid && (assetDetail.get('lienHoldername')?.touched || submitted) && assetDetail.get('lienHoldername').hasError('maxlength')">
+                                        {{'application.applicant.assetDetails.lienHoldername.validation.maxlength' |
+                                        translate}}</mat-error>
+                                </div>
+
+                    
+
+
+
+
+
+
+
+
+          
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b"
+                                    *ngIf="assetDetail.get('assetTypeList')?.value?.toLowerCase()=='fr' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='jw' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='vbm' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='ovbm' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='opp' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='rep' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='bin'">
+                                    <mat-label>
+                                        <label for="lienHoldername">
+                                            lienHoldername
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="lienHoldername" matInput formControlName="lienHoldername"
+                                            aria-invalid="true" aria-describedby="msg3" maxlength="40"
+                                            aria-labelledby="msg3">
+                                    </mat-form-field>
+                                  <mat-error id="msg3"
+                                        *ngIf="!assetDetail.get('lienHoldername')?.valid && (assetDetail.get('lienHoldername')?.touched || submitted) && assetDetail.get('lienHoldername').hasError('minlength')">
+                                        {{'application.applicant.assetDetails.lienHoldername.validation.minlength' |
+                                        translate}}</mat-error>
+                                    <mat-error id="msg3"
+                                        *ngIf="!assetDetail.get('lienHoldername')?.valid && (assetDetail.get('lienHoldername')?.touched || submitted) && assetDetail.get('lienHoldername').hasError('maxlength')">
+                                        {{'application.applicant.assetDetails.lienHoldername.validation.maxlength' |
+                                        translate}}</mat-error>
+                                </div>
+
+          
+
+
+
+
+                            
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b"
+                                    *ngIf="assetDetail.get('assetTypeList')?.value?.toLowerCase()=='fr' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='jw' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='vbm' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='ovbm' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='opp' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='rep' || assetDetail.get('assetTypeList')?.value?.toLowerCase()=='bin'">
+                                    <mat-label>
+                                        <label for="lien-Value">
+                                            lien Value
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="lien-Value" matInput formControlName="lien-Value" aria-invalid="true"
+                                            aria-describedby="msg3" maxlength="40" aria-labelledby="msg3">
+                                    </mat-form-field>
+                                    <mat-error id="msg3"
+                                        *ngIf="!assetDetail.get('lienHoldername')?.valid && (assetDetail.get('lienHoldername')?.touched || submitted) && assetDetail.get('lienHoldername').hasError('minlength')">
+                                        {{'application.applicant.assetDetails.lienHoldername.validation.minlength' |
+                                        translate}}</mat-error>
+                                    <mat-error id="msg3"
+                                        *ngIf="!assetDetail.get('lienHoldername')?.valid && (assetDetail.get('lienHoldername')?.touched || submitted) && assetDetail.get('lienHoldername').hasError('maxlength')">
+                                        {{'application.applicant.assetDetails.lienHoldername.validation.maxlength' |
+                                        translate}}</mat-error>
+                                </div>
+
+                  
+
+
+                            
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                    <mat-label>
+                                        <label for="comment">
+                                            {{ 'application.applicant.assetDetails.comment.label' | translate }}
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="comment" matInput formControlName="comment" aria-invalid="true"
+                                            aria-describedby="msg3" maxlength="40" aria-labelledby="msg3">
+                                    </mat-form-field>
+                                    <mat-error id="msg3"
+                                        *ngIf="!assetDetail.get('comment')?.valid && (assetDetail.get('comment')?.touched || submitted) && assetDetail.get('comment').hasError('minlength')">
+                                        {{'application.applicant.assetDetails.comment.validation.minlength' |
+                                        translate}}</mat-error>
+                                    <mat-error id="msg3"
+                                        *ngIf="!assetDetail.get('comment')?.valid && (assetDetail.get('comment')?.touched || submitted) && assetDetail.get('comment').hasError('maxlength')">
+                                        {{'application.applicant.assetDetails.comment.validation.maxlength' |
+                                        translate}}</mat-error>
+                                </div>
+
+    
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+<!--Commented html old-->

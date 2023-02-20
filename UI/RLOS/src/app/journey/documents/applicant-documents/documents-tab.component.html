@@ -1,0 +1,35 @@
+<div class="tab-container">
+    <!-- <session-timer></session-timer> -->
+    <div class="row" *ngIf="alert" style="margin-top:10px;">
+        <div class="col-12" role="alert" aria-live="assertive" aria-atomic="true">
+            <error-alert [errorObject]=alert (close)="closeError()"></error-alert>
+        </div>
+    </div>
+    <h3 class="heading margin-b">Upload Documents</h3>
+    <p>Please ensure to upload all documents mentioned below, and click Continue once done.</p>
+    <div *ngIf="configLoaded">
+        <mat-tab-group [selectedIndex]="applicantIndex">
+            <mat-tab label="Primary">
+                <ng-template matTabContent>
+                    <document [config]="primaryConfig" [index]="0">
+                    </document>
+                </ng-template>
+            </mat-tab>
+            <mat-tab label="{{'Co-applicant ' +(i+1)}}" *ngFor="let item of coAppConfig; let i = index;">
+                <ng-template matTabContent>
+                    <document [config]="item" [index]="i+1">
+                    </document>
+                </ng-template>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+    <div id="step-footer">
+        <hr aria-hidden="true" tabindex="-1" />
+        <div id="footer-container" class="row">
+            <div class="col-12">
+                <!-- <button type="button" mat-raised-button color="primary" id="prev-btn" (click)="back()">{{ 'application.buttons.back' | translate }}</button> -->
+                <button class="fl-right" color="primary" mat-raised-button (click)="continue()">Continue</button>
+            </div>
+        </div>
+    </div>
+</div>

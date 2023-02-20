@@ -1,0 +1,1224 @@
+<div class="employement-container" *ngIf="!isComponentReadOnly">
+    <div class="row">
+        <div class="col-12">
+            <form [formGroup]="empForm" autocomplete="off" class="container-body" (ngSubmit)="continue()">
+                <span class="bold" *ngIf="!hideFields">{{'application.applicant.empDetails.empHeader' | translate}}
+                    </span>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="empType">{{'application.applicant.empDetails.empType.label' | translate}}<span
+                                                    class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                    *</span></label>
+                                    </mat-label>
+                                    <!--reference-->
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <mat-select role="listbox" aria-describedby="msg60" id="empType" placeholder="Select Employment Type" formControlName="empType" (selectionChange)="onResetFields($event)">
+                                            <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                            <mat-option role="option" *ngFor="let val of employmentList" [value]="val.code">
+                                                {{val.label}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                     <!--reference-->
+                                    <ng-container *ngFor="let validation of employmentDetailValues.empType">
+                                        <mat-error id="msg60" *ngIf="!empForm.get('empType').valid && (empForm.get('empType').touched ) && empForm.get('empType').hasError(validation.type)">
+                                            {{'application.applicant.empDetails.empType.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div formGroupName="empEmployed" *ngIf="empForm.get('empType').value === 'EMP001' || empForm.get('empType').value === 'EMP002'">
+                    <span class="sub-heading">{{'application.applicant.empDetails.empHeader' | translate}}
+                        </span>
+                    <div class="row">
+
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="companyName">{{'application.applicant.empDetails.EMP001.companyName.label' | translate}}
+                                            <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span>
+                                        </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="companyName" aria-describedby="msg61" formControlName="companyName" placeholder="Name Of The Organization" matInput>
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of employmentDetailValues.EMP001.companyName">
+                                    <mat-error id="msg61" *ngIf="!empForm.get('empEmployed.companyName').valid && (empForm.get('empEmployed.companyName').touched ) && empForm.get('empEmployed.companyName').hasError(validation.type)">
+                                        {{'application.applicant.empDetails.EMP001.companyName.validation' | translateValidation:validation}}</mat-error>
+                                </ng-container>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="jobTitle">{{'application.applicant.empDetails.EMP001.jobTitle.label' | translate}}
+                                            <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span>
+                                        </label>
+                                </mat-label>
+
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <mat-select role="listbox" aria-describedby="msg62" placeholder="Please Select" formControlName="jobTitle">
+                                        <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                        <mat-option role="option" *ngFor="let val of jobTitleList" [value]="val.code">
+                                            {{val.label}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of employmentDetailValues.EMP001.jobTitle">
+                                    <mat-error id="msg62" *ngIf="!empForm.get('empEmployed.jobTitle').valid && (empForm.get('empEmployed.jobTitle').touched ) && empForm.get('empEmployed.jobTitle').hasError(validation.type)">
+                                        {{'application.applicant.empDetails.EMP001.jobTitle.validation' | translateValidation:validation}}</mat-error>
+                                </ng-container>
+                            </div>
+                        </div>
+
+
+                        <!-- Job Title Description -->
+                        <div class=" col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="jobTitleDescription">
+                                        {{'application.applicant.empDetails.EMP001.jobTitleDescription.label' | translate}}
+                                            <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span>
+                                        </label>
+                                </mat-label>
+                                <br />
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="jobTitleDescription" aria-describedby="msg63" formControlName="jobTitleDescription" placeholder="Job Title Description" matInput>
+                                </mat-form-field>
+
+                                <ng-container *ngFor="let validation of employmentDetailValues.EMP001.jobTitleDescription">
+                                    <mat-error id="msg63" *ngIf="!empForm.get('empEmployed.jobTitleDescription').valid && (empForm.get('empEmployed.jobTitleDescription').touched ) && empForm.get('empEmployed.jobTitleDescription').hasError(validation.type)">
+                                        {{'application.applicant.empDetails.EMP001.jobTitleDescription.validation' | translateValidation:validation}}</mat-error>
+                                </ng-container>
+                            </div>
+                        </div>
+
+
+                        <!-- sector -->
+                        <!-- <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="sector">{{'application.applicant.empDetails.SEMP001.sector.label' | translate}}
+                                            <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span></label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <mat-select role="listbox" placeholder="Please Select" formControlName="sector">
+                                        <mat-option role="option" *ngFor="let val of employmentSectorList" [value]="val.code">
+                                            {{val.label}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of employmentDetailValues.EMP001.sector">
+                                    <mat-error id="msg1" *ngIf="!empForm.get('empEmployed.sector').valid && (empForm.get('empEmployed.sector').touched ) && empForm.get('empEmployed.sector').hasError(validation.type)">
+                                        {{'application.applicant.empDetails.EMP001.sector.validation.required' | translate}}</mat-error>
+                                </ng-container>
+                            </div>
+                        </div> -->
+
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="empDate">
+                                            {{'application.applicant.empDetails.EMP001.empDate.label' | translate}}<span class="red" aria-label="Mandatory" tabindex="-1"
+                                                aria-hidden="true">
+                                                *</span>
+                                        </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="empDate" aria-describedby="msg64" matInput (keyup)="dateMask($event)" [matDatepicker]="picker" placeholder="MM/DD/YYYY" (dateChange)="validateFormat($event)" [max]="maxDateIssue" [min]="minDateIssue" aria-invalid="true" formControlName="empDate">
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                                <mat-error id="msg64" *ngIf="!empForm.get('empEmployed.empDate').valid && (empForm.get('empEmployed.empDate').touched || submitted) && (empForm.get('empEmployed.empDate').errors.required || empForm.get('empEmployed.empDate').errors.matDatepickerParse)">
+                                    {{'application.applicant.empDetails.EMP001.empDate.validation.required' | translate}}</mat-error>
+                                <mat-error id="msg64" *ngIf="!empForm.get('empEmployed.empDate').valid && (empForm.get('empEmployed.empDate').touched || submitted) && (empForm.get('empEmployed.empDate').errors.matDatepickerMin)">
+                                    {{'application.applicant.empDetails.EMP001.empDate.invalidDate' | translate}}</mat-error>
+                                <mat-error id="msg64" *ngIf="!empForm.get('empEmployed.empDate').valid && (empForm.get('empEmployed.empDate').touched || submitted) && (empForm.get('empEmployed.empDate').errors.matDatepickerMax )">
+                                    {{'application.applicant.empDetails.EMP001.empDate.invalidDate' | translate}}</mat-error>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="yearsEmployed">{{'application.applicant.empDetails.EMP001.yearsEmployed.label' | translate}}</label>
+                                    <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                            *</span>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input style="color: gray;" id="yearsEmployed" matInput formControlName="yearsEmployed" [readonly]="true" placeholder="Year(s)">
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="monthsEmployed">{{'application.applicant.empDetails.EMP001.monthsEmployed.label' | translate}}</label>
+                                    <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                            *</span>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input style="color: gray;" id="monthsEmployed" matInput formControlName="monthsEmployed" [readonly]="true" placeholder="Month(s)">
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-lg-4" *ngIf="applicantCitizenship !=='NG_14' ">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="workPermitPresent">{{'application.applicant.empDetails.EMP001.workPermitPresent.label' | translate}}
+                                            <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span>
+                                        </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <mat-select role="listbox" aria-describedby="msg65" id="workPermitPresent" formControlName="workPermitPresent" (ngModelChange)="isWorkPermitPresent()" placeholder="Please Select">
+                                        <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                        <mat-option role="option" *ngFor="let val of optionList" [value]="val">
+                                            {{val}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <!-- <ng-container *ngFor="let validation of employmentDetailValues.EMP001.workPermitPresent"> -->
+                                <mat-error id="msg65" *ngIf="!empForm.get('empEmployed.workPermitPresent').valid && (empForm.get('empEmployed.workPermitPresent').touched ) && empForm.get('empEmployed.workPermitPresent').hasError('required')">
+                                    {{'application.applicant.empDetails.EMP001.workPermitPresent.validation.required' | translate}}</mat-error>
+                                <!-- </ng-container> -->
+
+                            </div>
+                        </div>
+
+                        <!-- Work Permit Number -->
+                        <div class="col-12 col-sm-6 col-lg-4" *ngIf="(empForm.get('empEmployed.workPermitPresent').value =='Yes')">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="workPermitNumber">
+                                            {{'application.applicant.empDetails.EMP001.workPermitNumber.label' | translate}}<span class="red" aria-label="Mandatory" tabindex="-1"
+                                                aria-hidden="true">
+                                                *</span>
+                                        </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="workPermitNumber" matInput formControlName="workPermitNumber" maxlength="20" aria-describedby="workPermitNumberErrorMsg" placeholder="Work Permit Number">
+                                </mat-form-field>
+                                <mat-error id="workPermitNumberErrorMsg" *ngIf="!empForm.get('empEmployed.workPermitNumber').valid && (empForm.get('empEmployed.workPermitNumber').touched ) && empForm.get('empEmployed.workPermitNumber').hasError('required')">
+                                    {{'application.applicant.empDetails.EMP001.workPermitNumber.validation.required' | translate}}</mat-error>
+
+                            </div>
+                        </div>
+
+                        <!-- Work Permit Expiry Date -->
+                        <div class="col-12 col-sm-6 col-lg-4" *ngIf="(empForm.get('empEmployed.workPermitPresent').value =='Yes')">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="workPermitExpiry">
+                                            {{'application.applicant.empDetails.EMP001.workPermitExpiry.label' | translate}}<span class="red" aria-label="Mandatory" tabindex="-1"
+                                                aria-hidden="true">
+                                                *</span>
+                                        </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="workPermitExpiry" aria-describedby="msg66" matInput (keyup)="dateMask($event)" [matDatepicker]="picker" placeholder="MM/DD/YYYY" [max]="maxDateDob" [min]="minDateDob" formControlName="workPermitExpiry">
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                                <!-- <ng-container *ngFor="let validation of employmentDetailValues.EMP001.workPermitExpiry"> -->
+                                <mat-error id="msg66" *ngIf="!empForm.get('empEmployed.workPermitExpiry').valid && (empForm.get('empEmployed.workPermitExpiry').touched ) && empForm.get('empEmployed.workPermitExpiry').hasError('required')">
+                                    {{'application.applicant.empDetails.EMP001.workPermitExpiry.validation.required' | translate}}</mat-error>
+                                <!-- </ng-container> -->
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div formGroupName="currentAddress">
+                        <span class="sub-heading">{{'application.applicant.empDetails.EMP001.empAddress.label' | translate}}
+                            </span>
+                        <div class="row">
+
+                            <!-- Street Name -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="addressLine1">{{'application.applicant.empDetails.EMP001.streetAddress.label' | translate}}
+                                                <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                    *</span>
+                                            </label>
+                                    </mat-label>
+
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="addressLine1" aria-describedby="msg67" uppercase formControlName="addressLine1" placeholder="Address Line 1" matInput>
+                                    </mat-form-field>
+
+                                    <ng-container *ngFor="let validation of employmentDetailValues.EMP001.streetAddress">
+                                        <mat-error id="msg67" *ngIf="(!formControls.empEmployed.get('currentAddress.addressLine1').valid && (formControls.empEmployed.get('currentAddress.addressLine1').touched ) && formControls.empEmployed.get('currentAddress.addressLine1').hasError(validation.type))">
+                                            {{'application.applicant.empDetails.EMP001.streetAddress.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+
+                            <!-- Apartment/Suite Number -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="addressLine2">{{'application.applicant.empDetails.EMP001.appartmentNumber.label' | translate}}
+                                                <!-- <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                    *</span> -->
+                                            </label>
+                                    </mat-label>
+
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="addressLine2" aria-describedby="msg68" formControlName="addressLine2" placeholder="Address Line 2" matInput>
+                                    </mat-form-field>
+
+                                    <ng-container *ngFor="let validation of employmentDetailValues.EMP001.appartmentNumber">
+                                        <mat-error id="msg68" *ngIf="(!formControls.empEmployed.get('currentAddress.addressLine2').valid && (formControls.empEmployed.get('currentAddress.addressLine2').touched ) && formControls.empEmployed.get('currentAddress.addressLine2').hasError(validation.type))">
+                                            {{'application.applicant.empDetails.EMP001.appartmentNumber.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+
+                            <!-- P.O. Box Number -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="poBoxNo">{{'application.applicant.empDetails.EMP001.POBoxNo.label' | translate}}
+                                                <!-- <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                    *</span> -->
+                                            </label>
+                                    </mat-label>
+
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="poBoxNo" aria-describedby="msg69" uppercase formControlName="poBoxNo" placeholder="Address Line 3" matInput>
+                                    </mat-form-field>
+
+                                    <ng-container *ngFor="let validation of employmentDetailValues.EMP001.POBoxNo">
+                                        <mat-error id="msg69" *ngIf="(!formControls.empEmployed.get('currentAddress.poBoxNo').valid && (formControls.empEmployed.get('currentAddress.poBoxNo').touched ) && formControls.empEmployed.get('currentAddress.poBoxNo').hasError(validation.type))">
+                                            {{'application.applicant.empDetails.EMP001.POBoxNo.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+
+                            <!-- State -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="state">{{'application.applicant.empDetails.EMP001.state.label' | translate}}
+                                            <!-- <span class="red" tabindex="-1" aria-hidden="true">*
+                                                </span> -->
+                                            </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="state" aria-describedby="msg70" formControlName="state" placeholder="Address Line 4" matInput>
+                                    </mat-form-field>
+
+                                    <ng-container *ngFor="let validation of employmentDetailValues.EMP001.state">
+                                        <mat-error id="msg70" *ngIf="(!formControls.empEmployed.get('currentAddress.state').valid && (formControls.empEmployed.get('currentAddress.state').touched ) && formControls.empEmployed.get('currentAddress.state').hasError(validation.type))">
+                                            {{'application.applicant.empDetails.EMP001.state.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+
+                            <!-- City -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="city">{{'application.applicant.empDetails.EMP001.city.label' | translate}}
+                                                <!-- <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                    *</span> -->
+                                            </label>
+                                    </mat-label>
+
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="city" aria-describedby="msg71" formControlName="city" placeholder="Address Line 5" matInput>
+                                    </mat-form-field>
+
+                                    <ng-container *ngFor="let validation of employmentDetailValues.EMP001.city">
+                                        <mat-error id="msg71" *ngIf="(!formControls.empEmployed.get('currentAddress.city').valid && (formControls.empEmployed.get('currentAddress.city').touched ) && formControls.empEmployed.get('currentAddress.city').hasError(validation.type))">
+                                            {{'application.applicant.empDetails.EMP001.city.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+
+                            <!-- phone number -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="phoneNo">{{'application.applicant.empDetails.EMP001.phoneNo.label' | translate}}
+                                                <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                    *</span>
+                                            </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width" style="line-height: 20px;">
+                                        <input aria-invalid="true" id="phoneNo" aria-describedby="msg72" aria-labelledby="msg1" matInput mask="(000)-000-0000" formControlName="phoneNo" placeholder="(xxx)-xxx-xxxx">
+                                    </mat-form-field>
+                                    <br/>
+                                    <ng-container *ngFor="let validation of currentAddressValues.phoneNo">
+                                        <mat-error id="msg72" *ngIf="(!formControls.empEmployed.get('currentAddress.phoneNo').valid && (formControls.empEmployed.get('currentAddress.phoneNo').touched ) && formControls.empEmployed.get('currentAddress.phoneNo').hasError(validation.type))">
+                                            {{'application.applicant.empDetails.EMP001.phoneNo.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div formGroupName="empSelf" *ngIf="empForm.get('empType').value === 'SEMP001' || empForm.get('empType').value === 'SEMP002' || empForm.get('empType').value === 'SEMP003'">
+                    <span class="sub-heading">Business Details
+                        </span>
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="businessName">{{'application.applicant.empDetails.SEMP001.businessName.label' | translate}}
+                                            <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span>
+                                        </label>
+                                </mat-label>
+
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="businessName" aria-describedby="msg73" formControlName="businessName" placeholder="Name Of The Organization" matInput>
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of employmentDetailValues.SEMP001.businessName">
+                                    <mat-error id="msg73" *ngIf="!empForm.get('empSelf.businessName').valid && (empForm.get('empSelf.businessName').touched ) && empForm.get('empSelf.businessName').hasError(validation.type)">
+                                        {{'application.applicant.empDetails.SEMP001.businessName.validation' | translateValidation:validation}}</mat-error>
+                                </ng-container>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="jobTitleDescription">{{'application.applicant.empDetails.SEMP001.jobTitleDescription.label' | translate}}
+                                            <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span>
+                                        </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="jobTitleDescription" aria-describedby="selfJobTitleDescriptionErrorMsg" formControlName="jobTitleDescription" placeholder="Job Title Description" matInput>
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of employmentDetailValues.SEMP001.jobTitleDescription">
+                                    <mat-error id="selfJobTitleDescriptionErrorMsg" *ngIf="!empForm.get('empSelf.jobTitleDescription').valid && (empForm.get('empSelf.jobTitleDescription').touched ) && empForm.get('empSelf.jobTitleDescription').hasError(validation.type)">
+                                        {{'application.applicant.empDetails.SEMP001.jobTitleDescription.validation' | translateValidation:validation}}</mat-error>
+                                </ng-container>
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="businessType">Business Type<span class="red" aria-label="Mandatory"
+                                                tabindex="-1" aria-hidden="true">
+                                                *</span></label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <mat-select role="listbox" aria-describedby="msg74" placeholder="Please Select" formControlName="businessType">
+                                        <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                        <mat-option role="option" *ngFor="let val of businessTypeList" [value]="val.code">
+                                            {{val.label}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of employmentDetailValues.SEMP001.businessType">
+                                    <mat-error id="msg74" *ngIf="!empForm.get('empSelf.businessType').valid && (empForm.get('empSelf.businessType').touched ) && empForm.get('empSelf.businessType').hasError(validation.type)">
+                                        {{'application.applicant.empDetails.SEMP001.businessType.validation' | translateValidation:validation}}</mat-error>
+                                </ng-container>
+                            </div>
+                        </div> -->
+
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="businessDate">
+                                            Business Start Date <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                aria-hidden="true">
+                                                *</span>
+                                        </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="businessDate" aria-describedby="msg75" matInput (keyup)="dateMask($event)" [matDatepicker]="picker" placeholder="MM/DD/YYYY" (dateChange)="validateFormat($event)" [max]="maxDateIssue" [min]="minDateIssue" aria-invalid="true" formControlName="businessDate">
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                                <mat-error id="msg75" *ngIf="!empForm.get('empSelf.businessDate').valid && (empForm.get('empSelf.businessDate').touched || submitted) && (empForm.get('empSelf.businessDate').errors.required || empForm.get('empSelf.businessDate').errors.matDatepickerParse)">
+                                    {{'application.applicant.empDetails.SEMP001.businessDate.validation.required' | translate}}</mat-error>
+                                <mat-error id="msg75" *ngIf="!empForm.get('empSelf.businessDate').valid && (empForm.get('empSelf.businessDate').touched || submitted) && (empForm.get('empSelf.businessDate').errors.matDatepickerMin)">
+                                    {{'application.applicant.empDetails.SEMP001.businessDate.invalidDate' | translate}}</mat-error>
+                                <mat-error id="msg75" *ngIf="!empForm.get('empSelf.businessDate').valid && (empForm.get('empSelf.businessDate').touched || submitted) && (empForm.get('empSelf.businessDate').errors.matDatepickerMax )">
+                                    {{'application.applicant.empDetails.SEMP001.businessDate.invalidDate' | translate}}</mat-error>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="yearsBusiness">{{'application.applicant.empDetails.SEMP001.yearsBusiness.label' | translate}}
+                                        <!-- <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span> -->
+                                    </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input style="color: gray;" id="yearsBusiness" matInput formControlName="yearsBusiness" [readonly]="true" placeholder="Year(s)">
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="monthsBusiness">{{'application.applicant.empDetails.SEMP001.monthsBusiness.label' | translate}}
+                                        <!-- <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span> -->
+                                    </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input style="color: gray;" id="monthsBusiness" matInput formControlName="monthsBusiness" [readonly]="true" placeholder="Month(s)">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Business Address-->
+                    <div formGroupName="businessAddress">
+                        <span class="sub-heading">{{'application.applicant.empDetails.SEMP001.businessAddress.label' | translate}}
+                            </span>
+                        <div class="row">
+
+                            <!-- Street Name -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="addressLine1">{{'application.applicant.empDetails.SEMP001.streetAddress.label' | translate}}
+                                                <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                    *</span>
+                                            </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="addressLine1" aria-describedby="msg76" uppercase formControlName="addressLine1" placeholder="Address Line 1" matInput>
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of employmentDetailValues.SEMP001.streetAddress">
+                                        <mat-error id="msg76" *ngIf="(!formControls.empSelf.get('businessAddress.addressLine1').valid && (formControls.empSelf.get('businessAddress.addressLine1').touched ) && formControls.empSelf.get('businessAddress.addressLine1').hasError(validation.type))">
+                                            {{'application.applicant.empDetails.SEMP001.streetAddress.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+
+                            <!-- Apartment/Suite Number -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="addressLine2">{{'application.applicant.empDetails.SEMP001.appartmentNumber.label' | translate}}
+                                                <!-- <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                    *</span> -->
+                                            </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="addressLine2" aria-describedby="msg77" formControlName="addressLine2" placeholder="Address Line 2" matInput>
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of employmentDetailValues.SEMP001.appartmentNumber">
+                                        <mat-error id="msg77" *ngIf="(!formControls.empSelf.get('businessAddress.addressLine2').valid && (formControls.empSelf.get('businessAddress.addressLine2').touched ) && formControls.empSelf.get('businessAddress.addressLine2').hasError(validation.type))">
+                                            {{'application.applicant.empDetails.EMP001.appartmentNumber.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+
+                            <!-- P.O. Box Number -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="poBoxNo">{{'application.applicant.empDetails.SEMP001.POBoxNo.label' | translate}}
+                                                <!-- <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                    *</span> -->
+                                            </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="poBoxNo" aria-describedby="msg78" uppercase formControlName="poBoxNo" placeholder="Address Line 3" matInput>
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of employmentDetailValues.SEMP001.POBoxNo">
+                                        <mat-error id="msg78" *ngIf="(!formControls.empSelf.get('businessAddress.poBoxNo').valid && (formControls.empSelf.get('businessAddress.poBoxNo').touched ) && formControls.empSelf.get('businessAddress.poBoxNo').hasError(validation.type))">
+                                            {{'application.applicant.empDetails.SEMP001.POBoxNo.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+
+                            <!-- Parish -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="state"> {{'application.applicant.empDetails.SEMP001.state.label' | translate}}
+                                            <!-- <span class="red" tabindex="-1" aria-hidden="true">
+                                                    *</span> -->
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="state" aria-describedby="msg79" formControlName="state" placeholder="Address Line 4" matInput>
+                                    </mat-form-field>
+
+                                    <ng-container *ngFor="let validation of employmentDetailValues.SEMP001.state">
+                                        <mat-error id="msg79" *ngIf="(!formControls.empSelf.get('businessAddress.state').valid && (formControls.empSelf.get('businessAddress.state').touched ) && formControls.empSelf.get('businessAddress.state').hasError(validation.type))">
+                                            {{'application.applicant.empDetails.SEMP001.state.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+
+                            <!-- City -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="city">{{'application.applicant.empDetails.SEMP001.city.label' | translate}}
+                                                <!-- <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                    *</span> -->
+                                            </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="city" aria-describedby="msg80" formControlName="city" placeholder="Address Line 5" matInput>
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of employmentDetailValues.SEMP001.city">
+                                        <mat-error id="msg80" *ngIf="(!formControls.empSelf.get('businessAddress.city').valid && (formControls.empSelf.get('businessAddress.city').touched ) && formControls.empSelf.get('businessAddress.city').hasError(validation.type))">
+                                            {{'application.applicant.empDetails.SEMP001.city.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+
+                            <!-- Country  -->
+                            <!-- <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="country">{{'application.applicant.empDetails.EMP001.country.label' | translate}}
+                                                <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                    *</span>
+                                            </label>
+                                    </mat-label>
+
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <mat-select role="listbox" placeholder="Select Country" formControlName="country">
+                                            <mat-option role="option" *ngFor="let val of countryList" [value]="val.code">
+                                                {{val.label}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <mat-error id="msg5" *ngIf="(!formControls.empSelf.get('businessAddress.country').valid && (formControls.empSelf.get('businessAddress.country').touched ) && formControls.empSelf.get('businessAddress.country').hasError('required'))">
+                                        {{'application.applicant.empDetails.EMP001.country.validation.required' | translate}}
+                                    </mat-error>
+                                </div>
+                            </div> -->
+
+                            <!-- phone number -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="phoneNo">{{'application.applicant.empDetails.SEMP001.phoneNo.label' | translate}}
+                                                <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                    *</span>
+                                            </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width" style="line-height: 20px;">
+                                        <input aria-invalid="true" id="phoneNo" aria-describedby="msg81" matInput mask="(000)-000-0000" formControlName="phoneNo" placeholder="(xxx)-xxx-xxxx">
+                                    </mat-form-field>
+                                    <br/>
+                                    <ng-container *ngFor="let validation of currentAddressValues.phoneNo">
+                                        <mat-error id="msg81" *ngIf="(!formControls.empSelf.get('businessAddress.phoneNo').valid && (formControls.empSelf.get('businessAddress.phoneNo').touched ) && formControls.empSelf.get('businessAddress.phoneNo').hasError(validation.type))">
+                                            {{'application.applicant.empDetails.SEMP001.phoneNo.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div formGroupName="empRetired" *ngIf="empForm.get('empType').value === 'RT001'">
+                    <span class="sub-heading">{{'application.applicant.empDetails.empHeader' | translate}}
+                        </span>
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="lastCompanyName">{{'application.applicant.empDetails.RT001.lastCompanyName.label' | translate}}
+                                        <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span>
+                                        </label>
+                                </mat-label>
+
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="lastCompanyName" aria-describedby="msg82" formControlName="lastCompanyName" placeholder="Name Of The Organization" matInput>
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of employmentDetailValues.RT001.lastCompanyName">
+                                    <mat-error id="msg82" *ngIf="!empForm.get('empRetired.lastCompanyName').valid && (empForm.get('empRetired.lastCompanyName').touched ) && empForm.get('empRetired.lastCompanyName').hasError(validation.type)">
+                                        {{'application.applicant.empDetails.RT001.lastCompanyName.validation' | translateValidation:validation}}</mat-error>
+                                </ng-container>
+                            </div>
+                        </div>
+
+                        <!-- sector -->
+                        <!-- <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="sector">{{'application.applicant.empDetails.RT001.sector.label' | translate}}<span
+                                                class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span></label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <mat-select role="listbox" placeholder="Please Select" formControlName="sector">
+                                        <mat-option role="option" *ngFor="let val of employmentSectorList" [value]="val.code">
+                                            {{val.label}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of employmentDetailValues.RT001.sector">
+                                    <mat-error id="msg1" *ngIf="!empForm.get('empRetired.sector').valid && (empForm.get('empRetired.sector').touched ) && empForm.get('empRetired.sector').hasError(validation.type)">
+                                        {{'application.applicant.empDetails.RT001.sector.validation.required' | translate}}</mat-error>
+                                </ng-container>
+                            </div>
+                        </div> -->
+
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="yearOfRetirement">{{'application.applicant.empDetails.RT001.yearOfRetirement.label' | translate}}<span
+                                                class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span></label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <mat-select role="listbox" aria-describedby="msg83" placeholder="Please Select" formControlName="yearOfRetirement">
+                                        <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                        <mat-option role="option" *ngFor="let val of yearsList" [value]="val">
+                                            {{val}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of employmentDetailValues.RT001.yearOfRetirement">
+                                    <mat-error id="msg83" *ngIf="!empForm.get('empRetired.yearOfRetirement').valid && (empForm.get('empRetired.yearOfRetirement').touched ) && empForm.get('empRetired.yearOfRetirement').hasError(validation.type)">
+                                        {{'application.applicant.empDetails.RT001.yearOfRetirement.validation' | translateValidation:validation}}</mat-error>
+                                </ng-container>
+                            </div>
+                        </div>
+
+                        <!-- Job Title -->
+                        <div class=" col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="jobTitle">{{'application.applicant.empDetails.RT001.jobTitle.label' | translate}}                                        
+                                            <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span>
+                                        </label>
+                                </mat-label>
+                                <br />
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <mat-select role="listbox" aria-describedby="msg84" placeholder="Please Select" formControlName="jobTitle">
+                                        <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                        <mat-option role="option" *ngFor="let val of jobTitleList" [value]="val.code">
+                                            {{val.label}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of employmentDetailValues.RT001.jobTitle">
+                                    <mat-error id="msg84" *ngIf="!empForm.get('empRetired.jobTitle').valid && (empForm.get('empRetired.jobTitle').touched ) && empForm.get('empRetired.jobTitle').hasError(validation.type)">
+                                        {{'application.applicant.empDetails.RT001.jobTitle.validation' | translateValidation:validation}}</mat-error>
+                                </ng-container>
+                            </div>
+                        </div>
+
+
+                        <!-- Job Title Description -->
+                        <div class=" col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="jobTitleDescription">
+                                        {{'application.applicant.empDetails.RT001.jobTitleDescription.label' | translate}}
+                                            <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span>
+                                        </label>
+                                </mat-label>
+                                <br />
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="jobTitleDescription" aria-describedby="msg85" formControlName="jobTitleDescription" placeholder="Job Title Description" matInput>
+                                </mat-form-field>
+
+                                <ng-container *ngFor="let validation of employmentDetailValues.RT001.jobTitleDescription">
+                                    <mat-error id="msg85" *ngIf="!empForm.get('empRetired.jobTitleDescription').valid && (empForm.get('empRetired.jobTitleDescription').touched ) && empForm.get('empRetired.jobTitleDescription').hasError(validation.type)">
+                                        {{'application.applicant.empDetails.RT001.jobTitleDescription.validation' | translateValidation:validation}}</mat-error>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div formGroupName="currentAddress">
+                        <span class="sub-heading">{{'application.applicant.empDetails.RT001.empAddress.label' | translate}}
+                            </span>
+                        <div class="row">
+
+                            <!-- Street Name -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="addressLine1">{{'application.applicant.empDetails.RT001.streetAddress.label' | translate}}
+                                                <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                    *</span>
+                                            </label>
+                                    </mat-label>
+
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="addressLine1" aria-describedby="msg86" uppercase formControlName="addressLine1" placeholder="Address Line 1" matInput>
+                                    </mat-form-field>
+
+                                    <ng-container *ngFor="let validation of employmentDetailValues.RT001.streetAddress">
+                                        <mat-error id="msg86" *ngIf="(!formControls.empRetired.get('currentAddress.addressLine1').valid && (formControls.empRetired.get('currentAddress.addressLine1').touched ) && formControls.empRetired.get('currentAddress.addressLine1').hasError(validation.type))">
+                                            {{'application.applicant.empDetails.RT001.streetAddress.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+
+                            <!-- Apartment/Suite Number -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="addressLine2">{{'application.applicant.empDetails.RT001.appartmentNumber.label' | translate}}
+                                                <!-- <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                    *</span> -->
+                                            </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="addressLine2" aria-describedby="msg87" formControlName="addressLine2" placeholder="Address Line 2" matInput>
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of employmentDetailValues.RT001.appartmentNumber">
+                                        <mat-error id="msg87" *ngIf="(!formControls.empRetired.get('currentAddress.addressLine2').valid && (formControls.empRetired.get('currentAddress.addressLine2').touched ) && formControls.empRetired.get('currentAddress.addressLine2').hasError(validation.type))">
+                                            {{'application.applicant.empDetails.RT001.appartmentNumber.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+
+                                </div>
+                            </div>
+
+                            <!-- P.O. Box Number -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="poBoxNo">{{'application.applicant.empDetails.RT001.POBoxNo.label' | translate}}
+                                                <!-- <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                    *</span> -->
+                                            </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="poBoxNo" aria-describedby="msg88" uppercase formControlName="poBoxNo" placeholder="Address Line 3" matInput>
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of employmentDetailValues.RT001.POBoxNo">
+                                        <mat-error id="msg88" *ngIf="(!formControls.empRetired.get('currentAddress.poBoxNo').valid && (formControls.empRetired.get('currentAddress.poBoxNo').touched ) && formControls.empRetired.get('currentAddress.poBoxNo').hasError(validation.type))">
+                                            {{'application.applicant.empDetails.RT001.POBoxNo.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+
+                            <!-- State -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="state">{{'application.applicant.empDetails.RT001.state.label' | translate}}
+                                            <!-- <span class="red" tabindex="-1" aria-hidden="true">*
+                                                </span> -->
+                                            </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="state" aria-describedby="msg89" formControlName="state" placeholder="Address Line 4" matInput>
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of employmentDetailValues.RT001.state">
+                                        <mat-error id="msg89" *ngIf="(!formControls.empRetired.get('currentAddress.state').valid && (formControls.empRetired.get('currentAddress.state').touched ) && formControls.empRetired.get('currentAddress.state').hasError(validation.type))">
+                                            {{'application.applicant.empDetails.RT001.state.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+
+                            <!-- City -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="city">{{'application.applicant.empDetails.RT001.city.label' | translate}}
+                                                <!-- <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                    *</span> -->
+                                            </label>
+                                    </mat-label>
+
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="city" aria-describedby="msg90" formControlName="city" placeholder="Address Line 5" matInput>
+                                    </mat-form-field>
+
+                                    <ng-container *ngFor="let validation of employmentDetailValues.RT001.city">
+                                        <mat-error id="msg90" *ngIf="(!formControls.empRetired.get('currentAddress.city').valid && (formControls.empRetired.get('currentAddress.city').touched ) && formControls.empRetired.get('currentAddress.city').hasError(validation.type))">
+                                            {{'application.applicant.empDetails.RT001.city.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+
+                            <!-- phone number -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="phoneNo">{{'application.applicant.empDetails.RT001.phoneNo.label' | translate}}
+                                                <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                    *</span>
+                                            </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width" style="line-height: 20px;">
+                                        <input aria-invalid="true" id="phoneNo" aria-describedby="msg91" matInput mask="(000)-000-0000" formControlName="phoneNo" placeholder="(xxx)-xxx-xxxx">
+                                    </mat-form-field>
+                                    <br/>
+                                    <ng-container *ngFor="let validation of currentAddressValues.phoneNo">
+                                        <mat-error id="msg91" *ngIf="(!formControls.empRetired.get('currentAddress.phoneNo').valid && (formControls.empRetired.get('currentAddress.phoneNo').touched ) && formControls.empRetired.get('currentAddress.phoneNo').hasError(validation.type))">
+                                            {{'application.applicant.empDetails.RT001.phoneNo.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div formGroupName="empStudent" *ngIf="empForm.get('empType').value === 'STU001'">
+                    <span class="sub-heading">{{'application.applicant.empDetails.empHeader' | translate}}
+                        </span>
+                    <div class="row">
+                        <!-- name of organization -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="organizationName">{{'application.applicant.empDetails.STU001.organizationName.label' | translate}}
+                                        <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                            *</span>
+                                    </label>
+                                </mat-label>
+
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="organizationName" aria-describedby="msg92" formControlName="organizationName" placeholder="Name Of The Organization" maxlength="40" matInput>
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of employmentDetailValues.STU001.organizationName">
+                                    <mat-error id="msg92" *ngIf="!empForm.get('empStudent.organizationName').valid && (empForm.get('empStudent.organizationName').touched ) && empForm.get('empStudent.organizationName').hasError(validation.type)">
+                                        {{'application.applicant.empDetails.STU001.organizationName.validation' | translateValidation:validation}}</mat-error>
+                                </ng-container>
+                            </div>
+                        </div>
+
+                        <div class=" col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="highestEducation">{{'application.applicant.empDetails.STU001.highestEducation.label' | translate}}
+                                            <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span>
+                                        </label>
+                                </mat-label>
+                                <br />
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <mat-select role="listbox" aria-describedby="msg93" placeholder="Please Select" formControlName="highestEducation">
+                                        <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                        <mat-option role="option" *ngFor="let val of highestEducationList" [value]="val.code">
+                                            {{val.label}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of employmentDetailValues.STU001.highestEducation">
+                                    <mat-error id="msg93" *ngIf="!empForm.get('empStudent.highestEducation').valid && (empForm.get('empStudent.highestEducation').touched ) && empForm.get('empStudent.highestEducation').hasError(validation.type)">
+                                        {{'application.applicant.empDetails.STU001.highestEducation.validation' | translateValidation:validation}}
+                                    </mat-error>
+                                </ng-container>
+                            </div>
+                        </div>
+
+                        <!-- Name of the person funding the account -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="fundingPerson">{{'application.applicant.empDetails.STU001.fundingPerson.label' | translate}}                                        
+                                    </label>
+                                </mat-label>
+
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="fundingPerson" aria-describedby="fundingPersonErrorMsg" uppercase formControlName="fundingPerson" placeholder="Name of the Person Funding the Account" matInput>
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of employmentDetailValues.STU001.fundingPerson">
+                                    <mat-error id="fundingPersonErrorMsg" *ngIf="!empForm.get('empStudent.fundingPerson').valid && (empForm.get('empStudent.fundingPerson').touched ) && empForm.get('empStudent.fundingPerson').hasError(validation.type)">
+                                        {{'application.applicant.empDetails.STU001.fundingPerson.validation' | translateValidation:validation}}
+                                    </mat-error>
+                                </ng-container>
+                            </div>
+                        </div>
+
+                        <!-- relationship with the applicant -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="relationshipWithApplicant">
+                                        {{'application.applicant.empDetails.STU001.relationshipWithApplicant.label' | translate}}                                        
+                                    </label>
+                                </mat-label>
+
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="relationshipWithApplicant" aria-describedby="relationshipWithApplicantErrorMsg" formControlName="relationshipWithApplicant" placeholder="Relationship to Applicant" matInput>
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of employmentDetailValues.STU001.relationshipWithApplicant">
+                                    <mat-error id="relationshipWithApplicantErrorMsg" *ngIf="!empForm.get('empStudent.relationshipWithApplicant').valid && (empForm.get('empStudent.relationshipWithApplicant').touched ) && empForm.get('empStudent.relationshipWithApplicant').hasError(validation.type)">
+                                        {{'application.applicant.empDetails.STU001.relationshipWithApplicant.validation' | translateValidation:validation}}</mat-error>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- Is funding person an existing customer -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="isFundingPersonAnExistingCustomer">
+                                        {{'application.applicant.empDetails.STU001.isFundingPersonAnExistingCustomer.label' | translate}}                                        
+                                    </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <mat-select role="listbox" id="isFundingPersonAnExistingCustomer" matNativeControl placeholder="Please Select" formControlName="isFundingPersonAnExistingCustomer">
+                                        <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                        <mat-option role="option" *ngFor="let val of yesNoList" [value]="val">{{val}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div formGroupName="currentAddress">
+                        <span class="sub-heading">{{'application.applicant.empDetails.STU001.empAddress.label' | translate}}
+                            </span>
+                        <div class="row">
+
+                            <!-- Street Name -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="addressLine1">{{'application.applicant.empDetails.STU001.streetAddress.label' | translate}}
+                                                <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                    *</span>
+                                            </label>
+                                    </mat-label>
+
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="addressLine1" aria-describedby="msg94" uppercase formControlName="addressLine1" placeholder="Address Line 1" matInput>
+                                    </mat-form-field>
+
+                                    <ng-container *ngFor="let validation of employmentDetailValues.STU001.streetAddress">
+                                        <mat-error id="msg94" *ngIf="(!formControls.empStudent.get('currentAddress.addressLine1').valid && (formControls.empStudent.get('currentAddress.addressLine1').touched ) && formControls.empStudent.get('currentAddress.addressLine1').hasError(validation.type))">
+                                            {{'application.applicant.empDetails.STU001.streetAddress.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+
+                            <!-- Apartment/Suite Number -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="addressLine2">{{'application.applicant.empDetails.STU001.appartmentNumber.label' | translate}}
+                                                <!-- <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                    *</span> -->
+                                            </label>
+                                    </mat-label>
+
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="addressLine2" aria-describedby="msg95" formControlName="addressLine2" placeholder="Address Line 2" matInput>
+                                    </mat-form-field>
+
+                                    <ng-container *ngFor="let validation of employmentDetailValues.STU001.appartmentNumber">
+                                        <mat-error id="msg95" *ngIf="(!formControls.empStudent.get('currentAddress.addressLine2').valid && (formControls.empStudent.get('currentAddress.addressLine2').touched ) && formControls.empStudent.get('currentAddress.addressLine2').hasError(validation.type))">
+                                            {{'application.applicant.empDetails.STU001.appartmentNumber.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+
+                                </div>
+                            </div>
+
+                            <!-- P.O. Box Number -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="poBoxNo">{{'application.applicant.empDetails.STU001.POBoxNo.label' | translate}}
+                                                <!-- <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                    *</span> -->
+                                            </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="poBoxNo" aria-describedby="msg96" uppercase formControlName="poBoxNo" placeholder="Address Line 3" matInput>
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of employmentDetailValues.STU001.POBoxNo">
+                                        <mat-error id="msg96" *ngIf="(!formControls.empStudent.get('currentAddress.poBoxNo').valid && (formControls.empStudent.get('currentAddress.poBoxNo').touched ) && formControls.empStudent.get('currentAddress.poBoxNo').hasError(validation.type))">
+                                            {{'application.applicant.empDetails.STU001.POBoxNo.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+
+                            <!-- State -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="state">{{'application.applicant.empDetails.STU001.state.label' | translate}}
+                                            <!-- <span class="red" tabindex="-1" aria-hidden="true">*
+                                                </span> -->
+                                            </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="state" aria-describedby="msg97" formControlName="state" placeholder="Address Line 4" matInput>
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of employmentDetailValues.STU001.state">
+                                        <mat-error id="msg97" *ngIf="(!formControls.empStudent.get('currentAddress.state').valid && (formControls.empStudent.get('currentAddress.state').touched ) && formControls.empStudent.get('currentAddress.state').hasError(validation.type))">
+                                            {{'application.applicant.empDetails.STU001.state.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+
+                            <!-- City -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="city">{{'application.applicant.empDetails.STU001.city.label' | translate}}
+                                                <!-- <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                    *</span> -->
+                                            </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="city" aria-describedby="msg98" formControlName="city" placeholder="Address Line 5" matInput>
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of employmentDetailValues.STU001.city">
+                                        <mat-error id="msg98" *ngIf="(!formControls.empStudent.get('currentAddress.city').valid && (formControls.empStudent.get('currentAddress.city').touched ) && formControls.empStudent.get('currentAddress.city').hasError(validation.type))">
+                                            {{'application.applicant.empDetails.STU001.city.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+
+                            <!-- phone number -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="phoneNo">{{'application.applicant.empDetails.STU001.phoneNo.label' | translate}}
+                                                <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                    *</span>
+                                            </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width" style="line-height: 20px;">
+                                        <input aria-invalid="true" id="phoneNo" aria-describedby="msg99" matInput mask="(000)-000-0000" formControlName="phoneNo" placeholder="(xxx)-xxx-xxxx">
+                                    </mat-form-field>
+                                    <br/>
+                                    <ng-container *ngFor="let validation of currentAddressValues.phoneNo">
+                                        <mat-error id="msg99" *ngIf="(!formControls.empStudent.get('currentAddress.phoneNo').valid && (formControls.empStudent.get('currentAddress.phoneNo').touched ) && formControls.empStudent.get('currentAddress.phoneNo').hasError(validation.type))">
+                                            {{'application.applicant.empDetails.STU001.phoneNo.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Non Employed -->
+                <div formGroupName="nonEmp" *ngIf="empForm.get('empType').value === 'NEMP001'">
+
+                    <div class="row">
+                        <!-- Name of the person funding the account -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="fundingPerson">{{'application.applicant.empDetails.NEMP001.fundingPerson.label' | translate}}                                        
+                                    </label>
+                                </mat-label>
+
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="fundingPerson" uppercase aria-describedby="fundingPersonErrorMsg" formControlName="fundingPerson" placeholder="Name of the Person Funding the Account" matInput>
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of employmentDetailValues.NEMP001.fundingPerson">
+                                    <mat-error id="fundingPersonErrorMsg" *ngIf="!empForm.get('nonEmp.fundingPerson').valid && (empForm.get('nonEmp.fundingPerson').touched ) && empForm.get('nonEmp.fundingPerson').hasError(validation.type)">
+                                        {{'application.applicant.empDetails.NEMP001.fundingPerson.validation' | translateValidation:validation}}
+                                    </mat-error>
+                                </ng-container>
+                            </div>
+                        </div>
+
+                        <!-- relationship with the applicant -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="relationshipWithApplicant">
+                                        {{'application.applicant.empDetails.NEMP001.relationshipWithApplicant.label' | translate}}                                        
+                                    </label>
+                                </mat-label>
+
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="relationshipWithApplicant" aria-describedby="relationshipWithApplicantErrorMsg" formControlName="relationshipWithApplicant" placeholder="Relationship to Applicant" matInput>
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of employmentDetailValues.NEMP001.relationshipWithApplicant">
+                                    <mat-error id="relationshipWithApplicantErrorMsg" *ngIf="!empForm.get('nonEmp.relationshipWithApplicant').valid && (empForm.get('nonEmp.relationshipWithApplicant').touched ) && empForm.get('nonEmp.relationshipWithApplicant').hasError(validation.type)">
+                                        {{'application.applicant.empDetails.NEMP001.relationshipWithApplicant.validation' | translateValidation:validation}}</mat-error>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- Is funding person an existing customer -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-label>
+                                    <label for="isFundingPersonAnExistingCustomer">
+                                        {{'application.applicant.empDetails.NEMP001.isFundingPersonAnExistingCustomer.label' | translate}}                                        
+                                    </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <mat-select role="listbox" id="isFundingPersonAnExistingCustomer" matNativeControl placeholder="Please Select" formControlName="isFundingPersonAnExistingCustomer" aria-invalid="true" aria-describedby="msg21" aria-labelledby="msg21">
+                                        <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                        <mat-option role="option" *ngFor="let val of yesNoList" [value]="val">{{val}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr aria-hidden="true" tabindex="-1" />
+                <div id="buttons-container">
+                    <button type="button" mat-raised-button color="primary" id="prev-btn" (click)="back()">{{ 'application.buttons.prevSection' | translate }}</button>
+                    <button type="button" mat-raised-button id="next-btn" class="pull-right" color="primary" (click)="continue()">{{ 'application.buttons.nextSection' | translate }}</button>
+                    <!-- <button mat-raised-button id="next-btn" class="pull-right" *ngIf="!isCoApplicant" color="primary" (click)="continue()">{{ 'application.buttons.nextSection' | translate }}</button> -->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngIf="isComponentReadOnly">
+    <emp-details-readonly [model]="empInfo"></emp-details-readonly>
+</ng-container>

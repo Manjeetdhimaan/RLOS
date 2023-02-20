@@ -1,0 +1,133 @@
+<div class="container-body">
+  <div class="row">
+    <div class="col-12"  role="alert" aria-live="assertive" aria-atomic="true">
+      <error-alert [errorObject]=alert>
+      </error-alert>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h3 class="heading-footer margin-b">Estimated Monthly Payment Calculator</h3>
+    </div>
+    <div class="col-6 col-sm-12 col-lg-6">
+      <form [formGroup]="emiCalculatorForm" autocomplete="off" class="container">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-lg-4">
+            <div class="margin-b-t">
+              <mat-label>Loan Amount ($)
+                <span class="red" aria-label="Mandatory"> *</span>
+              </mat-label>            
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-lg-8">
+            <div class="mat-grp">
+              <mat-form-field appearance="outline" class="full-width">
+                <input matInput formControlName="loanAmount" inputType="number" (input)="changeInputField('loanAmount')">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-12 col-lg-12">
+            <mat-slider thumbLabel [displayWith]="formatLabel" [step]="emiCalcData.loanAmountStep" [tickInterval]=100 [max]="emiCalcData.loanAmountMax" [min]="emiCalcData.loanAmountMin" [(ngModel)]="model.loanAmount"
+              (change)="changeSlider('loanAmount')" [ngModelOptions]="{standalone: true}"></mat-slider>              
+          </div>
+          <div class="col-12 col-sm-12 col-lg-12">
+              <span class="">{{ emiCalcData.loanAmountMin }}</span>
+              <span class="pull-right">{{ emiCalcData.loanAmountMax / 1000 }}k</span>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 col-sm-12 col-lg-4">
+            <div class="margin-b-t">
+              <mat-label>Loan Term (Months)
+                <span class="red" aria-label="Mandatory"> *</span>
+              </mat-label>
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-lg-8">
+            <div class="mat-grp">              
+              <mat-form-field appearance="outline" class="full-width">
+                <input matInput formControlName="loanTenure" inputType="number" (input)="changeInputField('loanTenure')">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-12 col-lg-12">
+            <mat-slider thumbLabel [step]="emiCalcData.loanTermStep" [tickInterval]=3 [min]="emiCalcData.loanTermMin" [max]="emiCalcData.loanTermMax" [(ngModel)]="model.loanTenure" (change)="changeSlider('loanTenure')"
+              [ngModelOptions]="{standalone: true}"></mat-slider>
+          </div>
+          <div class="col-12 col-sm-12 col-lg-12">
+              <span class="">{{ emiCalcData.loanTermMin }}</span>
+              <span class="pull-right">{{ emiCalcData.loanTermMax }}</span>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 col-sm-12 col-lg-4">
+            <div class="margin-b-t">
+              <mat-label>Interest Rate (%)
+                <span class="red" aria-label="Mandatory"> *</span>
+              </mat-label>
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-lg-8">
+            <div class="mat-grp">
+              <mat-form-field appearance="outline" class="full-width">
+                <input matInput formControlName="interestRate" inputType="number" (input)="changeInputField('interestRate')">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-12 col-lg-12">              
+            <mat-slider thumbLabel [step]="emiCalcData.interestRateStep" [tickInterval]=1 [min]="emiCalcData.interestRateMin" [max]="emiCalcData.interestRateMax" [(ngModel)]="model.interestRate" (change)="changeSlider('interestRate')"
+              [ngModelOptions]="{standalone: true}"></mat-slider>              
+          </div>
+          <div class="col-12 col-sm-12 col-lg-12">
+            <span class="">{{ emiCalcData.interestRateMin }}</span>
+            <span class="pull-right">{{ emiCalcData.interestRateMax }}</span>
+          </div>
+        </div>
+
+
+      </form>
+    </div>
+    <div class="col-6 col-sm-12 col-lg-6">
+      <div class="container">
+        <div class="row mat-grp">
+          <div class="col-12 col-sm-12 col-lg-12">
+            <div class="">
+              <mat-label>Estimated Monthly Payment amount: <span class="result-text">{{ model.estimatedMonthlyPayment | currency:'USD' }}</span>
+              </mat-label>
+              <mat-slider class="" [disabled]=true [min]=0 [max]=50000 [(ngModel)]="model.estimatedMonthlyPayment"
+                (change)="changeSlider('estimatedMonthlyPayment')" [ngModelOptions]="{standalone: true}"></mat-slider>              
+            </div>
+          </div>  
+          <div class="col-12 col-sm-12 col-lg-12">
+              <span class="">0</span>
+              <span class="pull-right">50k</span>
+          </div>        
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6 col-lg-6">
+            <div class="mat-grp">
+              <mat-label>Total Interest Payable:
+              </mat-label>
+              <span class="result-text">{{ model.totalInterestPayable | currency:'USD' }}</span>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-6">
+            <div class="mat-grp">
+              <mat-label>Total Payment:
+              </mat-label>
+              <span class="result-text">{{ model.totalPayment | currency:'USD' }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

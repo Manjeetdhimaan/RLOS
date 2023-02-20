@@ -1,0 +1,91 @@
+<br/>
+<br/>
+<!-- <div class="mat-elevation-z8"> -->
+<div class="table-holder">
+    <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+
+        <ng-container matColumnDef="arn">
+            <th mat-header-cell *matHeaderCellDef> Application ID </th>
+            <td mat-cell *matCellDef="let element"> <u class="arn-text"><a (click)="check('arn')">{{element.arn}}</a></u> </td>
+        </ng-container>
+        <ng-container matColumnDef="applicationType">
+            <th mat-header-cell *matHeaderCellDef> Application Type </th>
+            <td mat-cell *matCellDef="let element" (click)="check('applicationType')"> {{element.applicationType}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="applicationStatus">
+            <th mat-header-cell *matHeaderCellDef> Application Status </th>
+            <td mat-cell *matCellDef="let element" (click)="check('applicationStatus')"> {{element.applicationStatus}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="initiationDate">
+            <th mat-header-cell *matHeaderCellDef> Start Date </th>
+            <td mat-cell *matCellDef="let element" (click)="check('initiationDate')"> {{element.initiationDate | date: 'MM/dd/yyyy'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="modifyDate">
+            <th mat-header-cell *matHeaderCellDef> Last Modification Date </th>
+            <td mat-cell *matCellDef="let element" (click)="check('modifyDate')"> {{element.modifyDate | date: 'MM/dd/yyyy'}} </td>
+        </ng-container>
+        <ng-container matColumnDef="resumable">
+            <th mat-header-cell *matHeaderCellDef> Action </th>
+            <!-- <td mat-cell *matCellDef="let element"><u> <a (click)="openDialog(element.applicationType , element.arn)" >{{element.resumable}}</a></u> </td>
+             -->
+            <td mat-cell *matCellDef="let element">
+                <span>
+                    <span class="icon">
+                        <svg height="14" width="14">
+                            <!-- <circle cx="7" cy="7" r="7" [ngClass]="getStateColor(element.resumable)" /> -->
+                            <circle cx="7" cy="7" r="7" class="green-svg" />
+                        </svg>
+                    </span>
+                <span class="text">
+                        <u>
+                            <a tabindex="0" (click)="openDialogs(element.applicationType,element.arn)" >
+                                <!-- {{element.resumable}} -->
+
+                                {{element.resumable === true ? 'Resume' : 'Upload Document'}}
+                            </a>
+                        </u>
+                    </span>
+                </span>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="expandedDetail">
+            <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+                <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'" *ngIf="show">
+                    <div class="example-element-diagram">
+                        <div class="example-element-position">
+                            <b style="font-weight: bold;">Application Type: &nbsp;&nbsp;</b> {{element.applicationType}}
+                        </div>
+                        <div class="example-element-position">
+                            <b style="font-weight: bold;">Application Status: &nbsp;&nbsp;</b> {{element.applicationStatus}}
+                        </div>
+                        <div class="example-element-position">
+                            <b style="font-weight: bold;">Initiation Date: &nbsp;&nbsp;</b> {{element.initiationDate | date: 'MM/dd/yyyy'}}
+                        </div>
+                        <div class="example-element-position">
+                            <b style="font-weight: bold;">Modificatin Date: &nbsp;&nbsp;</b> {{element.modifyDate | date: 'MM/dd/yyyy'}}
+                        </div>
+                    </div>
+                    <div class="example-element-description" *ngIf="element.message">
+
+                        <b style="font-weight: bold;">Message: &nbsp;&nbsp;</b>
+                        <ul>
+                            <li *ngFor="let msg of element.message">{{msg}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns" class="table-header"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="example-element-row" [class.example-expanded-row]="expandedElement === row" (click)="expandedElement === row? expandedElement = null : expandedElement = row">
+        </tr>
+        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+    </table>
+    <!-- subhasree(mat-paginator-container) -->
+    <!-- <mat-paginator #paginator [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true" [length]="totalSize" [pageIndex]="currentPage" (page)="handlePage($event)">
+    </mat-paginator> -->
+</div>

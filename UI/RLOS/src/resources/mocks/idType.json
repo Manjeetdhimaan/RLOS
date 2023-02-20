@@ -1,0 +1,14 @@
+[
+    {
+        "code": "DL",
+        "label": "Driver's License"
+    },
+    {
+        "code": "PASSPORT_ID",
+        "label": "Passport"
+    },
+    {
+        "code": "MILITARY_ID",
+        "label": "Military ID"
+    }
+]

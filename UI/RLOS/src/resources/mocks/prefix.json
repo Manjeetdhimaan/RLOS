@@ -1,0 +1,18 @@
+[
+    {
+      "label":"Mr.",
+      "code":"MR"
+   },
+   {
+      "label":"Mrs.",
+      "code":"MRS"
+   },
+   {
+     "label":"Ms.",
+     "code":"MS"
+   },
+   {
+      "label":"Dr.",
+      "code":"DR"
+   }
+]

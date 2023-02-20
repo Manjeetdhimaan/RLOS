@@ -1,0 +1,177 @@
+---
+
+#####################################################
+#PRODUCTION PROFILE STARTS
+#####################################################
+spring:
+  profiles: prod
+  
+# Connection parameters 
+
+ibps-config:
+  propertiesFilePath:
+  path: "IBPS_Cabinet_Resource\\Cabinet.properties"
+  process-defId: "2"
+  init-QueueId: "50"
+  initiate-from-activity-id: 1
+  workitem-id: 1
+  mdm-ttl: 600000
+  otpTtl: 120000
+  otpValidityCheck: true
+  engine-Name: "cwbcab"
+  jts-ipname: "hongapp01.combank.cb"
+  jts-portname: "3333"
+  #ibps-push-user-name: "supervisor2"
+  ibps-push-user-name: "user"
+  #ibps-push-user-password: "supervisor351"
+  ibps-push-user-password: "system123#"
+  ibps-mail-user-name: "supervisor"
+  ibps-mail-user-password: "supervisor351"
+  service-url: "https://hongapp01.combank.cb/iBPSRestFulWebServices/ibps/Restful/"
+  
+#####################################################
+#PRODUCTION PROFILE ENDS
+#####################################################
+
+---
+
+#####################################################
+#STAGING PROFILE STARTS
+#####################################################
+spring:
+  profiles: stage
+
+# Connection parameters
+
+ibps-config:
+  propertiesFilePath:
+  path: "IBPS_Cabinet_Resource\\Cabinet.properties"
+  process-defId: "6"
+  init-QueueId: "1011"
+  initiate-from-activity-id: 1
+  workitem-id: 1
+  mdm-ttl: 600000
+  otpTtl: 120000
+  otpValidityCheck: true
+  engine-Name: "cwbdevcab"
+  jts-ipname: "192.168.153.141"
+  jts-portname: "3333"
+  ibps-push-user-name: "supervisor2"
+  ibps-push-user-password: "supervisor351"
+  ibps-mail-user-name: "supervisor"
+  ibps-mail-user-password: "supervisor351"
+  service-url: "http://192.168.153.141:9080/iBPSRestFulWebServices/ibps/Restful/"
+
+#####################################################
+#STAGING PROFILE ENDS
+#####################################################
+---
+#####################################################
+#UAT PROFILE STARTS
+#####################################################
+spring:
+  profiles: uat
+  
+# Connection parameters
+
+ibps-config:
+  propertiesFilePath:
+  path: "IBPS_Cabinet_Resource\\Cabinet.properties"
+  process-defId: "6"
+  init-QueueId: "60"
+  initiate-from-activity-id: 1
+  workitem-id: 1
+  mdm-ttl: 600000
+  otpTtl: 120000
+  otpValidityCheck: true
+  engine-Name: "cwbdevcab"
+  jts-ipname: "10.10.40.155"
+  jts-portname: "3333"
+  ibps-push-user-name: "user"
+  ibps-push-user-password: "system123#"
+  ibps-mail-user-name: "supervisor"
+  ibps-mail-user-password: "supervisor351"
+  service-url: "http://10.10.40.155:9081/iBPSRestFulWebServices/ibps/Restful/"
+ 
+
+#####################################################
+#UAT PROFILE ENDS
+#####################################################
+---
+
+
+#####################################################
+#LOCAL DEVELOPMENT PROFILE STARTS
+#####################################################
+
+spring:
+  profiles: dev
+  
+# Connection parameters
+
+ibps-config:
+  propertiesFilePath:
+  path: "IBPS_Cabinet_Resource\\Cabinet.properties"
+  process-defId: "20"
+  init-QueueId: "14"
+  initiate-from-activity-id: 1
+  workitem-id: 1
+  mdm-ttl: 600000
+  otpTtl: 120000
+  otpValidityCheck: true
+  engine-Name: "cwbdevcab"
+  jts-ipname: "192.168.153.141"
+  jts-portname: "3333"
+  #ibps-push-user-name: "supervisor2"
+  #ibps-push-user-name: "ServiceUser"
+  ibps-push-user-name: "user"
+  #ibps-push-user-password: "supervisor351"
+  ibps-push-user-password: "system123#"
+  ibps-mail-user-name: "supervisor"
+  ibps-mail-user-password: "supervisor351"
+  service-url: "http://192.168.153.141:9080/iBPSRestFulWebServices/ibps/Restful/"
+  
+  
+
+#####################################################
+#LOCAL DEVELOPMENT PROFILE ENDS
+#####################################################
+
+---
+
+#####################################################
+# AWS DEV PROFILE STARTS
+#####################################################
+
+spring:
+  profiles: awsdev
+  
+# Connection parameters
+
+ibps-config:
+  propertiesFilePath:
+  path: "IBPS_Cabinet_Resource\\Cabinet.properties"
+  process-defId: "20"
+  init-QueueId: "14"
+  initiate-from-activity-id: 1
+  workitem-id: 1
+  mdm-ttl: 600000
+  otpTtl: 120000
+  otpValidityCheck: true
+  engine-Name: "cwbdevcab"
+  jts-ipname: "192.168.153.141"
+  jts-portname: "3333"
+  #ibps-push-user-name: "supervisor2"
+  #ibps-push-user-name: "ServiceUser"
+  ibps-push-user-name: "user"
+  #ibps-push-user-password: "supervisor351"
+  ibps-push-user-password: "system123#"
+  ibps-mail-user-name: "supervisor"
+  ibps-mail-user-password: "supervisor351"
+  service-url: "http://192.168.153.141:9080/iBPSRestFulWebServices/ibps/Restful/"
+#####################################################
+# AWS DEV PROFILE ENDS
+#####################################################
+
+---
+

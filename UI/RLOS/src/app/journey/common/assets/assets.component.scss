@@ -1,0 +1,53 @@
+.asset-details-container {
+  #back-link-container {
+    float: left;
+  } // #buttons-container {
+  //   float: right;
+  // }
+
+
+  #buttons-container-Remove{
+    float: right;
+  }
+  #prev-btn {
+    float: left;
+  }
+  #next-btn {
+    float: right;
+  }
+  .add-btn {
+    float: right;
+  }
+  .no-padding-lr {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .heightDiv{
+    height:44px;
+  }
+
+  .mat-input-element {
+    font: inherit;
+    background: 0 0;
+    color: currentColor;
+    border: none;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    vertical-align: bottom;
+    text-align: inherit;
+    height: 20px; 
+    padding-bottom: 6px !important;
+  }
+
+  label {
+    font-family:   'open-sans_regular' !important;
+  }
+
+  mat-label {
+    font-family:   'open-sans_regular' !important;
+  }
+}

@@ -1,0 +1,56 @@
+
+@import './src/assets/styles/sass/theme/cwb/_cwb-variables.scss';
+@import './src/assets/styles/sass/global/_mixins.scss';
+@import './src/assets/styles/sass/theme/cwb/overrides/globals/_custom-styles.scss';
+.customer-acceptance-container {
+  #back-link-container {
+    float: left;
+  }
+  #buttons-container {
+    float: right;
+  }
+  .radio-label {
+    font-weight: normal
+  }
+  
+  .no-padding-lr {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  } 
+  
+  .no-padding-top{
+    padding-top: 15px !important;
+  }
+
+  .encryptedssn{
+    border: 1px solid;
+    padding: 5px 5px 5px 10px;
+    margin-top: 12px;
+    border-radius: 5px;
+  }
+  label[for] {
+    margin-bottom: 0;
+  }
+}
+
+@mixin desktop {
+    @media (min-width: #{960px}) and (max-width: #{3000px - 1px}) {
+      @content;
+    }
+  }
+
+  @mixin lg-desktop {
+    @media (min-width: #{3000px}) {
+      @content;
+    }
+  }
+
+  .customer-acceptance{
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+
+  .customer-app-container{
+    margin-top: 10px;
+    padding: 10px !important;
+  }

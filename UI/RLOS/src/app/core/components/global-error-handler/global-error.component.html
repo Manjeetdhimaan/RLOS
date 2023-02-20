@@ -1,0 +1,15 @@
+<div class="text-center align-center container-body" style="margin-top:5px;">
+    <h3 *ngIf="code">
+        Error Status Code: {{code |translate}}
+    </h3>
+    <br/>
+    <div>
+        {{errorMessage | translate}}
+    </div>
+    <!-- <div>Your Loan Application Number is {{arn}}.</div> -->
+    <br/>
+    <div class="text-right">
+        <button type="button" color="primary" mat-raised-button (click)="exit()">Exit</button>
+    </div>
+
+</div>

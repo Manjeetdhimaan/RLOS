@@ -1,0 +1,40 @@
+.footer {
+    border-top: 1px solid #249fce;
+    // position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    z-index: 1;
+}
+
+.footer-content {
+    line-height: 50px;
+    vertical-align: middle;
+    background-color: white;
+}
+
+.name {
+    align-items: center;
+    text-align: center;
+    font-size: x-large;
+}
+
+.custom-legend {
+    color: #fff !important;
+    // padding-left: 9.5% !important;
+    font-weight: bolder !important;
+    line-height: 2.8em;
+    text-transform: none !important;
+}
+
+.text-left {
+    text-align: left;
+    font-size: 14px;
+}
+
+.acc-num {
+    font-weight: bold;
+    color: #00549E;
+}

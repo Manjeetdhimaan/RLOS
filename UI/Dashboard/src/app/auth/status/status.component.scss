@@ -1,0 +1,96 @@
+        table {
+            width: 100%;
+        }
+        
+        tr.example-detail-row {
+            height: 0;
+        }
+        
+        tr.example-element-row:not(.example-expanded-row):hover {
+            background: #f5f5f5;
+        }
+        
+        tr.example-element-row:not(.example-expanded-row):active {
+            background: #efefef;
+        }
+        
+        .example-element-row td {
+            border-bottom-width: 0;
+        }
+        
+        .example-element-detail {
+            overflow: hidden;
+            display: flex;
+        }
+        
+        .example-element-diagram {
+            min-width: 80px;
+            padding: 8px;
+            font-weight: lighter;
+            margin: 8px 0;
+        }
+        
+        .example-element-symbol {
+            font-weight: bold;
+            font-size: 40px;
+            line-height: normal;
+        }
+        
+        .example-element-description {
+            padding: 16px;
+        }
+        
+        .example-element-description-attribution {
+            opacity: 0.5;
+        }
+        
+        th {
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+        }
+        
+        tr.mat-header-row {
+            background: #6b6b6b;
+            // background: #000000;
+        }
+        
+        .table-holder {
+            background-color: white;
+            padding: 15px;
+            padding-top: 5px;
+            border-radius: 5px;
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+        
+        .green-svg {
+            fill: #6dd400;
+        }
+        
+        .gray-svg {
+            fill: #b2b4b6;
+        }
+        
+        .arn-text {
+            color: #e47c01;
+            font-weight: 600;
+        }
+        
+        // th.mat-header-cell:first-child {
+        //     color: #fff;
+        //     text-transform: uppercase;
+        // }
+        // .mat-header-cell {
+        //     background-color: red;
+        // }
+        .icon {
+            padding-top: 5px;
+            padding-right: 5px;
+        }
+        
+        .icon,
+        .text {
+            vertical-align: middle;
+            display: inline-block;
+        }

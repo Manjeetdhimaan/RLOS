@@ -1,0 +1,25 @@
+@import './src/assets/styles/sass/global/_base-styles.scss';
+
+h1 {
+  color:$h1-color !important;
+}
+
+h2 {
+  color:$h2-color !important;
+}
+
+h3 {
+  color:$h3-color !important;
+}
+
+h4 {
+  color:$h4-color !important;
+}
+
+h5 {
+  color:$h5-color !important;
+}
+body { 
+  font-family: 'open-sans_regular' !important;
+  background-color:white;
+}

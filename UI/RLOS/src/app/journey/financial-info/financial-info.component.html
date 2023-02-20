@@ -1,0 +1,50 @@
+<div class="container-fluid financial-info-container">
+    <div class="row" *ngIf="alert">
+        <div class="col-12">
+            <error-alert [errorObject]=alert (close)="closeError()" role="alert" aria-live="assertive" aria-atomic="true">
+            </error-alert>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12" #tabs>
+            <h3 class="heading-footer margin-b" *ngIf="!isAssetMandatory" tabindex="0">{{'application.applicant.financialInfoDetails.header' | translate}}</h3>
+        
+            <mat-tab-group (selectedTabChange)="onTabChange($event)">
+                <mat-tab label="Primary Applicant">
+                    <ng-template matTabContent>
+                        
+                        <asset-details #tab1 [tabData]="primaryApplicant.financialDetails" (saveTabData)="createAppDataDTO($event)" [isDocumentUploaded]="isDocumentUploaded[0]" (openUploadDialog)="openDialog($event)" (editUploadDialog)="editDocuments($event)" [applicantOrder]="primaryApplicant.order"
+                            [listItems]="listItems" [isCoApplicant]="false" [required]="isAssetMandatory">
+                        </asset-details>
+
+                        
+
+                    </ng-template>
+                </mat-tab>
+                <mat-tab label="{{'Co-applicant ' +(i+1)}}" *ngFor="let coApplicant of coApplicants; let i = index;">
+                    <ng-template matTabContent>
+                        <div id="getting-started-container">
+                            <asset-details #coTab [tabData]="coApplicant.financialDetails" (saveTabData)="createAppDataDTO($event)" (openUploadDialog)="openDialog($event)" [isDocumentUploaded]="isDocumentUploaded[i+1]" (editUploadDialog)="editDocuments($event)" [listItems]="listItems"
+                                [applicantOrder]="coApplicant.order" [isCoApplicant]="true" [required]="isAssetMandatory"></asset-details>
+                        </div>
+                    </ng-template>
+                </mat-tab>
+            </mat-tab-group>
+            <br/>
+            <br />
+            <div id="step-footer">
+                <hr aria-hidden="true" tabindex="-1" />
+                <div id="footer-container">
+                    <div id="back-link-container" aria-label="Back">
+                        <button color="primary" (click)="back()" mat-raised-button>{{ 'application.buttons.back' | translate }}</button>
+                    </div>
+                    <div id="buttons-container">
+                        <button color="primary" mat-raised-button (click)="saveAndExitApp()">{{ 'application.buttons.saveAndExit' | translate }}</button>
+                        <span class="mr-10"></span>
+                        <button color="primary" (click)="continue('continue')" mat-raised-button>{{ 'application.buttons.continue' | translate }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

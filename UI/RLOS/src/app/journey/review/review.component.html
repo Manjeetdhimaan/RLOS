@@ -1,0 +1,451 @@
+<div class="container-fluid">
+    <div class="row" *ngIf="alert">
+        <div class="col-12" role="alert" aria-live="assertive" aria-atomic="true">
+            <error-alert [errorObject]=alert (close)="closeError()">
+            </error-alert>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h3 class="heading-footer margin-b">{{ 'application.applicant.review.header' | translate }}</h3>
+            <!-- <mat-accordion class="example-headers-align mat-accordian-bg"> -->
+            <div id="summary-container">
+
+                
+                <!--************************ Financial Details**********************************-->
+
+
+                <mat-expansion-panel [expanded]="true">
+                    <mat-expansion-panel-header>
+
+                        <mat-panel-title>
+                            <span class="bold">Financial Details</span>
+                        </mat-panel-title>
+
+                        <mat-panel-description>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+
+
+
+                    <div id="financial-details-container">
+
+                        <div>
+                            <div class="bold">Asset Details</div>
+                        </div>
+
+                        <div>
+                           
+                            <div class="label-font">
+                                <label class="heading-font">Asset-1</label>
+                            </div>
+
+                            <!--Asset Details need to be shown here in-->
+                              <!--<asset-details [tabData]="model.applicant.financialDetails.incomeDetails"></asset-details>-->
+
+                              <!--<div *ngFor="let coApplicant of model.coApplicants; let i = index;">
+
+
+                              </div>-->
+                        </div>
+
+
+
+
+                        <!--************************ Liabilities details**********************************-->
+
+                        <div>
+                           <div class="bold">Liabilities Details</div>
+
+
+
+
+
+
+                        </div>
+
+
+                        <!--************************ Expenses details**********************************-->
+
+
+                        <div>
+                            <div class="bold">Expenses Details</div>
+
+
+
+
+
+
+
+                         </div>
+
+                    </div>
+
+
+
+                </mat-expansion-panel>
+
+
+
+
+                <!--************************ Loan details**********************************-->
+
+                <mat-expansion-panel [expanded]="true" *ngIf="model.loanDetails">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <span class="bold">{{ 'application.loanDetails.header' | translate }}</span>
+                        </mat-panel-title>
+                        <mat-panel-description>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div id="getting-started-container">
+                        <!-- ****************************Line of Credit***************************-->
+                        <div class="row">
+                            <!-- <div class="col-12">
+                                <h4 tabindex="0">{{ 'application.loanDetails.header' | translate }}</h4>
+                            </div>
+                            <br /> -->
+                            <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+                                <label class="heading-font" for="product">{{ 'application.loanDetails.product.label' | translate }}</label>
+                                <br />
+                                <div class="label-font" id="product">
+                                    {{model.loanDetails.product || notSpecified}}
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="(model.loanDetails.loanType != 'Credit Card' && model.loanDetails.loanType != 'Overdraft')">
+                                <label class="heading-font" for="loanType">{{ 'application.loanDetails.typeOfLoan.label' | translate }}</label>
+                                <br />
+                                <div class="label-font" id="loanType">
+                                    {{model.loanDetails.loanType || notSpecified}}
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="(model.loanDetails.loanType != 'Credit Card' && model.loanDetails.loanType != 'Overdraft')">
+                                <label class="heading-font" for="loanPurposeType">{{ 'application.loanDetails.loanPurposeType.label' | translate }}</label>
+                                <br />
+                                <div class="label-font" id="loanPurposeType">
+                                    {{model.loanDetails.loanPurposeType || notSpecified}}
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="(model.loanDetails.loanPurposeType === 'Others')">
+                                <label class="heading-font" for="loanPurposeOthers">{{ 'application.loanDetails.loanPurposeOthers.label' | translate }}</label>
+                                <br />
+                                <div class="label-font" id="loanPurposeOthers">
+                                    {{model.loanDetails.loanPurposeOthers || notSpecified}}
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="(model.loanDetails.loanType != 'Credit Card' && model.loanDetails.loanType != 'Overdraft')">
+                                <label class="heading-font" for="amountRequired">{{ 'application.loanDetails.amountRequired.label' | translate }} ($)</label>
+                                <div class="label-font" id="amountRequired">
+                                    {{(model.loanDetails.amountRequired | currency) || notSpecified }}
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="(model.loanDetails.loanType != 'Credit Card' && model.loanDetails.loanType != 'Overdraft')">
+                                <label class="heading-font" for="loanTerm">{{ 'application.loanDetails.loanTerm.label' | translate }}</label>
+                                <div class="label-font" id="loanTerm">
+                                    {{model.loanDetails.loanTerm + ' months' || notSpecified}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- credit card details -->
+                        <!-- <div *ngIf="model.loanDetails.product === 'Credit Card'">
+                            <div class="bold">Credit Card Details</div>
+                            <div *ngFor="let creditCardDetail of model.loanDetails.creditCardDetails; let i = index;">
+                                <mat-label class="sub-heading">
+                                    <label>Details {{i+1}}
+                                    </label>
+                                </mat-label>
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="((creditCardDetail.cardsRequiredFor) != null)">
+                                        <label class="heading-font" for="cardsRequiredFor">{{ 'application.loanDetails.cardsRequiredFor.label' | translate }}</label>
+                                        <div class="label-font" id="cardsRequiredFor">
+                                            {{creditCardDetail.cardsRequiredFor || notSpecified }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="((creditCardDetail.cardsRequiredFor) != null)">
+                                        <label class="heading-font" for="branch">{{ 'application.loanDetails.branch.label' | translate }}</label>
+                                        <div class="label-font" id="branch">
+                                            {{creditCardDetail.branch || notSpecified }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="((creditCardDetail.cardsRequiredFor) != null)">
+                                        <label class="heading-font" for="cardType">{{ 'application.loanDetails.cardType.label' | translate }}</label>
+                                        <div class="label-font" id="cardType">
+                                            {{creditCardDetail.cardType || notSpecified }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+
+                        <!-- Overdraft details -->
+                        <!-- <div *ngIf="model.loanDetails.product === 'Overdraft'">
+                            <div class="bold">Overdraft Details</div>
+                            <div *ngFor="let overdraftCardDetail of model.loanDetails.overdraftDetails; let i = index;">
+                                <mat-label class="sub-heading">
+                                    <label>Details {{i+1}}
+                                    </label>
+                                </mat-label>
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="((overdraftCardDetail.overdraftRequiredFor) != null)">
+                                        <label class="heading-font" for="overdraftRequiredFor">{{'application.loanDetails.overdraftRequiredFor.label' | translate}}</label>
+                                        <div class="label-font" id="overdraftRequiredFor">
+                                            {{overdraftCardDetail.overdraftRequiredFor || notSpecified }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="((overdraftCardDetail.overdraftRequiredFor) != null)">
+                                        <label class="heading-font" for="overdraftPurpose">{{'application.loanDetails.overdraftPurpose.label' | translate}}</label>
+                                        <div class="label-font" id="overdraftPurpose">
+                                            {{overdraftCardDetail.overdraftPurpose || notSpecified }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="((overdraftCardDetail.overdraftRequiredFor) != null && (overdraftCardDetail.overdraftPurpose) === 'Others')">
+                                        <label class="heading-font" for="otherOverdraftPurpose">{{ 'application.loanDetails.otherOverdraftPurpose.label' | translate }}</label>
+                                        <div class="label-font" id="otherOverdraftPurpose">
+                                            {{overdraftCardDetail.otherOverdraftPurpose || notSpecified }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+
+                        <!-- collateral details -->
+                        <div>
+                            <div class="bold">Collateral Details</div>
+                            <div class="row">
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+                                    <label class="heading-font" for="hasCollateral">{{'application.loanDetails.loanProductType.label' | translate}}</label>
+                                    <div class="label-font" id="hasCollateral">
+                                        {{model.loanDetails.hasCollateral || notSpecified}}
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="(model.loanDetails.hasCollateral === 'Yes')">
+                                    <label class="heading-font" for="collateralType">{{ 'application.loanDetails.collateralType.label' | translate }}</label>
+                                    <div class="label-font" id="collateralType">
+                                        {{model.loanDetails.collateralType || notSpecified}}
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="(model.loanDetails.collateralType === 'OS') && (model.loanDetails.hasCollateral === 'Yes')">
+                                    <label class="heading-font" for="otherCollateral">{{ 'application.loanDetails.otherCollateral.label' | translate }}</label>
+                                    <div class="label-font" id="otherCollateral">
+                                        {{model.loanDetails.otherCollateral || notSpecified }}
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="(model.loanDetails.hasCollateral === 'Yes')">
+                                    <label class="heading-font" for="collateralValue">{{ 'application.loanDetails.collateralValue.label' | translate }}</label>
+                                    <div class="label-font" id="collateralValue">
+                                     {{(model.loanDetails.collateralValue | currency) || notSpecified }}
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="(model.loanDetails.hasCollateral === 'Yes')">
+                                    <label class="heading-font" for="presentCollateralValue">{{ 'application.loanDetails.presentCollateralValue.label' | translate }}</label>
+                                    <div class="label-font" id="presentCollateralValue">
+                                        {{(model.loanDetails.presentCollateralValue | currency) || notSpecified }}
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="(model.loanDetails.hasCollateral === 'Yes')">
+                                    <label class="heading-font" for="currency">{{ 'application.loanDetails.currency.label' | translate }}</label>
+                                    <div class="label-font" id="currency">
+                                      {{(model.loanDetails.currency) || notSpecified }}
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="(model.loanDetails.hasCollateral === 'Yes')">
+                                    <label class="heading-font" for="primaryOwner">{{ 'application.loanDetails.primaryOwner.label' | translate }}</label>
+                                    <div class="label-font" id="primaryOwner">
+                                        {{model.loanDetails.primaryOwner || notSpecified }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </mat-expansion-panel>
+                <br />
+
+                <!-- ************************************* Primary Applicant details****************************************** -->
+
+                <mat-expansion-panel [expanded]="true">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <span class="bold" tabindex="0">{{ 'application.applicant.header' | translate }}</span>
+                        </mat-panel-title>
+                        <mat-panel-description>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+
+                    <!-- basic details -->
+                    <div class="container-fluid basic-details-container">
+                        <div class="row">
+                            <div class="col-md-12 no-padding-top no-padding-lr">
+                                <form>
+                                    <div>
+                                        <div class="bold">{{ 'application.applicant.primaryHeader' | translate }}</div>
+                                        <basic-info [tabData]="model.applicant" [listItems]="listItems" [isCoApplicant]="false" [isComponentReadOnly]="true"></basic-info>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- address details -->
+                    <div id="getting-started-container" *ngIf="model.applicant.addressDetails">
+                        <div *ngFor="let addressDetail of model.applicant.addressDetails.addresses; let i = index;">
+                            <div *ngIf="addressDetail.type ==='CURRENT'">
+                                <div class="bold">{{ 'application.applicant.addressDetails.currentAdd' | translate }}</div>
+                            </div>
+                            <div *ngIf="addressDetail.type ==='MAILING'">
+                                <div class="bold">{{ 'application.applicant.addressDetails.mailingAdd' | translate }}</div>
+                            </div>
+                            <div *ngIf="addressDetail.type ==='PREVIOUS'">
+                                <div class="bold">{{ 'application.applicant.addressDetails.prevAdd' | translate }}</div>
+                            </div>
+                            <address-details [tabData]="addressDetail" [isCoApplicant]="false" [listItems]="listItems" [isComponentReadOnly]="true" [applicantData]="model.applicant.addressDetails"></address-details>
+                        </div>
+                    </div>
+
+                    <!-- employment details -->
+                    <div id="getting-started-container" *ngIf="model.applicant.empDetails">
+                        <div class="bold">{{ 'application.applicant.empDetails.empHeader' | translate }}</div>
+                        <div *ngFor="let empDetail of model.applicant.empDetails; let i = index;">
+                            <emp-details [tabData]="model.applicant.empDetails" [empInfo]="empDetail" [isCoApplicant]="false" [listItems]="listItems" [isComponentReadOnly]="true"></emp-details>
+                            <br *ngIf="i > 0" />
+                        </div>
+                    </div>
+
+                    <!-- income details -->
+                    <div id="getting-started-container" *ngIf="model.applicant.financialDetails.incomeDetails">
+                        <div class="bold">{{ 'application.applicant.incomeDetails.header' | translate }}</div>
+                        <div *ngFor="let incomeDetail of model.applicant.financialDetails.incomeDetails; let i = index;">
+                            <mat-label class="sub-heading">
+                                <label>{{ 'application.applicant.incomeDetails.incomeLabel' | translate }} {{i+1}}
+                            </label>
+                            </mat-label>
+                            <income-details [tabData]="model.applicant.financialDetails.incomeDetails" [incomeInfo]="incomeDetail" [isCoApplicant]="false" [listItems]="listItems" [isComponentReadOnly]="true"></income-details>
+                            <br *ngIf="i > 0" />
+                        </div>
+                    </div>
+
+                    <!-- PEP Declaration (Politically Exposed Person) -->
+                    <div id="getting-started-container" *ngIf="model.applicant.politicallyExposedPersonDetails">
+                        <div class="bold">{{ 'application.applicant.politicallyExposedPersonDetails.pepFieldsHeader' | translate }}</div>
+                        <app-politically-exposed-person [tabData]="model.applicant.politicallyExposedPersonDetails" [isCoApplicant]="false" [listItems]="listItems" [isComponentReadOnly]="true"></app-politically-exposed-person>
+                    </div>
+
+                    <!-- Family Details -->
+                    <!-- <div id="getting-started-container" *ngIf="model.applicant.familyDetails">
+                        <div class="bold">{{ 'application.applicant.familyDetails.header' | translate }}</div>
+                        <app-family-details [tabData]="model.applicant.familyDetails" [isCoApplicant]="false" [listItems]="listItems" [isComponentReadOnly]="true"></app-family-details>
+                    </div> -->
+
+                    <!-- Reference Details -->
+                    <div id="getting-started-container" *ngIf="model.applicant.referenceDetails">
+                        <div class="bold">{{ 'application.applicant.referenceDetails.header' | translate }}</div>
+                        <div *ngFor="let referenceDetail of model.applicant.referenceDetails; let i = index;">
+                            <mat-label class="sub-heading">
+                                <label>{{ 'application.applicant.referenceDetails.refenceLabel' | translate }} {{i+1}}
+                                </label>
+                            </mat-label>
+                            <reference-details [tabData]="model.applicant.referenceDetails" [referenceInfo]="referenceDetail" [isCoApplicant]="false" [listItems]="listItems" [isComponentReadOnly]="true"></reference-details>
+                            <br *ngIf="i > 0" />
+                        </div>
+                    </div>
+
+                </mat-expansion-panel>
+
+                <!-- *************************************** CO-APPLICANT INFORMATION *************************************** -->
+
+                <div *ngFor="let coApplicant of model.coApplicants; let i = index;">
+                    <br/>
+                    <mat-expansion-panel [expanded]="true">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <span class="bold" tabindex="0">Co-Applicant {{i+1}} Information</span>
+                            </mat-panel-title>
+                            <mat-panel-description>
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+
+                        <!-- basic details -->
+                        <div class="getting-started-container" *ngIf="coApplicant">
+                            <br />
+                            <basic-info [tabData]="coApplicant" [listItems]="listItems" [isCoApplicant]="true" [isComponentReadOnly]="true"></basic-info>
+                            <hr aria-hidden="true" tabindex="-1" />
+                        </div>
+
+                        <!-- address details -->
+                        <div id="getting-started-container" *ngIf="coApplicant.addressDetails">
+                            <div *ngFor="let addressDetail of coApplicant.addressDetails.addresses; let i = index;">
+                                <div *ngIf="addressDetail.type ==='CURRENT'">
+                                    <div class="bold">{{ 'application.applicant.addressDetails.currentAdd' | translate }}</div>
+                                </div>
+                                <div *ngIf="addressDetail.type ==='MAILING'">
+                                    <div class="bold">{{ 'application.applicant.addressDetails.mailingAdd' | translate }}</div>
+                                </div>
+                                <div *ngIf="addressDetail.type ==='PREVIOUS'">
+                                    <div class="bold">{{ 'application.applicant.addressDetails.prevAdd' | translate }}</div>
+                                </div>
+                                <address-details [tabData]="addressDetail" [isCoApplicant]="false" [listItems]="listItems" [isComponentReadOnly]="true" [applicantData]="model.applicant.addressDetails"></address-details>
+                            </div>
+                            <hr aria-hidden="true" tabindex="-1" />
+                        </div>
+
+                        <!-- employment details -->
+                        <div id="getting-started-container" *ngIf="coApplicant.empDetails">
+                            <div class="bold">{{ 'application.applicant.empDetails.empHeader' | translate }}</div>
+                            <div *ngFor="let empDetail of coApplicant.empDetails; let i = index;">
+                                <emp-details [tabData]="coApplicant.empDetails" [empInfo]="empDetail" [isCoApplicant]="false" [listItems]="listItems" [isComponentReadOnly]="true"></emp-details>
+                                <br *ngIf="i > 0" />
+                            </div>
+                            <hr aria-hidden="true" tabindex="-1" />
+                        </div>
+
+                        <!-- income details -->
+                        <div id="getting-started-container" *ngIf="coApplicant.financialDetails.incomeDetails">
+                            <div class="bold">{{ 'application.applicant.incomeDetails.header' | translate }}</div>
+                            <div *ngFor="let incomeDetail of coApplicant.financialDetails.incomeDetails; let i = index;">
+                                <mat-label class="sub-heading">
+                                    <label>{{ 'application.applicant.incomeDetails.incomeLabel' | translate }} {{i+1}}
+                                </label>
+                                </mat-label>
+                                <income-details [tabData]="coApplicant.financialDetails.incomeDetails" [incomeInfo]="incomeDetail" [isCoApplicant]="false" [listItems]="listItems" [isComponentReadOnly]="true"></income-details>
+                                <br *ngIf="i > 0" />
+                            </div>
+                        </div>
+
+                        <!-- PEP Declaration (Politically Exposed Person) -->
+                        <div id="getting-started-container" *ngIf="coApplicant.politicallyExposedPersonDetails">
+                            <div class="bold">{{ 'application.applicant.politicallyExposedPersonDetails.pepFieldsHeader' | translate }}</div>
+                            <app-politically-exposed-person [tabData]="coApplicant.politicallyExposedPersonDetails" [isCoApplicant]="false" [listItems]="listItems" [isComponentReadOnly]="true"></app-politically-exposed-person>
+                        </div>
+
+
+                    </mat-expansion-panel>
+                    <br />
+                </div>
+                <br />
+
+                <div id="step-footer">
+
+                    <hr aria-hidden="true" tabindex="-1" />
+
+                    <div id="footer-container">
+
+                        <div id="back-link-container" aria-label="Back">
+                            <button color="primary" (click)="back()" mat-raised-button>{{ 'application.buttons.back' | translate }}</button>
+                        </div>
+
+                        <div id="buttons-container">
+                            <button color="primary" mat-raised-button (click)="saveAndExitApp()">{{ 'application.buttons.saveAndExit' | translate }}</button>
+                            <span class="mr-10"></span>
+                            <button color="primary" (click)="continue()" mat-raised-button>{{ 'application.buttons.continue' | translate }}</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

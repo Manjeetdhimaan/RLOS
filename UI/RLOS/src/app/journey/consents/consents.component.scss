@@ -1,0 +1,90 @@
+@import './src/assets/styles/sass/global/_default-variables';
+@import './src/assets/styles/sass/global/_mixins';
+@import './src/assets/styles/sass/global/_functions';
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+    flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+}
+
+#getting-started-container {
+    // border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.disclosure-container {
+    // border-top: 1px solid #eee;
+    padding-top: 20px;
+    .terms-condition {
+        font-family: 'open-sans_regular' !important;
+        align-items: center;
+    }
+    .slide-toggle-container {
+        padding-bottom: 10px;
+    }
+}
+
+#step-footer {
+    hr {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-top: 1px solid #D9D9D9;
+    }
+    #footer-container {
+        display: table;
+        width: 100%;
+        #back-link-container {
+            // cursor: pointer;
+            text-align: left;
+            font-size: em(16px);
+            @include mobile {
+                display: table-row;
+                line-height: 30px;
+                font-size: 16px;
+            }
+        }
+        #buttons-container {
+            text-align: right;
+            @include mobile {
+                display: table-row;
+            }
+            @include tablet-desktop {
+                // display: table-cell;
+            }
+        }
+    }
+    button {
+        // @include desktop {
+        //   margin-left: 16px;
+        // }
+        // @include sm-desktop{
+        //   margin-left: 16px;
+        // }
+        // @include tablet {
+        //   margin-left: 16px;
+        // }
+        @include mobile {
+            width: 100%;
+        }
+    }
+}
+
+.mat-accordian-bg {
+    background: transparent;
+}
+
+::ng-deep .mat-expansion-panel-header {
+    background-color: #DCE7EF !important;
+}
+
+.justify-text {
+    text-align: justify;
+}
+
+// textarea {
+//     height: 50px !important;
+// }

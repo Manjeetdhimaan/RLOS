@@ -1,0 +1,120 @@
+<div class="document-container">
+    <br *ngIf="showAlert" />
+    <div class="row" *ngIf="showAlert">
+        <div class="col-12" role="alert" aria-live="assertive" aria-atomic="true">
+            <error-alert [errorObject]="alert" (close)="closeError()"></error-alert>
+        </div>
+    </div>
+    <br *ngIf="!showAlert" />
+    <div class="row">
+        <div class="col-12 responsive-table">
+            <form [formGroup]="documentTable">
+                <table class="table table-border" [ngClass]="{'table-dark': mode}">
+                    <thead class="text-nowrap">
+                        <th>Document Name <span class="ui-column-resizer" dragableColumn> </span></th>
+                        <th>Uploaded For<span class="ui-column-resizer" dragableColumn> </span></th>
+                        <th>Account Relationship<span class="ui-column-resizer" dragableColumn> </span></th>
+                        <th style="text-align:center;padding-left:62px;padding-right:5px">Action<span
+                                class="ui-column-resizer" dragableColumn> </span></th>
+                        <th>Uploaded Date<span class="ui-column-resizer" dragableColumn> </span></th>
+                        <!-- <th>View<span class="ui-column-resizer" dragableColumn> </span></th> -->
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        <ng-container formArrayName="documentRows"
+                            *ngFor="let group of getFormControls.controls ; let i=index">
+                            <tr *ngIf="group.get('isEditable').value" [formGroupName]="i">
+                                <td>
+                                    <mat-form-field appearance="outline">
+                                        <input matInput type="text" formControlName="documentName">
+                                    </mat-form-field>
+
+                                    <mat-error id="msg1" class="alignErrorMessage"
+                                        *ngIf="(((group.get('documentName').value) === '') && showDocumentNameError)">
+                                        &nbsp;&nbsp;Please fill Document Name
+                                    </mat-error>
+
+                                </td>
+                                <td>
+                                    <mat-form-field appearance="outline">
+                                        <input matInput type="text" formControlName="uploadedFor">
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <mat-form-field appearance="outline">
+                                        <input matInput type="text" formControlName="accountRelationShip">
+                                    </mat-form-field>
+                                </td>
+                                <td class="va-middle">
+                                    <input type="file" #file1 style="display: none"
+                                        (change)="onFilesAdded($event,group,i)" />
+                                    <button type="button" mat-raised-button color="primary" class="upload-btn"
+                                        (click)="addFiles(file1)">Upload</button>
+                                </td>
+                                <td>
+                                    {{group.get('uploadDate').value | date: 'MM/dd/yyyy'}}
+                                </td>
+                                <!-- <td>
+                                            <button type="button" mat-raised-button color="primary" class="view-btn">View</button>
+                                        </td> -->
+                                <td class="va-middle">
+                                    <!-- <mat-icon class="delete" (click)="deleteRow(i)">delete_forever</mat-icon> -->
+                                    <button type="button" mat-stroked-button class="upload-btn"
+                                        (click)="deleteRow(i)">Delete</button>
+                                    <!-- <mat-icon class="done" (click)="doneRow(group)">done</mat-icon> -->
+                                </td>
+                            </tr>
+                            <tr *ngIf="!group.get('isEditable').value">
+                                <td>
+                                    {{group.get('documentName').value}}
+                                </td>
+                                <td>
+                                    {{group.get('uploadedFor').value}}
+                                </td>
+                                <td>
+                                    {{group.get('relationship').value}}
+                                </td>
+                                <td>
+                                    <input type="file" #file1 style="display: none"
+                                        (change)="onFilesAdded($event,group,i)" />
+                                    <button type="button" mat-raised-button color="primary" class="upload-btn"
+                                        (click)="addFiles(file1)">Upload</button>
+                                </td>
+                                <td>
+                                    {{group.get('uploadDate').value | date: 'MM/dd/yyyy'}}
+                                </td>
+                                <!-- <td>
+                                            <button type="button" mat-raised-button color="primary" class="view-btn">View</button>
+                                        </td> -->
+                                <td>
+                                    <!-- <mat-icon class="edit" (click)="editRow(group)">edit</mat-icon> -->
+                                </td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="col-12">
+                        <label class="full-width">{{'application.documents.note' | translate}}</label>
+                        <label class="full-width">{{'application.documents.add-btn-action' | translate}}</label>
+                    </div>
+                </div>
+                <div class="action-container">
+                    <button mat-raised-button type="submit" (click)="addRow()">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="step-footer">
+        <hr aria-hidden="true" tabindex="-1" />
+        <div id="footer-container" class="row">
+            <div id="buttons-container">
+                <button color="primary" class="exit-btn" mat-raised-button
+                    (click)="saveAndExitApplication()">{{'application.buttons.saveAndExit' | translate }}</button>
+                <span class="mr-10"></span>
+                <button color="primary" class="continue-btn" (click)="continue()"
+                    mat-raised-button>{{'application.buttons.submit' | translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>

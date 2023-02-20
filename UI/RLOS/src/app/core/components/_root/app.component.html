@@ -1,0 +1,8 @@
+<app-header role="banner"></app-header>
+<session-timer></session-timer>
+<app-loader></app-loader>
+
+<div id="view-container" role="main">
+    <router-outlet (activate)="onActivate($event)"></router-outlet>
+</div>
+<app-footer role="contentinfo"></app-footer>

@@ -1,0 +1,101 @@
+---
+#####################################################
+#PRODUCTION PROFILE STARTS
+#####################################################
+
+spring:
+  profiles: prod
+
+# External Service Integration
+  
+  od-upload-url: "https://hongut01.combank.cb/LOSAdapter/ODService/upload"
+  od-download-url: "https://hongut01.combank.cb/LOSAdapter/ODService/download"
+  od-mock: false
+  proxyURL: "192.168.55.118"
+  proxy: false
+
+#####################################################
+#PRODUCTION PROFILE ENDS
+#####################################################
+---
+
+#####################################################
+#STAGING PROFILE STARTS
+#####################################################
+
+spring:
+  profiles: stage
+
+# External Service Integration
+  
+  od-upload-url: "http://192.168.152.137:8180/LOSAdapter/ODService/upload"
+  od-download-url: "http://192.168.152.137:8180/LOSAdapter/ODService/download"
+  od-mock: false
+  proxyURL: "192.168.55.118"
+  proxy: false
+
+
+#####################################################
+#STAGING PROFILE ENDS
+#####################################################
+---
+
+#####################################################
+#UAT PROFILE STARTS
+#####################################################
+
+spring:
+  profiles: uat
+
+# External Service Integration
+  
+  od-upload-url: "http://10.10.40.160:9080/LOSAdapter/ODService/upload"
+  od-download-url: "http://10.10.40.160:9080/LOSAdapter/ODService/download"
+  od-mock: false
+  proxyURL: "192.168.55.118"
+  proxy: false
+
+#####################################################
+#UAT PROFILE ENDS
+#####################################################
+---
+
+#####################################################
+#LOCAL DEVELOPMENT PROFILE STARTS
+#####################################################
+
+spring:
+  profiles: dev
+
+# External Service Integration
+  
+  od-upload-url: "http://192.168.152.137:8180/LOSAdapter/ODService/upload"
+  od-download-url: "http://192.168.152.137:8180/LOSAdapter/ODService/download"
+  od-mock: false
+  proxyURL: "192.168.55.118"
+  proxy: false
+
+#####################################################
+#LOCAL DEVELOPMENT PROFILE ENDS
+#####################################################
+---
+
+#####################################################
+# AWS DEV PROFILE STARTS
+#####################################################
+
+spring:
+  profiles: awsdev
+
+# External Service Integration
+  
+  od-upload-url: "http://192.168.152.137:8180/LOSAdapter/ODService/upload"
+  od-download-url: "http://192.168.152.137:8180/LOSAdapter/ODService/download"
+  od-mock: false
+  proxyURL: "192.168.55.118"
+  proxy: false
+
+#####################################################
+# AWS DEV PROFILE ENDS
+#####################################################
+

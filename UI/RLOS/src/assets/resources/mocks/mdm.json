@@ -1,0 +1,2168 @@
+{
+    "COMMON_Prefix": [
+        {
+            "code": "NG_DR",
+            "label": "Dr."
+        },
+        {
+            "code": "NG_MISS",
+            "label": "Miss"
+        },
+        {
+            "code": "NG_MR",
+            "label": "Mr."
+        },
+        {
+            "code": "NG_MRS",
+            "label": "Mrs."
+        },
+        {
+            "code": "NG_MS",
+            "label": "Ms."
+        }
+    ],
+    "COMMON_Suffix": [],
+    "COMMON_Country": [
+        {
+            "code": "NG_22",
+            "label": "Bolivia"
+        },
+        {
+            "code": "NG_2",
+            "label": "Afghanistan"
+        },
+        {
+            "code": "NG_75",
+            "label": "Aland Islands"
+        },
+        {
+            "code": "NG_3",
+            "label": "Albania"
+        },
+        {
+            "code": "NG_5",
+            "label": "Algeria"
+        },
+        {
+            "code": "NG_6",
+            "label": "American Samoa"
+        },
+        {
+            "code": "NG_7",
+            "label": "Andorra"
+        },
+        {
+            "code": "NG_8",
+            "label": "Angola"
+        },
+        {
+            "code": "NG_188",
+            "label": "Anguilla"
+        },
+        {
+            "code": "NG_4",
+            "label": "Antarctica"
+        },
+        {
+            "code": "NG_9",
+            "label": "Antigua and Barbuda"
+        },
+        {
+            "code": "NG_11",
+            "label": "Argentina"
+        },
+        {
+            "code": "NG_17",
+            "label": "Armenia"
+        },
+        {
+            "code": "NG_154",
+            "label": "Aruba"
+        },
+        {
+            "code": "NG_12",
+            "label": "Australia"
+        },
+        {
+            "code": "NG_13",
+            "label": "Austria"
+        },
+        {
+            "code": "NG_10",
+            "label": "Azerbaijan"
+        },
+        {
+            "code": "NG_14",
+            "label": "Bahamas"
+        },
+        {
+            "code": "NG_15",
+            "label": "Bahrain"
+        },
+        {
+            "code": "NG_16",
+            "label": "Bangladesh"
+        },
+        {
+            "code": "NG_18",
+            "label": "Barbados"
+        },
+        {
+            "code": "NG_35",
+            "label": "Belarus"
+        },
+        {
+            "code": "NG_19",
+            "label": "Belgium"
+        },
+        {
+            "code": "NG_27",
+            "label": "Belize"
+        },
+        {
+            "code": "NG_60",
+            "label": "Benin"
+        },
+        {
+            "code": "NG_20",
+            "label": "Bermuda"
+        },
+        {
+            "code": "NG_21",
+            "label": "Bhutan"
+        },
+        {
+            "code": "NG_23",
+            "label": "Bosnia and Herzegovina"
+        },
+        {
+            "code": "NG_24",
+            "label": "Botswana"
+        },
+        {
+            "code": "NG_25",
+            "label": "Bouvet Island"
+        },
+        {
+            "code": "NG_26",
+            "label": "Brazil"
+        },
+        {
+            "code": "NG_28",
+            "label": "British Indian Ocean Territory"
+        },
+        {
+            "code": "NG_31",
+            "label": "Brunei Darussalam"
+        },
+        {
+            "code": "NG_32",
+            "label": "Bulgaria"
+        },
+        {
+            "code": "NG_238",
+            "label": "Burkina Faso"
+        },
+        {
+            "code": "NG_34",
+            "label": "Burundi"
+        },
+        {
+            "code": "NG_36",
+            "label": "Cambodia"
+        },
+        {
+            "code": "NG_37",
+            "label": "Cameroon"
+        },
+        {
+            "code": "NG_38",
+            "label": "Canada"
+        },
+        {
+            "code": "NG_39",
+            "label": "Cape Verde"
+        },
+        {
+            "code": "NG_40",
+            "label": "Cayman Islands"
+        },
+        {
+            "code": "NG_41",
+            "label": "Central African Republic"
+        },
+        {
+            "code": "NG_43",
+            "label": "Chad"
+        },
+        {
+            "code": "NG_44",
+            "label": "Chile"
+        },
+        {
+            "code": "NG_45",
+            "label": "China"
+        },
+        {
+            "code": "NG_47",
+            "label": "Christmas Island"
+        },
+        {
+            "code": "NG_48",
+            "label": "Cocos (Keeling) Islands"
+        },
+        {
+            "code": "NG_49",
+            "label": "Colombia"
+        },
+        {
+            "code": "NG_50",
+            "label": "Comoros"
+        },
+        {
+            "code": "NG_52",
+            "label": "Congo"
+        },
+        {
+            "code": "NG_53",
+            "label": "Congo, Democratic Republic of the"
+        },
+        {
+            "code": "NG_54",
+            "label": "Cook Islands"
+        },
+        {
+            "code": "NG_55",
+            "label": "Costa Rica"
+        },
+        {
+            "code": "NG_111",
+            "label": "Cote d'Ivoire"
+        },
+        {
+            "code": "NG_56",
+            "label": "Croatia"
+        },
+        {
+            "code": "NG_57",
+            "label": "Cuba"
+        },
+        {
+            "code": "NG_58",
+            "label": "Cyprus"
+        },
+        {
+            "code": "NG_59",
+            "label": "Czech Republic"
+        },
+        {
+            "code": "NG_61",
+            "label": "Denmark"
+        },
+        {
+            "code": "NG_80",
+            "label": "Djibouti"
+        },
+        {
+            "code": "NG_62",
+            "label": "Dominica"
+        },
+        {
+            "code": "NG_63",
+            "label": "Dominican Republic"
+        },
+        {
+            "code": "NG_64",
+            "label": "Ecuador"
+        },
+        {
+            "code": "NG_230",
+            "label": "Egypt"
+        },
+        {
+            "code": "NG_65",
+            "label": "El Salvador"
+        },
+        {
+            "code": "NG_66",
+            "label": "Equatorial Guinea"
+        },
+        {
+            "code": "NG_68",
+            "label": "Eritrea"
+        },
+        {
+            "code": "NG_69",
+            "label": "Estonia"
+        },
+        {
+            "code": "NG_67",
+            "label": "Ethiopia"
+        },
+        {
+            "code": "NG_71",
+            "label": "Falkland Islands (Malvinas)"
+        },
+        {
+            "code": "NG_70",
+            "label": "Faroe Islands"
+        },
+        {
+            "code": "NG_73",
+            "label": "Fiji"
+        },
+        {
+            "code": "NG_74",
+            "label": "Finland"
+        },
+        {
+            "code": "NG_76",
+            "label": "France"
+        },
+        {
+            "code": "NG_77",
+            "label": "French Guiana"
+        },
+        {
+            "code": "NG_78",
+            "label": "French Polynesia"
+        },
+        {
+            "code": "NG_79",
+            "label": "French Southern Territories"
+        },
+        {
+            "code": "NG_81",
+            "label": "Gabon"
+        },
+        {
+            "code": "NG_83",
+            "label": "Gambia"
+        },
+        {
+            "code": "NG_82",
+            "label": "Georgia"
+        },
+        {
+            "code": "NG_85",
+            "label": "Germany"
+        },
+        {
+            "code": "NG_86",
+            "label": "Ghana"
+        },
+        {
+            "code": "NG_87",
+            "label": "Gibraltar"
+        },
+        {
+            "code": "NG_89",
+            "label": "Greece"
+        },
+        {
+            "code": "NG_90",
+            "label": "Greenland"
+        },
+        {
+            "code": "NG_91",
+            "label": "Grenada"
+        },
+        {
+            "code": "NG_92",
+            "label": "Guadeloupe"
+        },
+        {
+            "code": "NG_93",
+            "label": "Guam"
+        },
+        {
+            "code": "NG_94",
+            "label": "Guatemala"
+        },
+        {
+            "code": "NG_232",
+            "label": "Guernsey"
+        },
+        {
+            "code": "NG_95",
+            "label": "Guinea"
+        },
+        {
+            "code": "NG_178",
+            "label": "Guinea-Bissau"
+        },
+        {
+            "code": "NG_96",
+            "label": "Guyana"
+        },
+        {
+            "code": "NG_97",
+            "label": "Haiti"
+        },
+        {
+            "code": "NG_98",
+            "label": "Heard Island and McDonald Islands"
+        },
+        {
+            "code": "NG_99",
+            "label": "Holy See (Vatican City State)"
+        },
+        {
+            "code": "NG_100",
+            "label": "Honduras"
+        },
+        {
+            "code": "NG_101",
+            "label": "Hong Kong"
+        },
+        {
+            "code": "NG_102",
+            "label": "Hungary"
+        },
+        {
+            "code": "NG_103",
+            "label": "Iceland"
+        },
+        {
+            "code": "NG_1",
+            "label": "In-country"
+        },
+        {
+            "code": "NG_104",
+            "label": "India"
+        },
+        {
+            "code": "NG_105",
+            "label": "Indonesia"
+        },
+        {
+            "code": "NG_106",
+            "label": "Iran, Islamic Republic of"
+        },
+        {
+            "code": "NG_107",
+            "label": "Iraq"
+        },
+        {
+            "code": "NG_108",
+            "label": "Ireland"
+        },
+        {
+            "code": "NG_234",
+            "label": "Isle of Man"
+        },
+        {
+            "code": "NG_109",
+            "label": "Israel"
+        },
+        {
+            "code": "NG_110",
+            "label": "Italy"
+        },
+        {
+            "code": "NG_112",
+            "label": "Jamaica"
+        },
+        {
+            "code": "NG_113",
+            "label": "Japan"
+        },
+        {
+            "code": "NG_233",
+            "label": "Jersey"
+        },
+        {
+            "code": "NG_115",
+            "label": "Jordan"
+        },
+        {
+            "code": "NG_114",
+            "label": "Kazakhstan"
+        },
+        {
+            "code": "NG_116",
+            "label": "Kenya"
+        },
+        {
+            "code": "NG_88",
+            "label": "Kiribati"
+        },
+        {
+            "code": "NG_117",
+            "label": "Korea, Democratic People's Republic"
+        },
+        {
+            "code": "NG_118",
+            "label": "Korea, Republic of"
+        },
+        {
+            "code": "NG_119",
+            "label": "Kuwait"
+        },
+        {
+            "code": "NG_120",
+            "label": "Kyrgyzstan"
+        },
+        {
+            "code": "NG_121",
+            "label": "Lao People's Democratic Republic"
+        },
+        {
+            "code": "NG_124",
+            "label": "Latvia"
+        },
+        {
+            "code": "NG_122",
+            "label": "Lebanon"
+        },
+        {
+            "code": "NG_123",
+            "label": "Lesotho"
+        },
+        {
+            "code": "NG_125",
+            "label": "Liberia"
+        },
+        {
+            "code": "NG_126",
+            "label": "Libyan Arab Jamahiriya"
+        },
+        {
+            "code": "NG_127",
+            "label": "Liechtenstein"
+        },
+        {
+            "code": "NG_128",
+            "label": "Lithuania"
+        },
+        {
+            "code": "NG_129",
+            "label": "Luxembourg"
+        },
+        {
+            "code": "NG_130",
+            "label": "Macao"
+        },
+        {
+            "code": "NG_229",
+            "label": "Macedonia, the Former Yugoslav Repu"
+        },
+        {
+            "code": "NG_131",
+            "label": "Madagascar"
+        },
+        {
+            "code": "NG_132",
+            "label": "Malawi"
+        },
+        {
+            "code": "NG_133",
+            "label": "Malaysia"
+        },
+        {
+            "code": "NG_134",
+            "label": "Maldives"
+        },
+        {
+            "code": "NG_135",
+            "label": "Mali"
+        },
+        {
+            "code": "NG_136",
+            "label": "Malta"
+        },
+        {
+            "code": "NG_167",
+            "label": "Marshall Islands"
+        },
+        {
+            "code": "NG_137",
+            "label": "Martinique"
+        },
+        {
+            "code": "NG_138",
+            "label": "Mauritania"
+        },
+        {
+            "code": "NG_139",
+            "label": "Mauritius"
+        },
+        {
+            "code": "NG_51",
+            "label": "Mayotte"
+        },
+        {
+            "code": "NG_140",
+            "label": "Mexico"
+        },
+        {
+            "code": "NG_166",
+            "label": "Micronesia, Federated States of"
+        },
+        {
+            "code": "NG_143",
+            "label": "Moldova, Republic of"
+        },
+        {
+            "code": "NG_141",
+            "label": "Monaco"
+        },
+        {
+            "code": "NG_142",
+            "label": "Mongolia"
+        },
+        {
+            "code": "NG_144",
+            "label": "Montenegro"
+        },
+        {
+            "code": "NG_145",
+            "label": "Montserrat"
+        },
+        {
+            "code": "NG_146",
+            "label": "Morocco"
+        },
+        {
+            "code": "NG_147",
+            "label": "Mozambique"
+        },
+        {
+            "code": "NG_33",
+            "label": "Myanmar"
+        },
+        {
+            "code": "NG_149",
+            "label": "Namibia"
+        },
+        {
+            "code": "NG_150",
+            "label": "Nauru"
+        },
+        {
+            "code": "NG_151",
+            "label": "Nepal"
+        },
+        {
+            "code": "NG_152",
+            "label": "Netherlands"
+        },
+        {
+            "code": "NG_153",
+            "label": "Netherlands Antilles"
+        },
+        {
+            "code": "NG_155",
+            "label": "New Caledonia"
+        },
+        {
+            "code": "NG_157",
+            "label": "New Zealand"
+        },
+        {
+            "code": "NG_158",
+            "label": "Nicaragua"
+        },
+        {
+            "code": "NG_159",
+            "label": "Niger"
+        },
+        {
+            "code": "NG_160",
+            "label": "Nigeria"
+        },
+        {
+            "code": "NG_161",
+            "label": "Niue"
+        },
+        {
+            "code": "NG_162",
+            "label": "Norfolk Island"
+        },
+        {
+            "code": "NG_164",
+            "label": "Northern Mariana Islands"
+        },
+        {
+            "code": "NG_163",
+            "label": "Norway"
+        },
+        {
+            "code": "NG_148",
+            "label": "Oman"
+        },
+        {
+            "code": "NG_169",
+            "label": "Pakistan"
+        },
+        {
+            "code": "NG_168",
+            "label": "Palau"
+        },
+        {
+            "code": "NG_84",
+            "label": "Palestinian Territory, Occupied"
+        },
+        {
+            "code": "NG_170",
+            "label": "Panama"
+        },
+        {
+            "code": "NG_171",
+            "label": "Papua New Guinea"
+        },
+        {
+            "code": "NG_172",
+            "label": "Paraguay"
+        },
+        {
+            "code": "NG_173",
+            "label": "Peru"
+        },
+        {
+            "code": "NG_174",
+            "label": "Philippines"
+        },
+        {
+            "code": "NG_175",
+            "label": "Pitcairn"
+        },
+        {
+            "code": "NG_176",
+            "label": "Poland"
+        },
+        {
+            "code": "NG_177",
+            "label": "Portugal"
+        },
+        {
+            "code": "NG_180",
+            "label": "Puerto Rico"
+        },
+        {
+            "code": "NG_181",
+            "label": "Qatar"
+        },
+        {
+            "code": "NG_182",
+            "label": "Reunion"
+        },
+        {
+            "code": "NG_183",
+            "label": "Romania"
+        },
+        {
+            "code": "NG_184",
+            "label": "Russian Federation"
+        },
+        {
+            "code": "NG_185",
+            "label": "Rwanda"
+        },
+        {
+            "code": "NG_186",
+            "label": "Saint Helena"
+        },
+        {
+            "code": "NG_189",
+            "label": "Saint Lucia"
+        },
+        {
+            "code": "NG_190",
+            "label": "Saint Martin (French part)"
+        },
+        {
+            "code": "NG_191",
+            "label": "Saint Pierre and Miquelon"
+        },
+        {
+            "code": "NG_192",
+            "label": "Saint Vincent and the Grenadines"
+        },
+        {
+            "code": "NG_243",
+            "label": "Samoa"
+        },
+        {
+            "code": "NG_193",
+            "label": "San Marino"
+        },
+        {
+            "code": "NG_194",
+            "label": "Sao Tome and Principe"
+        },
+        {
+            "code": "NG_195",
+            "label": "Saudi Arabia"
+        },
+        {
+            "code": "NG_196",
+            "label": "Senegal"
+        },
+        {
+            "code": "NG_197",
+            "label": "Seychelles"
+        },
+        {
+            "code": "NG_187",
+            "label": "Siant Kitts and Nevis"
+        },
+        {
+            "code": "NG_198",
+            "label": "Sierra Leone"
+        },
+        {
+            "code": "NG_199",
+            "label": "Singapore"
+        },
+        {
+            "code": "NG_200",
+            "label": "Slovakia"
+        },
+        {
+            "code": "NG_202",
+            "label": "Slovenia"
+        },
+        {
+            "code": "NG_29",
+            "label": "Solomon Islands"
+        },
+        {
+            "code": "NG_203",
+            "label": "Somalia"
+        },
+        {
+            "code": "NG_204",
+            "label": "South Africa"
+        },
+        {
+            "code": "NG_72",
+            "label": "South Georgia and the South Sandwic"
+        },
+        {
+            "code": "NG_206",
+            "label": "Spain"
+        },
+        {
+            "code": "NG_42",
+            "label": "Sri Lanka"
+        },
+        {
+            "code": "NG_208",
+            "label": "Sudan"
+        },
+        {
+            "code": "NG_209",
+            "label": "Suriname"
+        },
+        {
+            "code": "NG_210",
+            "label": "Svalbard and Jan Mayen"
+        },
+        {
+            "code": "NG_211",
+            "label": "Swaziland"
+        },
+        {
+            "code": "NG_212",
+            "label": "Sweden"
+        },
+        {
+            "code": "NG_213",
+            "label": "Switzerland"
+        },
+        {
+            "code": "NG_214",
+            "label": "Syrian Arab Republic"
+        },
+        {
+            "code": "NG_46",
+            "label": "Taiwan, Province of China"
+        },
+        {
+            "code": "NG_215",
+            "label": "Tajikistan"
+        },
+        {
+            "code": "NG_235",
+            "label": "Tanzania, United Republic of"
+        },
+        {
+            "code": "NG_216",
+            "label": "Thailand"
+        },
+        {
+            "code": "NG_179",
+            "label": "Timor-Leste"
+        },
+        {
+            "code": "NG_217",
+            "label": "Togo"
+        },
+        {
+            "code": "NG_218",
+            "label": "Tokelau"
+        },
+        {
+            "code": "NG_219",
+            "label": "Tonga"
+        },
+        {
+            "code": "NG_220",
+            "label": "Trinidad and Tobago"
+        },
+        {
+            "code": "NG_222",
+            "label": "Tunisia"
+        },
+        {
+            "code": "NG_223",
+            "label": "Turkey"
+        },
+        {
+            "code": "NG_224",
+            "label": "Turkmenistan"
+        },
+        {
+            "code": "NG_225",
+            "label": "Turks and Caicos Islands"
+        },
+        {
+            "code": "NG_226",
+            "label": "Tuvalu"
+        },
+        {
+            "code": "NG_227",
+            "label": "Uganda"
+        },
+        {
+            "code": "NG_228",
+            "label": "Ukraine"
+        },
+        {
+            "code": "NG_221",
+            "label": "United Arab Emirates"
+        },
+        {
+            "code": "NG_231",
+            "label": "United Kingdom"
+        },
+        {
+            "code": "NG_236",
+            "label": "United States"
+        },
+        {
+            "code": "NG_165",
+            "label": "United States Minor Outlying Island"
+        },
+        {
+            "code": "NG_239",
+            "label": "Uruguay"
+        },
+        {
+            "code": "NG_240",
+            "label": "Uzbekistan"
+        },
+        {
+            "code": "NG_156",
+            "label": "Vanuatu"
+        },
+        {
+            "code": "NG_241",
+            "label": "Venezuela, Bolivarian Republic of"
+        },
+        {
+            "code": "NG_201",
+            "label": "Viet Nam"
+        },
+        {
+            "code": "NG_30",
+            "label": "Virgin Islands, British"
+        },
+        {
+            "code": "NG_237",
+            "label": "Virgin Islands, U.S."
+        },
+        {
+            "code": "NG_242",
+            "label": "Wallis and Futuna"
+        },
+        {
+            "code": "NG_207",
+            "label": "Western Sahara"
+        },
+        {
+            "code": "NG_244",
+            "label": "Yemen"
+        },
+        {
+            "code": "NG_245",
+            "label": "Zambia"
+        },
+        {
+            "code": "NG_205",
+            "label": "Zimbabwe"
+        }
+    ],
+    "COMMON_MaritalStatus": [
+        {
+            "code": "NG_DV",
+            "label": "Divorced"
+        },
+        {
+            "code": "NG_MAR",
+            "label": "Married"
+        },
+        {
+            "code": "NG_SP",
+            "label": "Seperated"
+        },
+        {
+            "code": "NG_SG",
+            "label": "Single"
+        },
+        {
+            "code": "NG_WD",
+            "label": "Widow(er)"
+        }
+    ],
+    "COMMON_IDType": [
+        {
+            "code": "NG_DL",
+            "label": "Driver License"
+        },
+        {
+            "code": "NG_NIB",
+            "label": "NIB"
+        },
+        {
+            "code": "NG_PA",
+            "label": "Passport"
+        }
+    ],
+    "COMMON_Employment_Type": [
+        {
+            "code": "RT001",
+            "label": "Retired"
+        },
+        {
+            "code": "EMP001",
+            "label": "Salaried"
+        },
+        {
+            "code": "SEMP001",
+            "label": "Self Employed/Business Owner"
+        },
+        {
+            "code": "STU001",
+            "label": "Student"
+        },
+        {
+            "code": "NEMP001",
+            "label": "Unemployed"
+        }
+    ],
+    "COMMON_EMP_SECTOR": [
+        {
+            "code": "NG_ACD",
+            "label": "Approved Company/Deductions"
+        },
+        {
+            "code": "NG_GOV",
+            "label": "Government"
+        },
+        {
+            "code": "NG_PS",
+            "label": "Private Sector"
+        },
+        {
+            "code": "NG_RET",
+            "label": "Retired"
+        }
+    ],
+    "COMMON_BUSINESS_TYPE": [
+        {
+            "code": "1",
+            "label": "Banking"
+        },
+        {
+            "code": "2",
+            "label": "Fishing"
+        }
+    ],
+    "COMMON_INCOME_TYPE": [
+        {
+            "code": "AC",
+            "label": "Alimony/Child Support"
+        },
+        {
+            "code": "B",
+            "label": "Bonuses"
+        },
+        {
+            "code": "C",
+            "label": "Commissions"
+        },
+        {
+            "code": "DB",
+            "label": "Dividends/Business Drawings"
+        },
+        {
+            "code": "I",
+            "label": "Interest"
+        },
+        {
+            "code": "O",
+            "label": "Other"
+        },
+        {
+            "code": "RI",
+            "label": "Rental Income"
+        },
+        {
+            "code": "S",
+            "label": "Salary"
+        }
+    ],
+    "COMMON_Income_Frequency": [
+        {
+            "code": "BIW",
+            "label": "Bi-Weekly"
+        },
+        {
+            "code": "MON",
+            "label": "Monthly"
+        },
+        {
+            "code": "QUA",
+            "label": "Quarterly"
+        },
+        {
+            "code": "HAF",
+            "label": "Semi Yearly"
+        },
+        {
+            "code": "W",
+            "label": "Weekly"
+        },
+        {
+            "code": "ANN",
+            "label": "Yearly"
+        }
+    ],
+    "COMMON_PEP_RELATIONSHIP": [
+        {
+            "code": "5",
+            "label": "A child of their mother or father (sibling)"
+        },
+        {
+            "code": "2",
+            "label": "Child of the person"
+        },
+        {
+            "code": "1",
+            "label": "Mother or father"
+        },
+        {
+            "code": "6",
+            "label": "Self"
+        },
+        {
+            "code": "3",
+            "label": "Spouse or common-law partner"
+        },
+        {
+            "code": "4",
+            "label": "Spouse or common-law partners mother or father"
+        }
+    ],
+    "COMMON_GENDER_TYPE": [
+        {
+            "code": "F",
+            "label": "Female"
+        },
+        {
+            "code": "M",
+            "label": "Male"
+        },
+        {
+            "code": "O",
+            "label": "Other"
+        }
+    ],
+    "COMMON_CURRENCY_TYPE": [
+        {
+            "code": "BSD",
+            "label": "BSD"
+        },
+        {
+            "code": "USD",
+            "label": "USD"
+        }
+    ],
+    "COMMON_FamilyRelationship": [
+        {
+            "code": "3",
+            "label": "Brother"
+        },
+        {
+            "code": "1",
+            "label": "Daughter"
+        },
+        {
+            "code": "4",
+            "label": "Sister"
+        },
+        {
+            "code": "2",
+            "label": "Son"
+        },
+        {
+            "code": "5",
+            "label": "Spouse"
+        }
+    ],
+    "COMMON_RELATIONSHIP": [
+        {
+            "code": "NG_JOF",
+            "label": "Joint or first (Primary)"
+        },
+        {
+            "code": "NG_JA5",
+            "label": "Joint and other (Fifth secondary)"
+        },
+        {
+            "code": "NG_JA1",
+            "label": "Joint and other (First secondary)"
+        },
+        {
+            "code": "NG_JA4",
+            "label": "Joint and other (Fourth secondary)"
+        },
+        {
+            "code": "NG_JA2",
+            "label": "Joint and other (Second secondary)"
+        },
+        {
+            "code": "NG_JAO",
+            "label": "Joint and other (Secondary)"
+        },
+        {
+            "code": "NG_JA3",
+            "label": "Joint and other (Third secondary)"
+        },
+        {
+            "code": "NG_SOW",
+            "label": "Sole owner (Primary)"
+        }
+    ],
+    "COMMON_Product_Name": [
+        {
+            "code": "240",
+            "label": "AUTOMOBILE LOANS",
+            "loanType": "Vehicle Loan"
+        },
+        {
+            "code": "210",
+            "label": "CASH SECURED",
+            "loanType": "Consumer Loan"
+        },
+        {
+            "code": "185",
+            "label": "Commercial LN REAL EST PURCHASE",
+            "loanType": "Property Loan"
+        },
+        {
+            "code": "180",
+            "label": "Commercial LN REAL EST SECURED",
+            "loanType": "Property Loan"
+        },
+        {
+            "code": "130",
+            "label": "COMMERCIAL LOAN/SHS/OTHER SEC",
+            "loanType": "Equity Loan"
+        },
+        {
+            "code": "271",
+            "label": "COMPANY DEDUCTION A COMPANY",
+            "loanType": "Consumer Loan"
+        },
+        {
+            "code": "270",
+            "label": "COMPANY DEDUCTION AA COMPANY",
+            "loanType": "Consumer Loan"
+        },
+        {
+            "code": "272",
+            "label": "COMPANY DEDUCTION B COMPANY",
+            "loanType": "Consumer Loan"
+        },
+        {
+            "code": "273",
+            "label": "COMPANY DEDUCTION C COMPANY",
+            "loanType": "Consumer Loan"
+        },
+        {
+            "code": "228",
+            "label": "CONS LN USING LOT 7 YRS & LESS",
+            "loanType": "Property Loan"
+        },
+        {
+            "code": "230",
+            "label": "CONSUMER INSTALLMENT ALL OTHER",
+            "loanType": "Consumer Loan"
+        },
+        {
+            "code": "227",
+            "label": "EQUITY LOANS SECURITY LOT 7+ YR",
+            "loanType": "Equity Loan"
+        },
+        {
+            "code": "11",
+            "label": "EXIST RESID PURCHASE ALL OTHER",
+            "loanType": "Mortgage Loan"
+        },
+        {
+            "code": "645",
+            "label": "FIRE/HURRICANE RELIEF LOANS",
+            "loanType": "Consumer Loan"
+        },
+        {
+            "code": "140",
+            "label": "GOV'T & OTHER BONDS & L/C'S",
+            "loanType": "Equity Loan"
+        },
+        {
+            "code": "244",
+            "label": "GOV'T CORPORATION AUTO LOANS",
+            "loanType": "Vehicle Loan"
+        },
+        {
+            "code": "245",
+            "label": "GOV'T DEDUCTION AUTO LOANS",
+            "loanType": "Vehicle Loan"
+        },
+        {
+            "code": "225",
+            "label": "GOV'T DEDUCTION CONSUMER LOANS",
+            "loanType": "Consumer Loan"
+        },
+        {
+            "code": "226",
+            "label": "GOVERNMENT CORP DEDUCTION LOAN",
+            "loanType": "Consumer Loan"
+        },
+        {
+            "code": "15",
+            "label": "HOME EUITY ALL OTHER",
+            "loanType": "Equity Loan"
+        },
+        {
+            "code": "260",
+            "label": "HOTEL AA PLANS",
+            "loanType": "Consumer Loan"
+        },
+        {
+            "code": "262",
+            "label": "HOTEL B PLANS",
+            "loanType": "Consumer Loan"
+        },
+        {
+            "code": "263",
+            "label": "HOTEL C PLANS",
+            "loanType": "Consumer Loan"
+        },
+        {
+            "code": "236",
+            "label": "HOTEL DEDUCTION ATLANTIS",
+            "loanType": "Consumer Loan"
+        },
+        {
+            "code": "10",
+            "label": "LOT LOANS ALL OTHER LOANS",
+            "loanType": "Property Loan"
+        },
+        {
+            "code": "9",
+            "label": "LOT LOANS RG CUSTOMERS",
+            "loanType": "Property Loan"
+        },
+        {
+            "code": "C2",
+            "label": "Master Card Gold",
+            "loanType": "Credit Card"
+        },
+        {
+            "code": "C1",
+            "label": "Master Card Standard",
+            "loanType": "Credit Card"
+        },
+        {
+            "code": "O1",
+            "label": "Overdraft",
+            "loanType": "Overdraft"
+        },
+        {
+            "code": "20",
+            "label": "REAL ESTATE COMMERCIAL",
+            "loanType": "Property Loan"
+        },
+        {
+            "code": "30",
+            "label": "RESIDENTIAL CONSTR. ALL OTHER",
+            "loanType": "Mortgage Loan"
+        },
+        {
+            "code": "50",
+            "label": "RESIDENTIAL STAFF",
+            "loanType": "Consumer Loan"
+        },
+        {
+            "code": "200",
+            "label": "STAFF INSTALLMENT",
+            "loanType": "Consumer Loan"
+        },
+        {
+            "code": "202",
+            "label": "STAFF INSTALLMENT - RELIEF",
+            "loanType": "Consumer Loan"
+        },
+        {
+            "code": "C4",
+            "label": "Suncard Master Card Gold",
+            "loanType": "Credit Card"
+        },
+        {
+            "code": "C3",
+            "label": "SunCard Master Card Standard",
+            "loanType": "Credit Card"
+        },
+        {
+            "code": "250",
+            "label": "WAIGE ASSIGNMENT AUTO LOANS",
+            "loanType": "Vehicle Loan"
+        },
+        {
+            "code": "235",
+            "label": "WAIGE ASSIGNMENT CONSUMER LOANS",
+            "loanType": "Consumer Loan"
+        }
+    ],
+    "COMMON_Loan_Purpose": [
+        {
+            "code": "NG_5",
+            "label": "COMMERCIAL VEHICLES"
+        },
+        {
+            "code": "NG_13",
+            "label": "CONSOLIDATION OF DEBTS"
+        },
+        {
+            "code": "NG_1",
+            "label": "CONVERSION DEFAULT"
+        },
+        {
+            "code": "NG_11",
+            "label": "EDUCATION"
+        },
+        {
+            "code": "NG_6",
+            "label": "FURNISHINGS/DOMESTIC APPLIANCE"
+        },
+        {
+            "code": "NG_7",
+            "label": "HOME IMPROVEMENT"
+        },
+        {
+            "code": "NG_2",
+            "label": "LOT"
+        },
+        {
+            "code": "NG_12",
+            "label": "MEDICAL"
+        },
+        {
+            "code": "NG_14",
+            "label": "MISCELLANEOUS"
+        },
+        {
+            "code": "NG_15",
+            "label": "Others"
+        },
+        {
+            "code": "NG_3",
+            "label": "PRIVATE CARS"
+        },
+        {
+            "code": "NG_8",
+            "label": "SATELLITES"
+        },
+        {
+            "code": "NG_10",
+            "label": "SHOPPING - TYPE 11 LOANS"
+        },
+        {
+            "code": "NG_4",
+            "label": "TAXIS OR RENTAL CARS"
+        },
+        {
+            "code": "NG_9",
+            "label": "TRAVEL"
+        }
+    ],
+    "COMMON_Card_Type": [
+        {
+            "code": "C2",
+            "label": "Master Card Gold"
+        },
+        {
+            "code": "C1",
+            "label": "Master Card Standard"
+        },
+        {
+            "code": "C4",
+            "label": "Suncard Master Card Gold"
+        },
+        {
+            "code": "C3",
+            "label": "SunCard Master Card Standard"
+        }
+    ],
+    "COMMON_Collateral_Type": [
+        {
+            "code": "NG_AUTNEW",
+            "label": "AUTOMOBILES-NEW"
+        },
+        {
+            "code": "NG_AUTUSE",
+            "label": "AUTOMOBILES-USED"
+        },
+        {
+            "code": "NG_BSBL",
+            "label": "BAHAMIAN SHARES BISX LISTED"
+        },
+        {
+            "code": "NG_BOAT",
+            "label": "BOAT"
+        },
+        {
+            "code": "NG_BOE",
+            "label": "BOAT ENGINE"
+        },
+        {
+            "code": "NG_BOCO",
+            "label": "BOATS-COMPREHENSIVE INSURANCE"
+        },
+        {
+            "code": "NG_CASEC",
+            "label": "CASH SECURED-TIME DEPOSITS"
+        },
+        {
+            "code": "NG_CVLI",
+            "label": "CASH VALUE LIFE INSURANCE"
+        },
+        {
+            "code": "NG_CL",
+            "label": "COMBINATION LOAN"
+        },
+        {
+            "code": "NG_COMDE",
+            "label": "COMMERCIAL DEBENTURE"
+        },
+        {
+            "code": "NG_FDRE",
+            "label": "FDLM-REAL ESTATE"
+        },
+        {
+            "code": "NG_GOST",
+            "label": "GOVERNMENT STOCK"
+        },
+        {
+            "code": "NG_GDSH",
+            "label": "GUARANTEE-DIRECTOR/SHAREHOLDER"
+        },
+        {
+            "code": "NG_HOINS",
+            "label": "HOMEOWNERS INSURANCE"
+        },
+        {
+            "code": "NG_HOGO",
+            "label": "HOUSEHOLD GOODS"
+        },
+        {
+            "code": "NG_INLA",
+            "label": "INDEPENDENT LIFE ASSURANCE"
+        },
+        {
+            "code": "NG_LI",
+            "label": "LIFE INSURANCE (CSV)"
+        },
+        {
+            "code": "NG_OTHER",
+            "label": "OTHER"
+        },
+        {
+            "code": "NG_RE",
+            "label": "REAL ESTATE"
+        },
+        {
+            "code": "NG_REPROP",
+            "label": "REAL ESTATE PROPERTY"
+        },
+        {
+            "code": "NG_SAV",
+            "label": "SAVINGS PLAN"
+        },
+        {
+            "code": "NG_STA",
+            "label": "STAFF"
+        },
+        {
+            "code": "NG_STO",
+            "label": "STOCK"
+        },
+        {
+            "code": "NG_UNSEC",
+            "label": "UNSECURED"
+        },
+        {
+            "code": "NG_WAGE",
+            "label": "WAGE ASSIGNMENTS"
+        }
+    ],
+    "COMMON_DOC_TYPES": [
+        {
+            "code": "Identification",
+            "label": "Passport",
+            "loanType": "Applicant"
+        },
+        {
+            "code": "Identification",
+            "label": "Driver License",
+            "loanType": "Applicant"
+        },
+        {
+            "code": "Identification",
+            "label": "Voters Card",
+            "loanType": "Applicant"
+        },
+        {
+            "code": "Identification",
+            "label": "National Insurance Card",
+            "loanType": "Applicant"
+        }
+    ],
+    "COMMON_BranchList": [
+        {
+            "code": "4",
+            "label": "Abaco"
+        },
+        {
+            "code": "33",
+            "label": "Business Development"
+        },
+        {
+            "code": "7",
+            "label": "Cable Beach"
+        },
+        {
+            "code": "38",
+            "label": "Compliance"
+        },
+        {
+            "code": "9",
+            "label": "Credit Card Center"
+        },
+        {
+            "code": "35",
+            "label": "Credit Risk"
+        },
+        {
+            "code": "2",
+            "label": "East Bay"
+        },
+        {
+            "code": "30",
+            "label": "Executives (Loan Committee & Board of Directors)"
+        },
+        {
+            "code": "5",
+            "label": "Freeport"
+        },
+        {
+            "code": "16",
+            "label": "Golden Gates"
+        },
+        {
+            "code": "12",
+            "label": "Lucaya"
+        },
+        {
+            "code": "11",
+            "label": "Mortgage"
+        },
+        {
+            "code": "3",
+            "label": "Oakes Field"
+        },
+        {
+            "code": "25",
+            "label": "Operations"
+        },
+        {
+            "code": "1",
+            "label": "Plaza"
+        },
+        {
+            "code": "17",
+            "label": "Prince Charles"
+        },
+        {
+            "code": "18",
+            "label": "Spanish Wells"
+        },
+        {
+            "code": "6",
+            "label": "Town Center Mall"
+        },
+        {
+            "code": "10",
+            "label": "Wulff Road"
+        }
+    ],
+    "COMMON_DependentList": [
+        {
+            "code": "12",
+            "label": "0"
+        },
+        {
+            "code": "1",
+            "label": "1"
+        },
+        {
+            "code": "2",
+            "label": "2"
+        },
+        {
+            "code": "3",
+            "label": "3"
+        },
+        {
+            "code": "4",
+            "label": "4"
+        },
+        {
+            "code": "5",
+            "label": "5"
+        },
+        {
+            "code": "6",
+            "label": "6"
+        },
+        {
+            "code": "7",
+            "label": "7"
+        },
+        {
+            "code": "8",
+            "label": "8"
+        },
+        {
+            "code": "9",
+            "label": "9"
+        },
+        {
+            "code": "10",
+            "label": "10"
+        },
+        {
+            "code": "11",
+            "label": "11"
+        }
+    ],
+    "COMMON_JOB_TITLE": [
+        {
+            "code": "NG_ADMIN",
+            "label": "Administrator"
+        },
+        {
+            "code": "NG_CONST",
+            "label": "Construction"
+        },
+        {
+            "code": "NG_DRIV",
+            "label": "Driver"
+        },
+        {
+            "code": "NG_EXEC",
+            "label": "Executive"
+        },
+        {
+            "code": "NG_FAWO",
+            "label": "Factory Worker"
+        },
+        {
+            "code": "NG_MILIT",
+            "label": "Military"
+        },
+        {
+            "code": "NG_OFWO",
+            "label": "Office Worker"
+        },
+        {
+            "code": "NG_OTHERS",
+            "label": "Others"
+        },
+        {
+            "code": "NG_PROF",
+            "label": "Professional"
+        },
+        {
+            "code": "NG_SAL",
+            "label": "Sales"
+        },
+        {
+            "code": "NG_SPROF",
+            "label": "Semi-Professional"
+        },
+        {
+            "code": "NG_SERV",
+            "label": "Services"
+        },
+        {
+            "code": "NG_SKIWO",
+            "label": "Skilled Worker"
+        },
+        {
+            "code": "NG_UNSKIWO",
+            "label": "Unskilled Worker"
+        }
+    ],
+    "COMMON_RENT_OPTION": [
+        {
+            "code": "NG_F",
+            "label": "Family"
+        },
+        {
+            "code": "NG_M",
+            "label": "Own (With Mortgage)"
+        },
+        {
+            "code": "NG_WM",
+            "label": "Own (Without Mortgage)"
+        },
+        {
+            "code": "NG_R",
+            "label": "Rent"
+        }
+    ],
+    "OLD_COMMON_Asset_Type": [
+        {
+            "code": "ALR",
+            "label": "Accounts/Loans Receivable "
+        },
+        {
+            "code": "BOT",
+            "label": "Boats"
+        },
+        {
+            "code": "BIN",
+            "label": "Bus. Interests/Investments/Non-mktbl sec. "
+        },
+        {
+            "code": "CBB",
+            "label": "Cash at Jamaica Money Market Brokers"
+        },
+        {
+            "code": "COB",
+            "label": "Cash at Other Banks/Credit Unions "
+        },
+        {
+            "code": "CVLI",
+            "label": "Cash Value Life Insurance  "
+        },
+        {
+            "code": "FR",
+            "label": "Furniture "
+        },
+        {
+            "code": "JW",
+            "label": "Jewelry "
+        },
+        {
+            "code": "MAC",
+            "label": "Machinery"
+        },
+        {
+            "code": "MSB",
+            "label": "Marketable Securities & Bonds "
+        },
+        {
+            "code": "OA",
+            "label": "Other Assests"
+        },
+        {
+            "code": "OPP",
+            "label": "Other Personal Property "
+        },
+        {
+            "code": "ORE",
+            "label": "Other Real Estate "
+        },
+        {
+            "code": "REP",
+            "label": "Real Estate-Primary "
+        },
+        {
+            "code": "VEH",
+            "label": "Vehicles"
+        },
+        {
+            "code": "VP",
+            "label": "Vested Pensions "
+        }
+    ],
+    "COMMON_Asset_Type": [
+        {
+            "code": "COB",
+            "label": "Cash at Other Banks/Credit Unions "
+        },
+        {
+            "code": "MSB",
+            "label": "Marketable Securities & Bonds "
+        },
+        {
+            "code": "CVLI",
+            "label": "Cash Value Life Insurance  "
+        },
+        {
+            "code": "VP",
+            "label": "Vested Pensions "
+        },
+        {
+            "code": "ALR",
+            "label": "Accounts/Loans Receivable "
+        },
+        {
+            "code": "FR",
+            "label": "Furniture "
+        },
+        {
+            "code": "JW",
+            "label": "Jewellery "
+        },
+        {
+            "code": "VBM",
+            "label": "Vehicles, Boats, Machinery  "
+        },
+        {
+            "code": "OVBM",
+            "label": " Other Vehicles, Boats, Machinery  "
+        },
+        {
+            "code": "OPP",
+            "label": "Other Personal Property "
+        },
+        {
+            "code": "REP",
+            "label": "Real Estate-Primary "
+        },
+        {
+            "code": "BIN",
+            "label": "Bus. Interests/Investments/Non-mktbl sec. "
+        }
+    ],
+    "COMMON_Loan_Product": [
+        {
+            "code": "Consumer Loan",
+            "label": "Consumer Loan",
+            "loanType": "Loans"
+        },
+        {
+            "code": "Credit Card",
+            "label": "Credit Card",
+            "loanType": "Credit Card"
+        },
+        {
+            "code": "Equity Loan",
+            "label": "Equity Loan",
+            "loanType": "Loans"
+        },
+        {
+            "code": "Mortgage Loan",
+            "label": "Mortgage Loan",
+            "loanType": "Loans"
+        },
+        {
+            "code": "Overdraft",
+            "label": "Overdraft",
+            "loanType": "Overdraft"
+        },
+        {
+            "code": "Property Loan",
+            "label": "Property Loan",
+            "loanType": "Loans"
+        },
+        {
+            "code": "Vehicle Loan",
+            "label": "Vehicle Loan",
+            "loanType": "Loans"
+        }
+    ],
+    "DOCUMENT_TYPES": [],
+    "CONSENT_MESSAGE": [
+        {
+            "code": "2",
+            "label": "The undersigned hereby represents and warrants that the information herein contained is correct and true and hereby authorizes the bank to conduct any and all creditor job inquiries or investigations, which the bank may in its discretion desert necessary to determine if the undersigned qualifies for the proposed loan pursuant to the application. You may also disclose information about my credit history with the Bank to any credit bureau or so any person with whom I have or purport to have financial Stallings, and may disclose such information to any other person. you believe that you are lawfully required to do so.\n \nThe undersigned further acknowledges that the bank may rescind any preliminary or other approval of this application for any reason whatsoever, without liability or threat of action or suit for so doing.\n\nI/We also confirm that all credits to the account are and will be beneficially owned by myself."
+        }
+    ],
+    "EDUCATION_TYPES": [
+        {
+            "code": "NG_1",
+            "label": "Postgraduate"
+        },
+        {
+            "code": "NG_2",
+            "label": "University"
+        },
+        {
+            "code": "NG_3",
+            "label": "Technical School"
+        },
+        {
+            "code": "NG_4",
+            "label": "High School"
+        },
+        {
+            "code": "NG_5",
+            "label": "Elementary School"
+        },
+        {
+            "code": "NG_6",
+            "label": "No studies"
+        }
+    ],
+    "APPOINTMENT_HOURS": [
+        {
+            "code": "10",
+            "label": "10"
+        },
+        {
+            "code": "11",
+            "label": "11"
+        },
+        {
+            "code": "12",
+            "label": "12"
+        },
+        {
+            "code": "13",
+            "label": "13"
+        },
+        {
+            "code": "14",
+            "label": "14"
+        },
+        {
+            "code": "15",
+            "label": "15"
+        },
+        {
+            "code": "16",
+            "label": "16"
+        }
+    ],
+    "APPOINTMENT_MINUTES": [
+        {
+            "code": "0",
+            "label": "0"
+        },
+        {
+            "code": "15",
+            "label": "15"
+        },
+        {
+            "code": "30",
+            "label": "30"
+        },
+        {
+            "code": "45",
+            "label": "45"
+        }
+    ],
+    "COMMON_TerritoryList": [
+        {
+            "code": "JM",
+            "label": "Jamaica"
+        },
+        {
+            "code": "TT",
+            "label": "Trinidad and Tobago"
+        },
+        {
+            "code": "DO",
+            "label": "Dominican Republic"
+        }
+    ],
+    "COMMON_AreaCodeList": [
+        {
+            "code": "+1",
+            "label": "+1"
+        },
+        {
+            "code": "+91",
+            "label": "+91"
+        }
+    ],
+    "COMMON_AccountTypeList": [
+        {
+            "code": "UCIN",
+            "label": "UCIN"
+        },
+        {
+            "code": "TRN",
+            "label": "TRN Number"
+        }
+    ],
+    "COMMON_LoanRelationshipList": [
+        {
+            "code": "G",
+            "label": "Guarantor"
+        },
+        {
+            "code": "COB",
+            "label": "Co-Borrower"
+        }
+    ],
+    "COMMON_LiabilityTypeList":[
+        {
+            "code": "l1",
+            "label": "Liability One"
+        },
+        {
+            "code": "l2",
+            "label": "Liability Two"
+        }
+    ],
+    "COMMON_ExpenseTypeList":[
+        {
+            "code": "E1",
+            "label": "Expense One"
+        },
+        {
+            "code": "E2",
+            "label": "Expense Two"
+        }
+    ],
+    "REFERRAL_SOURCE":[
+        {
+            "code": "NG_EC",
+            "label": "Existing Client"
+        },
+        {
+            "code": "NG_BE",
+            "label": "Bank Employee"
+        }
+    ]
+
+}

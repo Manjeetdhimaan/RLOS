@@ -1,0 +1,11 @@
+@mixin desktop {
+    @media (min-width: #{960px}) and (max-width: #{3000px - 1px}) {
+      @content;
+    }
+  }
+
+  @mixin lg-desktop {
+    @media (min-width: #{3000px}) {
+      @content;
+    }
+  }

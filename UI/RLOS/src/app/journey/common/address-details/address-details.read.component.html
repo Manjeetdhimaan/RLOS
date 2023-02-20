@@ -1,0 +1,207 @@
+<div class="row">
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="addressLine1">{{
+            'application.applicant.addressDetails.address.addressLine1.label' | translate }}</label>
+        <div class="label-font" id="addressLine1">
+            {{(model.addressLine1 || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="addressLine2">{{
+            'application.applicant.addressDetails.address.addressLine2.label' | translate }}</label>
+        <div class="label-font" id="addressLine2">
+            {{(model.addressLine2 || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="city">{{'application.applicant.addressDetails.address.city.label' | translate
+            }}</label>
+        <div class="label-font" id="city">
+            {{(model.city || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="country">{{'application.applicant.addressDetails.address.country.label' |
+            translate }}</label>
+        <div class="label-font" id="country">
+            {{(model.country || notSpecified) | translate}}
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="zipCode">{{ 'application.applicant.addressDetails.address.zipCode.label' |
+            translate }}</label>
+        <div class="label-font" id="zipCode">
+            {{(model.zipCode || notSpecified) | translate}}
+        </div>
+    </div>
+
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="state">
+            {{model.country === 'Bahamas, The' ? ('application.applicant.addressDetails.address.island.label' |
+            translate) : ('application.applicant.addressDetails.address.state.label' | translate) }}
+        </label>
+        <div class="label-font" id="state">
+            {{(model.state || notSpecified) | translate}}
+        </div>
+    </div>
+
+
+
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="model.type ==='CURRENT'">
+        <label class="heading-font" for="dateMovedIn"> {{
+            'application.applicant.addressDetails.address.dateMovedIn.label' | translate }}</label>
+        <div class="label-font" id="dateMovedIn">
+            {{(model.dateMovedIn | date: 'MM/dd/yyyy') || notSpecified}}
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="model.type ==='CURRENT'">
+        <label class="heading-font" for="years"> {{ 'application.applicant.addressDetails.currYears.label' | translate
+            }}</label>
+        <div class="label-font" id="years">
+            {{(model.years || '0')}}
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="model.type ==='CURRENT'">
+        <label class="heading-font" for="months"> {{ 'application.applicant.addressDetails.currMonths.label' | translate
+            }}</label>
+        <div class="label-font" id="months">
+            {{(model.months || '0')}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="model.type ==='CURRENT'">
+        <label class="heading-font" for="drivingDetailsToCurrentAddress"> {{
+            'application.applicant.drivingDetailsToCurrentAddress.label' | translate }}</label>
+        <div class="label-font" id="drivingDetailsToCurrentAddress">
+            {{(model.drivingDetailsToCurrentAddress || notSpecified) | translate}}
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="model.type ==='CURRENT'">
+        <label class="heading-font" for="ownOrRent"> {{ 'application.applicant.addressDetails.ownRent.label' | translate
+            }}</label>
+        <div class="label-font" id="ownOrRent">
+            {{(model.ownOrRent || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="(model.ownOrRent === 'Rent')">
+        <label class="heading-font" for="amtOfRent"> {{ 'application.applicant.addressDetails.amtOfRent.label' |
+            translate }}</label>
+        <div class="label-font" id="amtOfRent">
+            B{{(applicantInfo.amtOfRent | currency) || notSpecified}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0"
+        *ngIf="((model.ownOrRent === 'Rent') || (model.ownOrRent === 'Family'))">
+        <label class="heading-font" for="mortgageOwnersFullName"> {{
+            'application.applicant.addressDetails.mortgageOwnersFullName.label' | translate }}</label>
+        <div class="label-font" id="mortgageOwnersFullName">
+            {{(applicantInfo.mortgageOwnersFullName || notSpecified) | translate}}
+
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0"
+        *ngIf="((model.ownOrRent === 'Rent') || (model.ownOrRent === 'Family'))">
+        <label class="heading-font" for="mortgageOwnerPhoneNumber"> {{
+            'application.applicant.addressDetails.mortgageOwnerPhoneNumber.label' | translate }}</label>
+        <div class="label-font" id="mortgageOwnerPhoneNumber">
+            {{(applicantInfo.mortgageOwnerPhoneNumber | mask: '(000)-000-0000') || notSpecified}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0"
+        *ngIf="((model.ownOrRent === 'Rent') || (model.ownOrRent === 'Family'))">
+        <label class="heading-font" for="relationshipWithMortgageOwner"> {{
+            'application.applicant.addressDetails.relationshipWithMortgageOwner.label' | translate }}</label>
+        <div class="label-font" id="relationshipWithMortgageOwner">
+            {{(applicantInfo.relationshipWithMortgageOwner || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="model.type ==='CURRENT'">
+        <label class="heading-font" for="isMailingAndResidentialAddDifferent"> {{
+            'application.applicant.addressDetails.diffAddMail' | translate }}</label>
+        <div class="label-font" id="isMailingAndResidentialAddDifferent">
+            {{(applicantInfo.isMailingAndResidentialAddDifferent || notSpecified) | translate}}
+        </div>
+    </div>
+</div>
+<span class="bold" *ngIf="model.isMailingAndResidentialAddDifferent === 'NO'">Mailing Address
+</span>
+<div class="row" *ngIf="model.isMailingAndResidentialAddDifferent === 'NO'">
+    isMailingAndResidentialAddDifferent
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="addressLine1">{{
+            'application.applicant.addressDetails.address.addressLine1.label' | translate }}</label>
+        <div class="label-font" id="addressLine1">
+            {{(model.mailingAddress.addressLine1 || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="addressLine2"> {{
+            'application.applicant.addressDetails.address.addressLine2.label' | translate }}</label>
+        <div class="label-font" id="addressLine2">
+            {{(model.mailingAddress.addressLine2 || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="city">{{'application.applicant.addressDetails.address.city.label' | translate
+            }}</label>
+        <div class="label-font" id="city">
+            {{(model.mailingAddress.city || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="country">{{'application.applicant.addressDetails.address.country.label' |
+            translate }}</label>
+        <div class="label-font" id="country">
+            {{(model.mailingAddress.country || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="zipCode">{{ 'application.applicant.addressDetails.address.zipCode.label' |
+            translate }}</label>
+        <div class="label-font" id="zipCode">
+            {{(model.mailingAddress.zipCode || notSpecified) | translate}}
+        </div>
+    </div>
+
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="state">
+            <!-- {{'application.applicant.addressDetails.address.state.label' | translate }} -->
+            {{model.country === 'Bahamas, The' ? ('application.applicant.addressDetails.address.island.label' |
+            translate) : ('application.applicant.addressDetails.address.state.label' | translate) }}
+        </label>
+        <div class="label-font" id="state">
+            {{(model.mailingAddress.state || notSpecified) | translate}}
+        </div>
+    </div>
+
+
+
+
+</div>
+
+<!-- <div class="row">
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="homePhoneNo">   {{ 'application.applicant.homePhoneNo.label' | translate }}</label>
+        <div class="label-font" id="homePhoneNo">
+            {{(applicantInfo.homePhoneNo || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="workPhoneNo">  {{ 'application.applicant.workPhoneNo.label' | translate }}</label>
+        <div class="label-font" id="workPhoneNo">
+            {{(applicantInfo.workPhoneNo || notSpecified) | translate}}
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="mobileNo">  {{ 'application.applicant.mobileNo.label' | translate }}</label>
+        <div class="label-font" id="mobileNo">
+            {{(applicantInfo.mobileNo || notSpecified) | translate}}
+        </div>
+    </div>
+</div> -->

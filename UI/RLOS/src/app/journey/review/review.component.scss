@@ -1,0 +1,106 @@
+@import './src/assets/styles/sass/theme/cwb/_cwb-variables.scss';
+@import './src/assets/styles/sass/global/_mixins.scss';
+@import './src/assets/styles/sass/theme/cwb/overrides/globals/_custom-styles.scss';
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+    flex-basis: 0;
+}
+
+#summary-container {
+    mat-label {
+        font-weight: bold;
+    }
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+}
+
+#getting-started-container {
+    // border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.basic-details-container {
+    // border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.bold {
+    color: #000795;
+    font-size: 18px;
+    padding: 0px 0px 0px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #FFDC5B;
+}
+
+.sub-heading {
+    color: #000795;
+    font-size: 16px;
+    padding: 0px 0px 0px;
+    font-weight: normal;
+    display: inline-block;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #FFDC5B;
+}
+
+#step-footer {
+    hr {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-top: 1px solid #D9D9D9;
+    }
+    #footer-container {
+        display: table;
+        width: 100%;
+        #back-link-container {
+            float: left;
+            .back-link-text {
+                padding-left: 2px;
+            }
+        }
+        #prev-btn {
+            float: left;
+        }
+        #next-btn {
+            float: right;
+        }
+        #buttons-container {
+            float: right;
+        }
+        #back-link-container {
+            // cursor: pointer;
+            text-align: left;
+            font-size: em(16px);
+            @include mobile {
+                display: table-row;
+                line-height: 30px;
+                font-size: 16px;
+            }
+            @include tablet-desktop {
+                display: table-cell;
+            }
+        }
+        #buttons-container {
+            text-align: right;
+            @include mobile {
+                display: table-row;
+            }
+            @include tablet-desktop {
+                // display: table-cell;
+            }
+        }
+    }
+    button {
+        @include mobile {
+            width: 100%;
+        }
+    }
+}
+
+.mat-accordian-bg {
+    background: transparent;
+}

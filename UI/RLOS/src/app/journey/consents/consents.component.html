@@ -1,0 +1,97 @@
+<div class="container-fluid disclosure-container">
+    <div class="row" *ngIf="alert">
+        <div class="col-12" role="alert" aria-live="assertive" aria-atomic="true">
+            <error-alert [errorObject]="alert" (close)="closeError()">
+            </error-alert>
+        </div>
+    </div>
+    <h3 class="heading-footer margin-b" tabindex="0">{{'application.consents.header' | translate}}</h3>
+
+    <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <span tabindex="0">
+                  {{'application.consents.header' | translate}} 
+                </span>
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div id="getting-started-container" class="terms-condition" *ngFor="let consentsAndDisclosure of disclosures; let i = index;">
+            <div tabindex="0" class="justify-text">{{consentsAndDisclosure.label}} </div>
+            <br>
+        </div>
+    </mat-expansion-panel>
+    <div class="row disclosure-container">
+
+        <div class="col-12 slide-toggle-container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <mat-label>
+                        <label for="cutomerRemarks" style="height:40px">
+                            Comments                                             
+                        </label>
+                    </mat-label>
+                    <div class="mat-grp">
+                        <div class="md-form">
+                            <textarea type="text" maxlength="200" [(ngModel)]="cutomerRemarks" placeholder="Comments" class="md-textarea form-control" mdbInputDirective></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="mat-grp">
+                        <mat-label>
+                            <label for=" referralSource">
+                             Referral Source    
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-select role="listbox" id=" referralSource" placeholder="Select" [(ngModel)]="referralSource">
+                                <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                <mat-option role="option" *ngFor="let val of referralSourceList" [value]="val.code">
+                                    {{val.label}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 col-xs-12 cl-md-4">
+                    <span tabindex="0">I have read and agreed to all terms and conditions. </span>
+                </div>
+                <div class="col-sm-2 col-xs-12 col-md-2">
+                    <mat-slide-toggle type="checkbox" class="example-margin" [checked]="checked" (change)="acceptConsent($event)" required>
+                    </mat-slide-toggle>
+                </div>
+                <div class="col-sm-12 col-xs-12">
+                    <mat-error *ngIf="submitted && !checked">{{'application.consents.declaration.validation.required' | translate}}</mat-error>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div id="step-footer">
+
+                <hr aria-hidden="true" tabindex="-1" />
+
+                <div id="footer-container">
+                    <div class="row">
+                        <div id="back-link-container" aria-label="Back" class="col-6">
+                            <button  (click)="back()" mat-raised-button>{{ 'application.buttons.back' | translate }}</button>
+                        </div>
+                        <div id="buttons-container" class="col-6">
+                            <button  mat-raised-button (click)="saveAndExitApp()">{{ 'application.buttons.saveAndExit' | translate }}</button>
+                            <span class="mr-10"></span>
+                            <button  (click)="continue()" mat-raised-button>{{ 'application.buttons.continue' | translate }}</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

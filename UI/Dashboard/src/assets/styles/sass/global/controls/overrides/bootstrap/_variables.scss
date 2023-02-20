@@ -1,0 +1,31 @@
+@import "node_modules/bootstrap/scss/_variables";
+@import 'src/assets/styles/sass/global/_default-variables.scss';
+
+
+
+$font-family-sans-serif: $theme-font, sans-serif;
+
+$border-radius-base: 0;
+$border-radius-large: 0;
+$border-radius-small: 0;
+
+$brand-danger: $dark-red;
+$state-danger-text: $dark-red;
+
+// Screen resolution overrides
+$grid-breakpoints: (
+    xs: $mobile-min-width,
+    sm: $tablet-min-width,
+    md: $sm-desktop-min-width,
+    lg: $desktop-min-width,
+    xl: $lg-desktop-min-width
+);
+
+$container-max-widths: (
+    sm: $sm-desktop-min-width - 1px,
+    md: $desktop-min-width - 1px,
+    lg: $lg-desktop-min-width - 1px
+    //xl: $large-desktop-min-width - 1px
+);
+    
+@import "node_modules/bootstrap/scss/bootstrap";

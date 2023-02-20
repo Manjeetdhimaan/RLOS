@@ -1,0 +1,76 @@
+@import './src/assets/styles/sass/theme/cwb/_cwb-variables.scss';
+@import './src/assets/styles/sass/global/_mixins.scss';
+@import './src/assets/styles/sass/theme/cwb/overrides/globals/_custom-styles.scss';
+
+.example-card {
+    max-width: 250px;
+    height: 80px;
+    border-radius: 5px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets_cl/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+.buttons{
+  background-color: #000795 !important;
+  color:white;
+}
+.alignCenter{
+    text-align: center;
+}
+.select_btn {
+  // padding-left: 10px;
+  // border-radius: 5px;
+  background-color: #003E7E !important;
+}
+
+.test{
+  float: right;
+}
+#complete{
+  float: right;
+}
+
+#schedule{
+  float: right ;
+}
+
+.bold {
+  color:  #587e00 !important;
+  font-size: 14px;
+  padding: 0px 0px 0px;
+  font-weight:bolder !important;
+  display: inline-block;
+  margin-bottom: 10px;
+  // border-bottom: 2px solid #FFDC5B;
+  
+}
+
+.sub-heading{
+  color: #000795;
+  font-size: 14px;
+  padding: 0px 0px 0px;
+  font-weight: normal;
+  display: inline-block;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #FFDC5B;
+}
+.custom-legend{    
+    border: none !important;
+    width: fit-content !important;
+    color:  #587e00 !important;
+    padding: 5px !important;
+    font-weight:bolder !important;
+    text-transform:uppercase !important;
+    letter-spacing:1px !important;
+}
+
+.padding-b{
+    padding-bottom:10px;
+}
+.heading{
+  color: #587e00 !important;
+  padding: 2px !important;
+}

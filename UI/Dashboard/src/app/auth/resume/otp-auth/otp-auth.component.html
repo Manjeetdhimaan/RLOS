@@ -1,0 +1,128 @@
+<div class="container-fluid" id="resume-container">
+    <div class="row" *ngIf="alert">
+        <div class="col-12" role="alert" aria-live="assertive" aria-atomic="true">
+            <br />
+            <error-alert [errorObject]=alert (close)="closeError()">
+            </error-alert>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+
+            <h3 tabindex="0">Resume Application</h3>
+            <hr aria-hidden="true" tabindex="-1" />
+            <br />
+        </div>
+    </div>
+    <form [formGroup]="resumeForm" (ngSubmit)="continue()">
+        <h5 tabindex="0"> Please enter the details below to retrieve your application.</h5>
+
+        <br />
+        <div class="row">
+
+            <!-- first name -->
+            <div class="col-12 col-sm-6 col-lg-4">
+                <mat-label>
+                    <label for="firstName">
+                        {{ 'application.applicant.firstName.label' | translate }}
+                        <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+                    </label>
+                </mat-label>
+                <mat-form-field appearance="outline" class="full-width">
+                    <input id="firstName" aria-invalid="true" aria-describedby="msg1" uppercase placeholder="First Name" matInput formControlName="firstName">
+                </mat-form-field>
+                <ng-container *ngFor="let validation of resumeValues.firstName">
+                    <mat-error id="msg1" *ngIf="!resumeForm.get('firstName').valid && (resumeForm.get('firstName').touched || submitted) && resumeForm.get('firstName').hasError(validation.type)">
+                        {{'application.applicant.firstName.validation' | translateValidation:validation}}
+                    </mat-error>
+                </ng-container>
+            </div>
+
+            <!-- last name -->
+            <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                <mat-label>
+                    <label for="lastName">
+                        {{ 'application.applicant.lastName.label' | translate }}
+                        <span class="red" aria-label="Mandatory"> *</span>
+                    </label>
+                </mat-label>
+                <mat-form-field appearance="outline" class="full-width">
+                    <input id="lastName" aria-invalid="true" aria-describedby="msg2" uppercase placeholder="Last Name" matInput formControlName="lastName">
+                </mat-form-field>
+                <ng-container *ngFor="let validation of resumeValues.lastName">
+                    <mat-error id="msg2" *ngIf="!resumeForm.get('lastName').valid && (resumeForm.get('lastName').touched || submitted) && resumeForm.get('lastName').hasError(validation.type)">
+                        {{'application.applicant.lastName.validation' | translateValidation:validation}}
+                    </mat-error>
+                </ng-container>
+            </div>
+
+            <!-- <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                <div class="mat-grp">
+                    <mat-label>
+                        <label for="dob">{{'application.applicant.dob.label' | translate}}
+              <span class="red" aria-label="Mandatory"> *</span>
+            </label>
+                    </mat-label>
+                    <mat-form-field appearance="outline" class="full-width">
+                        <input id="dob" aria-invalid="true" aria-describedby="msg2" placeholder="MM/DD/YYYY" aria-labelledby="msg2" matInput [matDatepicker]="picker" [max]="maxDateDob" [min]="minDateDob" formControlName="dob" (input)="checkDateChange($event)">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-error id="msg18" *ngIf="!resumeForm.get('dob').valid && (resumeForm.get('dob').touched || submitted) && (resumeForm.get('dob').errors.required || resumeForm.get('dob').errors.matDatepickerParse)">
+                        {{'application.applicant.dob.validation.required' | translate}}</mat-error>
+                </div>
+            </div> -->
+
+            <!-- email -->
+            <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                <mat-label>
+                    <label for="email">
+                        {{ 'application.applicant.email.label' | translate }}
+                        <span class="red" aria-label="Mandatory"> *</span>
+                    </label>
+                </mat-label>
+                <mat-form-field appearance="outline" class="full-width">
+                    <input aria-invalid="true" aria-describedby="msg3" id="email" type="text" placeholder="Email ID" matInput formControlName="email" onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false">
+                </mat-form-field>
+                <ng-container *ngFor="let validation of resumeValues.email">
+                    <mat-error id="msg3" *ngIf="!resumeForm.get('email').valid && (resumeForm.get('email').touched || submitted) && resumeForm.get('email').hasError(validation.type)">
+                        {{'application.applicant.email.validation' | translateValidation:validation}}</mat-error>
+                </ng-container>
+                <mat-error id="msg3" *ngIf="!resumeForm.get('email').valid && (resumeForm.get('email').touched || submitted) && resumeForm.get('email').hasError('notUnique')">
+                    {{'application.applicant.email.validation.mismatch' | translate}}</mat-error>
+            </div>
+
+            <!-- WI number -->
+            <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                <mat-label>
+                    <label for="appNo">
+                        {{ 'application.applicant.appNo.label' | translate }}
+                        <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+                    </label>
+                </mat-label>
+                <mat-form-field appearance="outline" class="full-width">
+                    <input id="appNo" aria-invalid="true" aria-describedby="msg4" matInput formControlName="appNo" placeholder="Application Number">
+                </mat-form-field>
+                <ng-container *ngFor="let validation of resumeValues.appNo">
+                    <mat-error id="msg4" *ngIf="!resumeForm.get('appNo').valid && (resumeForm.get('appNo').touched || submitted) && resumeForm.get('appNo').hasError(validation.type)">
+                        {{'application.applicant.appNo.validation' | translateValidation:validation}}
+                    </mat-error>
+                </ng-container>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="note-i">
+                    <label class="full-width">fields marked with <span class="red" aria-label="Mandatory" tabindex="-1"
+                            aria-hidden="true"> *</span> are mandatory</label>
+                </div>
+                <hr aria-hidden="true" tabindex="-1" />
+                <div class="mat-grp">
+                    <button mat-raised-button color="primary" class="pull-right">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

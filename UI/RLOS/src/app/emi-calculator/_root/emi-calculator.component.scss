@@ -1,0 +1,39 @@
+@import './src/assets/styles/sass/theme/cwb/overrides/globals/_custom-styles.scss';
+
+.mat-slider {
+    width: 100%;
+    padding-bottom: 0px;
+    height: 32px;
+}
+
+.estimated-monthly-payment {
+    width: 80%;    
+}
+
+.margin-b-t {
+    margin: 20px 0;
+}
+
+.result-text {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+::ng-deep {
+    .mat-slider-thumb-label {
+        transform: rotate(45deg) !important;
+        border-radius: 50% 50% 0 !important;
+    }
+
+    .mat-slider-thumb {
+        transform: scale(0) !important;
+    }
+
+    .mat-slider-disabled .mat-slider-thumb {
+        transform: scale(0.5) !important;
+    }
+
+    .mat-slider-thumb-label-text {
+        opacity: 1 !important;
+    }
+}

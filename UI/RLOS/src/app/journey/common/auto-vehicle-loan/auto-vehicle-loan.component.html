@@ -1,0 +1,412 @@
+<form [formGroup]="autoVehicleLoanForm" autocomplete="off" *ngIf="!isReadOnly">
+
+    <div class="row">
+        <div class="col-12 col-sm-6 col-lg-3" *ngIf="(collateralType === '047' || collateralType === '032')">
+            <div class="mat-grp">
+                <mat-label>
+                    <label for="typeOfVehicle">
+                        {{ 'application.loanDetails.collateralTypeDetails.autoVehicleLoan.typeOfVehicle.label' | translate }}
+                    </label>
+                    <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="false" *ngIf="(collateralType !== '047' && collateralType !== '048')">
+                        *</span>
+                </mat-label>
+                <mat-form-field appearance="outline" class="full-width">
+                    <!--<mat-select formControlName="typeOfVehicle" [placeholder]="dropdownPlaceholder">
+                        <ng-container *ngFor="let val of conditionTypeList">
+                            <mat-option [value]="val">
+                                {{val}}
+                            </mat-option>
+                        </ng-container>
+                    </mat-select>-->
+                    <select id="typeOfVehicle" matNativeControl formControlName="typeOfVehicle">
+                        <option [value]="null" selected disabled>Please Select</option>
+                        <option *ngFor="let val of conditionTypeList" [value]="val">{{val}}</option>
+                    </select>
+                </mat-form-field>
+                <mat-error *ngFor="let validation of vehicleLoanValues.typeOfVehicle">
+                    <mat-error *ngIf="!autoVehicleLoanForm.get('typeOfVehicle').valid && (autoVehicleLoanForm.get('typeOfVehicle').touched || submitted) && autoVehicleLoanForm.get('typeOfVehicle').hasError(validation.type)">{{'application.loanDetails.collateralTypeDetails.autoVehicleLoan.typeOfVehicle.validation' | translateValidation:validation}}</mat-error>
+                </mat-error>
+            </div>
+        </div>
+
+        <!-- <div class=" col-12 col-sm-6 col-lg-3">
+            <div class="mat-grp">
+                <mat-label>
+                    <label for="vehicleOwner">
+                        {{ 'application.loanDetails.collateralTypeDetails.autoVehicleLoan.vehicleOwner.label' | translate }}
+                        <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="false"> *</span>
+                    </label>
+                </mat-label>
+                <mat-form-field appearance="outline" class="full-width">
+                    <input id="vehicleOwner" matInput formControlName="vehicleOwner" aria-invalid="true" aria-describedby="msg" aria-labelledby="msg">
+                </mat-form-field>
+                <ng-container *ngFor="let validation of vehicleLoanValues.vehicleOwner">
+                    <mat-error id="msg" *ngIf="!autoVehicleLoanForm.get('vehicleOwner').valid && (autoVehicleLoanForm.get('vehicleOwner').touched || submitted) && autoVehicleLoanForm.get('vehicleOwner').hasError(validation.type)">{{'application.loanDetails.collateralTypeDetails.autoVehicleLoan.vehicleOwner.validation' | translateValidation:validation}}</mat-error>
+                </ng-container>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="mat-grp">
+                <mat-label>
+                    <label for="vehicleCoOwner">
+                        {{ 'application.loanDetails.collateralTypeDetails.autoVehicleLoan.vehicleCoOwner.label' | translate }}
+                    </label>
+                </mat-label>
+                <mat-form-field appearance="outline" class="full-width">
+                    <input id="vehicleCoOwner" matInput formControlName="vehicleCoOwner" aria-invalid="true" aria-describedby="msg1" aria-labelledby="msg1">
+                </mat-form-field>
+
+                <ng-container *ngFor="let validation of vehicleLoanValues.vehicleCoOwner">
+                    <mat-error id="msg1" *ngIf="!autoVehicleLoanForm.get('vehicleCoOwner').valid && (autoVehicleLoanForm.get('vehicleCoOwner').touched || submitted) && autoVehicleLoanForm.get('vehicleCoOwner').hasError(validation.type)">{{'application.loanDetails.collateralTypeDetails.autoVehicleLoan.vehicleCoOwner.validation' | translateValidation:validation}}</mat-error>
+                </ng-container>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="mat-grp">
+                <mat-label>
+                    <label for="isVehicleDetailsAvailable">
+                        {{ 'application.loanDetails.collateralTypeDetails.autoVehicleLoan.isVehicleDetailsAvailable.label' | translate }}
+                        <span class="red" aria-label="Mandatory" aria-hidden="true" tabindex="-1"> *</span>
+                    </label>
+                </mat-label>
+                <mat-form-field appearance="outline" class="full-width">
+                    <select id="isVehicleDetailsAvailable" matNativeControl formControlName="isVehicleDetailsAvailable" aria-invalid="true" aria-describedby="msg2"
+                        aria-labelledby="msg2">
+                        <option [value]="null" selected disabled>Please Select</option>
+                        <option *ngFor="let val of yesNoList" [value]="val">{{val}}</option>
+                    </select>
+                </mat-form-field>
+                <ng-container *ngFor="let validation of vehicleLoanValues.isVehicleDetailsAvailable">
+                    <mat-error id="msg2" *ngIf="!autoVehicleLoanForm.get('isVehicleDetailsAvailable').valid && (autoVehicleLoanForm.get('isVehicleDetailsAvailable').touched || submitted) && autoVehicleLoanForm.get('isVehicleDetailsAvailable').hasError(validation.type)">{{'application.loanDetails.collateralTypeDetails.autoVehicleLoan.isVehicleDetailsAvailable.validation'
+                        | translateValidation:validation}}</mat-error>
+                </ng-container>
+            </div>
+        </div> -->
+
+        <div class="col-md-12" *ngIf="showVINNumber">
+            <div class="row">
+
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="mat-grp">
+                        <mat-label>
+                            <label for="vehicleVinNumber">
+                                {{ 'application.loanDetails.collateralTypeDetails.autoVehicleLoan.vehicleVinNumber.label' | translate }}
+                                <span class="red" aria-label="Mandatory" aria-hidden="false" tabindex="-1"> *</span>
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <input id="vehicleVinNumber" aria-invalid="true" aria-describedby="msg3" aria-labelledby="msg3" matInput formControlName="vehicleVinNumber" (blur)="getUsedVinDetails($event)">
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of vehicleLoanValues.vehicleVinNumber">
+                            <mat-error id="msg3" *ngIf="!autoVehicleLoanForm.get('vehicleVinNumber').valid && (autoVehicleLoanForm.get('vehicleVinNumber').touched || submitted) && autoVehicleLoanForm.get('vehicleVinNumber').hasError(validation.type)">{{'application.loanDetails.collateralTypeDetails.autoVehicleLoan.vehicleVinNumber.validation' | translateValidation:validation}}</mat-error>
+                        </ng-container>
+                    </div>
+                </div>
+
+
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="mat-grp">
+                        <mat-label>
+                            <label for="vehicleYear">
+                                {{ 'application.loanDetails.collateralTypeDetails.autoVehicleLoan.vehicleYear.label' | translate }}
+                                <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="false"> *</span>
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <!-- <input id="vehicleYear" inputType="number" aria-invalid="true" aria-describedby="msg4" aria-labelledby="msg4" matInput formControlName="vehicleYear"> -->
+                            <select id="vehicleYear" matNativeControl formControlName="vehicleYear">
+                                <option [value]="null" selected disabled>Please Select</option>
+                                <option *ngFor="let val of vehicleYearList" [value]="val.code">{{val.label}}</option>
+                            </select>
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of vehicleLoanValues.vehicleYear">
+                            <mat-error id="msg4" *ngIf="!autoVehicleLoanForm.get('vehicleYear').valid && (autoVehicleLoanForm.get('vehicleYear').touched || submitted) && autoVehicleLoanForm.get('vehicleYear').hasError(validation.type)">{{'application.loanDetails.collateralTypeDetails.autoVehicleLoan.vehicleYear.validation' | translateValidation:validation}}</mat-error>
+                        </ng-container>
+                    </div>
+                </div>
+
+
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="mat-grp">
+                        <mat-label>
+                            <label for="vehicleMake">
+                                {{ 'application.loanDetails.collateralTypeDetails.autoVehicleLoan.vehicleMake.label' | translate }}
+                                <span class="red" aria-label="Mandatory" aria-hidden="true" tabindex="-1"> *</span>
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <input id="vehicleMake" matInput formControlName="vehicleMake" aria-invalid="true" aria-describedby="msg5" aria-labelledby="msg5">
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of vehicleLoanValues. vehicleMake">
+                            <mat-error id="msg5" *ngIf="!autoVehicleLoanForm.get('vehicleMake').valid && (autoVehicleLoanForm.get('vehicleMake').touched || submitted) && autoVehicleLoanForm.get('vehicleMake').hasError(validation.type)">{{'application.loanDetails.collateralTypeDetails.autoVehicleLoan.vehicleMake.validation' | translateValidation:validation}}</mat-error>
+                        </ng-container>
+                    </div>
+                </div>
+
+
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="mat-grp">
+                        <mat-label>
+                            <label for="vehicleModel">{{ 'application.loanDetails.collateralTypeDetails.autoVehicleLoan.vehicleModel.label' | translate}}
+                                <span class="red" aria-label="Mandatory" aria-hidden="true" tabindex="-1"> *</span>
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <input id="vehicleModel" matInput formControlName="vehicleModel" aria-invalid="true" aria-describedby="msg6" aria-labelledby="msg6">
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of vehicleLoanValues.vehicleModel">
+                            <mat-error id="msg6" *ngIf="!autoVehicleLoanForm.get('vehicleModel').valid && (autoVehicleLoanForm.get('vehicleModel').touched || submitted) && autoVehicleLoanForm.get('vehicleModel').hasError(validation.type)">{{'application.loanDetails.collateralTypeDetails.autoVehicleLoan.vehicleModel.validation' | translateValidation:validation}}</mat-error>
+                        </ng-container>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="mat-grp">
+                        <mat-label>
+                            <label for="autoStyle">
+                                {{ 'application.loanDetails.collateralTypeDetails.autoVehicleLoan.autoStyle.label' | translate }}
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <input id="autoStyle" matInput formControlName="autoStyle" aria-invalid="true" aria-describedby="msg7" aria-labelledby="msg7">
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of vehicleLoanValues.autoStyle">
+                            <mat-error id="msg7" *ngIf="!autoVehicleLoanForm.get('autoStyle').valid && (autoVehicleLoanForm.get('autoStyle').touched || submitted) && autoVehicleLoanForm.get('autoStyle').hasError(validation.type)">{{'application.loanDetails.collateralTypeDetails.autoVehicleLoan.autoStyle.validation' | translateValidation:validation}}</mat-error>
+                        </ng-container>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="mat-grp">
+                        <mat-label>
+                            <label for="autoTrimPackage">
+                                {{ 'application.loanDetails.collateralTypeDetails.autoVehicleLoan.autoTrimPackage.label' | translate }}
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <input id="autoTrimPackage" matInput formControlName="autoTrimPackage" aria-invalid="true" aria-describedby="msg8" aria-labelledby="msg8">
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of vehicleLoanValues.autoTrimPackage">
+                            <mat-error id="msg8" *ngIf="!autoVehicleLoanForm.get('autoTrimPackage').valid && (autoVehicleLoanForm.get('autoTrimPackage').touched || submitted) && autoVehicleLoanForm.get('autoTrimPackage').hasError(validation.type)">{{'application.loanDetails.collateralTypeDetails.autoVehicleLoan.autoTrimPackage.validation' | translateValidation:validation}}</mat-error>
+                        </ng-container>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="mat-grp">
+                        <mat-label>
+                            <label for="autoColor">
+                                {{ 'application.loanDetails.collateralTypeDetails.autoVehicleLoan.autoColor.label' | translate }}
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <input id="autoColor" matInput formControlName="autoColor" aria-invalid="true" aria-describedby="msg9" aria-labelledby="msg9">
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of vehicleLoanValues.autoColor">
+                            <mat-error id="msg9" *ngIf="!autoVehicleLoanForm.get('autoColor').valid && (autoVehicleLoanForm.get('autoColor').touched || submitted) && autoVehicleLoanForm.get('autoColor').hasError(validation.type)">{{'application.loanDetails.collateralTypeDetails.autoVehicleLoan.autoColor.validation' | translateValidation:validation}}</mat-error>
+                        </ng-container>
+                    </div>
+                </div>
+
+
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="mat-grp">
+                        <mat-label>
+                            <label for="autoVehicleLoan">
+                                {{ 'application.loanDetails.collateralTypeDetails.autoVehicleLoan.autoMileage.label' | translate }}
+                                <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <input id="autoVehicleLoan" type inputType="number" aria-invalid="true" aria-describedby="msg10" aria-labelledby="msg10" matInput formControlName="autoMileage">
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of vehicleLoanValues.autoMileage">
+                            <mat-error id="msg10" *ngIf="!autoVehicleLoanForm.get('autoMileage').valid && (autoVehicleLoanForm.get('autoMileage').touched || submitted) && autoVehicleLoanForm.get('autoMileage').hasError(validation.type)">{{'application.loanDetails.collateralTypeDetails.autoVehicleLoan.autoMileage.validation' | translateValidation:validation}}</mat-error>
+                        </ng-container>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="mat-grp">
+                        <mat-label>
+                            <label for="tagNumber"> {{ 'application.loanDetails.collateralTypeDetails.autoVehicleLoan.tagNumber.label' | translate
+                                }}
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+
+                            <input id="tagNumber" inputType="number" matInput formControlName="tagNumber" aria-invalid="true" aria-describedby="msg11" aria-labelledby="msg11">
+
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of vehicleLoanValues.tagNumber">
+                            <mat-error id="msg11" *ngIf="!autoVehicleLoanForm.get('tagNumber').valid && (autoVehicleLoanForm.get('tagNumber').touched || submitted) && autoVehicleLoanForm.get('tagNumber').hasError(validation.type)">{{'application.loanDetails.collateralTypeDetails.autoVehicleLoan.tagNumber.validation' | translateValidation:validation}}</mat-error>
+                        </ng-container>
+                    </div>
+                </div>
+
+
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="mat-grp">
+                        <mat-label>
+                            <label for="cashDown">
+                                {{ 'application.loanDetails.collateralTypeDetails.autoVehicleLoan.cashDown.label' | translate }}
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <span matPrefix>J$ &nbsp;</span>
+                            <input id="cashDown" maxlength="10" currencyMask [options]="{allowNegative: false}" matInput aria-invalid="true" aria-describedby="msg12" aria-labelledby="msg12" formControlName="cashDown">
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of vehicleLoanValues.cashDown">
+                            <mat-error id="msg12" *ngIf="!autoVehicleLoanForm.get('cashDown').valid && (autoVehicleLoanForm.get('cashDown').touched || submitted) && autoVehicleLoanForm.get('cashDown').hasError(validation.type)">{{'application.loanDetails.collateralTypeDetails.autoVehicleLoan.cashDown.validation' | translateValidation:validation}}</mat-error>
+                        </ng-container>
+                    </div>
+                </div>
+                <!-- <div class="col-md-3 col-sm-6 col-lg-3 col-12 ">
+                    <div class="mat-grp">
+                        <mat-label>
+                            <label for="loanPurchaseType">{{ 'application.loanDetails.collateralTypeDetails.autoVehicleLoan.loanPurchaseType.label' | translate
+                                }}
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <select id="loanPurchaseType" matNativeControl placeholder="Choose an option" formControlName="loanPurchaseType">
+                                <option [value]="null" selected disabled>Please Select</option>
+                                <option *ngFor="let val of purchaseTypeList" [value]="val.code">{{val.label}}</option>
+                            </select>
+                        </mat-form-field>
+                    </div>
+                </div> -->
+
+                <div class=" col-12 col-sm-6 col-lg-3" hidden>
+                    <div class="mat-grp">
+                        <mat-label>
+                            <label for="vehicleSourceOfValue">
+                                {{ 'application.loanDetails.collateralTypeDetails.autoVehicleLoan.vehicleValue.label' | translate }}
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <span matPrefix>J$ &nbsp;</span>
+                            <input id="vehicleSourceOfValue" maxlength="10" currencyMask [options]="{allowNegative: false}" matInput formControlName="vehicleSourceOfValue" [value]="Manual">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <hr aria-hidden="true" tabindex="-1">
+
+    <div class="row" *ngIf="showVINNumber">
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="mat-grp">
+                <mat-label>
+                    <label for="isTitleRequired">
+                        {{ 'application.loanDetails.collateralTypeDetails.autoVehicleLoan.isTitleRequired.label' | translate }}
+                        <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+                    </label>
+                </mat-label>
+                <mat-form-field appearance="outline" class="full-width">
+                    <!--<mat-select formControlName="isTitleRequired" [placeholder]="dropdownPlaceholder">
+                        <ng-container *ngFor="let val of  yesNoList">
+                            <mat-option [value]="val">
+                                {{val}}
+                            </mat-option>
+                        </ng-container>
+                    </mat-select>-->
+                    <select id="isTitleRequired" matNativeControl formControlName="isTitleRequired" aria-invalid="true" aria-describedby="msg13" aria-labelledby="msg13">
+                        <option [value]="null" selected disabled>Please Select</option>
+                        <option *ngFor="let val of  yesNoList" [value]="val">{{val}}</option>
+                    </select>
+                </mat-form-field>
+                <ng-container *ngFor="let validation of vehicleLoanValues.isTitleRequired">
+                    <mat-error id="msg13" *ngIf="!autoVehicleLoanForm.get('isTitleRequired').valid && (autoVehicleLoanForm.get('isTitleRequired').touched || submitted) && autoVehicleLoanForm.get('isTitleRequired').hasError(validation.type)">{{'application.loanDetails.collateralTypeDetails.autoVehicleLoan.isTitleRequired.validation' | translateValidation:validation}}</mat-error>
+                </ng-container>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="mat-grp">
+                <mat-label>
+                    <label for="isInsuranceRequired">{{ 'application.loanDetails.collateralTypeDetails.autoVehicleLoan.isInsuranceRequired.label' | translate}}
+                        <span class="red" aria-label="Mandatory" aria-hidden="true" tabindex="-1"> *</span>
+                    </label>
+                </mat-label>
+                <mat-form-field appearance="outline" class="full-width">
+                    <!--<mat-select formControlName="isInsuranceRequired" [placeholder]="dropdownPlaceholder">
+                        <ng-container *ngFor="let val of  yesNoList">
+                            <mat-option [value]="val">
+                                {{val}}
+                            </mat-option>
+                        </ng-container>
+                    </mat-select>-->
+                    <select id="isInsuranceRequired" aria-invalid="true" aria-describedby="msg14" aria-labelledby="msg14" matNativeControl formControlName="isInsuranceRequired">
+                        <option [value]="null" selected disabled>Please Select</option>
+                        <option *ngFor="let val of  yesNoList" [value]="val">{{val}}</option>
+                    </select>
+                </mat-form-field>
+                <ng-container *ngFor="let validation of vehicleLoanValues.isInsuranceRequired">
+                    <mat-error id="msg14" *ngIf="!autoVehicleLoanForm.get('isInsuranceRequired').valid && (autoVehicleLoanForm.get('isInsuranceRequired').touched || submitted) && autoVehicleLoanForm.get('isInsuranceRequired').hasError(validation.type)">{{'application.loanDetails.collateralTypeDetails.autoVehicleLoan.isInsuranceRequired.validation' | translateValidation:validation}}</mat-error>
+                </ng-container>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="mat-grp">
+                <mat-label>
+                    <label for="collateralDescription" *ngIf="!showVINNumber">{{ 'application.loanDetails.collateralTypeDetails.autoVehicleLoan.collateralValueApprox.label' | translate}}
+                        <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+                    </label>
+                    <label for="collateralDescription" *ngIf="showVINNumber">{{ 'application.loanDetails.collateralTypeDetails.autoVehicleLoan.collateralValue.label' | translate}}
+                        <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+                    </label>
+                </mat-label>
+                <mat-form-field appearance="outline" class="full-width">
+                    <span matPrefix>J$ &nbsp;</span>
+                    <input id="collateralDescription" maxlength="10" currencyMask [options]="{allowNegative: false}" matInput formControlName="collateralValue">
+
+                </mat-form-field>
+                <div *ngIf="!showVINNumber">
+                    <mat-error *ngFor="let validation of vehicleLoanValues.collateralValue">
+                        <mat-error *ngIf="!autoVehicleLoanForm.get('collateralValue').valid && (autoVehicleLoanForm.get('collateralValue').touched || submitted) && autoVehicleLoanForm.get('collateralValue').hasError(validation.type)">{{'application.loanDetails.collateralTypeDetails.autoVehicleLoan.collateralValueApprox.validation' | translateValidation:validation}}</mat-error>
+                    </mat-error>
+                </div>
+                <div *ngIf="showVINNumber">
+                    <mat-error *ngFor="let validation of vehicleLoanValues.collateralValue">
+                        <mat-error *ngIf="!autoVehicleLoanForm.get('collateralValue').valid && (autoVehicleLoanForm.get('collateralValue').touched || submitted) && autoVehicleLoanForm.get('collateralValue').hasError(validation.type)">{{'application.loanDetails.collateralTypeDetails.autoVehicleLoan.collateralValue.validation' | translateValidation:validation}}</mat-error>
+                    </mat-error>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-sm-6 col-lg-9">
+            <div class="mat-grp">
+                <mat-label>{{ 'application.loanDetails.collateralTypeDetails.autoVehicleLoan.collateralDescription.label' | translate }}
+                </mat-label>
+                <div class="md-form">
+                    <textarea type="text" id="form7" formControlName="collateralDescription" class="md-textarea form-control" mdbInputDirective></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</form>
+
+<ng-container *ngIf="isReadOnly">
+    <auto-vehicle-loan-readonly [model]="model" [collateralType]="collateralTypeReadOnly" [showVINNumber]="showVINNumber"></auto-vehicle-loan-readonly>
+</ng-container>

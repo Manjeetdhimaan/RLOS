@@ -1,0 +1,64 @@
+{
+  "applicants": [
+    {
+      "id": "1",
+      "type": "PRIMARY",
+      "buckets": [
+        {
+          "docTypeCode": "TAX",
+          "mandatory": true,
+          "uploaded": true,
+          "size": 1,
+          "documentIndex": 1231,
+          "rootFolderIndex": 1200
+        },
+        {
+          "docTypeCode": "IDSCN",
+          "mandatory": true,
+          "uploaded": false,
+          "size": 1,
+          "documentIndex": 1232,
+          "rootFolderIndex": 1200
+        },
+        {
+          "docTypeCode": "OTHER",
+          "mandatory": true,
+          "uploaded": false,
+          "size": 1,
+          "documentIndex": 1233,
+          "rootFolderIndex": 1200
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "type": "CO_APPLICANT",
+      "buckets": [
+        {
+          "docTypeCode": "TAX",
+          "mandatory": true,
+          "uploaded": true,
+          "size": 1,
+          "documentIndex": 1234,
+          "rootFolderIndex": 1200
+        },
+        {
+          "docTypeCode": "IDSCN",
+          "mandatory": true,
+          "uploaded": true,
+          "size": 1,
+          "documentIndex": 1235,
+          "rootFolderIndex": 1200
+        },
+        {
+          "docTypeCode": "OTHER",
+          "mandatory": true,
+          "uploaded": false,
+          "size": 1,
+          "documentIndex": 1236,
+          "rootFolderIndex": 1200
+        }
+      ]
+    }
+  ]
+}

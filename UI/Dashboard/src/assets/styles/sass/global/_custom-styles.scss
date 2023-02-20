@@ -1,0 +1,812 @@
+@import './src/assets/styles/sass/global/_default-variables';
+@import './src/assets/styles/sass/global/_mixins';
+@import './src/assets/styles/sass/theme/anbtx/_anbtx-variables';
+
+.application-footer {
+  background-color: $footer-background-color;
+  color: $footer-text-color;
+  padding: em(20px) 0;
+  font-size: $footer-font-size;
+  width: 100%;
+}
+
+@include mobile {
+  .application-footer {
+    padding-left: em(5px);
+    padding-right: em(5px);
+  }
+}
+
+a,
+a:hover {
+  color: $graphite-black;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.icon-circle-info {
+  text-decoration: none !important;
+  font-size: em(16px);
+}
+
+.text-underline-hover:hover {
+  text-decoration: underline;
+}
+
+
+/*********************** Navigation Tabs Start ************************/
+
+.nav-tabs {
+  background: $pearl;
+  margin-bottom: em(20px);
+  .uib-tab {
+    border-left: 1px solid $silver;
+    &:last-of-type {
+      border-right: 0;
+    }
+    &.active {
+      background: $white;
+      border-top: em(6px) solid $primary-red;
+    }
+    a {
+      border-top: em(6px) solid $pearl;
+      margin-right: 0;
+      color: $graphite-black;
+    }
+  }
+}
+
+
+/*********************** Navigation Tabs End ************************/
+
+
+/*********************** Modal Starts here **************************************/
+
+body.modal-open {
+  overflow: hidden;
+  position:fixed;
+  left:0;
+  right:0;
+}
+
+.modal {
+  text-align: center;
+  .modal-footer {
+    padding: 15px 0;
+   
+    
+  }
+  ;
+}
+
+.modal:before {
+  display: inline-block;
+  vertical-align: middle;
+  content: " ";
+  height: 100%;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.modal-header h4 {
+  margin-top: 0px;
+}
+
+.modal-dialog h5 {
+  margin-top: em(20px);
+}
+
+@include mobile {
+  .modal-dialog {
+    width: 90%;
+    max-height: 560px !important;
+    overflow-y: auto !important; // -webkit-overflow-scrolling: touch;
+    // height:100%;
+  }
+}
+
+@include tablet {
+  .modal-dialog {
+    width: 70%;
+  }
+}
+
+@include sm-desktop{
+  .modal-dialog {
+    width: 60%;
+  }
+}
+
+
+/*********************** Modal Ends here **************************************/
+
+uib-accordion {
+  word-wrap: break-word;
+  div.panel-heading {
+    height: auto;
+  }
+  .panel-heading {
+    padding: 0;
+    a {
+      display: table;
+      width: 100%;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      @include tablet {
+        padding-left: em(18px);
+        padding-right: em(18px);
+      }
+      @include sm-desktop{
+        padding-left: em(20px);
+        padding-right: em(20px);
+      }
+      @include desktop {
+        padding-left: em(20px);
+        padding-right: em(20px);
+      }
+    }
+    background: $pearl !important;
+    height:40px;
+    @include mobile {
+      height: 50px;
+      padding-left: em(16px);
+      padding-right: em(16px);
+    }
+    h4 {
+      padding-bottom: 0;
+    }
+  }
+  .panel-title {
+    font-weight: bold;
+    font-size: em(16px);
+    color: $graphite-black;
+    a {
+      text-decoration: none;
+    }
+    .icon {
+      font-weight: bold;
+      font-size: em(16px);
+    }
+    .uib-accordion-header {
+      display: table;
+      width: 100%;
+    }
+    .uib-header-text {
+      display: table-cell;
+      padding-right: 8px;
+      vertical-align: middle;
+    }
+    .uib-header-icon {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+  .panel-body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    @include mobile {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    @include tablet {
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+    @include sm-desktop{
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}
+select{
+  line-height:1.19;
+  height: 35px;
+  width: 100%;
+  //border: 1px solid;
+  border-radius: 4px;
+  //padding-left: 5px;
+}
+
+
+.display-inline {
+  display: inline;
+}
+
+.hidden-field {
+  display: none;
+}
+
+.no-padding-lr {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.no-padding-l {
+  padding-left: 0;
+}
+
+.no-padding-r {
+  padding-right: 0;
+}
+
+.no-margin-lr {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.text-margin-top {
+  margin-top: 20px !important;
+}
+
+.text-margin-bottom {
+  margin-bottom: 20px !important;
+}
+
+.no-margin-b {
+  margin-bottom: 0px !important;
+}
+
+.has-error .form-control:focus {
+  box-shadow: none;
+}
+
+// .form-group {
+//   margin-bottom: em(30px);
+//   &.has-error {
+//     margin-bottom: 0;
+//   }
+// }
+
+// .form-group {
+//   margin-bottom: em(30px);
+//   &.date-error {
+//     margin-bottom: 0;
+//   }
+  .form-group {
+    margin-bottom:0px !important;
+    &.has-error {
+      margin-bottom: 0;
+    }
+}
+
+.form-group>.has-error {
+  margin-bottom: 0;
+}
+
+.form-control {
+  vertical-align: middle;
+  &:focus {
+    border: 1px solid $sapphire;
+    box-shadow: none;
+  }
+  &:hover {
+    border: 1px solid $sapphire;
+  }
+}
+
+@include sm-desktop{
+  .form-control {
+    height: 30px;
+    line-height: 100%;
+    padding: 0px 10px;
+    vertical-align: middle;
+  }
+}
+
+@include tablet {
+  .form-control {
+    height: 30px;
+    line-height: 100%;
+    padding: 0px 10px;
+  }
+}
+
+@include mobile {
+  .form-control {
+    height: 44px;
+    line-height: 100%;
+    padding: 0px 15px;
+  } // .icon-circle-info {
+  //   display: none;
+  // }
+}
+
+.bold {
+  font-weight: bold
+}
+
+
+/*********************** Cursor: Pointer ************************/
+
+.pointer {
+  cursor: pointer;
+}
+
+
+/*********************** Cursor: Disabled ************************/
+
+.cursor-disabled {
+  cursor: not-allowed;
+}
+
+.divider {
+  border-top: 1px solid $pewter;
+  margin-bottom: 20px;
+}
+
+
+/**********************Phone Number******************************************/
+
+.phone-container {
+  display: table;
+  width: 100%;
+  .code-box {
+    width: 115px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: top;
+    border-color: none !important;
+  }
+  .number-box {
+    width: calc(100% - 130px);
+    display: inline-block;
+    vertical-align: top;
+    float: right;
+  }
+}
+
+
+/*****************Loading Mask***************/
+
+.loading-mask-container {
+  position: relative;
+  .loader {
+    margin: 0 auto;
+    height: 45px;
+    width: 45px;
+    animation: rotate 0.8s infinite linear;
+    border: 3px solid white;
+    border-top-color: transparent; // border-right-color: transparent;
+    border-radius: 50%;
+  }
+  @-webkit-keyframes rotate {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.loader-pos-fixed {
+  position: fixed;
+}
+
+.loader-pos-absolute {
+  position: absolute;
+}
+
+.position-absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.loader-text {
+  color: white;
+  margin-top: 10px;
+}
+
+.loader-content {
+  text-align: center; //display: flex;
+  width: 100%;
+  z-index: 1900;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform: -webkit-translate(-50%, -50%);
+  transform: -moz-translate(-50%, -50%);
+  transform: -ms-translate(-50%, -50%);
+}
+
+#loading-mask-body {
+  @extend .position-absolute;
+  z-index: 1000;
+}
+
+#loading-mask {
+  @extend .position-absolute;
+  background: $black;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+
+/* Removed panel-border for all screens */
+
+.panel-default {
+  border: none;
+}
+
+.panel {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.has-error {
+  .form-control {
+    background-color: $error-background;
+  }
+}
+
+.btn-default-focus {
+  outline: 0 !important;
+}
+
+@include sm-desktop{
+  .no-form-margin-bottom {
+    margin-bottom: 0px !important;
+  }
+}
+
+@include tablet {
+  .no-form-margin-bottom {
+    margin-bottom: 0px !important;
+  }
+}
+
+@include mobile {
+  .no-form-margin-bottom {
+    margin-bottom: 10px !important;
+  }
+}
+
+
+/* Customising popover */
+
+.popover-inner {
+  padding: 10px;
+  .popover-content {
+    padding: 0px 5px;
+  }
+}
+
+
+/* For accessibility*/
+
+.visuallyHidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  /*IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* For input type file*/
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile:focus+label {
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px;
+}
+.full-width {
+  width: 100%;
+}
+
+.validation-errors{
+  float:left;
+}
+
+.ui-select-bootstrap .ui-select-choices-row.active,
+.ui-select-bootstrap .ui-select-choices-row.active:hover,
+.ui-select-bootstrap .ui-select-choices-row:hover
+{
+  position: relative;
+  top: -2px;
+  padding-top: 13px !important;
+  border-bottom: none !important;
+}
+
+////
+
+	
+.margin-b{
+  margin-bottom: 15px;
+  word-break: keep-all;
+}
+
+
+.checkboxlbl {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: em(16px);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.checkboxlbl input {
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  width: 0;
+  height:0;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.checkboxlbl input:checked ~ .checkmark {
+  background-color: white;
+} 
+    .checkboxlbl input:checked:focus + label::before {
+    outline: rgb(59, 153, 252) auto 5px;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.checkboxlbl input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.checkboxlbl .checkmark:after {
+ top: 4px;
+left: 4px;
+width: 15px;
+height: 15px;
+border-radius: 50%;
+background: #008580;
+}
+
+.lblPersonalDetail {
+    font-size: em(16px);
+}
+
+
+.checkboxlbl .checkmark:after {
+ top: 4px;
+left: 4px;
+width: 15px;
+height: 15px;
+border-radius: 50%;
+background: #008580;
+}
+
+.sticky-footer{
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  max-height: 30px;
+  // width: 100%;
+  background: #fff;
+  // padding-left: 4%;
+  // padding-right: 4%;
+  // padding-top: 1%;
+  border-top: 1px #c3c3c3 solid;
+  z-index: 1000;
+}
+
+.sticky-button{
+  // padding-right:18%;
+  // width:60%;
+  float:right;
+}
+.innerContainer{
+  padding-right:15px;
+  padding-left:15px;
+}
+.sticky-footer-fluid{
+  padding-right:30px;
+  padding-left:30px;
+}
+.popOver{
+  background-color:#253038;
+  color:white;
+  z-index:0;
+  // left: 680px !important;
+}
+
+.sticky-back{
+  display:inline-block !important;
+}
+
+.fl-left {
+  float: left;
+}
+
+.fl-right {
+  float: right;
+}
+
+.br-black {
+  border: 1px solid black;
+}
+
+.inln-block {
+  display:inline-block;
+}
+
+.hide-visibility {
+  visibility: hidden;
+}
+
+.no-margin {
+  margin: 0px;
+}
+
+
+::placeholder {
+    color: #767676  !important;
+    opacity: 1; 
+}
+
+:-ms-input-placeholder { 
+   color: #767676;
+}
+
+::-ms-input-placeholder { 
+   color: #767676;
+}
+
+span.empty-square:before
+{
+    content: "\2610";
+    margin-right:5px;
+}
+
+
+.next-heading{
+  // padding-top: 6px;    
+  // padding-right: 5px;
+  margin-top: 5px;
+}
+.back-heading{
+  // padding-top: 6px;    
+  // padding-left: 5px;
+  margin-top: 5px;
+}
+
+.text-center{
+  text-align:center;
+}
+.back-button{  
+  margin-left: 0 !important;
+  padding-left: 5px !important;
+}
+.mat-grp{
+  margin-bottom:15px;
+}
+
+
+/************************************* CUSTOM STYLES CONTAINER BODY ***************************************/
+.container-body{
+  // margin-top: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 9px !important;
+  // padding-left: 20px!important;
+}
+
+.heading-footer{  
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  @include mobile{
+    display:none;
+  }
+  @include tablet{
+    display:none;
+  }
+  @include sm-desktop{
+    display:none;
+  }
+}
+
+.form-group{
+  margin-bottom:0px !important;
+}
+
+
+.visible-mobile{
+  @include tablet{
+      display:none;
+  }
+  @include desktop{
+      display:none;
+  }
+  @include desktop{
+      display:none;
+  }
+}
+
+.visible-desktop{
+  @include mobile{
+      display:none;
+  }
+}
+
+.hidden-mobile{
+  @include mobile{
+      display:none;
+  }
+}
+
+.hidden-tablet{
+  @include tablet{
+      display:none;
+  }
+}
+
+.hidden-desktop{
+  @include desktop{
+      display:none;
+  }
+}
+
+.hidden-sm-desktop{
+  @include sm-desktop{
+      display:none;
+  }
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.note-i{
+  text-align: right;
+  font-style: italic;
+}
+
+.red{
+  color:red;
+}
+.height-space{
+  height:11px;
+}
+
+::ng-deep .mat-button{
+  font-size:16px !important;
+}

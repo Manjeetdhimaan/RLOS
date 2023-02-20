@@ -1,0 +1,203 @@
+<div id="add-coapplicant-dialog-container" modal-focus aria-modal="true" role="dialog" aria-labelledby="docUploadModal" class="add-coapplicant-container">
+    <div class="dialog-title-container">
+        <h3 mat-dialog-title class="dialog-title proxima-modal-heading custom-legend" style="margin-bottom:0px !important;">{{loan.title}}</h3>
+        <em class="material-icons close-icon" (click)="onNoClick()">close</em>
+    </div>
+
+
+    <div mat-dialog-content>
+        <div class="document-panel">
+            <form [formGroup]="productForm" autocomplete="off">
+                <hr />
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12 margin-b" *ngIf="loan.type === 'credit_cards'">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-12 col-xs-12"></div>
+                            <div class="offset-md-1-2 col-md-3 col-sm-12 col-xs-12">
+                                <h6 mat-dialog-title class="dialog-title proxima-modal-heading custom-legend" style="margin-bottom:0px !important;">
+                                     {{'application.productDetails.loanProduct.creditCards.visaClassicCard' | translate}}</h6>
+                                <div class="example-card margin-t">
+                                    <img mat-card-image src="assets/resources/images/classic-card.png" alt="Photo of a Shiba Inu">
+                                </div>
+                                <ul>
+                                    <li *ngFor="let card of loan.classic_card">
+                                        {{card}}
+                                    </li>
+                                </ul>
+                                <mat-card-actions class="cursorPointer">
+                                    <button mat-button class="mat-card-button" [disabled]="classic_card" (click)="selectLoan('classic_card')">
+                                    {{'application.productDetails.loanProduct.creditCards.visaClassicCard' | translate}}</button>
+                                </mat-card-actions>
+                            </div>
+                            <div class="col-md-2 col-sm-12 col-xs-12"></div>
+                            <div class="col-md-3 col-sm-12 col-xs-12">
+                                <h6 mat-dialog-title class="dialog-title proxima-modal-heading custom-legend" style="margin-bottom:0px !important;">{{'application.productDetails.loanProduct.creditCards.visaGoldCard' | translate}}</h6>
+                                <div class="example-card margin-t">
+                                    <img mat-card-image src="assets/resources/images/gold-card.png" alt="Photo of a Shiba Inu">
+                                </div>
+                                <ul>
+                                    <li *ngFor="let card of loan.gold_card">
+                                        {{card}}
+                                    </li>
+                                </ul>
+                                <mat-card-actions class="cursorPointer">
+                                    <button mat-button class="mat-card-button" [disabled]="gold_card" (click)="selectLoan('gold_card')">{{'application.productDetails.loanProduct.creditCards.visaGoldCard' | translate}}</button>
+                                </mat-card-actions>
+                            </div>
+                            <div class="col-md-2 col-sm-12 col-xs-2"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12 margin-b" *ngIf="loan.type === 'auto'">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <h6 mat-dialog-title class="dialog-title proxima-modal-heading custom-legend" style="margin-bottom:0px !important;">
+                                    {{'application.productDetails.loanProduct.terms' | translate}}</h6>
+                                <ul>
+                                    <li *ngFor="let term of loan.terms">
+                                        {{term}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <h6 mat-dialog-title class="dialog-title proxima-modal-heading custom-legend" style="margin-bottom:0px !important;">
+                                    {{'application.productDetails.loanProduct.requiredDocs' | translate}}</h6>
+                                <ul>
+                                    <li *ngFor="let document of loan.documents">
+                                        {{document}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12 margin-b" *ngIf="loan.type === 'overdraft'">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <h6 mat-dialog-title class="dialog-title proxima-modal-heading custom-legend" style="margin-bottom:0px !important;">
+                                    {{'application.productDetails.loanProduct.overdraftFacilities.eligibility' | translate}}</h6>
+                                <ul>
+                                    <li *ngFor="let criteria of loan.criterias">
+                                        {{criteria}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <h6 mat-dialog-title class="dialog-title proxima-modal-heading custom-legend" style="margin-bottom:0px !important;">{{'application.productDetails.loanProduct.requiredDocs' | translate}}</h6>
+                                <ul>
+                                    <li *ngFor="let document of loan.documents">
+                                        {{document}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12 margin-b" *ngIf="loan.type === 'debt_consolidation'">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <h6 mat-dialog-title class="dialog-title proxima-modal-heading custom-legend" style="margin-bottom:0px !important;"> 
+                                {{'application.productDetails.loanProduct.debtConsolidation.reasonToConsolidate' | translate}}</h6>
+                                <ul>
+                                    <li *ngFor="let consolidate of loan.consolidation">
+                                        {{consolidate}}
+                                    </li>
+                                </ul>
+                                <h6 mat-dialog-title class="dialog-title proxima-modal-heading custom-legend" style="margin-bottom:0px !important;">
+                                    {{'application.productDetails.loanProduct.terms' | translate}}</h6>
+                                <ul>
+                                    <li *ngFor="let term of loan.terms">
+                                        {{term}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12 margin-b" *ngIf="loan.type === 'home_equity'">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <h6 mat-dialog-title class="dialog-title proxima-modal-heading custom-legend" style="margin-bottom:0px !important;">
+                                    {{'application.productDetails.loanProduct.homeEquityLoan.whenToConsiderHomeEquity' | translate}}
+                                </h6>
+                                <ul>
+                                    <li *ngFor="let consider of loan.consideration">
+                                        {{consider}}
+                                    </li>
+                                </ul>
+                                <h6 mat-dialog-title class="dialog-title proxima-modal-heading custom-legend" style="margin-bottom:0px !important;">{{'application.productDetails.loanProduct.terms' | translate}}</h6>
+                                <ul>
+                                    <li *ngFor="let term of loan.terms">
+                                        {{term}}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <h6 mat-dialog-title class="dialog-title proxima-modal-heading custom-legend" style="margin-bottom:0px !important;">{{'application.productDetails.loanProduct.requiredDocs' | translate}}</h6>
+                                <ul>
+                                    <li *ngFor="let document of loan.documents">
+                                        {{document}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12 margin-b" *ngIf="loan.type === 'personal'">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <h6 mat-dialog-title class="dialog-title proxima-modal-heading custom-legend" style="margin-bottom:0px !important;">{{'application.productDetails.loanProduct.terms' | translate}}</h6>
+                                <ul>
+                                    <li *ngFor="let term of loan.terms">
+                                        {{term}}
+                                    </li>
+                                </ul>
+                                <h6 mat-dialog-title class="dialog-title proxima-modal-heading custom-legend" style="margin-bottom:0px !important;">
+                                    {{'application.productDetails.loanProduct.personalLoan.reasonToBorrowFund' | translate}}</h6>
+                                <ul>
+                                    <li *ngFor="let fund of loan.funds">
+                                        {{fund}}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <h6 mat-dialog-title class="dialog-title proxima-modal-heading custom-legend" style="margin-bottom:0px !important;">{{'application.productDetails.loanProduct.requiredDocs' | translate}}</h6>
+                                <ul>
+                                    <li *ngFor="let document of loan.documents">
+                                        {{document}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12 margin-b padding-l20" *ngIf="loan.type === 'mortgage'">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <h6 mat-dialog-title class="dialog-title proxima-modal-heading custom-legend" style="margin-bottom:0px !important;">{{'application.productDetails.loanProduct.terms' | translate}}</h6>
+                                <ul>
+                                    <li *ngFor="let term of loan.terms">
+                                        {{term}}
+                                    </li>
+                                </ul>
+                                <h6 mat-dialog-title class="dialog-title proxima-modal-heading custom-legend" style="margin-bottom:0px !important;">{{'application.productDetails.loanProduct.requiredDocs' | translate}}</h6>
+                                <ul>
+                                    <li *ngFor="let document of loan.documents">
+                                        {{document}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <div mat-dialog-actions class="modal-btns">
+                <button mat-raised-button color="primary" class="margin-r" (click)="onNoClick()">{{'application.buttons.cancel' | translate}}</button>
+                <button mat-raised-button color="primary" class="margin-r" (click)="confirmOrNot('YES')">{{'application.buttons.continue' | translate}}</button>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

@@ -1,0 +1,68 @@
+IF OBJECT_ID ('dbo.NG_RESUME_FetchWorkItemDetail') IS NOT NULL
+	DROP PROCEDURE dbo.NG_RESUME_FetchWorkItemDetail
+GO
+CREATE PROCEDURE [dbo].[NG_RESUME_FetchWorkItemDetail]
+(
+	@ARN NVARCHAR(100)
+)
+AS
+BEGIN
+	DECLARE @APP_TYPE NVARCHAR(20),
+	@APP_STATUS NVARCHAR(50),
+	@INIT_DATE NVARCHAR(20),
+	@MOD_DATE NVARCHAR(20),
+	@IS_RESUMABLE BIT,
+	@PORTAL_STATUS NVARCHAR(50),
+	@LastPage NVARCHAR(100);
+	IF (@ARN like '%OAO%')
+	BEGIN
+		PRINT 'OAO';
+		SET @APP_TYPE = 'Account Opening';
+		SELECT @LastPage = LAST_VISITED_PAGE,
+			@PORTAL_STATUS = STATUS,
+			@INIT_DATE = CONVERT(DATE,CREATED_ON,111),
+			@MOD_DATE = CONVERT (DATE,LAST_MODIFIED_ON,111)
+		FROM NG_AO_PORTAL_PREFRENCES napp where Workitem_Name = @ARN
+		IF(@PORTAL_STATUS = 'COMPLETED')
+		BEGIN 
+			SET @IS_RESUMABLE = 0;
+			SELECT @APP_STATUS = naasm.ApplicationStatus
+			FROM NG_AO_ApplicationStatus_Master naasm 
+				join NG_AO_ExternalTable ext on ext.CURR_WRK_STEP = naasm.Workstep_Name 
+			WHERE ext.Workitem_Name = @ARN or ext.CASE_NUMBER = @ARN
+		END
+		ELSE --IF(@PORTAL_STATUS = 'IN_PROGRESS')
+		BEGIN
+			SET @IS_RESUMABLE = 1;
+			SET @APP_STATUS = 'Submission Pending';
+		END
+	END
+	ELSE IF(@ARN like '%RLN%')
+	BEGIN
+		PRINT 'RLN';
+		/*DECLARE @PORTAL_STATUS NVARCHAR(50);*/
+		SET @APP_TYPE = 'Loan';
+		SELECT @LastPage = LAST_VISITED_PAGE,
+			@PORTAL_STATUS = STATUS,
+			@INIT_DATE = convert(DATE, CREATED_ON, 111),
+			@MOD_DATE = convert(DATE, LAST_MODIFIED_ON, 111) 
+		FROM NG_RLOS_PORTAL_PREFRENCES WHERE Workitem_Name = @ARN
+		IF(@PORTAL_STATUS = 'COMPLETED')
+		BEGIN 
+			SET @IS_RESUMABLE = 0;
+			
+			SELECT @APP_STATUS = asm.ApplicationStatus 
+			FROM NG_RLOS_ApplicationStatus_Master asm 
+				JOIN NG_RLOS_EXTTABLE ext ON ext.CURR_WRK_STEP = asm.WorkstepName
+			WHERE ext.Workitem_Name = @ARN OR ext.CASE_NUMBER = @ARN
+ 			--SET @APP_STATUS = 'Under Review by Bank';
+		END
+		ELSE --IF(@PORTAL_STATUS = 'IN_PROGRESS')
+		BEGIN
+			SET @IS_RESUMABLE = 1;
+			SET @APP_STATUS = 'Submission Pending';
+		END
+	END
+	SELECT @ARN [ARN], @APP_TYPE [APP_TYPE], @APP_STATUS [APP_STATUS], @INIT_DATE [INIT_DATE], @MOD_DATE [MOD_DATE], @IS_RESUMABLE [IS_RESUMABLE]
+END
+GO

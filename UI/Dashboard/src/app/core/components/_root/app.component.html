@@ -1,0 +1,8 @@
+<app-header></app-header>
+<session-timer></session-timer>
+<app-loader></app-loader>
+
+<div id="view-container">
+    <router-outlet (activate)="onActivate($event)"></router-outlet>
+</div>
+<app-footer></app-footer>

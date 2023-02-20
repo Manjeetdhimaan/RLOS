@@ -1,0 +1,17 @@
+<div class="text-center align-center container-body">
+    <h3 tabindex="0">
+        {{ 'application.thank-you.status.label' | translate }}
+    </h3>
+    <br/>
+    <div tabindex="0">
+        <!-- {{ 'application.thank-you.status.message' | translate }}  -->
+        You are just a few steps away from completing your application. If you are unable to complete now, you can click on "Save and Exit" to log off. You can complete your application from where you left off by using the application number <b>{{arn}}</b>.
+        To resume later, please visit the resume application link present in the email or on the Jamaica Money Market Brokers website.
+    </div>
+    <!-- <div>Your Loan Application Number is {{arn}}.</div> -->
+    <br/>
+    <div class="text-right">
+        <button type="button"  mat-raised-button (click)="exit()">{{ 'application.buttons.exit' | translate }}</button>
+    </div>
+
+</div>

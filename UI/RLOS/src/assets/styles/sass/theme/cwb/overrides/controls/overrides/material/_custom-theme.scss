@@ -1,0 +1,44 @@
+@import '~@angular/material/theming';
+// @import './file-tree-theme.scss';
+
+@include mat-core();
+$my-blue: (
+  50: $white,
+  100: $white,
+  200:$primary-blue-1,
+  300: $white,
+  400: $white,
+  500: $primary-blue-2,
+  600: $white,
+  700: $white,
+  800: $white,
+  900: $primary-red-1,
+  A100: $white,
+  A200: $white,
+  A400: $white,
+  A700: $white,
+  contrast: (
+    50: $white,
+    100: $white,
+    200: $white,
+    300: $white,
+    400: $white,
+    500: $white,
+    600: $white,
+    700: $white,
+    800: $white,
+    900: $white,
+    A100: $white,
+    A200: $white,
+    A400: $white,
+    A700: $white,
+  )
+);
+$custom-app-primary: mat-palette($my-blue, 500);
+$custom-app-accent:  mat-palette($my-blue, 200);
+$custom-app-warn:    mat-palette($my-blue, 900);
+
+$custom-app-theme: mat-light-theme($custom-app-primary, $custom-app-accent, $custom-app-warn);
+
+@include angular-material-theme($custom-app-theme);
+

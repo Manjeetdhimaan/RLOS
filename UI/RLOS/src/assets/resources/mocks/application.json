@@ -1,0 +1,159 @@
+{
+    "arn": "abcd",
+    "applicants": [{
+            "type": "PRIMARY",
+            "prefix": "",
+            "suffix": null,
+            "firstName": "CATHLEEN",
+            "middleName": "C",
+            "lastName": "BASTIBLE",
+            "email": "1@1.com",
+            "dob": "1963-03-26",
+            "idExpDate": "2021-03-26",
+            "ssn": "333-33-3333",
+            "idNumber": "S318731351234567",
+            "idIssuingState": "MA",
+            "id": 123,
+            "order": 1,
+            "documents": [{
+                "docTypeCode": "IDSCN",
+                "images": [{
+                    "data": null,
+                    "ext": "JPG",
+                    "name": "PP2.jpg"
+                }]
+            }],
+            "homePhoneNo": "(232)-333-3333",
+            "mobileNo": "(333)-333-3333",
+            "homePhoneType": "HOM",
+            "altPhoneType": "HOM",
+            "addressDetails": {
+                "isMailingAndResidentialAddDifferent": false,
+                "ownOrRent": null,
+                "amtOfRent": null,
+                "addresses": [{
+                    "type": "CURRENT",
+                    "addressLine1": "2323",
+                    "addressLine2": "3232",
+                    "zipCode": "323",
+                    "city": "Miami",
+                    "state": "AR",
+                    "county": "Arkansas County",
+                    "years": "4",
+                    "months": "4",
+                    "durationInMonths": 52
+                }]
+            },
+            "employmentDetails": [{
+                "employmentType": "STU",
+                "schoolName": "2323232"
+            }],
+            "incomeDetails": [{
+                "type": "TEI",
+                "amount": "2323",
+                "frequency": "HAF",
+                "income": null,
+                "comment": "232323"
+            }],
+            "assetDetails": [{
+                "type": "USG",
+                "amount": "2323",
+                "comment": "232",
+                "instName": "232323"
+            }]
+        },
+        {
+            "type": "CO_APPLICANT",
+            "prefix": "Mrs",
+            "suffix": null,
+            "firstName": "CATHLEEN",
+            "middleName": "C",
+            "lastName": "BASTIBLE",
+            "email": "2@1.com",
+            "dob": "1963-03-26",
+            "idExpDate": "2021-03-26",
+            "ssn": "444-44-4444",
+            "idNumber": "S318731351234567",
+            "idIssuingState": "MA",
+            "id": "1",
+            "order": 2,
+            "documents": [{
+                "docTypeCode": "IDSCN",
+                "images": [{
+                    "data": null,
+                    "ext": "JPG",
+                    "name": "PP2.jpg"
+                }]
+            }],
+            "homePhoneNo": "(333)-333-3333",
+            "mobileNo": "(555)-555-5555",
+            "homePhoneType": "WRK",
+            "altPhoneType": "HOM",
+            "addressDetails": {
+                "isMailingAndResidentialAddDifferent": false,
+                "ownOrRent": null,
+                "amtOfRent": null,
+                "addresses": [{
+                    "type": "CURRENT",
+                    "addressLine1": "232",
+                    "addressLine2": "3232",
+                    "zipCode": "323",
+                    "city": "Miami",
+                    "state": "AS",
+                    "county": "Eastern District",
+                    "years": "4",
+                    "months": "4",
+                    "durationInMonths": 52
+                }]
+            },
+            "employmentDetails": [{
+                    "employmentType": "EMP001",
+                    "status": "FUL",
+                    "companyName": "333",
+                    "employerAddress": "33",
+                    "durationInMonths": 13,
+                    "jobTitle": "33"
+                },
+                {
+                    "employmentType": "RT001",
+                    "lastCompanyName": "qwq",
+                    "yearOfRetirement": "32"
+                }
+            ]
+        }
+    ],
+    "loanDetails": {
+        "collateralTypeDetails": {
+            "owner": "2323",
+            "equipmentType": "Used",
+            "detailsAvailable": "No",
+            "vin": null,
+            "year": null,
+            "make": null,
+            "model": null,
+            "style": null,
+            "trimPackage": null,
+            "tagNumber": null,
+            "color": null,
+            "cashDown": null,
+            "mileage": null,
+            "titleRequired": null,
+            "insuranceRequired": null,
+            "collateralDescription": "323",
+            "loanPurchaseType": null,
+            "collateralValue": "232",
+            "loanProduct": "DC"
+        },
+        "loanType": "LC",
+        "loanProduct": "DC",
+        "facilityType": null,
+        "loanPurposeType": null,
+        "loanAmount": null,
+        "loanTerm": null,
+        "isAutoDebit": null
+    },
+
+    "preferences": {
+        "lastVisitedPage": ""
+    }
+}

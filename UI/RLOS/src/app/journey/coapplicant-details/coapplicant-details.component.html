@@ -1,0 +1,70 @@
+<div class="container-fluid">
+    <div class="row" *ngIf="showAlert">
+        <div class="col-12" role="alert" aria-live="assertive" aria-atomic="true">
+            <error-alert [errorObject]="alert" (close)="closeError()"></error-alert>
+        </div>
+    </div>
+    <div *ngFor="let tabInfo of tabDataList; let i = index;">
+        <div class="row" *ngIf="index === i">
+            <div class="col-12">
+                <h3 class="heading-footer">Co-Applicant {{index +1}} Information</h3>
+            </div>
+            <div class="col-12">
+                <div class="personal-details-container">
+                    <mat-tab-group [(selectedIndex)]="selectedTab" #tabs (click)="interceptTabChange.bind(this)">
+                        <mat-tab label="Basic Information">
+                            <div class="tab-content-container">
+                                <basic-info #tab1 [tabData]="tabInfo.basicDetails" [listItems]="listItems" [isCoApplicant]="true" (deleteTabData)="deleteData($event)" (saveTabData)="saveData($event)" (extractIdScanData)="extractIdScanData($event)" (moveToInvalidTab)="moveToInvalidTab($event)"></basic-info>
+                            </div>
+                        </mat-tab>
+
+                        <mat-tab label="Address Details">
+                            <div class="tab-content-container">
+                                <address-details #tab2 [tabData]="tabInfo.addressDetails" [uspsAddress]="uspsAddress" [listItems]="listItems" [isCoApplicant]="true" (saveTabData)="saveData($event)" (goBack)="goBack($event)" (moveToInvalidTab)="moveToInvalidTab($event)"></address-details>
+                            </div>
+                        </mat-tab>
+
+                        <mat-tab label="Employment Details" aria-label="employment details">
+                            <div class="tab-content-container">
+                                <emp-details #tab3 [tabData]="tabInfo.empDetails" [applicantCitizenship]="(tabInfo.basicDetails && tabInfo.basicDetails.citizenship) ? tabInfo.basicDetails.citizenship : null" [listItems]="listItems" [isCoApplicant]="true" (saveTabData)="saveData($event)" [employerNumber]="(tabInfo.basicDetails && tabInfo.basicDetails.workPhoneNo) ? tabInfo.basicDetails.workPhoneNo : null" (goBack)="goBack($event)" [isComponentReadOnly]="false" (showError)="showError($event)"></emp-details>
+                            </div>
+                        </mat-tab>
+
+                        <mat-tab label="Income Details">
+                            <div class="tab-content-container">
+                                <income-details #tab4 [tabData]="tabInfo.incomeDetails" [listItems]="listItems" [isCoApplicant]="true" (deleteTabData)="deleteData($event)" (saveTabData)="saveData($event)" (goBack)="goBack($event)" (moveToInvalidTab)="moveToInvalidTab($event)"></income-details>
+                            </div>
+                        </mat-tab>
+
+                        <mat-tab label="PEP Declaration (Politically Exposed Person)" aria-label="politically-exposed-person">
+                            <div class="tab-content-container">
+                                <app-politically-exposed-person #tab5 [isJointApplicant]="true" [tabData]="tabInfo.politicallyExposedPersonDetails" [listItems]="listItems" (deleteTabData)="deleteData($event)" (saveTabData)="saveData($event)" (goBack)="goBack($event)" [isComponentReadOnly]="false"
+                                    (showError)="showError($event)">
+                                </app-politically-exposed-person>
+                            </div>
+                        </mat-tab>
+                    </mat-tab-group>
+
+
+                    <div id="step-footer">
+                        <div class="col-12 note-i">
+                            <label class="full-width">fields marked with <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span> are mandatory</label>
+                        </div>
+                        <hr aria-hidden="true" tabindex="-1" />
+                        <div id="footer-container">
+                            <div id="back-link-container" aria-label="Back">
+                                <button  (click)="back()" mat-raised-button>{{ 'application.buttons.back' | translate }}</button>
+                            </div>
+                            <div id="buttons-container">
+                                <button  mat-raised-button (click)="saveAndExitApp()">{{ 'application.buttons.saveAndExit' | translate }}</button>
+                                <span class="mr-10"></span>
+                                <button  (click)="continue()" mat-raised-button>{{ 'application.buttons.continue' | translate }}</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

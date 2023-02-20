@@ -1,0 +1,37 @@
+@import './src/assets/styles/sass/theme/anbtx/_anbtx-variables.scss';
+@import './src/assets/styles/sass/global/_mixins.scss';
+@import './src/assets/styles/sass/theme/anbtx/overrides/globals/_custom-styles.scss';
+#resume-container {
+    margin-top: 15px;
+    .absolute-center {
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px; // position: absolute;
+        height: auto;
+        width: 40%;
+        margin: auto;
+        border: 1px solid;
+        padding: 15px;
+        margin-top: 15px;
+        @include mobile {
+            width: 100% !important;
+        }
+        @include desktop {
+            width: 40% !important;
+        }
+        @include tablet {
+            width: 60% !important;
+        }
+    }
+    .resume-header {
+        background-color: white;
+        padding: 10px;
+    }
+    .encryptedssn {
+        border: 1px solid;
+        padding: 5px 5px 5px 10px;
+        margin-top: 12px;
+        border-radius: 5px;
+    }
+}

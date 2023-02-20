@@ -1,0 +1,22 @@
+[{
+        "firstName": "subhasree",
+        "lastName": "subhrasmita",
+        "emaild": "subhasree@newgen.com",
+        "dob": "2000-01-01 ",
+        "appNo": "1234qwer"
+    },
+    {
+        "firstName": "vishal",
+        "lastName": "srivastav",
+        "emaild": "vishal@newgen.com",
+        "dob": "2001-01-01 ",
+        "appNo": "1234asdf"
+    },
+    {
+        "firstName": "RICHA",
+        "lastName": "NAGPAL",
+        "emaild": "richa@newgen.com",
+        "dob": "2002-01-01 ",
+        "appNo": "1234zxcv"
+    }
+]

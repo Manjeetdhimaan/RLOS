@@ -1,0 +1,165 @@
+spring:
+  profiles:
+    active: common, dev
+    
+
+#####################################################
+#COMMON PROFILE STARTS
+#####################################################
+
+profiles: common
+# server configuration
+server:
+  servlet:
+    contextPath: /resume
+
+resume-config:
+  otpFormat: '%06d'
+  # OTP Validity in seconds
+  otpValidFor: 300
+  # OTP Resend allowed after in seconds
+  resendOtpAfter : 10
+  # Values in seconds
+  sessionTimeoutInterval : 7200
+  # Values in seconds
+  signalTimeoutInterval : 120
+  resumeProcedureName:
+    searchCustomer: NG_RESUME_SearchCustomer
+    saveOTP: NG_RESUME_SaveOTPDetails
+    updateOTP : NG_RESUME_SaveOTPDetails
+    fetchOTPDetail: NG_RESUME_FetchOTPDetail
+    fetchWorkItem: NG_RESUME_FetchWorkItemDetail
+    #sendMail: NG_RESUME_AuthenticationEmail
+    sendMail: NG_PORTAL_RESUME_OTP_EMAIL_SENDING
+
+# Security Token configuration
+security-config:
+  token-expiration-time: 120
+  key-genration-algo: AES
+  hmac-key-size: 256
+  encrption-key-size: 256
+  encryptionSecretKey: "841D8A6C80CBA4FCAD32D5367C18C53B"
+  signatureSecretKey: "poiuytghjklmnhgfdscvxbzgsfdtersf"
+  allowedURLString: "swagger.*$,api-docs.*$,/api/lookup/master*$,/api/master/config*$,/master/en/EMICALC*$,/api/master/en/JOURNEY/*$,api/applications/validateApplication*$,api/applications/scheduleAppointment.*$,api/applications/createApplication*$,/api/externalservice/documents/IDSCAN.*$,api/applications/verifyOTP/.*$,api/applications/resendOTP*$,api/ibps/applications/VALIDATE.*$"
+    
+  
+ #####################################################
+---           
+#####################################################
+#PROD PROFILE STARTS
+#####################################################
+
+profiles: prod
+# server configuration
+server:
+  port: 8082
+    
+ibps-config:
+  engine-Name: "cwbcab"
+  jts-ipname: "hongapp01.combank.cb"
+  jts-portname: "3333"
+  ibps-push-user-name: "supervisor2"
+  ibps-push-user-password: "supervisor351"
+  ibps-mail-user-name: "supervisor"
+  ibps-mail-user-password: "supervisor351"
+  service-url: "https://hongapp01.combank.cb/iBPSRestFulWebServices/ibps/Restful/"
+    
+#####################################################
+---        
+#####################################################
+#UAT PROFILE STARTS
+#####################################################
+
+profiles: uat
+# server configuration
+server:
+  port: 8082
+    
+ibps-config:
+  engine-Name: "cwbdevcab"
+  jts-ipname: "10.10.40.155"
+  jts-portname: "3333"
+  ibps-push-user-name: "supervisor2"
+  ibps-push-user-password: "supervisor351"
+  ibps-mail-user-name: "supervisor2"
+  ibps-mail-user-password: "supervisor351"
+  service-url: "http://10.10.40.155:9081/iBPSRestFulWebServices/ibps/Restful/"
+  
+---    
+#####################################################
+#DEVELOPMENT PROFILE STARTS
+#####################################################
+
+profiles: development
+# server configuration
+server:
+  port: 8082
+
+ibps-config:
+  engine-Name: "cwbdevcab"
+  jts-ipname: "192.168.153.141"
+  jts-portname: "3333"
+  ibps-push-user-name: "user"
+  #ibps-push-user-name: "ServiceUser"
+  ibps-push-user-password: "system123#"
+  #ibps-push-user-password: "system123#"
+  ibps-mail-user-name: "supervisor"
+  ibps-mail-user-password: "supervisor351"
+  service-url: "http://192.168.153.141:9080/iBPSRestFulWebServices/ibps/Restful/"
+    
+  
+ #####################################################
+---           
+ #####################################################
+#LOCAL DEV PROFILE STARTS
+#####################################################
+
+profiles: dev
+# server configuration
+server:
+  port: 8082
+    
+ibps-config:
+  engine-Name: "cwbdevcab"
+  jts-ipname: "192.168.153.141"
+  jts-portname: "3333"
+  ibps-push-user-name: "user"
+  #ibps-push-user-name: "ServiceUser"
+  ibps-push-user-password: "system123#"
+  #ibps-push-user-password: "system123#"
+  ibps-mail-user-name: "supervisor"
+  ibps-mail-user-password: "supervisor351"
+  service-url: "http://192.168.153.141:9080/iBPSRestFulWebServices/ibps/Restful/"
+    
+  
+ #####################################################
+#LOCAL DEV PROFILE ENDS
+#####################################################
+
+
+---           
+ #####################################################
+#AWS DEV PROFILE STARTS
+#####################################################
+
+profiles: awsdev
+# server configuration
+server:
+  port: 8082
+    
+ibps-config:
+  engine-Name: "cwbdevcab"
+  jts-ipname: "192.168.153.141"
+  jts-portname: "3333"
+  ibps-push-user-name: "user"
+  #ibps-push-user-name: "ServiceUser"
+  ibps-push-user-password: "system123#"
+  #ibps-push-user-password: "system123#"
+  ibps-mail-user-name: "supervisor"
+  ibps-mail-user-password: "supervisor351"
+  service-url: "http://192.168.153.141:9080/iBPSRestFulWebServices/ibps/Restful/"
+    
+  
+ #####################################################
+#AWS DEV PROFILE ENDS
+#####################################################

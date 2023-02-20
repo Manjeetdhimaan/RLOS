@@ -1,0 +1,126 @@
+<div class="row">
+    <!-- <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="noOfDependent">{{'application.applicant.familyDetails.noOfdependent.label' | translate}}</label>
+        <div class="label-font" id="noOfDependent">
+            {{(model.noOfDependent || notSpecified) }}
+        </div>
+    </div> -->
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="fatherName">{{'application.applicant.familyDetails.fatherName.label' | translate}}</label>
+        <div class="label-font" id="fatherName">
+            {{(model.fatherName || notSpecified) }}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="employerName">{{'application.applicant.familyDetails.employerName.label' | translate}}</label>
+        <div class="label-font" id="employerName">
+            {{(model.employerName || notSpecified) }}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="residentialAddress">{{'application.applicant.familyDetails.residentialAddress.label' | translate}}</label>
+        <div class="label-font" id="residentialAddress">
+            {{(model.residentialAddress || notSpecified)}}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="telephoneNumber">{{'application.applicant.familyDetails.telephoneNumber.label' | translate}}</label>
+        <div class="label-font" id="telephoneNumber">
+            {{(model.telephoneNumber | mask: '(000)-000-0000') || notSpecified }}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="mobilePhoneNumber">{{'application.applicant.familyDetails.mobilePhoneNumber.label' | translate}}</label>
+        <div class="label-font" id="mobilePhoneNumber">
+            {{(model.mobilePhoneNumber | mask: '(000)-000-0000') || notSpecified }}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="(model.CurrentPEP === 'Yes' || model.PreviousPEP === 'Yes')">
+        <label class="heading-font" for="suffix">Suffix</label>
+        <div class="label-font" id="suffix">
+            {{(model.suffix || notSpecified) }}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="motherName">{{'application.applicant.familyDetails.motherName.label' | translate}}</label>
+        <div class="label-font" id="motherName">
+            {{(model.motherName || notSpecified) }}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="motherEmployerName">{{'application.applicant.familyDetails.motherEmployerName.label' | translate}}</label>
+        <div class="label-font" id="motherEmployerName">
+            {{(model.motherEmployerName || notSpecified) }}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="motherResidentialAddress">{{'application.applicant.familyDetails.motherResidentialAddress.label' | translate}}</label>
+        <div class="label-font" id="motherResidentialAddress">
+            {{(model.motherResidentialAddress || notSpecified) }}
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="motherTelephoneNumber">{{'application.applicant.familyDetails.motherTelephoneNumber.label' | translate}}</label>
+        <div class="label-font" id="motherTelephoneNumber">
+            {{(model.motherTelephoneNumber | mask: '(000)-000-0000') || notSpecified }}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="motherMobilePhoneNumber">{{'application.applicant.familyDetails.motherMobilePhoneNumber.label' | translate}}</label>
+        <div class="label-font" id="motherMobilePhoneNumber">
+            {{(model.motherMobilePhoneNumber | mask: '(000)-000-0000') || notSpecified }}
+        </div>
+    </div>
+
+</div>
+<span style="color: #000795;font-size: 18px;padding: 0px 0px 0px;font-weight: 600;display: inline-block;margin-bottom: 10px;border-bottom: 2px solid #FFDC5B;" *ngIf="model.childrenDetails.length > 0">Children Details
+</span>
+<div *ngIf="model.childrenDetails.length > 0">
+    <div class="row" *ngFor="let detail of model.childrenDetails; let i = index;">
+
+        <div class="col-md-12 col-sm-12 col-xs-12 margin-b" tabindex="0">
+            <label style="  color: #000795;font-size: 16px;padding: 0px 0px 0px;font-weight: normal;display: inline-block;margin-bottom: 10px;border-bottom: 2px solid #FFDC5B;" for="name">
+                Detail {{i+1}}
+            </label>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="name">Name</label>
+            <div class="label-font" id="name">
+                {{(detail.name || notSpecified) }}
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="relationship">Relationship</label>
+            <div class="label-font" id="relationship">
+                {{(detail.relationship || notSpecified) }}
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="employerName">Employer Name</label>
+            <div class="label-font" id="employerName">
+                {{(detail.employerName || notSpecified) }}
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="address">Address</label>
+            <div class="label-font" id="address">
+                {{(detail.address || notSpecified) }}
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="telephoneNumber">Telephone Number</label>
+            <div class="label-font" id="telephoneNumber">
+                {{(detail.telephoneNumber | mask: '(000)-000-0000') || notSpecified}}
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="mobilePhoneNumber">Mobile Phone Number</label>
+            <div class="label-font" id="mobilePhoneNumber">
+                {{(detail.mobilePhoneNumber | mask: '(000)-000-0000') || notSpecified}}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+.save-btn {
+  float: right;
+}
+
+.heading {
+  margin-top: 10px;
+}
+
+::ng-deep .mat-expansion-panel-content {
+  overflow: none !important;
+  // padding: 15px;
+}
+
+::ng-deep .mat-expansion-panel-body {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+::ng-deep.mat-expansion-panel{
+  margin-top:15px !important; 
+  margin-bottom:15px !important;
+}
+
+::ng-deep.mat-expansion-panel-header{
+  padding: 0 24px 0 10px !important;
+}
+
+.iconPosition{
+  margin-right:10px;
+}
+
+.isUploaded{
+  padding: 0 24px !important;
+}

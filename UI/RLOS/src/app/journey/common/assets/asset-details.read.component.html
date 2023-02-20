@@ -1,0 +1,28 @@
+<div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="incomeType">Asset Type</label>
+            <div class="label-font" id="incomeType">
+                {{(model.assetLabel || notSpecified) | translate}}
+            </div>
+        </div>
+    
+        <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="amount">Amount ($)</label>
+            <div class="label-font" id="amount">
+                {{model.amount}}
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="instName">Institution Name</label>
+            <div class="label-font" id="instName">
+                {{(model.instName || notSpecified) | translate}}
+            </div>
+        </div>
+    
+        <div class="col-md-3 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="comment">Comment</label>
+            <div class="label-font" id="comment">
+                {{model.comment}}
+            </div>
+        </div>
+    </div>

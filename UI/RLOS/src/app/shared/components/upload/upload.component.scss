@@ -1,0 +1,41 @@
+// #upload-container {
+  // @import './src/assets/styles/sass/theme/cwb/overrides/globals/_custom-styles.scss';
+   @import '../../../../assets/styles/sass/theme/cwb/overrides/globals/_custom-styles.scss';
+  .document-column {
+    height: 200px;
+    margin-bottom: 20px;
+    background-color: #d3d3d3;
+  }
+  .upload-image-container {
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    // position: absolute;
+    // height: 50%;
+    margin: auto;
+    text-align: center;
+  }
+  .document-panel {
+    margin-bottom: 20px;
+  }
+  .image-preview {
+    width: 100%;
+    height: 200px;
+    max-width: 100%;
+    border: 1px solid grey;
+  }
+  .modal-btns {
+    float: right;
+  }
+  .margin-r {
+    margin-right: 10px;
+  }
+  .capture-buttons {
+    height: 50px;
+  }
+
+  .noDocumentClass{
+    line-height:200px
+  }
+// }

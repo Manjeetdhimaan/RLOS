@@ -1,0 +1,32 @@
+@import './src/assets/styles/sass/theme/cwb/_cwb-variables.scss';
+@import './src/assets/styles/sass/global/_mixins.scss';
+@import './src/assets/styles/sass/theme/cwb/overrides/globals/_custom-styles.scss';
+.name {
+    align-items: center;
+    text-align: center;
+    font-size: x-large;
+}
+
+#buttons-container {
+    float: right;
+    margin-right: 4.1rem;
+    color: white;
+}
+
+.custom-legend {
+    color: #fff !important;
+    // padding-left: 9.5% !important;
+    font-weight: bolder !important;
+    line-height: 2.8em;
+    text-transform: none !important;
+}
+
+.text-left {
+    text-align: left;
+    // font-size: 14px;
+}
+
+.acc-num {
+    font-weight: bold;
+    color: #00549E;
+}

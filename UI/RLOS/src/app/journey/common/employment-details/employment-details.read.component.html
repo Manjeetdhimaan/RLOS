@@ -1,0 +1,403 @@
+<div class="row">
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="empType">Employment Type</label>
+        <div class="label-font" id="empType">
+            {{(model.empType || notSpecified)}}
+        </div>
+    </div>
+</div>
+<span class="bold" style="color: #000795 " *ngIf="model.empType==='Salaried'">Employer Details
+</span>
+
+<!-- For Salaried -->
+<div class="row" *ngIf="model.empType==='Salaried'">
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="companyName">Employer Name</label>
+        <div class="label-font" id="companyName">
+            {{(model.empDetail.companyName || notSpecified)}}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="jobTitle">Job Title</label>
+        <div class="label-font" id="jobTitle">
+            {{(model.empDetail.jobTitle || notSpecified)}}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="jobTitleDescription">Job Title Description</label>
+        <div class="label-font" id="jobTitleDescription">
+            {{(model.empDetail.jobTitleDescription || notSpecified)}}
+        </div>
+    </div>
+    <!-- <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="sector">Employment Sector</label>
+        <div class="label-font" id="sector">
+            {{model.empDetail.sector || notSpecified}}
+        </div>
+    </div> -->
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="empDate">Employment Start Date</label>
+        <div class="label-font" id="empDate">
+            {{(model.empDetail.empDate | date: 'MM/dd/yyyy') || notSpecified}}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="yearsEmployed">Employment Length (Years)</label>
+        <div class="label-font" id="yearsEmployed">
+            {{(model.empDetail.yearsEmployed || notSpecified)}}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="monthsEmployed">Employment Length (months)</label>
+        <div class="label-font" id="monthsEmployed">
+            {{(model.empDetail.monthsEmployed || notSpecified)}}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="model.empDetail.workPermitPresent">
+        <label class="heading-font" for="workPermitPresent">{{'application.applicant.empDetails.EMP001.workPermitPresent.label' | translate}}</label>
+        <div class="label-font" id="workPermitPresent">
+            {{(model.empDetail.workPermitPresent || notSpecified)}}
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="model.empDetail.workPermitPresent === 'Yes'">
+        <label class="heading-font" for="workPermitNumber"> {{'application.applicant.empDetails.EMP001.workPermitNumber.label' | translate}}</label>
+        <div class="label-font" id="workPermitNumber">
+            {{(model.empDetail.workPermitNumber || notSpecified)}}
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="model.empDetail.workPermitPresent === 'Yes'">
+        <label class="heading-font" for="workPermitExpiry"> {{'application.applicant.empDetails.EMP001.workPermitExpiry.label' | translate}}</label>
+        <div class="label-font" id="workPermitExpiry">
+            {{(model.empDetail.workPermitExpiry | date: 'MM/dd/yyyy' || notSpecified)}}
+        </div>
+    </div>
+</div>
+<span class="bold" style="color: #000795 " *ngIf="model.empType==='Salaried'">{{'application.applicant.empDetails.EMP001.empAddress.label' | translate}}
+</span>
+<div *ngIf="model.empType==='Salaried'">
+    <div class="row" *ngFor="let address of model.empDetail.addresses; let i = index;">
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="addressLine1">{{'application.applicant.empDetails.EMP001.streetAddress.label' | translate}}</label>
+            <div class="label-font" id="addressLine1">
+                {{(address.addressLine1 || notSpecified)}}
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="addressLine2">{{'application.applicant.empDetails.EMP001.appartmentNumber.label' | translate}}</label>
+            <div class="label-font" id="addressLine2">
+                {{(address.addressLine2 || notSpecified)}}
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="poBoxNo">{{'application.applicant.empDetails.EMP001.POBoxNo.label' | translate}}</label>
+            <div class="label-font" id="poBoxNo">
+                {{(address.poBoxNo || notSpecified)}}
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="state">{{'application.applicant.empDetails.EMP001.state.label' | translate}}</label>
+            <div class="label-font" id="state">
+                {{(address.state || notSpecified)}}
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="city">{{'application.applicant.empDetails.EMP001.city.label' | translate}}</label>
+            <div class="label-font" id="city">
+                {{(address.city || notSpecified)}}
+            </div>
+        </div>
+        <!-- <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="country">Country</label>
+            <div class="label-font" id="country">
+                {{(address.country || notSpecified)}}
+            </div>
+        </div> -->
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="phoneNo">{{'application.applicant.empDetails.EMP001.phoneNo.label' | translate}}</label>
+            <div class="label-font" id="phoneNo">
+                {{(address.phoneNo | mask: '(000)-000-0000') || notSpecified}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- For self employed /business owner -->
+<span class="bold" style="color: #000795" *ngIf="model.empType ==='Self Employed/Business Owner'">Employer Details
+</span>
+<!-- <br> -->
+<div class="row" *ngIf="model.empType==='Self Employed/Business Owner'">
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="businessName">Business Name</label>
+        <div class="label-font" id="businessName">
+            {{(model.empDetail.businessName || notSpecified)}}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="jobTitleDescription">{{'application.applicant.empDetails.SEMP001.jobTitleDescription.label' | translate}}</label>
+        <div class="label-font" id="jobTitleDescription">
+            {{(model.empDetail.jobTitleDescription || notSpecified)}}
+        </div>
+    </div>
+    <!-- <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="businessType">Business Type</label>
+        <div class="label-font" id="businessType">
+            {{(model.empDetail.businessType || notSpecified)}}
+        </div>
+    </div> -->
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="businessDate">Business Start Date</label>
+        <div class="label-font" id="businessDate">
+            {{(model.empDetail.businessDate | date: 'MM/dd/yyyy') || notSpecified}}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="yearsBusiness">Business Length (Years)</label>
+        <div class="label-font" id="yearsBusiness">
+            {{(model.empDetail.yearsBusiness || notSpecified)}}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="monthsBusiness">Business Length (months)</label>
+        <div class="label-font" id="monthsBusiness">
+            {{(model.empDetail.monthsBusiness || notSpecified)}}
+        </div>
+    </div>
+</div>
+<span class="bold" style="color: #000795 " *ngIf="model.empType==='Self Employed/Business Owner'">{{'application.applicant.empDetails.SEMP001.businessAddress.label' | translate}}
+</span>
+<div *ngIf="model.empType==='Self Employed/Business Owner'">
+    <div class="row" *ngFor="let address of model.empDetail.addresses; let i = index;">
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="addressLine1">{{'application.applicant.empDetails.EMP001.streetAddress.label' | translate}}</label>
+            <div class="label-font" id="addressLine1">
+                {{(address.addressLine1 || notSpecified)}}
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="addressLine2">{{'application.applicant.empDetails.EMP001.appartmentNumber.label' | translate}}</label>
+            <div class="label-font" id="addressLine2">
+                {{(address.addressLine2 || notSpecified)}}
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="poBoxNo">{{'application.applicant.empDetails.EMP001.POBoxNo.label' | translate}}</label>
+            <div class="label-font" id="poBoxNo">
+                {{(address.poBoxNo || notSpecified)}}
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="state"> {{'application.applicant.empDetails.EMP001.state.label' | translate}}</label>
+            <div class="label-font" id="state">
+                {{(address.state || notSpecified)}}
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="city">{{'application.applicant.empDetails.EMP001.city.label' | translate}}</label>
+            <div class="label-font" id="city">
+                {{(address.city || notSpecified)}}
+            </div>
+        </div>
+        <!-- <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="country">Country</label>
+            <div class="label-font" id="country">
+                {{(address.country || notSpecified)}}
+            </div>
+        </div> -->
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="phoneNo">{{'application.applicant.empDetails.SEMP001.phoneNo.label' | translate}}</label>
+            <div class="label-font" id="phoneNo">
+                {{(address.phoneNo | mask: '(000)-000-0000') || notSpecified}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- For Retired  -->
+<span class="bold" style="color: #000795 " *ngIf="model.empType==='Retired'">Employer Details
+</span>
+<div class="row" *ngIf="model.empType==='Retired'">
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="lastCompanyName">{{'application.applicant.empDetails.RT001.lastCompanyName.label' | translate}}</label>
+        <div class="label-font" id="lastCompanyName">
+            {{(model.empDetail.lastCompanyName || notSpecified)}}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="yearOfRetirement">{{'application.applicant.empDetails.RT001.yearOfRetirement.label' | translate}}</label>
+        <div class="label-font" id="yearOfRetirement">
+            {{(model.empDetail.yearOfRetirement || notSpecified)}}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="jobTitle">{{'application.applicant.empDetails.RT001.jobTitle.label' | translate}}</label>
+        <div class="label-font" id="jobTitle">
+            {{(model.empDetail.jobTitle || notSpecified)}}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="jobTitleDescription">{{'application.applicant.empDetails.RT001.jobTitleDescription.label' | translate}}</label>
+        <div class="label-font" id="jobTitleDescription">
+            {{(model.empDetail.jobTitleDescription || notSpecified)}}
+        </div>
+    </div>
+</div>
+<span class="bold" style="color: #000795 " *ngIf="model.empType==='Retired'">{{'application.applicant.empDetails.RT001.empAddress.label' | translate}}
+</span>
+<div *ngIf="model.empType==='Retired'">
+    <div class="row" *ngFor="let address of model.empDetail.addresses; let i = index;">
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="addressLine1">{{'application.applicant.empDetails.RT001.streetAddress.label' | translate}}</label>
+            <div class="label-font" id="addressLine1">
+                {{(address.addressLine1 || notSpecified)}}
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="addressLine2">{{'application.applicant.empDetails.RT001.appartmentNumber.label' | translate}}</label>
+            <div class="label-font" id="addressLine2">
+                {{(address.addressLine2 || notSpecified)}}
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="poBoxNo">{{'application.applicant.empDetails.RT001.POBoxNo.label' | translate}}</label>
+            <div class="label-font" id="poBoxNo">
+                {{(address.poBoxNo || notSpecified)}}
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="state"> {{'application.applicant.empDetails.RT001.state.label' | translate}}</label>
+            <div class="label-font" id="state">
+                {{(address.state || notSpecified)}}
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="city">{{'application.applicant.empDetails.RT001.city.label' | translate}}</label>
+            <div class="label-font" id="city">
+                {{(address.city || notSpecified)}}
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="phoneNo">{{'application.applicant.empDetails.RT001.phoneNo.label' | translate}}</label>
+            <div class="label-font" id="phoneNo">
+                {{(address.phoneNo | mask: '(000)-000-0000') || notSpecified}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- For Student  -->
+<span class="bold" style="color: #000795 " *ngIf="model.empType==='Student'">Employer Details
+</span>
+<div class="row" *ngIf="model.empType==='Student'">
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="organizationName">{{'application.applicant.empDetails.STU001.organizationName.label' | translate}}</label>
+        <div class="label-font" id="organizationName">
+            {{(model.empDetail.organizationName || notSpecified)}}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="highestEducation">{{'application.applicant.empDetails.STU001.highestEducation.label' | translate}}</label>
+        <div class="label-font" id="highestEducation">
+            {{(model.empDetail.highestEducation || notSpecified)}}
+        </div>
+    </div>
+
+    <!-- Name of the person funding the account -->
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="fundingPerson">{{'application.applicant.empDetails.STU001.fundingPerson.label' | translate}}</label>
+        <div class="label-font" id="fundingPerson">
+            {{(model.empDetail.fundingPerson || notSpecified)}}
+        </div>
+    </div>
+
+    <!-- relationship with the applicant -->
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="relationshipWithApplicant">{{'application.applicant.empDetails.STU001.relationshipWithApplicant.label' | translate}}</label>
+        <div class="label-font" id="relationshipWithApplicant">
+            {{(model.empDetail.relationshipWithApplicant || notSpecified)}}
+        </div>
+    </div>
+
+    <!-- Is funding person an existing customer -->
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="isFundingPersonAnExistingCustomer">{{'application.applicant.empDetails.STU001.isFundingPersonAnExistingCustomer.label' | translate}}</label>
+        <div class="label-font" id="isFundingPersonAnExistingCustomer">
+            {{(model.empDetail.isFundingPersonAnExistingCustomer || notSpecified)}}
+        </div>
+    </div>
+
+</div>
+<span class="bold" style="color: #000795 " *ngIf="model.empType==='Student'">{{'application.applicant.empDetails.STU001.empAddress.label' | translate}}
+</span>
+<div *ngIf="model.empType==='Student'">
+    <div class="row" *ngFor="let address of model.empDetail.addresses; let i = index;">
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="addressLine1">{{'application.applicant.empDetails.STU001.streetAddress.label' | translate}}</label>
+            <div class="label-font" id="addressLine1">
+                {{(address.addressLine1 || notSpecified)}}
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="addressLine2">{{'application.applicant.empDetails.STU001.appartmentNumber.label' | translate}}</label>
+            <div class="label-font" id="addressLine2">
+                {{(address.addressLine2 || notSpecified)}}
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="poBoxNo">{{'application.applicant.empDetails.STU001.POBoxNo.label' | translate}}</label>
+            <div class="label-font" id="poBoxNo">
+                {{(address.poBoxNo || notSpecified)}}
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="state"> {{'application.applicant.empDetails.STU001.state.label' | translate}}</label>
+            <div class="label-font" id="state">
+                {{(address.state || notSpecified)}}
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="city">{{'application.applicant.empDetails.STU001.city.label' | translate}}</label>
+            <div class="label-font" id="city">
+                {{(address.city || notSpecified)}}
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+            <label class="heading-font" for="phoneNo">{{'application.applicant.empDetails.STU001.phoneNo.label' | translate}}</label>
+            <div class="label-font" id="phoneNo">
+                {{(address.phoneNo | mask: '(000)-000-0000') || notSpecified}}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- For Unemployed -->
+<span class="bold" style="color: #000795 " *ngIf="model.empType==='Unemployed'">Employer Details
+</span>
+<div class="row" *ngIf="model.empType==='Unemployed'">
+    <!-- Name of the person funding the account -->
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="fundingPerson">{{'application.applicant.empDetails.NEMP001.fundingPerson.label' | translate}}</label>
+        <div class="label-font" id="fundingPerson">
+            {{(model.empDetail.fundingPerson || notSpecified)}}
+        </div>
+    </div>
+
+    <!-- relationship with the applicant -->
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="relationshipWithApplicant">{{'application.applicant.empDetails.NEMP001.relationshipWithApplicant.label' | translate}}</label>
+        <div class="label-font" id="relationshipWithApplicant">
+            {{(model.empDetail.relationshipWithApplicant || notSpecified)}}
+        </div>
+    </div>
+
+    <!-- Is funding person an existing customer -->
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="isFundingPersonAnExistingCustomer">{{'application.applicant.empDetails.NEMP001.isFundingPersonAnExistingCustomer.label' | translate}}</label>
+        <div class="label-font" id="isFundingPersonAnExistingCustomer">
+            {{(model.empDetail.isFundingPersonAnExistingCustomer || notSpecified)}}
+        </div>
+    </div>
+
+</div>

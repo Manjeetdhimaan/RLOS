@@ -1,0 +1,18 @@
+[
+    {
+      "label":"Mobile",
+      "code":"MOB"
+   },
+   {
+      "label":"Home",
+      "code":"HOM"
+   },
+   {
+     "label":"Work",
+     "code":"WRK"
+   },
+   {
+      "label":"Other",
+      "code":"OTH"
+   }
+]

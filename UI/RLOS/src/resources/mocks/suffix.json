@@ -1,0 +1,18 @@
+[
+    {
+      "label":"Jr.",
+      "code":"JR"
+   },
+   {
+      "label":"Sr.",
+      "code":"SR"
+   },
+   {
+     "label":"I",
+     "code":"I"
+   },
+   {
+      "label":"II",
+      "code":"II"
+   }
+]

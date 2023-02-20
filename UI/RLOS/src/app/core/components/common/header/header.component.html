@@ -1,0 +1,40 @@
+<div class="bg">
+  <div class="navbar">
+    <span class="navbar-header">
+      <div class="logo-header">
+        <div class="x-topbar-inner x-container max width">
+          <div class="topbar-wrapper">
+            <div class="topbar-resume-application">
+              <div class="row">
+                <a role="button" (click)="resumeContinue()">
+                  Resume Application/Check Status
+                </a>
+                &nbsp;
+                <a role="button" (click)="openCalculator()">
+                  Loan Calculator
+                </a>
+
+              </div>
+
+              <p style="color: #45545B;font-weight: 700;margin-top: 60px;
+              " *ngIf="workItemNumber$ | async">Application Number:
+                {{ workItemNumber$ | async }}</p>
+            </div>
+          </div>
+        </div>
+        <a href="https://jm.jmmb.com/" class="logo">
+          <img alt="CwB Logo" src="assets/resources/images/HeaderJMMB_Logo.png"
+            style="height: 100px;margin-left:100px;clear: both;">
+        </a>
+
+        <!-- <div class="x-topbar-inner x-container max width" style="clear: both;">
+                  <div class="topbar-wrapper" *ngIf="workItemNumber$ | async">
+                    <div style="float: right;">
+                      <p style="color: #45545B;font-weight: 700;">Application Number: {{ workItemNumber$ | async }}</p>
+                    </div>
+                  </div>
+                </div> -->
+      </div>
+    </span>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+
+[
+  {
+  "code":"ATV",
+  "label":"ATV's"
+},
+{
+  "code":"AUTO",
+  "label":"Vehicle"
+},
+{
+  "code":"BOAT",
+  "label":"Jetski"
+},
+{
+  "code":"RV",
+  "label":"Recreational Vehicle"
+},
+{
+  "code":"032",
+  "label":"Motorcycle"
+},
+{
+  "code":"AIRCRAFT",
+  "label":"Aircraft"
+}
+
+]

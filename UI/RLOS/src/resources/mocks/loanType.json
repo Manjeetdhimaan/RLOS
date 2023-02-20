@@ -1,0 +1,22 @@
+[
+  {
+    "code": "AL",
+    "label": "A-Line"
+  },
+  {
+    "code": "CR",
+    "label": "Cash Reserve"
+  },
+  {
+    "code": "LC",
+    "label": "Unsecured"
+  },
+  {
+    "code": "OT",
+    "label": "Other"
+  },
+  {
+    "code": "VL",
+    "label": "New / Used Vehicle"
+  }
+]

@@ -1,0 +1,745 @@
+<div class="address-details-container container-body" *ngIf="!isComponentReadOnly">
+    <div class="row">
+        <div class="col-md-12">
+            <form [formGroup]="addressForm" autocomplete="off">
+                <div class="col-md-12">
+                    <div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <span class="bold">{{ 'application.applicant.addressDetails.currentAddress' | translate
+                                    }}</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div formGroupName="currentAddress">
+                                <div class="row">
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="addressLine1">
+                                                {{ 'application.applicant.addressDetails.address.addressLine1.label' |
+                                                translate }}
+                                                <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                    aria-hidden="true">
+                                                    *</span>
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="addressLine1" aria-describedby="msg35" uppercase matInput
+                                                formControlName="addressLine1" placeholder="Street Address Line 1">
+                                        </mat-form-field>
+                                        <ng-container *ngFor="let validation of addressDetailValues.addressLine1">
+                                            <mat-error id="msg35"
+                                                *ngIf="!addressForm.get('currentAddress.addressLine1').valid && (addressForm.get('currentAddress.addressLine1').touched || submitted) && addressForm.get('currentAddress.addressLine1').hasError(validation.type)">
+                                                {{'application.applicant.addressDetails.address.addressLine1.validation'
+                                                | translateValidation:validation}}
+                                            </mat-error>
+                                        </ng-container>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="addressLine2">
+                                                {{ 'application.applicant.addressDetails.address.addressLine2.label' |
+                                                translate }}
+                                                <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                    aria-hidden="true">
+                                                    *</span>
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="addressLine2" aria-describedby="msg33" matInput
+                                                formControlName="addressLine2" placeholder="Street Address Line 2">
+                                        </mat-form-field>
+                                        <ng-container *ngFor="let validation of addressDetailValues.addressLine2">
+                                            <mat-error id="msg33"
+                                                *ngIf="!addressForm.get('currentAddress.addressLine2').valid && (addressForm.get('currentAddress.addressLine2').touched || submitted) && addressForm.get('currentAddress.addressLine2').hasError(validation.type)">
+                                                {{'application.applicant.addressDetails.address.addressLine2.validation'
+                                                | translateValidation:validation}}
+                                            </mat-error>
+                                        </ng-container>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="city">
+                                                {{ 'application.applicant.addressDetails.address.city.label' | translate
+                                                }}
+                                                <span class="red" aria-label="Mandatory" aria-hidden="true"
+                                                    tabindex="-1">
+                                                    *</span>
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="city" aria-describedby="msg37" matInput formControlName="city"
+                                                placeholder="City">
+                                        </mat-form-field>
+                                        <ng-container *ngFor="let validation of addressDetailValues.city">
+                                            <mat-error id="msg37"
+                                                *ngIf="!addressForm.get('currentAddress.city').valid && (addressForm.get('currentAddress.city').touched || submitted) && addressForm.get('currentAddress.city').hasError(validation.type)">
+                                                {{'application.applicant.addressDetails.address.city.validation' |
+                                                translateValidation:validation}}
+                                            </mat-error>
+                                        </ng-container>
+                                    </div>
+
+
+
+
+
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="country">
+                                                {{ 'application.applicant.addressDetails.address.country.label' |
+                                                translate }}
+                                                <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                    aria-hidden="true"> *</span>
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <mat-select role="listbox" aria-describedby="msg38" id="country" uppercase
+                                                matNativeControl formControlName="country" placeholder="Select Country">
+                                                <mat-option role="option" value=null selected disabled>Please Select
+                                                </mat-option>
+                                                <mat-option role="option" *ngFor="let val of countryList"
+                                                    [value]="val.code">
+                                                    {{val.label | uppercase}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                        <ng-container *ngFor="let validation of addressDetailValues.country">
+                                            <mat-error id="msg38"
+                                                *ngIf="!addressForm.get('currentAddress.country').valid && (addressForm.get('currentAddress.country').touched || submitted) && addressForm.get('currentAddress.country').hasError(validation.type)">
+                                                {{'application.applicant.addressDetails.address.country.validation' |
+                                                translateValidation:validation}}
+                                            </mat-error>
+                                        </ng-container>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="zipCode">
+                                                {{ 'application.applicant.addressDetails.address.zipCode.label' |
+                                                translate }}
+                                                <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                    aria-hidden="true">
+                                                    *</span>
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="zipCode" aria-describedby="msg34" uppercase matInput
+                                                formControlName="zipCode"
+                                                placeholder="Postal/Zip Code">
+                                        </mat-form-field>
+                                        <ng-container *ngFor="let validation of addressDetailValues.zipCode">
+                                            <mat-error id="msg34"
+                                                *ngIf="!addressForm.get('currentAddress.zipCode').valid && (addressForm.get('currentAddress.zipCode').touched || submitted) && addressForm.get('currentAddress.zipCode').hasError(validation.type)">
+                                                {{'application.applicant.addressDetails.address.zipCode.validation' |
+                                                translateValidation:validation}}
+                                            </mat-error>
+                                        </ng-container>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="state">
+                                                {{ 'application.applicant.addressDetails.address.state.label' |
+                                                translate }}
+                                                <span class="red" aria-label="Mandatory" aria-hidden="true"
+                                                    tabindex="-1">
+                                                    *</span>
+                                            </label>
+                                        </mat-label>
+
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="state" aria-describedby="msg36" matInput formControlName="state"
+                                                placeholder="State/Province">
+                                        </mat-form-field>
+                                        <ng-container *ngFor="let validation of addressDetailValues.state">
+                                            <mat-error id="msg36"
+                                                *ngIf="!addressForm.get('currentAddress.state').valid && (addressForm.get('currentAddress.state').touched || submitted) && addressForm.get('currentAddress.state').hasError(validation.type)">
+                                                {{'application.applicant.addressDetails.address.state.validation' |
+                                                translateValidation:validation}}
+                                            </mat-error>
+                                        </ng-container>
+                                    </div>
+
+
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="dateMovedIn">
+                                                {{ 'application.applicant.addressDetails.address.dateMovedIn.label' |
+                                                translate }}
+                                                <span class="red" aria-label="Mandatory">*</span>
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="dateMovedIn" aria-describedby="msg39" (keyup)="dateMask($event)"
+                                                matInput [matDatepicker]="picker1" placeholder="MM/DD/YYYY"
+                                                [max]="maxDateDob" [min]="minDateDob" formControlName="dateMovedIn"
+                                                (dateChange)="calculcateTime($event)">
+                                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker1></mat-datepicker>
+                                        </mat-form-field>
+                                        <ng-container *ngFor="let validation of addressDetailValues.dateMovedIn">
+                                            <mat-error id="msg39"
+                                                *ngIf="!addressForm.get('currentAddress.dateMovedIn').valid && (addressForm.get('currentAddress.dateMovedIn').touched || submitted) && addressForm.get('currentAddress.dateMovedIn').hasError(validation.type)">
+                                                {{'application.applicant.addressDetails.address.dateMovedIn.validation'
+                                                | translateValidation:validation}}
+                                            </mat-error>
+                                        </ng-container>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="years">
+                                                {{ 'application.applicant.addressDetails.currYears.label' | translate }}
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="years" matInput formControlName="years" placeholder="Years"
+                                                [readonly]="true">
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="months">
+                                                {{ 'application.applicant.addressDetails.currMonths.label' | translate
+                                                }}
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="months" matInput formControlName="months" placeholder="months"
+                                                [readonly]="true">
+                                        </mat-form-field>
+
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="drivingDetailsToCurrentAddress" style="height:40px">
+                                                {{ 'application.applicant.drivingDetailsToCurrentAddress.label' |
+                                                translate }}
+                                            </label>
+                                        </mat-label>
+                                        <div class="mat-grp">
+                                            <div class="md-form">
+                                                <textarea type="text" class="md-textarea form-control" mdbInputDirective
+                                                    id="drivingDetailsToCurrentAddress" aria-describedby="msg40"
+                                                    placeholder="Driving Details"
+                                                    formControlName="drivingDetailsToCurrentAddress"
+                                                    maxlength="200"></textarea>
+                                            </div>
+                                        </div>
+                                        <ng-container
+                                            *ngFor="let validation of addressDetailValues.drivingDetailsToCurrentAddress">
+                                            <mat-error id="msg40"
+                                                *ngIf="!addressForm.get('currentAddress.drivingDetailsToCurrentAddress').valid && (addressForm.get('currentAddress.drivingDetailsToCurrentAddress').touched || submitted) && addressForm.get('currentAddress.drivingDetailsToCurrentAddress').hasError(validation.type)">
+                                                {{'application.applicant.addressDetails.address.drivingDetailsToCurrentAddress.validation'
+                                                | translateValidation:validation}}
+                                            </mat-error>
+                                        </ng-container>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-lg-4">
+                                        <div class="mat-grp">
+                                            <mat-label>
+                                                <label for="ownOrRent">
+                                                    {{ 'application.applicant.addressDetails.ownRent.label' | translate
+                                                    }}<span class="red" aria-label="Mandatory" tabindex="-1"
+                                                        aria-hidden="true">
+                                                        *</span></label>
+                                            </mat-label>
+                                            <mat-form-field appearance="outline" class="full-width">
+                                                <mat-select role="listbox" aria-describedby="msg41" id="ownOrRent"
+                                                    placeholder="Select" formControlName="ownOrRent"
+                                                    (ngModelChange)="radioChangeOwnOrRent()">
+                                                    <mat-option role="option" value=null selected disabled>Please Select
+                                                    </mat-option>
+                                                    <mat-option role="option" *ngFor="let val of ownOrRentList"
+                                                        [value]="val.code">
+                                                        {{val.label}}</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                            <mat-error>
+                                                <span id="msg41"
+                                                    *ngIf="!addressForm.get('currentAddress.ownOrRent').valid && (addressForm.get('currentAddress.ownOrRent').touched || submitted)">
+                                                    {{
+                                                    'application.applicant.addressDetails.ownRent.validation.required' |
+                                                    translate }}
+                                                </span>
+                                            </mat-error>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-12 col-sm-6 col-lg-4 margin-b"
+                                *ngIf="(addressForm.get('currentAddress.ownOrRent').value === 'NG_R') ">
+                                <mat-label>
+                                    <label for="amtOfRent">
+                                        {{ 'application.applicant.addressDetails.amtOfRent.label' | translate }}
+                                        <span class="red" aria-label="Mandatory" aria-hidden="true" tabindex="-1">
+                                            *</span>
+                                    </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <span matPrefix class="dollar-space">J$ &nbsp;</span>
+                                    <input id="amtOfRent" aria-describedby="msg42" matInput maxlength="14" currencyMask
+                                        [options]="{ allowNegative: false, thousands: ',', decimal: '.', precision: 2 }"
+                                        formControlName="amtOfRent">
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of addressDetailValues.amtOfRent">
+                                    <mat-error id="msg42"
+                                        *ngIf="!addressForm.get('amtOfRent').valid && (addressForm.get('amtOfRent').touched || submitted) && addressForm.get('amtOfRent').hasError(validation.type)">
+                                        {{'application.applicant.addressDetails.amtOfRent.validation' |
+                                        translateValidation:validation}}
+                                    </mat-error>
+                                </ng-container>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-lg-4 margin-b"
+                                *ngIf="(addressForm.get('currentAddress.ownOrRent').value === 'NG_R') ||(addressForm.get('currentAddress.ownOrRent').value === 'NG_F') ">
+                                <mat-label>
+                                    <label for="mortgageOwnersFullName">
+                                        {{ 'application.applicant.addressDetails.mortgageOwnersFullName.label' |
+                                        translate }}
+                                        <span class="red" aria-label="Mandatory" aria-hidden="true" tabindex="-1">
+                                            *</span>
+                                    </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="mortgageOwnersFullName" aria-describedby="msg44" uppercase matInput
+                                        formControlName="mortgageOwnersFullName" placeholder="Home Owner's Full Name">
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of addressDetailValues.mortgageOwnersFullName">
+                                    <mat-error id="msg44"
+                                        *ngIf="!addressForm.get('mortgageOwnersFullName').valid && (addressForm.get('mortgageOwnersFullName').touched || submitted) && addressForm.get('mortgageOwnersFullName').hasError(validation.type)">
+                                        {{'application.applicant.addressDetails.mortgageOwnersFullName.validation' |
+                                        translateValidation:validation}}
+                                    </mat-error>
+                                </ng-container>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-lg-4 margin-b"
+                                *ngIf="(addressForm.get('currentAddress.ownOrRent').value === 'NG_R') ||(addressForm.get('currentAddress.ownOrRent').value === 'NG_F') ">
+                                <mat-label>
+                                    <label for="mortgageOwnerPhoneNumber">
+                                        {{ 'application.applicant.addressDetails.mortgageOwnerPhoneNumber.label' |
+                                        translate }}
+                                        <span class="red" aria-label="Mandatory" aria-hidden="true" tabindex="-1">
+                                            *</span>
+                                    </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width" style="line-height: 20px;">
+                                    <input aria-invalid="true" aria-describedby="msg45" id="mortgageOwnerPhoneNumber"
+                                        matInput mask="(000)-000-0000" formControlName="mortgageOwnerPhoneNumber"
+                                        [readonly]="isReadOnly" placeholder="(xxx)-xxx-xxxx">
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of addressDetailValues.mortgageOwnerPhoneNumber">
+                                    <mat-error id="msg45"
+                                        *ngIf="!addressForm.get('mortgageOwnerPhoneNumber').valid && (addressForm.get('mortgageOwnerPhoneNumber').touched || submitted) && addressForm.get('mortgageOwnerPhoneNumber').hasError(validation.type)">
+                                        {{'application.applicant.addressDetails.mortgageOwnerPhoneNumber.validation' |
+                                        translateValidation:validation}}
+                                    </mat-error>
+                                </ng-container>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-lg-4 margin-b"
+                                *ngIf="(addressForm.get('currentAddress.ownOrRent').value === 'NG_R') ||(addressForm.get('currentAddress.ownOrRent').value === 'NG_F') ">
+                                <mat-label>
+                                    <label for="relationshipWithMortgageOwner">
+                                        {{ 'application.applicant.addressDetails.relationshipWithMortgageOwner.label' |
+                                        translate }}
+                                        <span class="red" aria-label="Mandatory" aria-hidden="true" tabindex="-1">
+                                            *</span>
+                                    </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="relationshipWithMortgageOwner" aria-describedby="msg46" matInput
+                                        formControlName="relationshipWithMortgageOwner"
+                                        placeholder="Relationship with Home Owner">
+                                </mat-form-field>
+                                <ng-container
+                                    *ngFor="let validation of addressDetailValues.relationshipWithMortgageOwner">
+                                    <mat-error id="msg46"
+                                        *ngIf="!addressForm.get('relationshipWithMortgageOwner').valid && (addressForm.get('relationshipWithMortgageOwner').touched || submitted) && addressForm.get('relationshipWithMortgageOwner').hasError(validation.type)">
+                                        {{'application.applicant.addressDetails.relationshipWithMortgageOwner.validation'
+                                        | translateValidation:validation}}
+                                    </mat-error>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 margin-b">
+                            <span class="bold">{{ 'application.applicant.addressDetails.mailingAdd' | translate
+                                }}</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-lg-6">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="isMailingAndResidentialAddDifferent">{{
+                                            'application.applicant.addressDetails.diffAddMail' | translate }}
+                                            <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span></label>
+                                    </mat-label>
+                                    <br />
+                                    <br />
+
+                                    <mat-button-toggle-group formControlName="isMailingAndResidentialAddDifferent"
+                                        aria-describedby="msg47" aria-label="Font Style" value="YES">
+                                        <mat-button-toggle selected value="YES"
+                                            (change)="isMailingAddressSameAsCurrent()">YES
+                                        </mat-button-toggle>
+                                        <mat-button-toggle value="NO" (change)="isMailingAddressSameAsCurrent()">
+                                            NO
+                                        </mat-button-toggle>
+                                    </mat-button-toggle-group>
+                                </div>
+                                <div class="height-space"
+                                    *ngIf="!addressForm.get('isMailingAndResidentialAddDifferent').valid && (addressForm.get('isMailingAndResidentialAddDifferent').touched ) && addressForm.get('isMailingAndResidentialAddDifferent').hasError('required')">
+                                    <mat-error id="msg47"> Please select Is your mailing address same as your current
+                                        address
+                                    </mat-error>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+
+                        <div class="border-prev-address"
+                            *ngIf="addressForm.get('isMailingAndResidentialAddDifferent').value === 'NO'">
+                            <div formGroupName="mailingAddress">
+                                <div class="row">
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="mailingAddressLine1">
+                                                {{ 'application.applicant.addressDetails.mailingAddressLine1.label' |
+                                                translate }}
+                                                <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                    aria-hidden="true"> *</span>
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="mailingAddressLine1" aria-describedby="msg50" uppercase matInput
+                                                formControlName="addressLine1" placeholder="Street Address Line 1">
+                                        </mat-form-field>
+                                        <ng-container *ngFor="let validation of addressDetailValues.addressLine1">
+                                            <mat-error id="msg50"
+                                                *ngIf="!addressForm.get('mailingAddress.addressLine1').valid && (addressForm.get('mailingAddress.addressLine1').touched || submitted) && addressForm.get('mailingAddress.addressLine1').hasError(validation.type)">
+                                                {{'application.applicant.addressDetails.address.addressLine1.validation'
+                                                | translateValidation:validation}}
+                                            </mat-error>
+                                        </ng-container>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="addressLine2">
+                                                {{ 'application.applicant.addressDetails.address.addressLine2.label' |
+                                                translate }}
+                                                <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                    aria-hidden="true">
+                                                    *</span>
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="addressLine2" aria-describedby="msg48" matInput
+                                                formControlName="addressLine2" placeholder="Street Address Line 2">
+                                        </mat-form-field>
+                                        <ng-container *ngFor="let validation of addressDetailValues.addressLine2">
+                                            <mat-error id="msg48"
+                                                *ngIf="!addressForm.get('mailingAddress.addressLine2').valid && (addressForm.get('mailingAddress.addressLine2').touched || submitted) && addressForm.get('mailingAddress.addressLine2').hasError(validation.type)">
+                                                {{'application.applicant.addressDetails.address.addressLine2.validation'
+                                                | translateValidation:validation}}
+                                            </mat-error>
+                                        </ng-container>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="city">
+                                                {{ 'application.applicant.addressDetails.address.city.label' | translate
+                                                }}
+                                                <span class="red" aria-label="Mandatory" aria-hidden="true"
+                                                    tabindex="-1">
+                                                    *</span>
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="city" aria-describedby="msg52" matInput formControlName="city"
+                                                aria-invalid="true" placeholder="City">
+                                        </mat-form-field>
+                                        <ng-container *ngFor="let validation of addressDetailValues.city">
+                                            <mat-error id="msg52"
+                                                *ngIf="!addressForm.get('mailingAddress.city').valid && (addressForm.get('mailingAddress.city').touched || submitted) && addressForm.get('mailingAddress.city').hasError(validation.type)">
+                                                {{'application.applicant.addressDetails.address.city.validation' |
+                                                translateValidation:validation}}
+                                            </mat-error>
+                                        </ng-container>
+                                    </div>
+
+
+
+
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="country">
+                                                {{ 'application.applicant.addressDetails.address.country.label' |
+                                                translate }}
+                                                <span class="red" aria-label="Mandatory" aria-hidden="true"
+                                                    tabindex="-1">
+                                                    *</span>
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <mat-select role="listbox" aria-describedby="msg53" id="country"
+                                                matNativeControl formControlName="country" placeholder="Select Country">
+                                                <mat-option role="option" value=null selected disabled>Please Select
+                                                </mat-option>
+                                                <mat-option role="option" *ngFor="let val of countryList"
+                                                    [value]="val.code">
+                                                    {{val.label | uppercase}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                        <ng-container *ngFor="let validation of addressDetailValues.country">
+                                            <mat-error id="msg53"
+                                                *ngIf="!addressForm.get('mailingAddress.country').valid && (addressForm.get('mailingAddress.country').touched || submitted) && addressForm.get('mailingAddress.country').hasError(validation.type)">
+                                                {{'application.applicant.addressDetails.address.country.validation' |
+                                                translateValidation:validation}}
+                                            </mat-error>
+                                        </ng-container>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="zipCode">
+                                                {{ 'application.applicant.addressDetails.address.zipCode.label' |
+                                                translate }}
+                                                <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                    aria-hidden="true">
+                                                    *</span>
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="zipCode" aria-describedby="msg49" uppercase matInput
+                                                formControlName="zipCode"
+                                                placeholder="Postal/Zip Code">
+                                        </mat-form-field>
+                                        <ng-container *ngFor="let validation of addressDetailValues.zipCode">
+                                            <mat-error id="msg49"
+                                                *ngIf="!addressForm.get('mailingAddress.zipCode').valid && (addressForm.get('mailingAddress.zipCode').touched || submitted) && addressForm.get('mailingAddress.zipCode').hasError(validation.type)">
+                                                {{'application.applicant.addressDetails.address.zipCode.validation' |
+                                                translateValidation:validation}}
+                                            </mat-error>
+                                        </ng-container>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="state">
+                                                {{ 'application.applicant.addressDetails.address.state.label' |
+                                                translate }}
+                                                <span class="red" aria-label="Mandatory" aria-hidden="true"
+                                                    tabindex="-1">*</span>
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="state" aria-describedby="msg51" matInput formControlName="state"
+                                                aria-invalid="true" placeholder="State/Province">
+                                        </mat-form-field>
+
+                                        <ng-container *ngFor="let validation of addressDetailValues.state">
+                                            <mat-error id="msg51"
+                                                *ngIf="!addressForm.get('mailingAddress.state').valid && (addressForm.get('mailingAddress.state').touched || submitted) && addressForm.get('mailingAddress.state').hasError(validation.type)">
+                                                {{'application.applicant.addressDetails.address.state.validation' |
+                                                translateValidation:validation}}
+                                            </mat-error>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="prev-address-container" *ngIf="displayPrevAddressFields">
+                            <hr aria-hidden="true" tabindex="-1">
+                            <div class="row">
+                                <div class="col-md-12 margin-b">
+                                    <span class="bold">{{ 'application.applicant.addressDetails.prevAdd' | translate
+                                        }}</span>
+                                </div>
+                            </div>
+
+                            <div class="component-container clearfix" formGroupName="previousAddress">
+                                <div class="row">
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="addressLine1">
+                                                {{ 'application.applicant.addressDetails.address.addressLine1.label' |
+                                                translate }}
+                                                <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                    aria-hidden="true"> *</span>
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="addressLine1" aria-describedby="msg56" uppercase matInput
+                                                formControlName="addressLine1" placeholder="Street Address Line 1">
+                                        </mat-form-field>
+                                        <ng-container *ngFor="let validation of addressDetailValues.addressLine1">
+                                            <mat-error id="msg56"
+                                                *ngIf="!addressForm.get('previousAddress.addressLine1').valid && (addressForm.get('previousAddress.addressLine1').touched || submitted) && addressForm.get('previousAddress.addressLine1').hasError(validation.type)">
+                                                {{'application.applicant.addressDetails.address.addressLine1.validation'
+                                                | translateValidation:validation}}
+                                            </mat-error>
+                                        </ng-container>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="addressLine2">
+                                                {{ 'application.applicant.addressDetails.address.addressLine2.label' |
+                                                translate }}
+                                            </label>
+                                            <!-- <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                    *</span> -->
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="addressLine2" aria-describedby="msg54" matInput
+                                                formControlName="addressLine2" placeholder="Street Address Line 2">
+                                        </mat-form-field>
+                                        <ng-container *ngFor="let validation of addressDetailValues.addressLine2">
+                                            <mat-error id="msg54"
+                                                *ngIf="!addressForm.get('previousAddress.addressLine2').valid && (addressForm.get('previousAddress.addressLine2').touched || submitted) && addressForm.get('previousAddress.addressLine2').hasError(validation.type)">
+                                                {{'application.applicant.addressDetails.address.addressLine2.validation'
+                                                | translateValidation:validation}}
+                                            </mat-error>
+                                        </ng-container>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="city">
+                                                {{ 'application.applicant.addressDetails.address.city.label' | translate
+                                                }}
+                                                <!-- <span class="red" aria-label="Mandatory" aria-hidden="true" tabindex="-1">*</span> -->
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="city" aria-describedby="msg58" matInput formControlName="city"
+                                                placeholder="City">
+                                        </mat-form-field>
+                                        <ng-container *ngFor="let validation of addressDetailValues.city">
+                                            <mat-error id="msg58"
+                                                *ngIf="!addressForm.get('previousAddress.city').valid && (addressForm.get('previousAddress.city').touched || submitted) && addressForm.get('previousAddress.city').hasError(validation.type)">
+                                                {{'application.applicant.addressDetails.address.city.validation' |
+                                                translateValidation:validation}}
+                                            </mat-error>
+                                        </ng-container>
+                                    </div>
+
+
+
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="country">
+                                                {{ 'application.applicant.addressDetails.address.country.label' |
+                                                translate }}
+                                                <!-- <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                    aria-hidden="true"> *</span> -->
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <mat-select role="listbox" aria-describedby="msg59" id="country" uppercase
+                                                matNativeControl formControlName="country" aria-invalid="true"
+                                                placeholder="Select Country">
+                                                <mat-option role="option" value=null selected disabled>Please Select
+                                                </mat-option>
+                                                <mat-option role="option" *ngFor="let val of countryList"
+                                                    [value]="val.code">
+                                                    {{val.label | uppercase}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                        <ng-container *ngFor="let validation of addressDetailValues.country">
+                                            <mat-error id="msg59"
+                                                *ngIf="!addressForm.get('previousAddress.country').valid && (addressForm.get('previousAddress.country').touched || submitted) && addressForm.get('previousAddress.country').hasError(validation.type)">
+                                                {{'application.applicant.addressDetails.address.country.validation' |
+                                                translateValidation:validation}}
+                                            </mat-error>
+                                        </ng-container>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="zipCode">
+                                                {{ 'application.applicant.addressDetails.address.zipCode.label' |
+                                                translate }}
+                                                <!-- <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                    aria-hidden="true">
+                                                    *</span> -->
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="zipCode" aria-describedby="msg55" uppercase matInput
+                                                formControlName="zipCode"
+                                                placeholder="Postal/Zip Code">
+                                        </mat-form-field>
+                                        <ng-container *ngFor="let validation of addressDetailValues.zipCode">
+                                            <mat-error id="msg55"
+                                                *ngIf="!addressForm.get('previousAddress.zipCode').valid && (addressForm.get('previousAddress.zipCode').touched || submitted) && addressForm.get('previousAddress.zipCode').hasError(validation.type)">
+                                                {{'application.applicant.addressDetails.address.zipCode.validation' |
+                                                translateValidation:validation}}
+                                            </mat-error>
+                                        </ng-container>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="state">
+                                                {{ 'application.applicant.addressDetails.address.state.label' |
+                                                translate }}
+                                                <!-- <span class="red" aria-label="Mandatory" aria-hidden="true"
+                                                    tabindex="-1">
+                                                    *</span> -->
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="state" aria-describedby="msg57" matInput formControlName="state"
+                                                aria-invalid="true" placeholder="State/Province ">
+                                        </mat-form-field>
+                                        <ng-container *ngFor="let validation of addressDetailValues.state">
+                                            <mat-error id="msg57"
+                                                *ngIf="!addressForm.get('previousAddress.state').valid && (addressForm.get('previousAddress.state').touched || submitted) && addressForm.get('previousAddress.state').hasError(validation.type)">
+                                                {{'application.applicant.addressDetails.address.state.validation' |
+                                                translateValidation:validation}}
+                                            </mat-error>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <hr aria-hidden="true" tabindex="-1" />
+            <div id="buttons-container">
+                <button type="button" mat-raised-button color="primary" id="prev-btn" (click)="back()">{{
+                    'application.buttons.prevSection' | translate }}</button>
+                <button type="button" mat-raised-button color="primary" id="next-btn" color="primary"
+                    (click)="continue()">{{ 'application.buttons.nextSection' | translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-container *ngIf="isComponentReadOnly">
+    <address-details-readonly [model]="tabData" [applicantInfo]="applicantData"></address-details-readonly>
+</ng-container>

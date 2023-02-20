@@ -1,0 +1,57 @@
+@import './src/assets/styles/sass/theme/cwb/_cwb-variables.scss';
+@import './src/assets/styles/sass/global/_mixins.scss';
+@import './src/assets/styles/sass/theme/cwb/overrides/globals/_custom-styles.scss';
+.basic-details-container {
+    #back-link-container {
+        float: left;
+    }
+    #buttons-container {
+        float: left;
+    }
+    .radio-label {
+        font-weight: normal
+    }
+    .no-padding-lr {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .no-padding-top {
+        padding-top: 15px !important;
+    }
+    .bold {
+        color: #000795;
+        font-size: 18px;
+        padding: 0px 0px 0px;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #FFDC5B;
+    }
+    .sub-heading {
+        color: #000795;
+        font-size: 16px;
+        padding: 0px 0px 0px;
+        font-weight: normal;
+        display: inline-block;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #FFDC5B;
+    }
+    .encryptedssn {
+        border: 1px solid;
+        padding: 5px 5px 5px 10px;
+        margin-top: 12px;
+        border-radius: 5px;
+    }
+    label[for] {
+        margin-bottom: 0;
+    }
+
+    .margin-t-15{
+        margin-top: 30px;
+    }
+
+    .form-inline {
+        display: flex;
+        align-items: center;
+      }
+}

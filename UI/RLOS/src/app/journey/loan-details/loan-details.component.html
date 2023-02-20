@@ -1,0 +1,528 @@
+<div class="container-fluid">
+    <div class="row" *ngIf="showAlert">
+        <div class="col-12" role="alert" aria-live="assertive" aria-atomic="true">
+            <error-alert [errorObject]="alert" (close)="closeError()">
+            </error-alert>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+
+            <span class="bold">{{ 'application.loanDetails.header' | translate }}</span>
+        </div>
+        <div class="col-12">
+            <form [formGroup]="startForm" autocomplete="off" class="container-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-lg-4 height">
+                                <mat-label>
+                                    <label for="product">{{ 'application.loanDetails.product.label' | translate }}
+                                        <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                            *</span>
+                                    </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="product" matInput formControlName="product" (ngModelChange)="loanValidate()" [readonly]="true">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="productType === 'Loan'">
+                            <div class="col-12">
+
+                                <span class="sub-heading">{{ 'application.loanDetails.subHeader' | translate }}</span>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-4 height">
+                                <mat-label>
+                                    <label for="loanType">{{ 'application.loanDetails.typeOfLoan.label' | translate }}
+                                        <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                            *</span>
+                                    </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="loanType" matInput formControlName="loanType" (ngModelChange)="loanValidate()" [readonly]="true">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="productType === 'Loan'">
+
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <mat-label>
+                                    <label for="loanPurposeType">{{ 'application.loanDetails.loanPurposeType.label' | translate }}
+                                        <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                            *</span>
+                                    </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <mat-select role="listbox" aria-describedby="loanPurposeTypeErrorMsg" id="loanPurposeType" aria-invalid="true" matNativeControl formControlName="loanPurposeType" (ngModelChange)="loanValidate()" placeholder="Select Purpose">
+                                        <mat-option role="option" value="null" selected disabled>Please Select</mat-option>
+                                        <mat-option role="option" *ngFor="let val of loanPurposeList" [value]="val.code">{{val.label}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of LoandetailsValues.loanPurposeType">
+                                    <mat-error id="loanPurposeTypeErrorMsg" *ngIf="!startForm.get('loanPurposeType').valid && (startForm.get('loanPurposeType').touched || submitted) && startForm.get('loanPurposeType').hasError(validation.type)">
+                                        {{'application.loanDetails.loanPurposeType.validation' | translateValidation:validation}}
+                                    </mat-error>
+                                </ng-container>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-lg-4" *ngIf="startForm.get('loanPurposeType').value === 'NG_15'">
+                                <mat-label>
+                                    <label for="loanPurposeOthers">
+                                        {{ 'application.loanDetails.loanPurposeOthers.label' | translate }}
+                                        <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                            *</span>
+                                    </label>
+                                </mat-label>
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="loanPurposeOthers" aria-describedby="loanPurposeOthersErrorMsg" matInput placeholder="Loan Purpose (Others)" formControlName="loanPurposeOthers">
+                                </mat-form-field>
+                                <ng-container *ngFor="let validation of LoandetailsValues.loanPurposeOthers">
+                                    <mat-error id="loanPurposeOthersErrorMsg" *ngIf="!startForm.get('loanPurposeOthers').valid && (startForm.get('loanPurposeOthers').touched || submitted) && startForm.get('loanPurposeOthers').hasError(validation.type)">
+                                        {{'application.loanDetails.loanPurposeOthers.validation' | translateValidation:validation}}
+                                    </mat-error>
+                                </ng-container>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="amountRequired">{{ 'application.loanDetails.amountRequired.label' | translate }}
+                                            <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span>
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <span matPrefix class="dollar-space">J$ &nbsp;</span>
+                                        <input id="amountRequired" aria-invalid="true" aria-describedby="amountRequiredErrorMsg" matInput maxlength="14" currencyMask [options]="{ allowNegative: false, thousands: ',', decimal: '.', precision: 2 }" formControlName="amountRequired">
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of LoandetailsValues.amountRequired">
+                                        <mat-error id="amountRequiredErrorMsg" *ngIf="(!startForm.get('amountRequired').valid && (startForm.get('amountRequired').touched || submitted) && startForm.get('amountRequired').hasError(validation.type))">
+                                            {{'application.loanDetails.amountRequired.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+
+                            <div class=" col-12 col-sm-6 col-lg-4">
+                                <div class="mat-grp">
+                                    <mat-label>
+                                        <label for="loanTerm">{{ 'application.loanDetails.loanTerm.label' | translate }}
+                                            <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span>
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <mat-select role="listbox" aria-describedby="loanTermErrorMsg" id="loanTerm" matNativeControl formControlName="loanTerm" placeholder="Loan Term">
+                                            <mat-option role="option" value="null" selected disabled>Please Select</mat-option>
+                                            <mat-option role="option" *ngFor="let val of termsList" [value]="val">{{val}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of LoandetailsValues.loanTerm">
+                                        <mat-error id="loanTermErrorMsg" *ngIf="!startForm.get('loanTerm').valid && (startForm.get('loanTerm').touched || submitted) && startForm.get('loanTerm').hasError(validation.type)">
+                                            {{'application.loanDetails.loanTerm.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+
+                            <div class=" col-12 col-sm-6 col-lg-3" *ngIf="showAutoDebit" role="group" aria-label="autoDebit">
+                                <mat-label>
+                                    <label for="loanTerm">
+                                    </label>
+                                </mat-label>
+                                <section style="margin-top:25px;">
+                                    <mat-checkbox style="position: relative;top: -4px;" id="autoDebitOrNot" role="checkbox" formControlName="isAutoDebit"></mat-checkbox>&nbsp;&nbsp;
+                                    <mat-label>
+                                        <label for="autoDebitOrNot">{{ 'application.loanDetails.autoDebitOrNot.label' | translate }}
+                                        </label>
+                                        <i class="material-icons" style="margin-top:-13px;" matTooltip="Check this box to set up automatic payments (detailed info required at Customer Acceptance)">
+                                            info
+                                        </i>
+                                    </mat-label>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- <div class="row" *ngIf="productType=== 'Credit Card'">
+                    <div class="col-12">
+                        <span class="bold"> Credit Card Details</span>
+                    </div>
+                </div>
+
+                <div class="col-md-12" formArrayName="creditCardDetails" *ngIf="productType === 'Credit Card'">
+
+                    <div *ngFor="let creditCardDetail of formControls.creditCardDetails.controls; let i = index;" [formGroupName]="i">
+                        <div class="form-group">
+                            <div class="row">
+
+                                <span class="sub-heading">Details{{i +1}}</span>
+
+                                <div class="row">
+
+                                    <div class="col-12 col-sm-6 col-lg-4">
+                                        <mat-label>
+                                            <label for="cardsRequiredFor">{{'application.loanDetails.cardsRequiredFor.label' | translate}}
+                                                <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                    aria-hidden="true"> *</span>
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <mat-select role="listbox" aria-describedby="cardsRequiredForErrorMsg" id="cardsRequiredFor" aria-invalid="true" placeholder="Credit Card required for" matNativeControl formControlName="cardsRequiredFor">
+                                                <ng-container *ngFor="let val of applicantList">
+                                                    <mat-option role="option" [value]="val.label" *ngIf="((val != overdraftRequiredFor)) ">
+                                                        {{val.label}}
+                                                    </mat-option>
+                                                </ng-container>
+                                            </mat-select>
+                                        </mat-form-field>
+                                        <div class="height-space" *ngIf="!creditCardDetail.get('cardsRequiredFor').valid && (creditCardDetail.get('cardsRequiredFor').touched || submitted ) && creditCardDetail.get('cardsRequiredFor').hasError('required')">
+                                            <mat-error id="cardsRequiredForErrorMsg">
+                                                {{'application.loanDetails.cardsRequiredFor.validation.required' | translate}}
+                                            </mat-error>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-lg-4">
+                                        <mat-label>
+                                            <label for="cardType">{{ 'application.loanDetails.cardType.label' | translate }}
+                                                <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                    aria-hidden="true"> *</span>
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <mat-select role="listbox" id="cardType" aria-describedby="cardTypeErrorMsg" matNativeControl placeholder="Type of Card" formControlName="cardType">
+                                                <mat-option role="option" *ngFor="let val of cardTypeList" [value]="val.code">
+                                                    {{val.label}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                        <div class="height-space" *ngIf="!creditCardDetail.get('cardType').valid && (creditCardDetail.get('cardType').touched || submitted ) && creditCardDetail.get('cardType').hasError('required')">
+                                            <mat-error id="cardTypeErrorMsg">
+                                                {{'application.loanDetails.cardType.validation.required' | translate}}
+                                            </mat-error>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-lg-4">
+                                        <mat-label class="details-labels">
+                                            <label for="branch">{{ 'application.loanDetails.branch.label' | translate }}
+                                                <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                    aria-hidden="true"> *</span>
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <mat-select role="listbox" id="branch" aria-describedby="branchErrorMsg" matNativeControl placeholder="Branch" formControlName="branch" placeholder="Select Branch">
+                                                <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                                <mat-option role="option" *ngFor="let val of branchList" [value]="val.code">
+                                                    {{val.label}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                        <div class="height-space" *ngIf="!creditCardDetail.get('branch').valid && (creditCardDetail.get('branch').touched || submitted ) && creditCardDetail.get('branch').hasError('required')">
+                                            <mat-error id="branchErrorMsg">
+                                                {{'application.loanDetails.branch.validation.required' | translate}}
+                                            </mat-error>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row mt-1" *ngIf="i>0">
+                                <div class="col-12" style="padding: 0;">
+                                    <button type="button" class="card-btn" mat-raised-button color="primary" class="add-btn pull-right" (click)="removeCard(i)">delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row" *ngIf="productType=== 'Credit Card'">
+                    <div class="col-12" *ngIf="showAddCreditCardBtn">
+                        <button type="button" class="card-btn" mat-raised-button color="primary" class="add-btn pull-right" (click)="addcardDetails()">Add Card Details</button>
+                    </div>
+                </div>
+
+
+                <div class="row" *ngIf="productType=== 'Overdraft'">
+                    <div class="col-12">
+                        <span class="bold"> Overdraft Details</span>
+                    </div>
+                </div>
+                <div formArrayName="overdraftDetails" *ngIf="productType=== 'Overdraft'">
+
+                    <div *ngFor="let overdraftDetail of formControls.overdraftDetails.controls; let i = index;" [formGroupName]="i">
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-12 margin-b">
+                                    <span class="bold">Details {{i +1}}</span>
+                                </div>
+
+                                <div class="col-12 col-sm-6 col-lg-4">
+                                    <mat-label>
+                                        <label for="overdraftRequiredFor">{{'application.loanDetails.overdraftRequiredFor.label' | translate}}
+                                                <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                    aria-hidden="true"> *</span>
+                                            </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <mat-select role="listbox" id="overdraftRequiredFor" aria-describedby="overdraftRequiredForErrorMsg" placeholder="Overdraft required for" matNativeControl formControlName="overdraftRequiredFor">
+                                            <ng-container *ngFor="let val of primaryApplicantList">
+                                                <mat-option role="option" [value]="val.label" *ngIf="((val != cardsRequiredFor)) ">
+                                                    {{val.label}}
+                                                </mat-option>
+                                            </ng-container>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <div class="height-space" *ngIf="!overdraftDetail.get('overdraftRequiredFor').valid && (overdraftDetail.get('overdraftRequiredFor').touched || submitted ) && overdraftDetail.get('overdraftRequiredFor').hasError('required')">
+                                        <mat-error id="overdraftRequiredForErrorMsg">
+                                            {{'application.loanDetails.overdraftRequiredFor.validation.required' | translate}}
+                                        </mat-error>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-6 col-lg-4">
+                                    <mat-label>
+                                        <label for="overdraftPurpose">{{'application.loanDetails.overdraftPurpose.label' | translate}}
+                                                <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                    aria-hidden="true"> *</span>
+                                            </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <mat-select role="listbox" aria-describedby="overdraftPurposeErrorMsg" id="overdraftPurpose" placeholder="Personal Overdraft Purpose" matNativeControl formControlName="overdraftPurpose" (ngModelChange)="isOverdraftPurposeSelected(overdraftDetail)" (dateChange)="checkIdDatesValidity(idDetail)">
+                                            <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                            <mat-option role="option" *ngFor="let val of loanPurposeList" [value]="val.code">
+                                                {{val.label}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <div class="height-space" *ngIf="!overdraftDetail.get('overdraftPurpose').valid && (overdraftDetail.get('overdraftPurpose').touched || submitted ) && overdraftDetail.get('overdraftPurpose').hasError('required')">
+                                        <mat-error id="overdraftPurposeErrorMsg">
+                                            {{'application.loanDetails.overdraftPurpose.validation.required' | translate}}
+                                        </mat-error>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-6 col-lg-4" *ngIf="(overdraftDetail.get('overdraftPurpose').value === 'NG_15')">
+                                    <mat-label>
+                                        <label for="otherOverdraftPurpose">
+                                                {{ 'application.loanDetails.otherOverdraftPurpose.label' | translate }}
+                                            </label>
+                                        <a style="float:right">
+                                                <i type="button" class="material-icons"
+                                                    style="color:red;font-size: 18px" *ngIf="i>0"
+                                                    (click)="removeOverdraft(i)">delete</i></a>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="otherOverdraftPurpose" aria-describedby="otherOverdraftPurposeErrorMsg" placeholder="Personal Overdraft Purpose (Other)" matInput formControlName="otherOverdraftPurpose">
+                                    </mat-form-field>
+                                    <div class="height-space" *ngIf="!overdraftDetail.get('otherOverdraftPurpose').valid && (overdraftDetail.get('otherOverdraftPurpose').touched || submitted ) && overdraftDetail.get('otherOverdraftPurpose').hasError('required')">
+                                        <mat-error id="otherOverdraftPurposeErrorMsg">
+                                            {{'application.loanDetails.otherOverdraftPurpose.validation.required' | translate}}
+                                        </mat-error>
+                                    </div>
+                                    <div class="height-space" *ngIf="!overdraftDetail.get('otherOverdraftPurpose').valid && (overdraftDetail.get('otherOverdraftPurpose').touched || submitted ) && overdraftDetail.get('otherOverdraftPurpose').hasError('maxlength')">
+                                        <mat-error id="otherOverdraftPurposeErrorMsg">
+                                            {{'application.loanDetails.otherOverdraftPurpose.validation.maxlength' | translate}}
+                                        </mat-error>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div> -->
+                <br>
+                <!-- <div class="row" *ngIf="productType=== 'Overdraft'">
+                    <div class="col-12" *ngIf="showAddOverDraftBtn">
+                        <button type="button" class="card-btn" mat-raised-button color="primary" class="add-btn pull-right" (click)="addoverdraft()">
+                            Add Overdraft Deatils</button>
+                    </div>
+                </div> -->
+
+                <div class="row">
+                    <div class="col-12 margin-b">
+                        <span class="bold">Collateral Details</span>
+                    </div>
+
+                    <!-- Would you put a Collateral? -->
+                    <div class="col-12 col-sm-6 col-lg-4 height">
+                        <mat-label>
+                            <label for="hasCollateral">{{'application.loanDetails.loanProductType.label' | translate}}
+                                <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-select role="listbox" aria-describedby="hasCollateralErrorMsg" id="hasCollateral" aria-invalid="true" placeholder="Please Select" matNativeControl (ngModelChange)="collateralValidate()" formControlName="hasCollateral">
+                                <mat-option role="option" value="null" selected disabled>Please Select</mat-option>
+                                <mat-option role="option" *ngFor="let val of hasCollateralList" [value]="val.code">{{val.label}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of LoandetailsValues.facilityType">
+                            <mat-error id="hasCollateralErrorMsg" *ngIf="!startForm.get('hasCollateral').valid && (startForm.get('hasCollateral').touched || submitted) && startForm.get('hasCollateral').hasError(validation.type)">
+                                {{'application.loanDetails.loanProductType.validation' | translateValidation:validation}}
+                            </mat-error>
+                        </ng-container>
+
+                    </div>
+
+                    <!-- Collateral Type -->
+                    <div class="col-12 col-sm-6 col-lg-4" *ngIf="startForm.get('hasCollateral').value === 'Yes'">
+                        <mat-label>
+                            <label for="collateralType">{{ 'application.loanDetails.collateralType.label' | translate }}
+                                <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                    *</span>
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-select role="listbox" id="collateralType" aria-invalid="true" placeholder="Select Collateral Type" aria-describedby="collateralTypeErrorMsg" matNativeControl formControlName="collateralType" (ngModelChange)="collateralValidate()" placeholder="Select Collateral Type">
+                                <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                <mat-option role="option" *ngFor="let val of colateralTypeList" [value]="val.code">
+                                    {{val.label}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of LoandetailsValues.collateralType">
+                            <mat-error id="collateralTypeErrorMsg" *ngIf="!startForm.get('collateralType').valid && (startForm.get('collateralType').touched || submitted) && startForm.get('collateralType').hasError(validation.type)">
+                                {{'application.loanDetails.collateralType.validation' | translateValidation:validation}}
+                            </mat-error>
+                        </ng-container>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4" *ngIf="startForm.get('hasCollateral').value === 'Yes' && startForm.get('collateralType').value === 'NG_OTHER'">
+                        <mat-label>
+                            <label for="otherCollateral">{{ 'application.loanDetails.otherCollateral.label' | translate }}
+                                <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                    *</span>
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <input id="otherCollateral" matInput aria-describedby="otherCollateralErrorMsg" formControlName="otherCollateral" placeholder="Other Collateral Details">
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of LoandetailsValues.otherCollateral">
+                            <mat-error id="otherCollateralErrorMsg" *ngIf="!startForm.get('otherCollateral').valid && (startForm.get('otherCollateral').touched || submitted) && startForm.get('otherCollateral').hasError(validation.type)">
+                                {{'application.loanDetails.otherCollateral.validation' | translateValidation:validation}}
+                            </mat-error>
+                        </ng-container>
+                    </div>
+
+                    <!-- Original Collateral Value -->
+                    <div class="col-12 col-sm-6 col-lg-4" *ngIf="startForm.get('hasCollateral').value === 'Yes'">
+                        <div class="mat-grp">
+                            <mat-label>
+                                <label for="collateralValue">{{ 'application.loanDetails.collateralValue.label' | translate }}
+                                    <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                        *</span>
+                                </label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="full-width">
+                                <span matPrefix class="dollar-space">J$ &nbsp;</span>
+                                <input id="collateralValue" aria-invalid="true" aria-describedby="collateralValueErrorMsg" matInput maxlength="14" currencyMask [options]="{ allowNegative: false, thousands: ',', decimal: '.', precision: 2 }" formControlName="collateralValue">
+                            </mat-form-field>
+                            <ng-container *ngFor="let validation of LoandetailsValues.collateralValue">
+                                <mat-error id="collateralValueErrorMsg" *ngIf="(!startForm.get('collateralValue').valid && (startForm.get('collateralValue').touched || submitted) && startForm.get('collateralValue').hasError(validation.type))">
+                                    {{'application.loanDetails.collateralValue.validation' | translateValidation:validation}}
+                                </mat-error>
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <!-- Present Collateral Value -->
+                    <div class="col-12 col-sm-6 col-lg-4" *ngIf="startForm.get('hasCollateral').value === 'Yes'">
+                        <div class="mat-grp">
+                            <mat-label>
+                                <label for="presentCollateralValue">{{ 'application.loanDetails.presentCollateralValue.label' | translate }}
+                                    <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                        *</span>
+                                </label>
+                                <em *ngIf="startForm.get('collateralType').value === 'AM'" class="material-icons" style="margin-top:-13px;" matTooltip="Insured Value" (click)="tooltip2.toggle()" #tooltip2="matTooltip">
+                                info
+                              </em>
+
+                                <em *ngIf="startForm.get('collateralType').value === 'FA'" class="material-icons" style="margin-top:-13px;" matTooltip="Customer's Valuation" (click)="tooltip2.toggle()" #tooltip2="matTooltip">
+                                info
+                              </em>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="full-width">
+                                <span matPrefix class="dollar-space">J$ &nbsp;</span>
+                                <input id="presentCollateralValue" aria-invalid="true" aria-describedby="presentCollateralValueErrorMsg" matInput maxlength="14" currencyMask [options]="{ allowNegative: false, thousands: ',', decimal: '.', precision: 2 }" formControlName="presentCollateralValue">
+                            </mat-form-field>
+                            <ng-container *ngFor="let validation of LoandetailsValues.presentCollateralValue">
+                                <mat-error id="presentCollateralValueErrorMsg" *ngIf="(!startForm.get('presentCollateralValue').valid && (startForm.get('presentCollateralValue').touched || submitted) && startForm.get('presentCollateralValue').hasError(validation.type))">
+                                    {{'application.loanDetails.presentCollateralValue.validation' | translateValidation:validation}}
+                                </mat-error>
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <!-- Currency  -->
+                    <div class="col-12 col-sm-6 col-lg-4" *ngIf="startForm.get('hasCollateral').value === 'Yes'">
+                        <mat-label>
+                            <label for="currency">{{ 'application.loanDetails.currency.label' | translate }}
+                                <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                    *</span>
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-select role="listbox" aria-describedby="currencyErrorMsg" id="currency" aria-invalid="true" placeholder="Select Currency" matNativeControl formControlName="currency">
+                                <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                <mat-option role="option" *ngFor="let val of currencyList" [value]="val.code">{{val.label}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of LoandetailsValues.currency">
+                            <mat-error id="currencyErrorMsg" *ngIf="!startForm.get('currency').valid && (startForm.get('currency').touched || submitted) && startForm.get('currency').hasError(validation.type)">
+                                {{'application.loanDetails.currency.validation' | translateValidation:validation}}
+                            </mat-error>
+                        </ng-container>
+                    </div>
+
+                    <!-- Primary Owner of Collateral -->
+                    <div class="col-12 col-sm-6 col-lg-4" *ngIf="startForm.get('hasCollateral').value === 'Yes'">
+                        <mat-label>
+                            <label for="primaryOwner">{{ 'application.loanDetails.primaryOwner.label' | translate }}
+                                <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                    *</span>
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-select role="listbox" id="primaryOwner" aria-invalid="true" placeholder="Select Primary Owner" aria-describedby="primaryOwnerErrorMsg" NativeControl formControlName="primaryOwner">
+                                <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                <mat-option role="option" *ngFor="let val of applicantList" [value]="val.label">{{val.label}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of LoandetailsValues.primaryOwner">
+                            <mat-error id="primaryOwnerErrorMsg" *ngIf="!startForm.get('primaryOwner').valid && (startForm.get('primaryOwner').touched || submitted) && startForm.get('primaryOwner').hasError(validation.type)">
+                                {{'application.loanDetails.primaryOwner.validation' | translateValidation:validation}}
+                            </mat-error>
+                        </ng-container>
+                    </div>
+                </div>
+            </form>
+            <div class="col-12 note-i" style="margin-top: 10px;">
+                <label class="full-width" tabindex="0">fields marked with
+                    <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span> are
+                    mandatory</label>
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <div id="step-footer">
+            <hr aria-hidden="true" tabindex="-1" />
+            <div id="footer-container">
+                <div id="back-link-container" aria-label="Back">
+                    <button color="primary" (click)="back()" mat-raised-button>{{ 'application.buttons.back' | translate }}</button>
+                </div>
+                <div id="buttons-container">
+                    <button color="primary" class="exit-btn" mat-raised-button (click)="saveAndExitApp(startForm.value, 'startForm')">{{ 'application.buttons.saveAndExit' | translate }}</button>
+                    <span class="mr-10"></span>
+                    <button color="primary" class="continue-btn" (click)="continue(startForm.value)" mat-raised-button>{{ 'application.buttons.continue' | translate }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

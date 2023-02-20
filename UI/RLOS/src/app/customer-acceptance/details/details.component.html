@@ -1,0 +1,90 @@
+<div id="customer-acceptance-container" class="container-fluid">
+  <div class="text-center align-center customer-acceptance">
+    <h3>
+      {{ 'application.customerAcceptance.congrats.message' | translate }}
+    </h3>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      {{ 'application.customerAcceptance.approve.message' | translate }}
+    </div>
+  </div>
+
+  <div class="row text-center align-center customer-app-container">
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+      <label class="heading-font">Type of Loan</label>
+      <div class="label-font">
+        {{(model.loanSubType || notSpecified) | translate}}
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+      <label class="heading-font">{{ 'application.loanDetails.loanAmount.label' | translate }}</label>
+      <div class="label-font">
+        J$ {{(model.loanAmount || notSpecified) | translate}}
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b" *ngIf="model.loanSubType !== 'Unsecured Line of Credit'">
+      <label class="heading-font">{{ 'application.loanDetails.loanTermInMonth.label' | translate }}</label>
+      <div class="label-font">
+        {{(model.loanTerms || notSpecified) | translate}}
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+      <label class="heading-font">{{ 'application.loanDetails.interestRate.label' | translate }}</label>
+      <div class="label-font">
+        {{(model.interestRate || notSpecified) | translate}}
+      </div>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="model.loanSubType !== 'Unsecured Line of Credit'">
+    <div class="col-12">
+      {{ 'application.customerAcceptance.monthlyPayment.message' | translate }}
+    </div>
+  </div>
+
+  <div class="row" *ngIf="model.loanSubType === 'Unsecured Line of Credit'">
+    <div class="col-12">
+      {{ 'application.customerAcceptance.monthlyPayment.messageALine' | translate }}
+    </div>
+  </div>
+  <div *ngIf="model.loanSubType !== 'Unsecured Line of Credit'">
+    <div class="row text-center align-center customer-app-container">
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <label class="heading-font">{{ 'application.customerAcceptance.monthlyPayment.label' | translate }}</label>
+        <div class="label-font">
+          <!-- {{(model.collateralDetails.loanProductType || notSpecified) | translate}} -->
+          J$ {{(model.monthlyPayment || notSpecified) | translate}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <p [innerHTML]="'application.customerAcceptance.monthlyPayment.note' | translate"></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      {{ 'application.customerAcceptance.acceptDecline.message' | translate }}
+    </div>
+  </div>
+  <div class="row  justify-content-md-center customer-app-container">
+    <div class="col-sm-3 col-xs-3 col-sm-auto col-md-auto col-xs-auto pull-right footer-buttons">
+      <div>
+        <button color="primary" (click)="continueToAccept()" mat-raised-button>{{ 'application.buttons.accept' | translate }}</button>
+      </div>
+    </div>
+
+    <div class="col-sm-3 col-xs-3 col-sm-auto col-md-auto col-xs-auto footer-buttons">
+      <div>
+        <button color="primary" (click)="continueToDecline()" mat-raised-button>{{ 'application.buttons.decline' | translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>

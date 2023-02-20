@@ -1,0 +1,51 @@
+@import './src/assets/styles/sass/theme/cwb/_cwb-variables.scss';
+@import './src/assets/styles/sass/global/_mixins.scss';
+@import './src/assets/styles/sass/theme/cwb/overrides/globals/_custom-styles.scss';
+.bold {
+    color: #000795;
+    font-size: 18px;
+    padding: 0px 0px 0px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #FFDC5B;
+}
+
+.sub-heading {
+    color: #000795;
+    font-size: 16px;
+    padding: 0px 0px 0px;
+    font-weight: normal;
+    display: inline-block;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #FFDC5B;
+}
+
+.emp-details-container {
+    #back-link-container {
+        float: left;
+    }
+    #prev-btn {
+        float: left;
+    }
+    #next-btn {
+        float: right;
+    }
+    .no-padding-lr {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .no-padding-top {
+        padding-top: 15px !important;
+    }
+    .add-btn {
+        float: right;
+    }
+    .border-prev-employment {
+        border-top: 1px solid #eee;
+        padding-top: 15px;
+    }
+    .margin-bottom-45 {
+        margin-bottom: 45px;
+    }
+}

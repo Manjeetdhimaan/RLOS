@@ -1,0 +1,84 @@
+<div id="upload-dialog-container" modal-focus aria-modal="true" role="dialog" aria-labelledby="docUploadModal" class="documents-upload-container">
+    <div class="dialog-title-container">
+        <h3 mat-dialog-title class="dialog-title proxima-modal-heading" tabindex="0">Upload Document</h3>
+        <i class="material-icons close-icon" (click)="onNoClick()" tabindex="0">close</i>
+    </div>
+
+    <mat-error>
+        <span *ngIf="showMandatoryDocsMsg" tabindex="0">Please upload mandatory documents
+      <br/>
+    </span>
+        <span *ngIf="showFileTypeError" tabindex="0">Only {{allowedFileType}} file type allowed.
+      <br/>
+    </span>
+        <span *ngIf="showFileSizeError" tabindex="0">
+      Maximum {{appConfig.maxFileSize}} mb file allowed. </span>
+    </mat-error>
+
+    <div>
+        <div mat-dialog-content>
+            <div class="document-panel">
+                <div class="row">
+
+                    <div class="col-md-4 col-sm-5 documents-container" *ngIf="showIDScan">
+                        <upload [imageData]="imageData[0]" [isReadOnly]="false" (removeFile)="deleteFile($event)" (showError)="showError($event)" [isDocumentModule]="false" (onFileAdded)="onFilesAdded($event)" [imgInfo]="{order: 0, code: (captureOtherImages==true ? 'TAX' : 'IDSCN'), label:(captureOtherImages==true ? 'Tax Returns with supporting documentation' : 'Back of License')}"></upload>
+                    </div>
+
+                    <div *ngIf="captureOtherImages" class="col-md-4 col-sm-5 documents-container back-image">
+                        <upload [imageData]="imageData[1]" [isReadOnly]="false" (removeFile)="deleteFile($event)" (showError)="showError($event)" [isDocumentModule]="false" (onFileAdded)="onFilesAdded($event)" [imgInfo]="{order: 1, code: 'PERS_FIN', label:'Personal Financials'}"></upload>
+                    </div>
+
+                    <div class="col-md-4 col-sm-5 documents-container" *ngIf="captureDealerInvoice">
+                        <upload [imageData]="imageData[0]" [isReadOnly]="false" (removeFile)="deleteFile($event)" (showError)="showError($event)" [isDocumentModule]="false" (onFileAdded)="onFilesAdded($event)" [imgInfo]="{order: 0, code: 'PUR_INV', label:'Dealer Invoice'}"></upload>
+                    </div>
+
+                    <div *ngIf="captureOtherImages" class="col-md-4 col-sm-5 documents-container back-image">
+                        <!-- <div class="document-column">
+              <img tabindex="0" src="{{imageData[2].data}}" class="image-preview" id="back-image" *ngIf="imageData[2]">
+
+              <div class="col-md-9 col-sm-9 col-xs-6 upload-image-container" *ngIf="!imageData[2]">
+                <div class="label-text">Any Other Document</div>
+
+                <input type="file" id="back-image" #file3 style="display: none" (change)="onFilesAdded($event, {order: 2, code: 'OTHER'})"
+                  multiple />
+                <button mat-raised-button color="primary" class="add-files-btn" (click)="addFiles(file3)">
+                  Upload
+                </button>
+              </div>
+            </div>
+
+            <div class="remove-padding capture-buttons hidden-mobile" *ngIf="imageData[2]">
+              <div>
+                <div class="pull-left recapture" role="button" *ngIf="imageData[2]">
+                  <input type="file" #file3 style="display: none" (change)="onFilesAdded($event, {order: 2, code: 'OTHER'})" />
+                  <button mat-raised-button class="add-files-btn" (click)="addFiles(file3)">
+                  Re-capture
+                </button>
+                </div>
+
+                <div class="pull-right" role="button" tabindex="0" *ngIf="imageData[2]" tabindex="0">
+                  <button mat-raised-button class="add-files-btn" (click)="deleteFile({order: 2})">
+                  Remove
+                </button>
+                </div>
+              </div>
+            </div> -->
+
+                        <!-- <upload [order]="3" [imageData]="imageData[2]" [isReadOnly]="false" (removeFile)="deleteFile($event)" (showError)="showError($event)"
+              [isDocumentModule]="false" (onFileAdded)="onFilesAdded($event)" [imgInfo]="{order: 2, code: 'OTHER', label:'Any Other Document'}"></upload> -->
+                    </div>
+                </div>
+            </div>
+
+
+            <span class="heading proxima-modal-italic" tabindex="0">For the best possible result, use the maximum image size and place the ID against a solid, dark or contrasting background (using portrait format).</span>
+            <div class="modal-footer">
+                <div mat-dialog-actions class="modal-btns">
+                    <button mat-raised-button class="margin-r" (click)="onNoClick()">No Thanks</button>
+                    <button mat-raised-button color="primary" (click)="continue()" cdkFocusInitial>Continue</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

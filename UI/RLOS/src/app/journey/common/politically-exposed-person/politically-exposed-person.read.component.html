@@ -1,0 +1,121 @@
+<div class="row">
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="pepFlag">{{'application.applicant.politicallyExposedPersonDetails.pep.label' | translate}}</label>
+        <div class="label-font" id="pepFlag">
+            {{(model.pepFlag || notSpecified) }}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="previousPep"> {{'application.applicant.politicallyExposedPersonDetails.previouspep.label' | translate}}</label>
+        <div class="label-font" id="previousPep">
+            {{(model.previousPep || notSpecified) }}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="(model.pepFlag === 'Yes' || model.previousPep === 'Yes')">
+        <label class="heading-font" for="pepRelation">{{'application.applicant.politicallyExposedPersonDetails.pepRelation.label' | translate}}</label>
+        <div class="label-font" id="pepRelation">
+            {{(model.pepRelation || notSpecified) }}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="((model.pepFlag === 'Yes' || model.previousPep === 'Yes')) && (model.pepRelation != 'Self')">
+        <label class="heading-font" for="pepFirstName">{{ 'application.applicant.politicallyExposedPersonDetails.firstName.label' | translate }}</label>
+        <div class="label-font" id="pepFirstName">
+            {{(model.pepFirstName || notSpecified)}}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="((model.pepFlag === 'Yes' || model.previousPep === 'Yes')) && (model.pepRelation != 'Self')">
+        <label class="heading-font" for="pepMiddleName">{{ 'application.applicant.middleName.label' | translate }}</label>
+        <div class="label-font" id="pepMiddleName">
+            {{(model.pepMiddleName || notSpecified) }}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="((model.pepFlag === 'Yes' || model.previousPep === 'Yes')) && (model.pepRelation != 'Self')">
+        <label class="heading-font" for="pepLastName"> {{ 'application.applicant.lastName.label' | translate }}</label>
+        <div class="label-font" id="pepLastName">
+            {{(model.pepLastName || notSpecified) }}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="((model.pepFlag === 'Yes' || model.previousPep === 'Yes')) && (model.pepRelation != 'Self')">
+        <label class="heading-font" for="pepSuffix"> {{ 'application.applicant.suffix.label' | translate }}</label>
+        <div class="label-font" id="pepSuffix">
+            {{(model.pepSuffix || notSpecified) }}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="(model.pepFlag === 'Yes' || model.previousPep === 'Yes')">
+        <label class="heading-font" for="pepCountry">{{'application.applicant.politicallyExposedPersonDetails.pepCountry.label' | translate}}</label>
+        <div class="label-font" id="pepCountry">
+            {{(model.pepCountry || notSpecified) }}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="(model.pepFlag === 'Yes' || model.previousPep === 'Yes')">
+        <label class="heading-font" for="positionTitle"> {{'application.applicant.politicallyExposedPersonDetails.PositionTitle.label' | translate}}</label>
+        <div class="label-font" id="positionTitle">
+            {{(model.positionTitle || notSpecified) }}
+        </div>
+    </div>
+    <!-- <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="(model.pepFlag === 'Yes' || model.previousPep === 'Yes')">
+        <label class="heading-font" for="detailsOfPositonHeld">{{'application.applicant.politicallyExposedPersonDetails.detailsOfPositonHeld.label' | translate}}</label>
+        <div class="label-font" id="detailsOfPositonHeld">
+            {{(model.detailsOfPositonHeld || notSpecified) }}
+        </div>
+    </div> -->
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="(model.pepFlag === 'Yes' || model.previousPep === 'Yes')">
+        <label class="heading-font" for="dateAddedToPepList">{{'application.applicant.politicallyExposedPersonDetails.dateAddedToPepList.label' | translate}}</label>
+        <div class="label-font" id="dateAddedToPepList">
+            {{(model.dateAddedToPepList | date: 'MM/dd/yyyy') || notSpecified}}
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="(model.pepFlag === 'Yes' || model.previousPep === 'Yes')">
+        <label class="heading-font" for="yearsInPosition">{{'application.applicant.politicallyExposedPersonDetails.yearsInPosition.label' | translate}}</label>
+        <div class="label-font" id="yearsInPosition">
+            {{model.yearsInPosition || notSpecified}}
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0" *ngIf="(model.pepFlag === 'Yes' || model.previousPep === 'Yes')">
+        <label class="heading-font" for="dateRemovedFromPep">{{'application.applicant.politicallyExposedPersonDetails.dateRemovedFromPep.label' | translate}}</label>
+        <div class="label-font" id="dateRemovedFromPep">
+            {{(model.dateRemovedFromPep | date: 'MM/dd/yyyy') || notSpecified}}
+        </div>
+    </div>
+
+</div>
+<span *ngIf="(model.pepRelation === 'Self')" style="color: #000795;font-size: 18px;padding: 0px 0px 0px;font-weight: 600;display: inline-block;margin-bottom: 10px;border-bottom: 2px solid #FFDC5B;">
+    Relationship Details
+</span>
+<!-- <span class="review-header" *ngIf="(model.pepRelation === 'Self')">Relationship Details
+</span> -->
+<div class="row" *ngIf="(model.pepRelation === 'Self')">
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="firstNameRelation">{{'application.applicant.firstName.label' | translate}}</label>
+        <div class="label-font" id="firstNameRelation">
+            {{(model.relationshipDetails[0].firstName || notSpecified) }}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="middleName">{{'application.applicant.middleName.label' | translate}}</label>
+        <div class="label-font" id="middleName">
+            {{(model.relationshipDetails[0].middleName || notSpecified) }}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="lastName">{{'application.applicant.lastName.label' | translate}}</label>
+        <div class="label-font" id="lastName">
+            {{(model.relationshipDetails[0].lastName || notSpecified) }}
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="dob">{{ 'application.applicant.dob.label' | translate }}</label>
+        <div class="label-font" id="dob">
+            {{(model.relationshipDetails[0].dob | date: 'MM/dd/yyyy') || notSpecified}}
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-xs-12 margin-b" tabindex="0">
+        <label class="heading-font" for="Relationship">{{ 'application.applicant.Relationship.label' | translate }}</label>
+        <div class="label-font" id="Relationship">
+            {{(model.relationshipDetails[0].relationship || notSpecified)}}
+        </div>
+    </div>
+</div>

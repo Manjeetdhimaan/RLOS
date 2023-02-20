@@ -1,0 +1,15 @@
+<div id="esign-dialog-container">
+  <div class="dialog-title-container">
+    <h3 mat-dialog-title class="dialog-title proxima-modal-heading" tabindex="0">Upload eSignature</h3>
+    <mat-icon class="close-icon" (click)="onNoClick()">close</mat-icon>
+  </div>
+
+  <div mat-dialog-content class="esign-content-container">
+    <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
+  </div>
+
+  <div mat-dialog-actions class="modal-btns">
+    <button mat-raised-button  (click)="signaturePad.clear()">Clear</button>
+    <button mat-raised-button color="primary" class="primary-btn" [mat-dialog-close]="dialogData" cdkFocusInitial>Upload</button>
+  </div>
+</div>

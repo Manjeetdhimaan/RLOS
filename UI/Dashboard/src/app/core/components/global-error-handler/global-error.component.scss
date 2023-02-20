@@ -1,0 +1,22 @@
+.footer {
+    border-top: 1px solid #249fce;
+    // position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    height:50px;
+    z-index: 1;
+}
+
+.footer-content{    
+    line-height: 50px;
+    vertical-align: middle;
+    background-color:white;
+}
+
+.name{
+    align-items: center;
+    text-align: center;
+    font-size: x-large;
+}

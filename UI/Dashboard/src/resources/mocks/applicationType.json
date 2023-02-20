@@ -1,0 +1,17 @@
+
+
+[
+  {
+  "code":"Sav",
+  "accountType":"Savings"
+},
+{
+  "code":"CR",
+  "accountType":"Credit"
+},
+{
+  "code":"cf",
+  "accountType":"Colorado"
+}
+
+]

@@ -1,0 +1,202 @@
+
+@import './src/assets/styles/sass/global/_default-variables';
+@import './src/assets/styles/sass/global/_mixins';
+.headlines-common {
+  color: $headlines-color;
+  line-height: $theme-line-spacing-headlines;
+  margin: 0;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+h1 {
+  @extend .headlines-common;
+  @include desktop {
+    font-size: $h1-font-size !important;
+    color:$h1-font-color !important;
+    font-family:'open-sans_bold' !important;
+  }
+  @include sm-desktop{
+    font-size: $h1-font-size !important;
+    color:$h1-font-color !important;
+    font-family:'open-sans_bold' !important;
+  }
+  @include tablet {
+    font-size: $h1-font-size !important;
+    color:$h1-font-color !important;
+    font-family:'open-sans_bold' !important;
+  }
+  @include mobile {
+    font-size: $h1-font-size !important;
+    color:$h1-font-color !important;
+    font-family:'open-sans_bold' !important;
+  }
+}
+
+h2 {
+  @extend .headlines-common;
+  @include desktop {
+    font-size: $h2-font-size !important;
+    color:$h2-font-color !important;
+    font-family:'open-sans_bold' !important;
+  }
+  @include sm-desktop{
+    font-size: $h2-font-size !important;
+    color:$h2-font-color !important;
+    font-family:'open-sans_bold' !important;
+  }
+  @include tablet {
+    font-size: $h2-font-size !important;
+    color:$h2-font-color !important;
+    font-family:'open-sans_bold' !important;
+  }
+  @include mobile {
+    font-size: $h2-font-size !important;
+    color:$h2-font-color !important;
+    font-family:'open-sans_bold' !important;
+  }
+}
+
+h3 {
+  @extend .headlines-common;
+  line-height: $theme-line-spacing-headlines;
+  @include desktop {
+    font-size: $h3-font-size ;
+    color:$h3-font-color !important;
+    font-family:'open-sans_bold' !important;
+  }
+  @include sm-desktop{
+    font-size: $h3-font-size ;
+    color:$h3-font-color !important;
+    font-family:'open-sans_bold' !important;
+  }
+  @include tablet {
+    font-size: $h3-font-size !important;
+    color:$h3-font-color !important;
+    font-family:'open-sans_bold' !important;
+  }
+  @include mobile {
+    font-size: $h3-font-size !important;
+    color:$h3-font-color !important;
+    font-family:'open-sans_bold' !important;
+  }
+}
+
+h4 {
+  @extend .headlines-common;
+  @include desktop {
+    font-size: $h4-font-size !important;
+    color:$h4-font-color !important;
+    font-family:'open-sans_bold' !important;
+  }
+  @include sm-desktop{
+    font-size: $h4-font-size !important;
+    color:$h4-font-color !important;
+    font-family:'open-sans_bold' !important;
+  }
+  @include tablet {
+    font-size: $h4-font-size !important;
+    color:$h4-font-color !important;
+    font-family:'open-sans_bold' !important;
+  }
+  @include mobile {
+    font-size: $h4-font-size !important;
+    color:$h4-font-color !important;
+    font-family:'open-sans_bold' !important;
+  }
+}
+
+h5 {
+  @extend .headlines-common;
+  line-height: $theme-line-spacing-sub-headlines;
+  @include desktop {
+    font-size: $h5-font-size !important;
+    color:$h5-font-color !important;
+    font-family:'open-sans_bold' !important;
+  }
+  @include sm-desktop{
+    font-size: $h5-font-size !important;
+    color:$h5-font-color !important;
+    font-family:'open-sans_bold' !important;
+  }
+  @include tablet {
+    font-size: $h5-font-size !important;
+    color:$h5-font-color !important;
+    font-family:'open-sans_bold' !important;
+  }
+  @include mobile {
+    font-size: $h5-font-size !important;
+    color:$h5-font-color !important;
+    font-family:'open-sans_bold' !important;
+  }
+}
+
+h6 {
+  @extend .headlines-common;
+  line-height: $theme-line-spacing-small-headlines;
+  font-family:'open-sans_bold' !important;
+  @include desktop {
+    font-size: em(12px);
+    margin-bottom: em(20px);
+  }
+  @include sm-desktop{
+    font-size: em(12px);
+    margin-bottom: em(20px);
+  }
+  @include tablet {
+    font-size: em(12px);
+    margin-bottom: em(20px);
+  }
+  @include mobile {
+    font-size: em(14px);
+    margin-bottom: em(30px);
+  }
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  font-size: $body-font-size;
+  height: 100%;
+}
+
+body {
+  font-size: $body-font-size; 
+  margin: 0;
+  height: 100%;
+}
+
+
+.align-center{
+  // max-width: $large-desktop-max-width;
+  margin: 0 auto;
+
+  @include lg-desktop {
+    width: 85%;
+  }
+
+  @include desktop {
+    width: 90%;
+  }
+
+  @include sm-desktop{
+    width: 95%;
+  }
+
+  @include tablet {
+    width: 100%;
+  }
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+#view-container{
+  @extend .align-center;
+}

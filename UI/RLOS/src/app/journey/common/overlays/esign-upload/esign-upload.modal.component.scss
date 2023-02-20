@@ -1,0 +1,24 @@
+#esign-dialog-container {
+  .dialog-title-container {
+    margin-bottom: 20px;
+    .dialog-title {
+      display: inline;
+    }
+    .close-icon {
+      float: right;
+      cursor: pointer;
+    }
+  }
+  .esign-content-container {
+    height: 250px;
+  }
+  .primary-btn {
+    margin-left: 10px;
+  }
+  .mat-dialog-content {
+    overflow: unset;
+  }
+  .modal-btns {
+    float: right;
+  }
+}

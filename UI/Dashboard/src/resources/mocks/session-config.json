@@ -1,0 +1,10 @@
+{
+    "sessionTimeoutInterval": "7200",
+    "signalTimeoutInterval": "120",
+    "maxFileSize": "5",
+    "maxCoApplicants": "5",
+    "fileTypes": "JPG,JPEG,PNG,PDF,TIF,TIFF",
+    "maxPayOffs": "10",
+    "otpValidFor": "300",
+    "resendOtpAfter": "10"
+}

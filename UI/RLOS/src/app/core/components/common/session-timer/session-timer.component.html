@@ -1,0 +1,24 @@
+<div *ngIf="showTimer">
+    <div id="add-coapplicant-dialog-container" modal-focus aria-modal="true" role="dialog" aria-labelledby="docUploadModal" class="add-coapplicant-container">
+        <div>
+            <div mat-dialog-content>
+                <div class="document-panel">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 margin-b">
+                            You will time out in 120 seconds!. Click on cancel to stop being watch.'
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <div mat-dialog-actions class="modal-btns">
+                        <button mat-raised-button class="margin-r" (click)="cancel()">Cancel</button>
+                        <button mat-raised-button class="margin-r" (click)="reset()">Reset</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

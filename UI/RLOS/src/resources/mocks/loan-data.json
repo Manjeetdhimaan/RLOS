@@ -1,0 +1,10 @@
+{
+  "loanSubType": "Unsecured Line of Credit",
+  "loanAmount": "20000",
+  "interestRate": "5.24",
+  "monthlyPayment": "1361.44",
+  "loanTerms": "24",
+  "isAutoDebit": false,
+  "isInsuranceRequired": true,
+  "isESignAllowed": false
+}

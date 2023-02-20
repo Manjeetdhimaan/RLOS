@@ -1,0 +1,31 @@
+<div id="add-coapplicant-dialog-container" modal-focus aria-modal="true" role="dialog" aria-labelledby="docUploadModal" class="add-coapplicant-container">
+    <div class="dialog-title-container">
+        <h3 mat-dialog-title class="dialog-title proxima-modal-heading" tabindex="0">Add Co-Applicant</h3>
+        <i class="material-icons close-icon" (click)="onNoClick()" tabindex="0">close</i>
+
+    </div>
+
+    <div>
+        <div mat-dialog-content>
+            <div class="document-panel">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12 margin-b">
+                        <span *ngIf="data.addAnother" tabindex="0">
+                            Do you want to add Another Co-Applicant?</span>
+                        <span *ngIf="!data.addAnother" tabindex="0">
+                            Do you want to add Co-Applicant?</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div mat-dialog-actions class="modal-btns">
+                    <button mat-raised-button  class="margin-r" (click)="confirmOrNot('Y')">Yes</button>
+                    <button mat-raised-button  class="margin-r" (click)="confirmOrNot('N')">No</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

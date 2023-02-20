@@ -1,0 +1,29 @@
+.personal-details-container {
+  .tab-content-container {
+    // border: 2px solid #ddd !important;
+    padding: 5px;
+  }
+  #back-link-container {
+    float: left;
+    .back-link-text {
+      padding-left: 2px;
+    }
+  }
+  #prev-btn {
+    float: left;
+  }
+  #next-btn {
+    float: right;
+  }
+  
+  #buttons-container {
+    float: right;
+  }  
+
+  // margin-bottom: 100px;
+
+  
+  mat-label {
+    font-family:   'open-sans_regular' !important;
+  }
+}

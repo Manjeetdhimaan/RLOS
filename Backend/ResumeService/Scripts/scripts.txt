@@ -1,0 +1,245 @@
+USE [cwbdevcab]
+GO
+/****** Object:  Table [dbo].[NG_AO_EmailTemplate_M]    Script Date: 31-08-2020 12:27:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[NG_AO_EmailTemplate_M](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[TemplateName] [nvarchar](200) NULL,
+	[Subject] [nvarchar](200) NULL,
+	[MailFrom] [nvarchar](200) NULL,
+	[MessageText] [nvarchar](max) NULL,
+	[CODE] [varchar](50) NULL,
+	[IS_ACTIVE] [tinyint] NULL,
+	[mailCC] [nvarchar](512) NULL,
+	[mailBCC] [nvarchar](512) NULL,
+	[mailTO] [nvarchar](512) NULL,
+ CONSTRAINT [PK_NG_AO_EmailTemplate_M] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+INSERT INTO [dbo].[NG_AO_EmailTemplate_M]
+           ([TemplateName]
+           ,[Subject]
+           ,[MailFrom]
+           ,[MessageText]
+           ,[CODE]
+           ,[IS_ACTIVE])
+     VALUES
+           ('Resume Application','OTP Authentication','no-reply@newgen.co.in','<p>  <span style="font-family: calibri, sans-serif; font-size: 10pt;">Dear Applicant,<br />  <br />  Below is the 6 digit OTP for validating your application ID. Please fill this OTP on the application to proceed further.</p>  <span style="font-size: 10pt; font-family: calibri, sans-serif;"><&OTP>  </span><br><br><span style="font-size: 10pt; font-family: calibri, sans-serif;">Best Regards,<br>Commonwealth Team.</span>','',1)
+GO
+
+
+
+
+USE [cwbdevcab]
+GO
+
+/****** Object:  Table [dbo].[NG_Resume_OTPDetails]    Script Date: 02-09-2020 00:02:36 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[NG_Resume_OTPDetails](
+	[InsertionOrderId] [bigint] IDENTITY(1,1) NOT NULL,
+	[ARN] [nvarchar](100) NOT NULL,
+	[createdOn] [datetime] NULL,
+	[Flag] [nvarchar](100) NULL,
+	[otp] [nvarchar](8) NULL
+) ON [PRIMARY]
+GO
+
+
+
+USE [cwbdevcab]
+GO
+
+/****** Object:  StoredProcedure [dbo].[NG_RESUME_FetchOTPDetail]    Script Date: 02-09-2020 00:05:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+CREATE PROCEDURE [dbo].[NG_RESUME_FetchOTPDetail](@arn nvarchar (20) )
+AS    
+    
+BEGIN
+select * from NG_Resume_OTPDetails
+where ARN = @arn
+
+END
+GO
+
+
+
+
+USE [cwbdevcab]
+GO
+
+/****** Object:  StoredProcedure [dbo].[NG_RESUME_SearchCustomer]    Script Date: 02-09-2020 00:06:19 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+
+
+
+CREATE PROCEDURE [dbo].[NG_RESUME_SearchCustomer]( 
+	@ARN 		NVARCHAR(50),
+	@FirstName  NVARCHAR(30),
+    @LastName   NVARCHAR(63),
+    @Email      NVARCHAR(50),
+    @DateOfBirth DateTime 
+) 
+AS 
+   	BEGIN
+ 		DECLARE @Found 	BIT
+        SET @Found  = 0;		
+		IF (@ARN like '%AO%')
+		    BEGIN
+		    PRINT 'AO'; 
+		    IF EXISTS(SELECT * FROM NG_AO_IndividualApp_GRID WHERE Workitem_Name = @ARN AND 
+			FirstName = @FirstName AND LastName = @LastName AND EmailId = @Email 
+			AND DateofBirth = @DateOfBirth)
+				       BEGIN 
+					      SET @Found=1;
+					   END
+			END	 	
+			ELSE IF(@ARN like '%RLOS%')
+			     BEGIN
+				 PRINT 'RLOS';
+                 IF EXISTS(SELECT * FROM NG_RLOS_ApplicantInformation_Grid WHERE WIName = @ARN 
+				 AND FirstName = @FirstName AND LastName = @LastName AND EmailAddress = @Email 
+				 AND DOB = @DateOfBirth)
+				        BEGIN 
+						  SET @Found=1  
+						END
+                 END
+ 	SELECT @Found AS 'Found'  
+  END
+GO
+
+
+
+
+
+
+USE [cwbdevcab]
+GO
+
+/****** Object:  StoredProcedure [dbo].[NG_RESUME_AuthenticationEmail]    Script Date: 02-09-2020 13:14:47 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+ALTER PROCEDURE [dbo].[NG_RESUME_AuthenticationEmail]
+@OTP nvarchar(8),
+@ARN nvarchar(20)
+ 
+
+AS
+DECLARE @mailFrom NVARCHAR(255);
+DECLARE @mailTo NVARCHAR(255);
+DECLARE @mailCC NVARCHAR(255);
+DECLARE @mailBCC NVARCHAR(255);
+DECLARE @mailSubject NVARCHAR(255);
+DECLARE @mailContent NVARCHAR(MAX);
+DECLARE @TemplateName NVARCHAR(200);
+DECLARE @Email NVARCHAR(255);
+
+BEGIN
+
+IF (@ARN like '%AO%')
+		    BEGIN
+			SELECT @mailContent=MessageText,@mailSubject=Subject,@mailFrom=MailFrom ,@TemplateName=TemplateName FROM [NG_AO_EmailTemplate_M] WITH (NOLOCK) WHERE TemplateName='Resume Application';
+			IF EXISTS (SELECT * FROM NG_AO_IndividualApp_GRID)
+				BEGIN
+				SELECT @Email = EmailId FROM NG_AO_IndividualApp_GRID WITH (NOLOCK) WHERE Workitem_Name = @ARN AND ApplicantType = 'Primary Applicant';
+				END	
+			END
+ELSE IF(@ARN like '%RLOS%')
+			 BEGIN
+			 SELECT @mailContent=MessageText,@mailSubject=Subject,@mailFrom=MailFrom ,@TemplateName=TemplateName FROM [NG_RLOS_EmailTemplate_M] WITH (NOLOCK) WHERE TemplateName='Resume Application';
+             IF EXISTS (SELECT * FROM NG_RLOS_APPLICANTINFO_GRID)
+						BEGIN 
+						select @Email= EmailAddress from NG_RLOS_ApplicantInformation_Grid WITH (NOLOCK) WHERE WIName = @ARN AND ApplicantLoanRelationship = 'Primary Applicant';
+						END			 
+			 END
+
+SET @mailContent=Replace(@mailContent,'<&OTP>',isnull(@otp,''));
+
+SET @mailTo = @Email;
+INSERT INTO WFMAILQUEUETABLE(mailFrom,mailTo,mailCC,mailBCC,mailSubject,mailMessage,mailContentType,attachmentISINDEX,attachmentNames,AttachmentExts,mailPriority,mailStatus,NOOFTRIALS,INSERTEDBY,INSERTEDTIME,PROCESSDEFID,PROCESSINSTANCEID)
+VALUES(@mailFrom,@mailTo,@mailCC,@mailBCC,@mailSubject,@mailContent,'text/html;charset=UTF-8','','','',1,'N',0,'',CONVERT(DATETIME2(0),SYSDATETIME()),'','')
+
+END
+GO
+
+
+
+
+
+USE [cwbdevcab]
+GO
+
+/****** Object:  StoredProcedure [dbo].[NG_RESUME_SaveOTPDetails]    Script Date: 02-09-2020 00:08:06 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+CREATE PROCEDURE [dbo].[NG_RESUME_SaveOTPDetails] (
+@ARN as nvarchar(100),
+@CreatedOn as DATETIME2,   
+@Flag as varchar(100),
+@Otp as nvarchar(8))
+
+AS    
+    
+BEGIN
+	 IF @Flag = 'GENERATED'
+		BEGIN
+			IF EXISTS(SELECT otp FROM NG_Resume_OTPDetails WHERE ARN = @ARN)
+				begin
+				update NG_Resume_OTPDetails
+				set otp = @Otp,createdOn = @CreatedOn,Flag = @Flag
+				where ARN=@ARN
+				end
+			ELSE
+				BEGIN
+				insert into NG_Resume_OTPDetails values (@ARN ,@CreatedOn ,@Flag, @Otp)  
+				END 
+		END
+	ELSE
+		BEGIN
+		update NG_Resume_OTPDetails
+		set flag = 'VERIFIED'
+		where ARN = @ARN
+		END
+END   
+GO
+
+

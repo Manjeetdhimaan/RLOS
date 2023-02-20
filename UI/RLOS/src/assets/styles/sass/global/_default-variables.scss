@@ -1,0 +1,138 @@
+//=============================================================================
+//  Application Level Variables
+//=============================================================================
+
+/* ===========================  Colour Palette ================================ */
+
+$primary-red: #DB0011;
+$primary-red-white: #E54D58;
+$primary-red-black: #AF000D;
+$dark-red: #83000A;
+$dark-red-white: #8F1A22;
+$dark-red-black: #6F0008;
+$white: #FFFFFF;
+$white-dark: #D9D9D9;
+$pearl: #EDEDED;
+$silver: #D7D8D6;
+$silver-black: #B6B7B6;
+$pewter: #929292;
+$graphite: #404040;
+$graphite-white: #5C5C5C;
+$graphite-black: #333333;
+$black: #000000;
+$light-slate: #4D6474;
+$light-slate-white: #677B88;
+$light-slate-black: #415562;
+$grey:#393B3E;
+$slate: #3E505D;
+$slate-white: #5A6A75;
+$slate-black: #31404A;
+$dark-slate: #253038;
+$dark-slate-white: #454E55;
+$dark-slate-black: #1D262C;
+$jade: #008580;
+$jade-white: #269792;
+$jade-black: #00716C;
+$dark-jade: #005E59;
+$dark-jade-white: #267571;
+$dark-jade-black: #004F4B;
+$gold: #E9A115;
+$gold-white: #EDB343;
+$gold-black: #D19012;
+$antique-gold: #BA8111;
+$antique-gold-white: #BD871D;
+$antique-gold-black: #9E6D0E;
+$violet: #4E3A7C;
+$violet-white: #716196;
+$violet-black: #423169;
+$premier-indigo: #262362;
+$premier-indigo-white: #464379;
+$premier-indigo-black: #1C1A49;
+$sapphire: #376798;
+$sapphire-white: #547DA7;
+$sapphire-black: #305A85;
+$dark-sapphire: #003466;
+$dark-sapphire-white: #1A4875;
+$dark-sapphire-black: #002951;
+$emerald: #3B7522;
+$emerald-white: #588942;
+$emerald-black: #305F1B;
+$dark-emerald: #1B3E02;
+$dark-emerald-white: #32511B;
+$dark-emerald-black: #142E01;
+$aquamarine: #1087EF;
+$aquamarine-white: #3B9CF1;
+$aquamarine-black: #0D75D0;
+$dark-aquamarine: #0C62AE;
+$dark-aquamarine-white: #186AB2;
+$dark-aquamarine-black: #0A5394;
+$light-grey:#E8E8E8;
+$dark-grey:#d3d3d3;
+$error-background: #F9F2F3;
+
+/* ===========================  Colour Palette ================================ */
+
+
+/* ===========================  Typography ================================ */
+
+$headlines-color: $graphite-black;
+$theme-font: 'open-sans_regular Next for CB';
+$theme-line-spacing-headlines: 120%;
+$theme-line-spacing-sub-headlines: 120%;
+$theme-line-spacing-small-headlines: 130%;
+$theme-line-spacing-non-headlines: 150%;
+$theme-line-spacing-paragraph: 150%;
+
+/* ===========================  Typography ================================= */
+
+
+/* =============================== Footer ================================== */
+
+$footer-background-color: $black;
+$footer-text-color: $white;
+$footer-font-size: em(12px);
+
+/* ================================ Footer ====================================== */
+
+
+/* ================================ Alert ====================================== */
+
+$alert-success-bg: #E9F4F4;
+$alert-warning-border: $gold;
+$alert-info-text: $graphite-black;
+
+/* ================================ Alert ====================================== */
+
+
+/* =========================== Screen-Breakpoints ================================ */
+
+$mobile-min-width: 0px; //xs
+$tablet-min-width: 480px; //sm
+$sm-desktop-min-width: 960px; //md
+$desktop-min-width: 1260px; //lg
+$lg-desktop-min-width: 3000px; //xl
+
+/* =========================== Screen-Breakpoints ================================ */
+
+
+/* =========================== Custom-Screen-Breakpoints ================================ */
+
+$review-mobile-width: 0px;
+$review-tablet-width: 768px;
+$review-desktop-width: 1024px;
+$review-large-desktop-width: 1260px;
+$review-large-desktop-max-width: 3000px;
+
+/* =========================== Custom-Screen-Breakpoints ================================ */
+
+$body-font-size: 15px;
+$h1-font-size: 34px;
+$h2-font-size: 28px;
+$h3-font-size: 22px;
+$h4-font-size: 18px;
+$h5-font-size: 14px;
+$h1-font-color:$graphite;
+$h2-font-color:$graphite;
+$h3-font-color:$graphite;
+$h4-font-color:$graphite;
+$h5-font-color:$graphite;

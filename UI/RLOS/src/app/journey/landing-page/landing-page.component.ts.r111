@@ -1,0 +1,596 @@
+import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
+import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
+import { FormBuilder, FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
+import { MatTabChangeEvent, MatTabGroup, MatTabHeader, MatTab, MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material';
+
+import { AuthService } from '../../auth/auth.service';
+import { JourneyService } from '../_root/journey.service';
+import { LandingPageService } from './landing-page.component.service';
+import { ApplicationExistDialog, ExperianDialog } from '../../auth/common/overlays';
+import { PersistanceService } from '../../../app/core/services/persistence.service';
+import { ValidationUtilsService } from '../../../app/core/services';
+import { UppercaseInputDirective } from 'src/app/shared/directives/uppercase-input.directive';
+// import {IMyOptions, IMyInputFieldChanged} from '../../src/my-date-picker/interfaces';
+// import { ApplicationExistDialog } from '../common/overlays/application-exist/application-exist.component';
+import { DOMHelperService } from '../../shared';
+import { environment } from 'environments/environment';
+
+import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
+import { AppDateAdapter, APP_DATE_FORMATS } from 'src/app/shared/directives/format-datepicker';
+import { OtpValidateComponent } from '../common/overlays/otp-validate/otp-validate.component';
+
+
+@Component({
+  selector: 'app-landing-page',
+  templateUrl: './landing-page.component.html',
+  styleUrls: ['./landing-page.component.scss'],
+  providers: [
+    { provide: DateAdapter, useClass: AppDateAdapter },
+    { provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS }
+  ]
+})
+export class LandingPageComponent implements OnInit {
+  personalForm: FormGroup;
+  formControls;
+  public submitted: boolean;
+  LoanType: string = 'personal loan';
+  alert: {};
+  invalidDateMessage;
+  // maxDateDob;
+  // minDateDob;
+  // minDateSSN;
+  // maxDateSSN;
+  showAlert;
+  startDate;
+  refNumber;
+  validation;
+  branchList;
+  basicDetailValues;
+  // maxLengthSSN;
+  showCoApplicantRequiredMsg;
+  showInvalidExpDate;
+  showInvalidIssueDate;
+  prodType: string;
+  // ssn;
+  // encryptedSSN;
+  // showssn;
+  showEvent;
+  applicantDTO;
+  isReadOnly;
+  haveId;
+  dialogRef;
+  // stateList;
+  allDupedDates;
+  myFilter;
+  //   private myDatePickerOptions: IMyOptions = {
+  //     dateFormat: 'd.m.yyyy',
+  //     height: '34px',
+  //     width: '210px',
+  //     inline: false
+  // };
+  public mask = {
+    guide: true,
+    showMask: false,
+    mask: [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/]
+  };
+  constructor(private JourneyService: JourneyService, private authService: AuthService, private validationUtilService: ValidationUtilsService, private _elementRef: ElementRef, private landingPageService: LandingPageService, private _route: Router, private formBuilder: FormBuilder,
+    private activatedRoute: ActivatedRoute, public dialog: MatDialog, private translate: TranslateService, private _dom: DOMHelperService,
+    private persistanceService: PersistanceService) {
+    // this.maxDateDob = new Date();
+    // this.maxDateDob.setFullYear(this.maxDateDob.getFullYear() - 18);
+    // this.minDateDob = new Date();
+    // this.minDateDob.setFullYear(this.minDateDob.getFullYear() - 100);
+    // this.minDateSSN = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+    // this.maxDateSSN = new Date();
+    // this.maxDateSSN.setFullYear(this.maxDateSSN.getFullYear() + 100);
+    this.showAlert = false;
+    this.allDupedDates = [
+      new Date('2019-04-30T00:00:00+02:30'),
+      new Date('2019-04-28T00:00:00+05:30'),
+      new Date('2019-05-21T00:00:00+05:30'),
+      new Date('2019-05-23T00:00:00+05:30')
+    ]
+    this.myFilter = (d: Date): boolean => {
+      const day = d.getDay();
+      const blockedDates = this.allDupedDates.map(d => d.valueOf());
+      return (!blockedDates.includes(d.valueOf())) && day !== 6;
+    }
+    // try {
+    //   let lookup = require('src/assets/resources/mocks/mdm.json');
+    //   this.persistanceService.setLookupStorage(lookup);
+    // }
+    // catch (exception) {
+    //   console.log(exception.message)
+    // }
+  }
+
+
+
+  ngOnInit() {
+
+    try {
+      window.scroll(0, 0);
+      let self = this;
+      self.createForm();
+      this.initStaticData();
+      let productType = this.authService.getFromStorage().loanDetails;
+      let product = productType.product;
+      this.prodType = product;
+      if (environment.isMockingEnabled) {
+        // let lookup = require('assets/resources/mocks/mdm.json');       
+        // return lookup;
+        
+      } else {
+        if (this._dom.isEmpty(self.authService.getLookupFromStorage()) && !this.checkArnAvailable()) {
+          self.authService.getLookupData('RLOS')
+            .subscribe(response => {
+              if (response && response.success && response.data) {
+                self.authService.setLookupInStorage(response.data);
+              }
+            }, errorObject => {
+              var alertObj = {
+                type: "error",
+                fieldErrors: (errorObject && errorObject.error.errorMessageList && errorObject.error.errorMessageList.length > 0) ? errorObject.error.errorMessageList : null,
+                message: (errorObject && !errorObject.error.errorMessageList) ? 'Some error occured, please contact support' : null,
+                showAlert: true,
+                stackTrace: {}
+              }
+              self.showAlert = true;
+              window.scroll(0, 0);
+              self.alert = alertObj;
+            });
+        }
+        else if (!this._dom.isEmpty(self.authService.getLookupFromStorage()) && this.checkArnAvailable()) {
+          this._route.navigate(['journey/applicant']);
+        }
+      }
+    }
+    catch (exception) {
+      console.log(exception.message)
+    }
+
+  }
+
+  createForm() {
+    try {
+      this.showEvent = false;
+      this.basicDetailValues = this.landingPageService.getApplicantValidationValues();
+      this.personalForm = this.formBuilder.group({
+        'id': null,
+        'branch': [null, Validators.compose([Validators.required])],
+        'isMeetingRequirements': [null, Validators.compose(this.validationUtilService.composeValidators(this.basicDetailValues.isMeetingRequirements))],
+        'firstName': [null, Validators.compose(this.validationUtilService.composeValidators(this.basicDetailValues.firstName))],
+        'lastName': [null, Validators.compose(this.validationUtilService.composeValidators(this.basicDetailValues.lastName))],
+        'email': [null, Validators.compose(this.validationUtilService.composeValidators(this.basicDetailValues.email))],
+        'confirmEmail': [null, Validators.compose(this.validationUtilService.composeValidators(this.basicDetailValues.confirmEmail))],
+        'type': [null],
+        'primaryPhoneNumber': [null, Validators.compose(this.validationUtilService.composeValidators(this.basicDetailValues.primaryPhoneNumber))]
+      })
+      this.formControls = this.personalForm.controls;
+      this.validationUtilService.blockInvalidInput(this.personalForm, this.basicDetailValues);
+    }
+    catch (exception) {
+      console.log(exception.message)
+    }
+  };
+
+  openAppExistDialog() {
+    const dialogRefAppExist = this.dialog.open(ApplicationExistDialog, {
+      width: '500px'
+    })
+    try {
+      dialogRefAppExist.afterClosed().subscribe(result => {
+        if (result === "Resume") {
+          // this.persistanceService.setConfig({ state: { context: "JOURNEY" } })
+          this._route.navigate(['auth/resume']);
+        }
+        else if (result === "Reset") {
+          this.setFieldsValidity(this.personalForm, false);
+          this.resetForm();
+        }
+      });
+    }
+    catch (exception) {
+      console.log(exception.message)
+    }
+  };
+
+  getValidationErrors(errors) {
+    try {
+      let errorsList = [];
+      errors.forEach(element => {
+        let field = element.field.replace(/[`~!@#$%^&*()_|+\-=?0-9;:'",<>\{\}\[\]\\\/]/gi, '').replace('applicants', 'applicant');
+        let validationName = element.message.replace(/[ ]/gi, '');
+        validationName = validationName.split('|');
+        let path = "application." + field + ".validation." + validationName[0];
+        this.translate.get(path, { value: validationName[1] }).subscribe((text: string) => {
+          errorsList.push(text);
+        });
+      });
+      return errorsList;
+    }
+    catch (exception) {
+      console.log(exception.message)
+    }
+  }
+
+  initStaticData() {
+    try {
+      this.branchList = this.JourneyService.getBranchList();
+    }
+    catch (exception) {
+      console.log(exception.message)
+    }
+  }
+
+  getValidationErrorsForApplicant(errors, applicantDTO) {
+    let errorsList = [];
+    try {
+      errors.forEach(element => {
+        let index = element.field.match(/\d+/g).map(Number)[0];
+        let field = element.field.replace(/[`~!@#$%^&*()_|+\-=?0-9;:'",<>\{\}\[\]\\\/]/gi, '');
+        if (field.indexOf("emp") > -1) {
+          let fieldArr = field.split('.');
+          field = "empDetails." + applicantDTO.employmentDetails[index].employmentType + "." + fieldArr[1];
+        }
+        if (field.indexOf("addressDetails") > -1) {
+          let fieldArr = field.split('.');
+          field = "addressDetails.address." + fieldArr[1];
+        }
+        if (field.indexOf("incomeDetails") > -1) {
+          let fieldArr = field.split('.');
+          field = "incomeDetails." + fieldArr[1];
+        }
+        if (field.indexOf("assetDetails") > -1) {
+          let fieldArr = field.split('.');
+          field = "assetDetails." + fieldArr[1];
+        }
+        let validationName = element.message.replace(/[ ]/gi, '');
+        validationName = validationName.split('|');
+        let path = "application.applicant." + field + ".validation." + validationName[0];
+        this.translate.get(path, { value: validationName[1] }).subscribe((text: string) => {
+          errorsList.push(text);
+        });
+      });
+      return errorsList;
+    }
+    catch (exception) {
+      console.log(exception.message)
+    }
+  }
+
+  toString(object) {
+    if (object) {
+      return object.toString() + ';';
+    } else {
+      return "";
+    }
+  }
+
+  setFieldsValidity(formGroup, value) {
+    Object.keys(formGroup.controls).forEach((key: string) => {
+      const abstractControl = formGroup.controls[key];
+      if (abstractControl instanceof FormGroup || abstractControl instanceof FormArray) {
+        this.setFieldsValidity(abstractControl, value);
+      } else {
+        abstractControl.touched = value;
+      }
+    });
+  }
+
+  continue() {
+    try {
+      if (this.personalForm.valid && !this.showCoApplicantRequiredMsg) {
+        try {
+          if (environment.isMockingEnabled) {
+            this.saveData({
+              data: { basicDetails: this.personalForm.value }
+            });
+          }
+
+          // create application call
+          else {
+            let appData = this.persistanceService.getFromJourneyStorage();
+
+            var info = {
+              applicants: [{ type: 'PRIMARY' }],
+              branchCode: this.personalForm.get('branch').value,
+              branchName: this.personalForm.get('branch').value ? this.persistanceService.getLabelFromCode(this.branchList, this.personalForm.get('branch').value) : null
+
+            };
+
+            if (appData.applicants) {
+              appData.applicants[0] = { ...appData.applicants[0] };
+            }
+            else {
+              appData = { ...appData, ...info };
+            }
+
+            this.persistanceService.setInStorage('APP', appData);
+            if (!appData) {
+              appData = {
+                applicants: [{ type: 'PRIMARY' }],
+                preferences: null
+              }
+            }
+
+            this.applicantDTO = this.landingPageService.modelToDTO({ basicDetails: this.personalForm.value }, appData.applicants[0]);
+
+            let preferenceData = "LANDING_PAGE";
+
+
+            let applicationDTO = Object.assign({}, appData);
+            applicationDTO.preferences = {
+              lastVisitedPage: "LANDING_PAGE"
+            }
+
+            this.persistanceService.ValidateApplication({
+              application: applicationDTO,
+              contextObj: preferenceData
+            }).subscribe(
+              response => {
+                if (response && response.success && response.data && response.data.exist === false && (response.data.arn === "" || response.data.arn === null)) {
+                  this.openOtpDialog(applicationDTO);
+                }
+                else if (response && response.success && response.data && (response.data.arn !== "" || response.data.arn !== null) && response.data.exist === true) {
+                  var alertObj = {
+                    type: 'error',
+                    message: `Application number (${response.data.arn}) with same product is already in progress. You can apply for the same product post the closure of current application.`,
+                    showAlert: true,
+                    stackTrace: {}
+                  }
+                  this.showAlert = true;
+                  window.scroll(0, 0);
+                  this.alert = alertObj;
+                }
+              }, errorObject => {
+                var alertObj = {
+                  type: "error",
+                  fieldErrors: (errorObject && errorObject.error.errorMessageList && errorObject.error.errorMessageList.length > 0) ? errorObject.error.errorMessageList : null,
+                  message: (errorObject && !errorObject.error.errorMessageList) ? 'Some error occured, please contact support' : null,
+                  showAlert: true,
+                  stackTrace: {}
+                }
+                this.showAlert = true;
+                window.scroll(0, 0);
+                this.alert = alertObj;
+              });
+
+          }
+        }
+        catch (exception) {
+          console.log(exception.message)
+        }
+
+      }
+      else {
+        this.submitted = true;
+        this.validationUtilService.markFormGroupTouched(this.personalForm);
+        this._dom.moveToInvalidField(this._elementRef);
+      }
+    }
+    catch (exception) {
+      console.log(exception.message)
+    }
+  }
+
+  saveData(tabData) {
+    try {
+      let appData = this.persistanceService.getFromJourneyStorage();
+
+      var info = {
+        applicants: [{ type: 'PRIMARY' }],
+        branchCode: tabData.data.basicDetails.branch
+      };
+
+      if (appData.applicants) {
+        appData.applicants[0] = { ...appData.applicants[0] };
+      }
+      else {
+        appData = { ...appData, ...info };
+      }
+      appData = {...appData, ...{otp: tabData.otp}}
+      this.persistanceService.setInStorage('APP', appData);
+      if (!appData) {
+        appData = {
+          applicants: [{ type: 'PRIMARY' }],
+          preferences: null
+        }
+      }
+
+      this.applicantDTO = this.landingPageService.modelToDTO(tabData.data, appData.applicants[0]);
+
+      let preferenceData = "LANDING_PAGE";
+
+      let applicationDTO = Object.assign({}, appData);
+      applicationDTO.preferences = {
+        lastVisitedPage: "LANDING_PAGE"
+      }
+      if (environment.isMockingEnabled) {
+        this.persistanceService.setARNInStorage("qwerty");
+        let arn = this.persistanceService.getARNFromJourneyStorage();
+        applicationDTO = Object.assign({ arn }, applicationDTO);
+        this.persistanceService.setInStorage("APP", applicationDTO);
+        window.scroll(0, 0);
+        this.alert = {};
+        this._route.navigate(['journey/applicant']);
+
+      }
+      else {
+        let contextValue = {
+          "context": "INITIAL"
+        }
+        this.persistanceService.saveData({
+          appData: applicationDTO,
+          context: preferenceData,
+          saveFlag: false
+        }).subscribe(
+          response => {
+            if (response && response.success && response.data && response.data.arn) {
+              this.persistanceService.setInStorage("APP", response.data);
+              this.persistanceService.setARNInStorage(response.data.arn);
+              this.setMessage(response.data.arn); // to show arn on header
+              this.persistanceService.savePreference({
+                arn: response.data.arn,
+                context: preferenceData,
+                saveFlag: false
+              }).subscribe((response) => {
+                if (response) {
+                  this.alert = {};
+                  this._route.navigate(['journey/applicant']);
+                }
+              })
+            }
+          }, errorObject => {
+            var alertObj = {};
+            if (errorObject.error.exceptionCode === 1001) {
+              alertObj = {
+                type: "error",
+                fieldErrors: (errorObject && errorObject.error.errorMessageList && errorObject.error.errorMessageList.length > 0) ? errorObject.error.errorMessageList : null,
+                message: (errorObject && !errorObject.error.errorMessageList) ? 'Some error occured, please contact support' : null,
+                showAlert: true,
+                stackTrace: {}
+              }
+            }
+            else if (errorObject.error.exceptionCode === 1007) {
+              setTimeout(() => {
+                this.openAppExistDialog();
+              }, 500);
+            }
+            else {
+              alertObj = {
+                type: "error",
+                fieldErrors: (errorObject && errorObject.error.errorMessageList && errorObject.error.errorMessageList.length > 0) ? errorObject.error.errorMessageList : null,
+                message: (errorObject && !errorObject.error.errorMessageList) ? 'Some error occured, please contact support' : null,
+                showAlert: true,
+                stackTrace: {}
+              }
+            }
+            this.alert = {};
+            this.showAlert = true;
+            window.scroll(0, 0);
+            this.alert = alertObj;
+          });
+      }
+    }
+    catch (exception) {
+      console.log(exception.message)
+    }
+  };
+
+  closeError() {
+    this.alert = {};
+    this.showAlert = false;
+  }
+
+  setMessage(value: string): void {
+    this.persistanceService.setStorageItem({
+      key: "JMMB.ARN",
+      value,
+      storageArea: "sessionStorage"
+    });
+  }
+
+  // enableInputBox() {
+  //   this.showEvent = false;
+  //   // this.showssn = true;
+  //   setTimeout(() => {
+  //     let element: HTMLElement = document.getElementById('ssn') as HTMLElement;
+  //     element.click();
+  //   });
+  // }
+
+  ngAfterViewInit() {
+    window.scroll(0, 0);
+  }
+
+  onSearchChange(limit) {
+    // if (limit) {
+    //   let count = event.split("-").length - 1;
+    //   if (event.length === 9 && count === 0) {
+    //     event = event.slice(0, 3) + "-" + event.slice(3, 5) + "-" + event.slice(5, 9);
+    //   }
+    //   else if (event.length !== 11) {
+    //     event = event.replace(/-/g, "")
+    //   }
+    //   limit--;
+    //   this.personalForm.get('ssn').patchValue(event, { emitEvent: false });
+    // }
+
+    if (!limit) {
+      return;
+    }
+    this.onSearchChange(--limit);
+  }
+
+  formatDate(value) {
+    return (value < 10 ? '0' + value : value);
+  };
+
+  checkEmail() {
+    let email = this.personalForm.get('email').value;
+    let confirmEmail = this.personalForm.get('confirmEmail').value;
+    if (email && confirmEmail) {
+      if ((email.toLowerCase() !== confirmEmail.toLowerCase())) {
+        this.personalForm.get('confirmEmail').setErrors({ notUnique: true });
+      } else {
+        if (this.personalForm.get('confirmEmail').errors)
+          this.personalForm.get('confirmEmail').setErrors(null);
+      }
+    }
+  }
+
+  checkArnAvailable() {
+    let appData = this.persistanceService.getFromStorage("APP");
+    if (appData && appData.arn) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // isAlreadyExist(appData) {
+  //   if (appData && !appData.applicants[0].isAlreadyExist) {
+  //     if (appData.applicants[0].addressDetails && appData.applicants[0].addressDetails.addresses[0].state !== "TX")
+  //       return false;
+  //   }
+  //   return true;
+  // }
+
+  resetForm() {
+    this.personalForm.reset();
+    // this.encryptedSSN = null;
+    this.showEvent = false;
+    // this.showssn = true;
+    // this.ssn = null;
+    this.showCoApplicantRequiredMsg = false;
+    this.showInvalidExpDate = false;
+    this.showInvalidIssueDate = false;
+    this.submitted = true;
+    this.showAlert = false;
+  }
+
+  openOtpDialog(applicationDto) {
+    try {
+      let that = this;
+      const dialogRef = that.dialog.open(OtpValidateComponent, {
+        width: '60vw',
+        disableClose: true,
+        data: { verificationData: applicationDto },
+        autoFocus: false
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        if (result.value === 'valid') {
+          this.saveData({
+            data: { basicDetails: this.personalForm.value },
+            otp: result.otp
+          });
+        }
+      });
+    } catch (exception) {
+      console.log(exception.message)
+    }
+  }
+}

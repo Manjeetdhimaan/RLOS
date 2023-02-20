@@ -1,0 +1,32 @@
+<div id="upload-container">
+    <div class="document-column">
+        <!-- <img tabindex="0" src="{{imageData.data}}" class="image-preview" id="front-image" *ngIf="imageData.data"> -->
+        <div class="col-md-9 col-sm-9 col-xs-6 upload-image-container">
+            <!-- <div class="noDocumentClass" *ngIf="!imageData.data && order">
+                <div class="label-font" *ngIf="order">Document {{order}}</div>
+            </div> -->
+            <div class="noDocumentClass">
+                <i class="material-icons  iconPosition">done</i>
+                <span class="bold" style="margin-left:5px;">Document uploaded</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="remove-padding-lr capture-buttons">
+        <div class="pull-left recapture" role="button">
+            <input type="file" id="front-image" #file1 style="display: none" (change)="onFilesAdded($event)" />
+            <button mat-raised-button class="add-files-btn" (click)="addFiles(file1)">
+                Re-capture
+            </button>
+        </div>
+
+        <!-- <div class="pull-right" role="button" *ngIf="imageData.data" tabindex="0">
+            <i class="icon icon-bin" *ngIf="imageData.data"></i>
+            <button mat-raised-button class="add-files-btn" (click)="deleteFile('frontImage')">
+                Remove
+            </button>
+        </div> -->
+
+        <!--</div>-->
+    </div>
+</div>

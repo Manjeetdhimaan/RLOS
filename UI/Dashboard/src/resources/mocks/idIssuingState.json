@@ -1,0 +1,14 @@
+[
+    {
+      "code": "STOCKS_BONDS",
+      "label": "Stocks and Bonds"
+    },
+    {
+      "code": "RETIREMENT_ACC",
+      "label": "Retirement Accounts"
+    },
+    {
+      "code": "CASH",
+      "label": "Cash (Checking, Savings)"
+    }
+  ]

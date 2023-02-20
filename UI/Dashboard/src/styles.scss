@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+           
+@import "./src/assets/styles/sass/theme/default/theme.scss";
+@import "./src/assets/styles/sass/theme/anbtx/_anbtx-global.scss";
+.full-width {
+    width: 100%;
+  }
+
+.navbar{
+    margin-bottom: 0px !important;
+}
+.btn-margin{
+    margin: 2px;
+}
+
+fieldset 
+{
+    border: 1px solid #ddd !important;
+    border-radius:4px;
+    padding-left:20px !important;
+}	
+
+legend
+{
+    font-size:16px;
+    font-weight:bold;
+    margin-bottom: 0px; 
+    width: 35%; 
+    border: 1px solid #ddd;
+    border-radius: 4px; 
+    padding: 5px 5px 5px 10px; 
+    background-color: #ffffff;
+}
+
+.mat-tooltip {
+    font-size: 14px !important;
+}
+
+html, body { height: 100%; }
+
+body {
+        margin: 0;
+        font-family: 'open-sans_regular';
+        overflow-x: hidden;
+}

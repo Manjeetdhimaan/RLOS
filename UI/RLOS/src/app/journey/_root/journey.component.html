@@ -1,0 +1,25 @@
+<!-- <div class="container">
+    <div class="row journey-header-container">
+        <div class="col-md-12 hidden-xs hidden-sm steps-header-large">
+            <ul>
+                <li *ngFor="let step of steps;index as i" title="Step {{ (i+1) + ' of ' + (steps.length) + ' ' +  step}}" [ngClass]="{'active' : i <= journeyservice.currentStep}">
+                    <span>{{i+1}}. </span>
+                    <span>{{step}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+</div> -->
+
+
+<div class="container">
+
+    <session-timer></session-timer>
+    <!--<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="large" color="#fff" type="ball-pulse"></ngx-spinner>-->
+    <journey-stepper #stepper></journey-stepper>
+    <div>
+        <router-outlet (setCurrentStep)="setCurrentStep($event)" (activate)="onActivate($event)"></router-outlet>
+    </div>
+    <!-- <app-journey-footer></app-journey-footer> -->
+</div>

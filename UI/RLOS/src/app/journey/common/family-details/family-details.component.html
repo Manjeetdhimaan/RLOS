@@ -1,0 +1,313 @@
+<div class="family-details-container " *ngIf="!isComponentReadOnly">
+    <div class="row">
+        <div class="col-12">
+            <form [formGroup]="family" autocomplete="off" class="container-body">
+                <div>
+                    <span class="bold"> {{ 'application.applicant.familyDetails.header' | translate }}</span>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                            <mat-label>
+                                <label for="fatherName">
+                                          {{ 'application.applicant.familyDetails.fatherName.label' | translate }}
+                                          
+                                        </label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="full-width">
+                                <input id="fatherName" aria-describedby="fatherNameErrorMsg" uppercase matInput formControlName="fatherName" aria-invalid="true" placeholder="Father's Name">
+                            </mat-form-field>
+                            <ng-container *ngFor="let validation of familyDetailValues.fatherName">
+                                <mat-error id="fatherNameErrorMsg" *ngIf="!family.get('fatherName').valid && (family.get('fatherName').touched || submitted) && family.get('fatherName').hasError(validation.type)">
+                                    {{'application.applicant.familyDetails.fatherName.validation' | translateValidation:validation}}</mat-error>
+                            </ng-container>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                            <mat-label>
+                                <label for="employerName">
+                                          {{ 'application.applicant.familyDetails.employerName.label' | translate }}
+                                            
+                                        </label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="full-width">
+                                <input id="employerName" aria-describedby="employerNameErrorMsg" matInput formControlName="employerName" placeholder="Employer Name" aria-invalid="true">
+                            </mat-form-field>
+                            <ng-container *ngFor="let validation of familyDetailValues.employerName">
+                                <mat-error id="employerNameErrorMsg" *ngIf="!family.get('employerName').valid && (family.get('employerName').touched || submitted) && family.get('employerName').hasError(validation.type)">
+                                    {{'application.applicant.familyDetails.employerName.validation' | translateValidation:validation}}</mat-error>
+                            </ng-container>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                            <mat-label>
+                                <label for="residentialAddress">
+                                    {{ 'application.applicant.familyDetails.residentialAddress.label' | translate }}
+                                </label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="full-width">
+                                <input id="residentialAddress" aria-describedby="residentialAddressErrorMsg" matInput formControlName="residentialAddress" placeholder="Residential Address">
+                            </mat-form-field>
+                            <ng-container *ngFor="let validation of familyDetailValues.residentialAddress">
+                                <mat-error id="residentialAddressErrorMsg" *ngIf="!family.get('residentialAddress').valid && (family.get('residentialAddress').touched || submitted) && family.get('residentialAddress').hasError(validation.type)">
+                                    {{'application.applicant.familyDetails.residentialAddress.validation' | translateValidation:validation}}</mat-error>
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                            <mat-label>
+                                <label for="telephoneNumber">
+                                    {{ 'application.applicant.familyDetails.telephoneNumber.label' | translate }}
+                                </label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="full-width" style="line-height: 20px;">
+                                <input aria-invalid="true" aria-describedby="telephoneNumberErrorMsg" id="telephoneNumber" aria-describedby="msg1" aria-labelledby="msg1" matInput mask="(000)-000-0000" formControlName="telephoneNumber" [readonly]="isReadOnly" placeholder="(xxx)-xxx-xxxx">
+                            </mat-form-field>
+                            <ng-container *ngFor="let validation of familyDetailValues.telephoneNumber">
+                                <mat-error id="telephoneNumberErrorMsg" *ngIf="!family.get('telephoneNumber').valid && (family.get('telephoneNumber').touched || submitted) && family.get('telephoneNumber').hasError(validation.type)">
+                                    {{'application.applicant.familyDetails.telephoneNumber.validation' | translateValidation:validation}}</mat-error>
+                            </ng-container>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                            <mat-label>
+                                <label for="mobilePhoneNumber">
+                                    {{ 'application.applicant.familyDetails.mobilePhoneNumber.label' | translate }}
+                                </label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="full-width" style="line-height: 20px;">
+                                <input aria-invalid="true" aria-describedby="mobilePhoneNumberErrorMsg" id="mobilePhoneNumber" matInput mask="(000)-000-0000" formControlName="mobilePhoneNumber" [readonly]="isReadOnly" placeholder="(xxx)-xxx-xxxx">
+                            </mat-form-field>
+                            <ng-container *ngFor="let validation of familyDetailValues.mobilePhoneNumber">
+                                <mat-error id="mobilePhoneNumberErrorMsg" *ngIf="!family.get('mobilePhoneNumber').valid && (family.get('mobilePhoneNumber').touched || submitted) && family.get('mobilePhoneNumber').hasError(validation.type)">
+                                    {{'application.applicant.familyDetails.mobilePhoneNumber.validation' | translateValidation:validation}}</mat-error>
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                            <mat-label>
+                                <label for="motherName">
+                                    {{ 'application.applicant.familyDetails.motherName.label' | translate }}
+                                </label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="full-width">
+                                <input id="motherName" aria-describedby="motherNameErrorMsg" matInput uppercase formControlName="motherName" placeholder="Mother's Name">
+                            </mat-form-field>
+                            <ng-container *ngFor="let validation of familyDetailValues.motherName">
+                                <mat-error id="motherNameErrorMsg" *ngIf="!family.get('motherName').valid && (family.get('motherName').touched || submitted) && family.get('motherName').hasError(validation.type)">
+                                    {{'application.applicant.familyDetails.motherName.validation' | translateValidation:validation}}</mat-error>
+                            </ng-container>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                            <mat-label>
+                                <label for="motherEmployerName">
+                                   {{ 'application.applicant.familyDetails.motherEmployerName.label' | translate }}
+                                </label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="full-width">
+                                <input id="motherEmployerName" aria-describedby="motherEmployerNameErrorMsg" matInput formControlName="motherEmployerName" placeholder="Employer Name">
+                            </mat-form-field>
+                            <ng-container *ngFor="let validation of familyDetailValues.motherEmployerName">
+                                <mat-error id="motherEmployerNameErrorMsg" *ngIf="!family.get('motherEmployerName').valid && (family.get('motherEmployerName').touched || submitted) && family.get('motherEmployerName').hasError(validation.type)">
+                                    {{'application.applicant.familyDetails.motherEmployerName.validation' | translateValidation:validation}}</mat-error>
+                            </ng-container>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                            <mat-label>
+                                <label for="motherResidentialAddress">
+                                    {{ 'application.applicant.familyDetails.motherResidentialAddress.label' | translate }}
+                                </label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="full-width">
+                                <input id="motherResidentialAddress" aria-describedby="motherResidentialAddressErrorMsg" matInput formControlName="motherResidentialAddress" placeholder="Residential Address">
+                            </mat-form-field>
+                            <ng-container *ngFor="let validation of familyDetailValues.motherResidentialAddress">
+                                <mat-error id="motherResidentialAddressErrorMsg" *ngIf="!family.get('motherResidentialAddress').valid && (family.get('motherResidentialAddress').touched || submitted) && family.get('motherResidentialAddress').hasError(validation.type)">
+                                    {{'application.applicant.familyDetails.motherResidentialAddress.validation' | translateValidation:validation}}</mat-error>
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                            <mat-label>
+                                <label for="motherTelephoneNumber">
+                                    {{ 'application.applicant.familyDetails.motherTelephoneNumber.label' | translate }}
+                                </label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="full-width" style="line-height: 20px;">
+                                <input aria-invalid="true" aria-describedby="motherTelephoneNumberErrorMsg" id="motherTelephoneNumber" matInput mask="(000)-000-0000" formControlName="motherTelephoneNumber" [readonly]="isReadOnly" placeholder="(xxx)-xxx-xxxx">
+                            </mat-form-field>
+                            <ng-container *ngFor="let validation of familyDetailValues.motherTelephoneNumber">
+                                <mat-error id="motherTelephoneNumberErrorMsg" *ngIf="!family.get('motherTelephoneNumber').valid && (family.get('motherTelephoneNumber').touched || submitted) && family.get('motherTelephoneNumber').hasError(validation.type)">
+                                    {{'application.applicant.familyDetails.motherTelephoneNumber.validation' | translateValidation:validation}}</mat-error>
+                            </ng-container>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                            <mat-label>
+                                <label for="motherMobilePhoneNumber">
+                                    {{ 'application.applicant.familyDetails.motherMobilePhoneNumber.label' | translate }}
+                                </label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="full-width" style="line-height: 20px;">
+                                <input aria-invalid="true" aria-describedby="motherMobilePhoneNumberErrorMsg" id="motherMobilePhoneNumber" matInput mask="(000)-000-0000" formControlName="motherMobilePhoneNumber" [readonly]="isReadOnly" placeholder="(xxx)-xxx-xxxx">
+                            </mat-form-field>
+                            <ng-container *ngFor="let validation of familyDetailValues.motherMobilePhoneNumber">
+                                <mat-error id="motherMobilePhoneNumberErrorMsg" *ngIf="!family.get('motherMobilePhoneNumber').valid && (family.get('motherMobilePhoneNumber').touched || submitted) && family.get('motherMobilePhoneNumber').hasError(validation.type)">
+                                    {{'application.applicant.familyDetails.motherMobilePhoneNumber.validation' | translateValidation:validation}}</mat-error>
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <hr aria-hidden="true" tabindex="-1" />
+                </div>
+
+                <div class="col-md-12" formArrayName="childrenDetails" *ngIf="flag">
+                    <div *ngFor="let childrenDetail of formControls.childrenDetails.controls; let i = index;" [formGroupName]="i">
+                        <div class="form-group">
+                            <div class="row">
+                                <span class="sub-heading">Children/Sibling {{i +1}}</span>
+                                <div class="row">
+
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="name">
+                                              {{ 'application.applicant.familyDetails.name.label' | translate }}
+                                                
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="name" aria-describedby="nameErrorMsg" uppercase matInput formControlName="name" placeholder="Name">
+                                        </mat-form-field>
+                                        <div class="height-space" *ngIf="!childrenDetail.get('name').valid && (childrenDetail.get('name').touched ) && childrenDetail.get('name').hasError('required')">
+                                            <mat-error id="nameErrorMsg">
+                                                {{'application.applicant.familyDetails.name.validation.required' | translate}}
+                                            </mat-error>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="relationship">
+                                              {{ 'application.applicant.familyDetails.relationship.label' | translate }}
+                                                
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <mat-select role="listbox" aria-describedby="relationshipErrorMsg" placeholder="Please Select" formControlName="relationship">
+                                                <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                                <mat-option role="option" *ngFor="let val of familyRelationshipList" [value]="val.code">
+                                                    {{val.label}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                        <div class="height-space" *ngIf="!childrenDetail.get('relationship').valid && (childrenDetail.get('relationship').touched ) && childrenDetail.get('relationship').hasError('required')">
+                                            <mat-error id="relationshipErrorMsg">
+                                                {{'application.applicant.familyDetails.relationship.validation.required' | translate}}
+                                            </mat-error>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="employerName">
+                                              {{ 'application.applicant.familyDetails.employerName.label' | translate }}                                             
+                                            </label>
+
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="employerName" matInput formControlName="employerName" placeholder="Employer Name">
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="address">
+                                              {{ 'application.applicant.familyDetails.address.label' | translate }}
+                                                
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="address" aria-describedby="addressErrorMsg" matInput formControlName="address" placeholder="Address">
+                                        </mat-form-field>
+                                        <div class="height-space" *ngIf="!childrenDetail.get('address').valid && (childrenDetail.get('address').touched ) && childrenDetail.get('address').hasError('required')">
+                                            <mat-error id="addressErrorMsg">
+                                                {{'application.applicant.familyDetails.address.validation.required' | translate}}
+                                            </mat-error>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="telephoneNumber">
+                                                    {{ 'application.applicant.familyDetails.telephoneNumber.label' | translate }}                                              
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width" style="line-height: 20px;">
+                                            <input aria-invalid="true" aria-describedby="telephoneNumberErrorMsg" id="telephoneNumber" matInput mask="(000)-000-0000" formControlName="telephoneNumber" [readonly]="isReadOnly" placeholder="(xxx)-xxx-xxxx">
+                                        </mat-form-field>
+                                        <ng-container *ngFor="let validation of familyDetailValues.telephoneNumber">
+                                            <mat-error id="telephoneNumberErrorMsg" *ngIf="!childrenDetail.get('telephoneNumber').valid && (childrenDetail.get('telephoneNumber').touched || submitted) && childrenDetail.get('telephoneNumber').hasError(validation.type)">
+                                                {{'application.applicant.familyDetails.telephoneNumber.validation' | translateValidation:validation}}</mat-error>
+                                        </ng-container>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <mat-label>
+                                            <label for="mobilePhoneNumber">
+                                                    {{ 'application.applicant.familyDetails.mobilePhoneNumber.label' | translate }}                                                
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width" style="line-height: 20px;">
+                                            <input aria-invalid="true" aria-describedby="mobilePhoneNumberErrorMsg" id="mobilePhoneNumber" matInput mask="(000)-000-0000" formControlName="mobilePhoneNumber" [readonly]="isReadOnly" placeholder="(xxx)-xxx-xxxx">
+                                        </mat-form-field>
+                                        <ng-container *ngFor="let validation of familyDetailValues.mobilePhoneNumber">
+                                            <mat-error id="mobilePhoneNumberErrorMsg" *ngIf="!childrenDetail.get('mobilePhoneNumber').valid && (childrenDetail.get('mobilePhoneNumber').touched || submitted) && childrenDetail.get('mobilePhoneNumber').hasError(validation.type)">
+                                                {{'application.applicant.familyDetails.mobilePhoneNumber.validation' | translateValidation:validation}}</mat-error>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 ">
+                                <div style="padding-top: 5px; float: right;">
+                                    <button class="add-btn pull-right" *ngIf="i>-1" (click)="removeAsset(childrenDetail,i)" mat-raised-button>Remove</button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr aria-hidden="true" tabindex="-1" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <button type="button" mat-raised-button color="primary" class="add-btn pull-right" (click)="addchildrenDetails()">Add Children/Sibling</button>
+                    </div>
+                </div>
+
+                <hr aria-hidden="true" tabindex="-1" />
+                <div id="buttons-container">
+                    <button type="button" mat-raised-button color="primary" id="prev-btn" (click)="back()">{{ 'application.buttons.prevSection' | translate }}</button>
+                    <button type="button" mat-raised-button id="next-btn" class="pull-right" color="primary" (click)="continue()">{{ 'application.buttons.nextSection' | translate }}</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<ng-container *ngIf="isComponentReadOnly">
+    <app-family-details-readonly [model]="tabData"></app-family-details-readonly>
+</ng-container>

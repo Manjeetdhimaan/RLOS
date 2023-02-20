@@ -1,0 +1,58 @@
+<!-- <div id="upload-container" *ngIf="!isReadOnly">
+    <div class="document-column">
+        <div class="col-md-9 col-sm-9 col-xs-6 upload-image-container" *ngIf="isDocumentModule">
+            <div class="documents-label" *ngIf="!imageData.data" style="padding-top:51px;">
+                <div class="label-text">Document {{order}}</div>
+                <input type="file" #file1 style="display: none" (change)="onFilesAdded($event)" />
+                <button mat-raised-button color="primary" class="add-files-btn" (click)="addFiles(file1)">
+          Browse
+        </button>
+            </div>
+        </div>
+        <div class="col-md-9 col-sm-9 col-xs-6 upload-image-container" *ngIf="!isDocumentModule">
+            <div class="documents-label" *ngIf="!imageData && !showAdded">
+                <div class="label-text">{{imgInfo.label}}</div>
+                <input type="file" #file1 style="display: none" (change)="onFilesAdded($event)" />
+                <button mat-raised-button color="primary" *ngIf="!showCamera" class="add-files-btn" (click)="addFiles(file1)">
+          Browse
+        </button>
+                <input id="myFileInput" type="file" *ngIf="showCamera" accept="image/*;capture=camera" (click)="addFiles()">
+            </div>
+            <div *ngIf="showAdded">
+                <img alt="JMMB Logo" src="assets/resources/images/done.png">
+                <br/>
+                <span class="bold" style="margin-left:5px;">
+          {{imgInfo.label}} - Uploaded</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="remove-padding-lr capture-buttons" *ngIf="imageData">
+        <div class="pull-left recapture" role="button" *ngIf="imageData.data">
+            <input type="file" id="front-image" #file1 style="display: none" (change)="onFilesAdded($event)" />
+            <button mat-raised-button class="add-files-btn" *ngIf="!showCamera" (click)="addFiles(file1)">
+        Re-capture
+      </button>
+
+            <input id="myFileInput" type="file" *ngIf="showCamera" accept="image/*;capture=camera" (click)="addFiles()">
+        </div>
+
+        <div class="pull-right" role="button" *ngIf="imageData.data && !isDocumentModule && imageData.docTypeCode !=='IDSCN'" tabindex="0">
+            <i class="icon icon-bin" *ngIf="imageData.data"></i>
+            <button mat-raised-button class="add-files-btn" (click)="deleteFile('frontImage')">
+        Remove
+      </button>
+        </div>
+    </div>
+</div>
+<ng-container *ngIf="isReadOnly">
+    <upload-panel-readonly [imageData]="imageData" (reCapture)="readThis(file1)" (delete)="deleteFile('frontImage')" (showError)="sendFileError($event)" (upload)="uploadImage($event)"></upload-panel-readonly>
+</ng-container> -->
+
+
+<div>
+    <input type="file" #file1 style="display: none" (change)="onFilesAdded($event)" />
+    <button mat-raised-button color="primary" class="add-files-btn" (click)="addFiles(file1)"> 
+      Upload
+    </button>
+</div>

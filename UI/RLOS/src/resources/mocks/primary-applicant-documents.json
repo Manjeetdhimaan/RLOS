@@ -1,0 +1,26 @@
+[
+    {
+        "docTypeCode": "TAX",
+        "images": [
+            {
+                "name": "3.jpg",
+                "ext": "JPG",
+                "data": null,
+                "omnidocsKey": "TAX",
+                "createdOn": "2018-12-12T07:03:06.244Z"
+            }
+        ]
+    },
+    {
+        "docTypeCode": "IDSCN",
+        "images": [
+            {
+                "name": "4.jpg",
+                "ext": "JPG",
+                "data": null,
+                "omnidocsKey": "IDSCN",
+                "createdOn": "2018-12-12T07:03:06.244Z"
+            }
+        ]
+    }
+]

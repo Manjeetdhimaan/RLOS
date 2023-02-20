@@ -1,0 +1,33 @@
+<div class="col-12"  role="alert" aria-live="assertive" aria-atomic="true">
+<error-alert [errorObject]="alertObj" (close)="closeError()">
+</error-alert>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-10">
+      <div id="summary-container" *ngIf="dataLoaded">
+        <mat-accordion>
+          <mat-expansion-panel *ngFor="let item of config.documents; let i=index" [expanded]="i === config.invalidIndex">
+            <mat-expansion-panel-header [ngClass]="{'isUploaded' : !item.uploaded}">
+              <mat-panel-title>
+                <i class="material-icons iconPosition" *ngIf="item.uploaded">done</i>
+                <span class="bold">{{item.label}}</span>
+              </mat-panel-title>
+
+              <mat-panel-description>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <documents-panel [bucket]="item" [index]="i" (savePanelData)="savePanelData($event)" [isComponentReadOnly]="checkIsReadOnly(i)">
+            </documents-panel>
+
+          </mat-expansion-panel>
+          <br/>
+          <br/>
+
+        </mat-accordion>
+      </div>
+      <div *ngIf="!dataLoaded">No Document Found</div>
+    </div>
+  </div>
+</div>

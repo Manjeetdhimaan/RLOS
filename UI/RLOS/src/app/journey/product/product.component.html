@@ -1,0 +1,76 @@
+<div class="row">
+  <div class="col-md-12" style="text-align: center;">
+      <label class="custom-legend">{{'application.productDetails.header' | translate}}</label>
+  </div>
+</div>
+<hr />
+<br />
+<div class="row justify-content-center padding-row">
+  <div class="offset-md-1-3 offset-xs-0 offset-sm-0"></div>
+  <div class="col-md-3 col-xs-12 col-sm-4 margin-b">
+      <mat-card class="example-card">
+          <mat-card-actions (click)="selectLoan('personal')" class="cursorPointer test">
+              <button mat-button class="mat-card-button">{{'application.productDetails.loanProduct.personalLoan.label' | translate}}</button>
+          </mat-card-actions>
+          <img mat-card-image src="assets/resources/images/personal_loan.png" alt="Photo of a Shiba Inu">
+
+      </mat-card>
+  </div>
+  <div class="col-md-3 col-xs-12 col-sm-4 margin-b">
+      <mat-card class="example-card">
+          <mat-card-actions (click)="selectLoan('mortgage')" class="cursorPointer test">
+              <button mat-button class="mat-card-button">{{'application.productDetails.loanProduct.mortgageLoan.label' | translate}}</button>
+          </mat-card-actions>
+          <img mat-card-image src="assets/resources/images/mortgage_loan.jpg" alt="Photo of a Shiba Inu">
+
+      </mat-card>
+  </div>
+  <div class="col-md-3 col-xs-12 col-sm-4 margin-b">
+      <mat-card class="example-card">
+          <mat-card-actions (click)="selectLoan('debt_consolidation')" class="cursorPointer test">
+              <button mat-button class="mat-card-button">{{'application.productDetails.loanProduct.debtConsolidation.label' | translate}}</button>
+          </mat-card-actions>
+          <img mat-card-image src="assets/resources/images/debt.jpg" alt="Photo of a Shiba Inu">
+
+      </mat-card>
+  </div>
+  <div class="col-md-3 col-xs-12 col-sm-4 margin-b">
+        <mat-card class="example-card">
+            <mat-card-actions (click)="selectLoan('credit_cards')" class="cursorPointer test">
+                <button mat-button class="mat-card-button">{{'application.productDetails.loanProduct.creditCards.label' | translate}}</button>
+            </mat-card-actions>
+            <img mat-card-image src="assets/resources/images/CreditCardimages.jpg" alt="Photo of a Shiba Inu">
+  
+        </mat-card>
+    </div>
+  <div class="offset-md-1-3 offset-xs-0 offset-sm-0"></div>
+  <div class="offset-md-1-5 offset-xs-0 offset-sm-0"></div>
+  <div class="col-md-3 col-xs-12 col-sm-4 margin-b">
+      <mat-card class="example-card">
+          <mat-card-actions (click)="selectLoan('home_equity')" class="cursorPointer test">
+              <button mat-button class="mat-card-button">{{'application.productDetails.loanProduct.homeEquityLoan.label' | translate}}</button>
+          </mat-card-actions>
+          <img mat-card-image src="assets/resources/images/homeEquity.jpg" alt="Photo of a Shiba Inu">
+
+      </mat-card>
+  </div>
+  <div class="col-md-3 col-xs-12 col-sm-4 margin-b">
+    <mat-card class="example-card">
+        <mat-card-actions (click)="selectLoan('auto')" class="cursorPointer test">
+            <button mat-button class="mat-card-button">{{'application.productDetails.loanProduct.autoLoan.label' | translate}}</button>
+        </mat-card-actions>
+        <img mat-card-image src="assets/resources/images/auto_loan.png" alt="Photo of a Shiba Inu">
+
+    </mat-card>
+  </div>
+  <div class="col-md-3 col-xs-12 col-sm-4 margin-b">
+        <mat-card class="example-card">
+            <mat-card-actions (click)="selectLoan('overdraft')" class="cursorPointer test">
+                <button mat-button class="mat-card-button">{{'application.productDetails.loanProduct.overdraftFacilities.label' | translate}}</button>
+            </mat-card-actions>
+            <img mat-card-image src="assets/resources/images/Overdraft.jpg" alt="Photo of a Shiba Inu">
+  
+        </mat-card>
+    </div>
+   <div class="offset-md-1-5 offset-xs-0 offset-sm-0"></div>
+</div>

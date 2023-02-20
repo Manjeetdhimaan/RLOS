@@ -1,0 +1,141 @@
+<div class="income-details-container container-body" *ngIf="!isComponentReadOnly">
+    <div class="row">
+        <div class="no-padding-lr col-md-12">
+            <form [formGroup]="incomeForm" autocomplete="off" (ngSubmit)="continue()">
+                <div class="col-md-12" formArrayName="incomeDetails">
+                    <div>
+                        <span class="bold">{{ 'application.applicant.incomeDetails.header' | translate }}</span>
+                
+                        <br/>
+                    </div>
+                    <div *ngFor="let incomeDetail of formControls.incomeDetails.controls; let i = index;" [formGroupName]="i">
+                        <div>
+                            <span class="sub-heading">{{ 'application.applicant.incomeDetails.incomeLabel' | translate }} {{i +1}}</span>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="row">
+
+                                <div class="col-md-4 col-sm-6 col-xs-12 margin-b">
+                                    <mat-label>
+                                        <label for="incomeType">
+                                          {{ 'application.applicant.incomeDetails.incomeType.label' | translate }}
+                                          <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" appearance="outline" class="full-width">
+                                        <mat-select role="listbox" aria-describedby="incomeTypeErrorMsg" id="incomeType" matNativeControl formControlName="incomeType" placeholder="Please Select" (selectionChange)="onSelectIncomeType($event, i)">
+                                            <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                            <mat-option role="option" *ngFor="let val of incomeTypeList" [value]="val.code">{{val.label}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of incomeDetailValues.incomeType">
+                                        <mat-error id="incomeTypeErrorMsg" *ngIf="!incomeDetail.get('incomeType').valid && (incomeDetail.get('incomeType').touched || submitted) && incomeDetail.get('incomeType').hasError(validation.type)">{{'application.applicant.incomeDetails.incomeType.validation' | translateValidation:validation}}</mat-error>
+                                    </ng-container>
+                                </div>
+
+                                <div class="col-md-4 col-sm-6 col-xs-12 margin-b">
+                                    <mat-label>
+                                        <label for="amount">
+                                          {{ 'application.applicant.incomeDetails.amount.label' | translate }}
+                                          <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true" *ngIf ="!(noIncome[i])"> *</span>
+                                        </label>
+                                    </mat-label>
+
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <span matPrefix class="dollar-space">J$ &nbsp;</span>
+                                        <input id="amount" aria-describedby="amountErrorMsg" matInput maxlength="14" currencyMask [options]="{ allowNegative: false, thousands: ',', decimal: '.', precision: 2 }" formControlName="amount" (blur)="setIncome(i)" aria-invalid="true">
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of incomeDetailValues.amount">
+                                        <mat-error id="amountErrorMsg" *ngIf="!incomeDetail.get('amount').valid && (incomeDetail.get('amount').touched || submitted) && incomeDetail.get('amount').hasError(validation.type)">{{'application.applicant.incomeDetails.amount.validation' | translateValidation:validation}}</mat-error>
+                                    </ng-container>
+                                </div>
+
+                                <div class="col-md-4 col-sm-6 col-xs-12 margin-b">
+                                    <mat-label>
+                                        <label for="frequency">
+                                          {{ 'application.applicant.incomeDetails.frequency.label' | translate }}
+                                          <span class="red" aria-label="Mandatory" aria-hidden="true" tabindex="-1" *ngIf ="!(noIncome[i])"> *</span>
+                                        </label>
+                                    </mat-label>
+
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <mat-select role="listbox" aria-describedby="frequencyErrorMsg" id="frequency" matNativeControl placeholder="Please Select" formControlName="frequency" (selectionChange)="setIncome(i)">
+                                            <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                            <mat-option role="option" *ngFor="let val of incomeFrequencyList" [value]="val.code">{{val.label}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of incomeDetailValues.frequency">
+                                        <mat-error id="frequencyErrorMsg" *ngIf="!incomeDetail.get('frequency').valid && (incomeDetail.get('frequency').touched || submitted) && incomeDetail.get('frequency').hasError(validation.type)">
+                                            {{'application.applicant.incomeDetails.frequency.validation' | translateValidation:validation}}</mat-error>
+                                    </ng-container>
+                                </div>
+
+                                <div class="col-md-4 col-sm-6 col-xs-12 margin-b">
+                                    <mat-label>
+                                        <label for="income">
+                                          {{ 'application.applicant.incomeDetails.income.label' | translate }}
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <span matPrefix class="dollar-space">J$ &nbsp;</span>
+                                        <input id="income" aria-describedby="incomeErrorMsg" formControlName="income" [readonly]="true" currencyMask [options]="{ allowNegative: false, thousands: ',', decimal: '.', precision: 2 }" matInput>
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of incomeDetailValues.income">
+                                        <mat-error id="incomeErrorMsg" *ngIf="!incomeDetail.get('income').valid && (incomeDetail.get('income').touched || submitted) && incomeDetail.get('income').hasError(validation.type)">
+                                            {{'application.applicant.incomeDetails.income.validation' | translateValidation:validation}}</mat-error>
+                                    </ng-container>
+                                </div>
+
+                                <div class="col-md-4 col-sm-6 col-xs-12 margin-b">
+                                    <mat-label>
+                                        <label for="comment">
+                                          {{ 'application.applicant.incomeDetails.comment.label' | translate }}
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="comment" aria-describedby="commentErrorMsg" matInput formControlName="comment" placeholder="Comment">
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of incomeDetailValues.comment">
+                                        <mat-error id="commentErrorMsg" *ngIf="!incomeDetail.get('comment').valid && (incomeDetail.get('comment').touched || submitted) && incomeDetail.get('comment').hasError(validation.type)">{{'application.applicant.incomeDetails.comment.validation' | translateValidation:validation}}</mat-error>
+                                    </ng-container>
+                                </div>
+
+                                <div class="col-md-4 col-sm-6 col-xs-12 margin-b">
+                                    <div style="padding-top: 5px; float: right;">
+                                        <button type="button" mat-raised-button color="warn" class="add-btn" *ngIf="i>0" (click)="removeIncome(incomeDetail,i)" mat-raised-button>{{ 'application.buttons.remove' | translate }}</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                    <mat-checkbox class="example-margin" formControlName="primarySourceOfIncome">
+                                        {{ 'application.applicant.incomeDetails.primarySourceOfIncome.label' | translate }}
+                                        <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+                                    </mat-checkbox>
+                                </div>
+                            </div>
+                        </div>
+                        <hr aria-hidden="true" tabindex="-1" />
+                    </div>
+
+                    <div class="row" *ngIf="showAddIncomeBtn">
+                        <div class="col-12">
+                            <button type="button" mat-raised-button color="primary" class="add-btn" mat-raised-button (click)="addIncome()">{{ 'application.buttons.addIncomeDetails' | translate }}</button>
+                        </div>
+                    </div>
+                    <hr aria-hidden="true" tabindex="-1" />
+                    <div id="buttons-container">
+                        <button type="button" mat-raised-button color="primary" id="prev-btn" (click)="back()">{{ 'application.buttons.prevSection' | translate }}</button>
+                        <button type="button" mat-raised-button id="next-btn" color="primary" (click)="continue()">{{ 'application.buttons.nextSection' | translate }}</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<ng-container *ngIf="isComponentReadOnly">
+    <income-details-readonly [model]="incomeInfo"></income-details-readonly>
+</ng-container>

@@ -1,0 +1,181 @@
+{
+    "arn": "20201002-1234",
+    "preferences": null,
+    "loanDetails": {
+        "loanProduct": "AL",
+        "collateralTypeDetails": {
+            "loanProduct": "AL"
+        },
+        "loanType": "TL",
+        "loanPurposeType": "NV",
+        "amountRequired": 345,
+        "loanTerm": "36",
+        "downPayment": null,
+        "make": null,
+        "model": null,
+        "type": null,
+        "colour": null,
+        "registrationNumber": null,
+        "yearOfManufacture": null,
+        "chasisNumber": null,
+        "engineNumber": null
+    },
+    "applicants": [{
+        "additionalInfo": {
+            "isMeetingRequirements": true,
+            "securityQuestions": [{
+                "answer": "234233333333",
+                "quesID": "Q1"
+            }, {
+                "answer": "78",
+                "quesID": "Q2"
+            }, {
+                "answer": "777777777777777777",
+                "quesID": "Q3"
+            }]
+        },
+        "type": "PRIMARY",
+        "firstName": "kishori",
+        "middleName": "dfhdfdf",
+        "lastName": "tiwari",
+        "motherMaidenName": "jjd",
+        "email": "aa@aa.com",
+        "dob": "2002-04-02",
+        "idExpDate": "2020-08-19",
+        "idIssueDate": "2020-04-14",
+        "id": 123,
+        "isAlreadyExist": false,
+        "addressDetails": {
+            "isMailingAndResidentialAddDifferent": true,
+            "isAddressSameAsPrimary": "NO",
+            "ownOrRent": "Rent",
+            "amtOfRent": 34534534,
+            "addresses": [{
+                "type": "CURRENT",
+                "addressLine1": "34534534",
+                "addressLine2": "5345345345",
+                "city": "4",
+                "country": "AV",
+                "state": "New Brunswick",
+                "county": null,
+                "years": "1",
+                "months": "7",
+                "id": null,
+                "applicantId": 123,
+                "durationInMonths": 19,
+                "zipCode": "666"
+            }, {
+                "type": "MAILING",
+                "addressLine1": "34534534534",
+                "addressLine2": "534545",
+                "city": "4",
+                "country": "AY",
+                "state": "New Brunswick",
+                "county": null,
+                "id": null,
+                "applicantId": 123,
+                "durationInMonths": null,
+                "zipCode": "666"
+            }, {
+                "type": "PREVIOUS",
+                "addressLine1": "3453453",
+                "addressLine2": "534345",
+                "city": "16",
+                "country": "BB",
+                "state": "14",
+                "county": null,
+                "years": null,
+                "months": null,
+                "id": null,
+                "applicantId": 123,
+                "zipCode": "666"
+            }]
+        },
+        "order": 1,
+        "prefix": "Mr.",
+        "gender": "O",
+        "maritalStatus": "Separated",
+        "idType": "P",
+        "idNumber": "5345345",
+        "idIssuingCountry": "BB",
+        "isBankEmployee": "Yes",
+        "pep": "Yes",
+        "pepType": "direct",
+        "homePhoneNo": "(345)-345-3445",
+        "mobileNo": "(534)-534-5345",
+        "workPhoneNo": "(345)-345-3445",
+        "employmentDetails": [{
+            "addressLine1": "454",
+            "city": "10",
+            "country": "AC",
+            "empStatus": "S2",
+            "empType": "SEMP001",
+            "employerName": "sdg",
+            "occupation": "C",
+            "state": "Alberta",
+            "addressLine2": "787",
+            "year": "1",
+            "zipCode": "7"
+        }],
+        "referenceDetails": [{
+
+                "firstName": "234234234",
+                "middleName": "234",
+                "lastName": "234234234",
+                "employer": "234234",
+                "relationship": "234",
+                "phoneNo": "",
+                "isMailingAndResidentialAddDifferent": true,
+                "addresses": [{
+                    "type": "CURRENT",
+                    "addressLine1": "234234",
+                    "addressLine2": "234234",
+                    "city": null,
+                    "state": null,
+                    "country": null,
+                    "zipCode": "666"
+                }, {
+                    "type": "MAILING",
+                    "addressLine1": "234234234",
+                    "addressLine2": "234234234",
+                    "city": null,
+                    "state": null,
+                    "country": null,
+                    "zipCode": "666"
+                }]
+            }
+
+        ],
+        "guarantorDetails": [{
+
+                "firstName": "234234234",
+                "middleName": "234",
+                "lastName": "234234234",
+                "employer": "234234",
+                "relationship": "234",
+                "phoneNo": "",
+                "isMailingAndResidentialAddDifferent": true,
+                "addresses": [{
+                    "type": "CURRENT",
+                    "addressLine1": "234234",
+                    "addressLine2": "234234",
+                    "city": null,
+                    "state": null,
+                    "country": null,
+                    "zipCode": "666"
+                }, {
+                    "type": "MAILING",
+                    "addressLine1": "234234234",
+                    "addressLine2": "234234234",
+                    "city": null,
+                    "state": null,
+                    "country": null,
+                    "zipCode": "666"
+                }]
+            }
+
+        ]
+
+    }],
+    "branchCode": "COU"
+}

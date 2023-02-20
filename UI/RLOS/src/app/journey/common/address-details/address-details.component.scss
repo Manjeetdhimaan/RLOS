@@ -1,0 +1,62 @@
+@import './src/assets/styles/sass/theme/cwb/_cwb-variables.scss';
+@import './src/assets/styles/sass/global/_mixins.scss';
+@import './src/assets/styles/sass/theme/cwb/overrides/globals/_custom-styles.scss';
+.address-details-container {
+    #back-link-container {
+        float: left;
+    } // #buttons-container {
+    //   float: right;
+    // }
+    #prev-btn {
+        float: left;
+    }
+    #next-btn {
+        float: right;
+    }
+    .radio-label {
+        font-weight: normal
+    }
+    .mat-button-toggle {
+        background: #f0f2f7;
+        color: #a8a9ad;
+        font-size: 14px;
+    }
+    .mat-button-toggle-checked {
+        background-color: #000795;
+        color: #fff;
+        font-size: 14px;
+    }
+    .bold {
+        color: #000795;
+        font-size: 18px;
+        padding: 0px 0px 0px;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #FFDC5B;
+    }
+    // .component-container {
+    //   // border: 1px solid grey;
+    //   // padding: 10px;
+    // }
+    .add-btn {
+        float: right;
+    }
+    .no-padding-lr {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .no-padding-r {
+        padding-right: 0 !important;
+    }
+    .no-padding-top {
+        padding-top: 15px !important;
+    }
+    .border-prev-address {
+        border-top: 1px solid #eee;
+        padding-top: 15px;
+    }
+    .md-textarea {
+        height: 110px;
+    }
+}

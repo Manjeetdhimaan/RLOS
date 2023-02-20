@@ -1,0 +1,114 @@
+@import './src/assets/styles/sass/theme/cwb/_cwb-variables.scss';
+@import './src/assets/styles/sass/global/_mixins.scss';
+@import './src/assets/styles/sass/theme/cwb/overrides/globals/_custom-styles.scss';
+.container-fluid {
+    .space {
+        margin-right: 10px !important;
+    }
+    #add-buttons-container {
+        float: right;
+        @include mobile {
+            float: none;
+            text-align: center;
+            .card-btn {
+                float: right;
+                margin-bottom: 5px;
+            }
+            .overdraft-btn {
+                float: right;
+            }
+        }
+    }
+    #step-footer {
+        hr {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border-top: 1px solid #D9D9D9;
+        }
+        #footer-container {
+            display: table;
+            width: 100%;
+            #back-link-container {
+                float: left;
+                @include mobile {
+                    float: none;
+                    margin-bottom: 5px;
+                }
+            }
+            #buttons-container {
+                float: right;
+                @include mobile {
+                    float: none;
+                    text-align: center;
+                    .exit-btn {
+                        float: left;
+                    }
+                    .continue-btn {
+                        float: right;
+                    }
+                }
+            }
+        }
+    }
+    .btn-margin {
+        margin: 2px;
+    }
+    .padding-top {
+        padding-top: 44px;
+    }
+    .height {
+        height: 80px !important;
+    }
+    .bold {
+        color: #000795;
+        font-size: 18px;
+        padding: 0px 0px 0px;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #FFDC5B;
+    }
+    .sub-heading {
+        color: #000795;
+        font-size: 16px;
+        padding: 0px 0px 0px;
+        font-weight: normal;
+        display: inline-block;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #FFDC5B;
+    }
+    fieldset {
+        margin-top: 10px;
+        border: 1px solid #ddd !important;
+        border-radius: 4px;
+        padding: 8px 0 18px;
+        padding-left: 10px !important;
+    }
+    legend {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 0px;
+        width: auto;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 5px 10px 5px 10px;
+        background-color: #ffffff;
+    }
+    .icon-place {
+        float: right;
+        margin-top: 7px;
+    }
+}
+
+@include desktop {
+    mat-label.details-labels {
+        white-space: nowrap;
+    }
+}
+
+// ::ng-deep label {
+//     white-space: nowrap !important;
+// }
+// i.material-icons.ng-star-inserted {
+//     margin-top: -5px;
+// }

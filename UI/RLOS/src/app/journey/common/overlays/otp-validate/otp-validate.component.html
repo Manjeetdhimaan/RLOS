@@ -1,0 +1,52 @@
+
+<div id="add-coapplicant-dialog-container" modal-focus aria-modal="true" role="dialog" aria-labelledby="docUploadModal" class="add-coapplicant-container">
+    <div class="row" *ngIf="showAlert">
+        <div class="col-12" role="alert" aria-live="assertive" aria-atomic="true">
+            <error-alert [errorObject]="alert" (close)="closeError()"></error-alert>
+        </div>
+    </div>
+    <mat-dialog-content>
+    <div>
+        <div mat-dialog-content>
+            <div class="document-panel">
+                <div class="row">
+                    <form [formGroup]="otpForm">
+                        <div class="col-md-12 col-sm-12 col-xs-12 margin-b otp-description">
+                            <strong class="dark-blue">An OTP has been sent to your email address, which will be valid for <span class="pale-blue">{{otpTime | formatTime}}</span></strong>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="mat-grp">
+                                <mat-form-field appearance="outline" class="full-width">
+                                    <input id="otp" type="password" matInput formControlName="otp" mask="000000">
+                                </mat-form-field>
+                                <ng-container>
+                                    <mat-error id="otpError" *ngIf="!otpForm.get('otp').valid && (otpForm.get('otp').touched || submitted) && otpForm.get('otp').hasError('required')">
+                                        Please enter OTP below.
+                                    </mat-error>
+                                    <mat-error id="otpError" *ngIf="!otpForm.get('otp').valid && (otpForm.get('otp').touched || submitted) && !otpForm.get('otp').hasError('required')">
+                                        Please enter 6 digit OTP
+                                    </mat-error>
+                                </ng-container>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 col-sm-12 col-xs-12 margin-b">
+                            <span tabindex="0" class="resend-otp-label">
+                                OTP can be RESEND  after {{resendOtpAfterTime | formatTime}} 
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div mat-dialog-actions class="modal-btns">
+                    <button mat-raised-button color="primary" [disabled]="disableButtonFlag" class="margin-r" (click)="resendOTP()">Resend OTP</button>
+                    <button mat-raised-button color="primary" class="margin-r" (click)="continue()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>
+</div>

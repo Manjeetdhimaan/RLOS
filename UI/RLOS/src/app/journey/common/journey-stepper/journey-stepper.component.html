@@ -1,0 +1,33 @@
+<!--<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button>-->
+<div class="container-fluid">
+  <div class="row journey-header-container">
+    <div class="hidden-tablet hidden-mobile hidden-sm-desktop" style="width: 100%;">
+      <!-- <ul>
+        <li *ngFor="let step of steps;index as i" title="Step {{ (i+1) + ' of ' + (steps.length) + ' ' +  step}}" [ngClass]="{'active' : i <= journeyService.currentStep}">
+          <span>{{i+1}}. </span>
+          <span>{{step}}</span>
+        </li>
+      </ul> -->
+
+      <mat-horizontal-stepper labelPosition="bottom" #stepper>
+        <mat-step [stepControl]="stepper.selectedIndex" [editable]="false" [completed]="step.isCompleted" *ngFor="let step of steps;index as i">
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel class="stepNames"><p style="color: #45545B;font-size:16px">{{step.label}}</p></ng-template>
+          </form>
+        </mat-step>
+      </mat-horizontal-stepper>
+      <br/>
+    </div>
+    <div class="hidden-desktop" style="margin-bottom:-40px;width:100%;">
+      <div style="margin: 10px; margin-left:0px !important">
+        <!-- <span aria-hidden="true" tabindex="-1" class="stepper-mobile"> {{(currentStep + 1)}} </span>&nbsp; -->
+        <span aria-hidden="true" tabindex="-1" class="stepNames">
+          <b>{{steps[currentStep].label}}</b>
+        </span>
+      </div>
+      <br/>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+@import './src/assets/styles/sass/theme/cwb/_cwb-variables.scss';
+@import './src/assets/styles/sass/global/_mixins.scss';
+@import './src/assets/styles/sass/theme/cwb/overrides/globals/_custom-styles.scss';
+.income-details-container {
+    #back-link-container {
+        float: left;
+    } // #buttons-container {
+    //   float: right;
+    // }
+    #prev-btn {
+        float: left;
+    }
+    #next-btn {
+        float: right;
+    }
+    .add-btn {
+        float: right;
+    }
+    .mat-input-element {
+        font: inherit;
+        background: 0 0;
+        color: currentColor;
+        border: none;
+        outline: 0;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
+        vertical-align: bottom;
+        text-align: inherit;
+        height: 20px;
+        padding-bottom: 6px;
+    }
+    .no-padding-lr {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .margin-top-35 {
+        margin-top: 35px;
+    }
+    .bold {
+        color: #000795 !important;
+        font-size: 18px;
+        padding: 0px 0px 0px;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #FFDC5B;
+    }
+    .sub-heading {
+        color: #000795;
+        font-size: 16px;
+        padding: 0px 0px 0px;
+        font-weight: normal;
+        display: inline-block;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #FFDC5B;
+    }
+}

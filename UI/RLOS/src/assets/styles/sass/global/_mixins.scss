@@ -1,0 +1,182 @@
+/************************* Mixins for viewports *************************/
+
+@mixin mobile {
+  @media (min-width: #{$mobile-min-width}) and (max-width: #{$tablet-min-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-min-width}) and (max-width: #{$sm-desktop-min-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin sm-desktop{
+  @media (min-width: #{$sm-desktop-min-width}) and (max-width: #{$desktop-min-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-min-width}) and (max-width: #{$lg-desktop-min-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin lg-desktop {
+  @media (min-width: #{$lg-desktop-min-width}) {
+    @content;
+  }
+}
+
+@mixin tablet-desktop {
+  @media (min-width: #{$sm-desktop-min-width}) and (max-width: #{$desktop-min-width - 1px}) {
+    @content;
+  }
+}
+
+
+/************************* Mixins for custom viewports *************************/
+
+@mixin custom-mobile($custom-mobile-width, $custom-tablet-width) {
+  @media (min-width: #{$custom-mobile-width}) and (max-width: #{$custom-tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin custom-tablet($custom-tablet-width, $custom-desktop-width) {
+  @media (min-width: #{$custom-tablet-width}) and (max-width: #{$custom-desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin custom-desktop($custom-desktop-width, $custom-large-desktop-width) {
+  @media (min-width: #{$custom-desktop-width}) and (max-width: #{$custom-large-desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin custom-desktop($custom-large-desktop-width) {
+  @media (min-width: #{$custom-large-desktop-width}) {
+    @content;
+  }
+}
+
+@mixin custom-tablet-desktop($custom-tablet-width) {
+  @media (min-width: #{$custom-tablet-width}) {
+    @content;
+  }
+}
+
+
+/************************* Mixin for buttons *************************/
+
+@mixin button-bg($bg, $bgHover, $bgActive) {
+  background: $bg;
+  &:hover {
+    background: $bgHover;
+  }
+  &:active {
+    background: $bgActive;
+  }
+  &:disabled {
+    background: $bg;
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+
+/************************* Mixin for alerts *************************/
+
+@mixin cb-alert-variant($background, $border, $text-color) {
+  background-color: $background;
+  border-color: $border;
+  color: $text-color;
+}
+
+
+/************************* Mixin for horizontal Separators *************************/
+
+@mixin cb-horizontal-separator($first-width, $second-width, $third-width:"") {
+  .horiz-line-separator .triangle {
+    display: table-cell;
+    height: 12px;
+    width: 12px;
+    transform: rotate(45deg);
+    transform-origin: center center;
+    border-top: 1px solid #929292;
+    border-left: 1px solid #929292;
+    margin-left: 2px;
+    margin-right: 1px;
+    margin-bottom: -5px;
+    margin-top: -5.5px;
+    float: left;
+  }
+  .horiz-line-separator .side-line {
+    display: table-cell;
+    border-top: 1px solid #929292;
+  }
+  .horiz-line-separator {
+    margin-bottom: 0px;
+    display: table
+  }
+  .horiz-line-separator .side-line {
+    display: table-cell;
+    border-top: 1px solid #929292
+  }
+  // .horiz-line-separator .triangle {
+  //   display: table-cell;
+  //   height: 12px;
+  //   width: 12px;
+  //   transform: rotate(45deg);
+  //   transform-origin: center center;
+  //   border-top: 1px solid #929292;
+  //   border-left: 1px solid #929292;
+  //   float: left;
+  //   margin: -6px 2px -5px
+  // }
+  .side-line.left-line.first-selected {
+    width: $first-width
+  }
+  .side-line.left-line.second-selected {
+    width: $second-width
+  }
+  .side-line.left-line.third-selected {
+    width: $third-width
+  }
+  .side-line.right-line.first-selected {
+    width: 94.5%
+  }
+  .side-line.right-line.second-selected {
+    width: 82.5%
+  }
+  .side-line.right-line.third-selected {
+    width: 82.5%
+  }
+  .toggle-selector {
+    margin-top: 15px;
+    // margin-bottom: 15px;
+  }
+}
+
+
+/************************* Mixin for aspect ratio *************************/
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  >.content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

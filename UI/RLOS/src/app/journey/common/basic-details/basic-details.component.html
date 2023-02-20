@@ -1,0 +1,1070 @@
+<div class="basic-details-container container-body" *ngIf="!isComponentReadOnly">
+    <div class="row">
+        <div class="col-12">
+            <form [formGroup]="personalForm" autocomplete="off" (ngSubmit)="continue()">
+                <div class="row">
+                    <div class="col-12">
+                        <span class="bold" *ngIf="!isCoApplicant"> {{ 'application.applicant.primaryHeader' | translate
+                            }}</span>
+                        <span class="bold" *ngIf="isCoApplicant"> {{ 'application.coapplicant.header' | translate
+                            }}</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-md-6 col-sm-6 col-lg-4 margin-b">
+                        <mat-checkbox class="example-margin" formControlName="existingCustomer"
+                            (change)="isExistingCustomer($event)">
+                            {{ 'application.applicant.existingCustomer.label' | translate }}
+                        </mat-checkbox>
+                        <div class="height-space"
+                            *ngIf="!personalForm.get('existingCustomer').valid && (personalForm.get('existingCustomer').touched || submitted)">
+                            <mat-error id="msg">
+                                {{'application.applicant.existingCustomer.validation?.required' | translate}}
+                            </mat-error>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row"
+                    *ngIf="personalForm.get('existingCustomer') && personalForm.get('existingCustomer').value">
+                    <div class="col-12 col-md-6 col-sm-6 col-lg-4">
+                        <div class="mat-grp">
+
+                            <mat-label>
+                                <label for="accountType">{{'application.applicant.accountType.label' | translate}}
+                                    <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                        *</span></label>
+                            </mat-label>
+
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-select role="listbox" id="accountType" aria-describedby="msg1"
+                                    placeholder="Select accountType" formControlName="accountType"
+                                    (selectionChange)="getAccountType($event)">
+                                    <mat-option role="option" [value]="null" selected disabled>Please Select
+                                    </mat-option>
+                                    <mat-option role="option" *ngFor="let val of accountTypeList" [value]="val.code">
+                                        {{val.label}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+
+                            <div class="height-space"
+                                *ngIf="!personalForm.get('accountType').valid && (personalForm.get('accountType').touched || submitted)">
+                                <mat-error id="msg1">
+                                    {{'application.applicant.accountType.validation.required' | translate}}
+                                </mat-error>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-sm-6 col-lg-4"
+                        *ngIf="personalForm.get('accountType') && personalForm.get('accountType').value"
+                        style="margin-top: 23px;">
+                        <div class="mat-grp">
+                            <mat-label>
+                                <label for="accountNumber">
+                                </label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="full-width">
+                                <input id="accountNumber" aria-invalid="true" aria-describedby="msg2"
+                                    formControlName="accountNumber" placeholder="{{accounTypePlaceholder}}" matInput
+                                    maxlength="20">
+                            </mat-form-field>
+                            <mat-error id="msg2"
+                                *ngIf="!personalForm.get('accountNumber').valid && (personalForm.get('accountNumber').touched || submitted) && personalForm.get('accountNumber').hasError('required')">
+                                {{'application.applicant.accountNumber.validation.required' | translate}}
+                            </mat-error>
+                        </div>
+                    </div>
+                    <div class="col-2 margin-t-15"
+                        *ngIf="personalForm.get('accountType') && personalForm.get('accountType').value ">
+                        <div id="buttons-container">
+                            <button mat-raised-button color="primary">{{ 'application.buttons.submit' | translate
+                                }}</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <!-- Field for Account Relationship -->
+                    <!-- <div class="col-12 col-sm-6 col-lg-4" *ngIf="!isCoApplicant">
+                        <div class="mat-grp">
+                            <mat-label>
+                                <label for="isCoapplicantSignatory">{{'application.applicant.isCoapplicantSignatory.label' | translate}}
+                                    <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                        *</span>
+                                </label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-select role="listbox" id="isCoapplicantSignatory" formControlName="isCoapplicantSignatory" placeholder="Please Select">
+                                    <mat-option role="option" *ngFor="let val of yesNoList" [value]="val">
+                                        {{val}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <ng-container>
+                                <mat-error id="msg1" *ngIf="!personalForm.get('isCoapplicantSignatory').valid && (personalForm.get('isCoapplicantSignatory').touched ) && personalForm.get('isCoapplicantSignatory').hasError('required')">
+                                    {{'application.applicant.isCoapplicantSignatory.validation.required' | translate}}
+                                </mat-error>
+                            </ng-container>
+                        </div>
+                    </div> -->
+
+                    <div class="col-12 col-sm-6 col-lg-4" *ngIf="isCoApplicant">
+                        <div class="mat-grp">
+                            <mat-label>
+                                <label for="loanRelationship">{{'application.applicant.loanRelationship.label' |
+                                    translate}}
+                                    <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                        *</span></label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-select role="listbox" id="loanRelationship" aria-describedby="msg1"
+                                    placeholder="Select loanRelationship" formControlName="loanRelationship">
+                                    <mat-option role="option" [value]="null" selected disabled>Please Select
+                                    </mat-option>
+                                    <mat-option role="option" *ngFor="let val of loanRelationshipList"
+                                        [value]="val.code">
+                                        {{val.label | uppercase}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <div class="height-space"
+                                *ngIf="!personalForm.get('loanRelationship')?.valid && (personalForm.get('loanRelationship')?.touched || submitted)">
+                                <mat-error id="msg1">
+                                    {{'application.applicant.loanRelationship.validation?.required' | translate}}
+                                </mat-error>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="mat-grp">
+                            <mat-label>
+                                <label for="citizenship">{{'application.applicant.citizenship.label' | translate}}
+                                    <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                        *</span></label>
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-select role="listbox" id="citizenship" aria-describedby="msg1"
+                                    placeholder="Select Citizenship" formControlName="citizenship">
+                                    <mat-option role="option" [value]="null" selected disabled>Please Select
+                                    </mat-option>
+                                    <mat-option role="option" *ngFor="let val of countryList" [value]="val.code">
+                                        {{val.label | uppercase}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <div class="height-space"
+                                *ngIf="!personalForm.get('citizenship').valid && (personalForm.get('citizenship').touched || submitted)">
+                                <mat-error id="msg1">
+                                    {{'application.applicant.citizenship.validation.required' | translate}}
+                                </mat-error>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-sm-6 col-lg-4" *ngIf="false">
+                        <mat-label>
+                            <label for="tinNumber">
+                                {{ 'application.applicant.tinNumber.label' | translate }}
+                                <span class="red" aria-label="Mandatory" aria-hidden="true" tabindex="-1"> *</span>
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <input id="tinNumber" matInput formControlName="tinNumber" aria-invalid="true"
+                                aria-describedby="msg4" placeholder="Taxation Registration Number" inputType="number"
+                                maxlength="20">
+                        </mat-form-field>
+                        <!-- <ng-container *ngFor="let validation of basicDetailValues.tinNumber">
+                                <mat-error id="msg4"
+                                    *ngIf="!personalForm.get('tinNumber').valid && (personalForm.get('tinNumber').touched ) && personalForm.get('tinNumber').hasError(validation.type)">
+                                    {{'application.applicant.tinNumber.validation' | translateValidation:validation}}
+                                </mat-error>
+                            </ng-container> -->
+                        <mat-error id="msg19"
+                            *ngIf="!personalForm.get('tinNumber').valid && (personalForm.get('tinNumber').touched || submitted) && personalForm.get('tinNumber').hasError('required')">
+                            {{'application.applicant.tinNumber.validation?.required' | translate}}</mat-error>
+                        <!-- <mat-error id="msg19" *ngIf="!personalForm.get('tinNumber').valid && (personalForm.get('tinNumber').touched || submitted) && personalForm.get('tinNumber').hasError('minlength')">
+                                {{'application.applicant.tinNumber.validation.minlength' | translate}}</mat-error> -->
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-4" *ngIf="false">
+                        <mat-label>
+                            <label for="birNumber">
+                                {{ 'application.applicant.birNumber.label' | translate }}
+                                <span class="red" aria-label="Mandatory" aria-hidden="true" tabindex="-1"> *</span>
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <input id="birNumber" matInput formControlName="birNumber" aria-invalid="true"
+                                aria-describedby="msg4" placeholder="Taxation Registration Number" inputType="number"
+                                maxlength="20">
+                        </mat-form-field>
+                        <!-- <ng-container *ngFor="let validation of basicDetailValues.birNumber">
+                                <mat-error id="msg4"
+                                    *ngIf="!personalForm.get('birNumber').valid && (personalForm.get('birNumber').touched ) && personalForm.get('birNumber').hasError(validation.type)">
+                                    {{'application.applicant.birNumber.validation' | translateValidation:validation}}
+                                </mat-error>
+                            </ng-container> -->
+                        <mat-error id="msg19"
+                            *ngIf="!personalForm.get('birNumber').valid && (personalForm.get('birNumber').touched || submitted) && personalForm.get('birNumber')?.hasError('required')">
+                            {{'application.applicant.birNumber.validation?.required' | translate}}</mat-error>
+                        <!-- <mat-error id="msg19" *ngIf="!personalForm.get('birNumber').valid && (personalForm.get('birNumber').touched || submitted) && personalForm.get('birNumber').hasError('minlength')">
+                                {{'application.applicant.birNumber.validation.minlength' | translate}}</mat-error> -->
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+                    <!-- <div class="col-12 col-sm-6 col-lg-4 margin-b" *ngIf="isCoApplicant">
+                        <mat-label>
+                            <label for="loanRelationship">Loan Relationship<span class="red" aria-label="Mandatory" aria-hidden="true"
+                  tabindex="-1">*</span></label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="select-option full-width">
+                            <mat-select role="listbox" id="loanRelationship" matNativeControl placeholder="Loan Relationship" formControlName="loanRelationship" aria-invalid="true" aria-describedby="msg" aria-labelledby="msg">
+                                <mat-option role="option" value=null selected>Please Select</mat-option>
+                                <mat-option role="option" *ngFor="let val of relationshipList" [value]="val.code">{{val.label}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div> -->
+
+                    <div class="col-12 col-sm-6 col-lg-4 margin-b" *ngIf="isCoApplicant">
+                        <mat-label>
+                            <label for="relation">
+                                {{ 'application.applicant.relation.label' | translate }}
+                                <span class="red" aria-label="Mandatory" aria-hidden="true" tabindex="-1">*</span>
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <input id="relation" aria-invalid="true" aria-describedby="msg3" matInput
+                                formControlName="relation" placeholder="Relation to Primary Applicant">
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of basicDetailValues.relation">
+                            <mat-error id="msg3"
+                                *ngIf="!personalForm.get('relation').valid && (personalForm.get('relation').touched || submitted) && personalForm.get('relation').hasError(validation.type)">
+                                {{'application.applicant.relation.validation' | translateValidation:validation}}
+                            </mat-error>
+                        </ng-container>
+                    </div>
+
+                    <!-- Taxation Registration Number -->
+                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                        <mat-label>
+                            <label for="ssn">
+                                {{ 'application.applicant.ssn.label' | translate }}
+                                <span class="red" aria-label="Mandatory" aria-hidden="true" tabindex="-1"> *</span>
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <input id="ssn" matInput formControlName="ssn" aria-invalid="true" aria-describedby="msg4"
+                                placeholder="Taxation Registration Number" inputType="number" maxlength="20">
+                        </mat-form-field>
+                        <!-- <ng-container *ngFor="let validation of basicDetailValues.ssn">
+                            <mat-error id="msg4"
+                                *ngIf="!personalForm.get('ssn').valid && (personalForm.get('ssn').touched ) && personalForm.get('ssn').hasError(validation.type)">
+                                {{'application.applicant.ssn.validation' | translateValidation:validation}}
+                            </mat-error>
+                        </ng-container> -->
+                        <mat-error id="msg19"
+                            *ngIf="!personalForm.get('ssn').valid && (personalForm.get('ssn').touched || submitted) && personalForm.get('ssn')?.hasError('required')">
+                            {{'application.applicant.ssn.validation.required' | translate}}</mat-error>
+                        <!-- <mat-error id="msg19" *ngIf="!personalForm.get('ssn').valid && (personalForm.get('ssn').touched || submitted) && personalForm.get('ssn').hasError('minlength')">
+                            {{'application.applicant.ssn.validation.minlength' | translate}}</mat-error> -->
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                        <mat-label>
+                            <label for="prefix">{{ 'application.applicant.prefix.label' | translate }}</label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="select-option full-width">
+                            <mat-select role="listbox" aria-invalid="true" aria-describedby="msg5" id="prefix"
+                                matNativeControl placeholder="Select Prefix" formControlName="prefix"
+                                (change)="selectedPrefix($event.target.value)">
+                                <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                <mat-option role="option" *ngFor="let val of prefixList" [value]="val.code">
+                                    {{val.label}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of basicDetailValues.prefix">
+                            <mat-error id="msg5"
+                                *ngIf="!personalForm.get('prefix').valid && (personalForm.get('prefix').touched || submitted) && personalForm.get('prefix').hasError(validation.type)">
+                                {{'application.applicant.prefix.validation' | translateValidation:validation}}
+                            </mat-error>
+                        </ng-container>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                        <mat-label>
+                            <label for="suffix">
+                                {{ 'application.applicant.suffix.label' | translate }}
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <input id="suffix" aria-describedby="msg6" formControlName="suffix" placeholder="Suffix"
+                                matInput>
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of basicDetailValues.suffix">
+                            <mat-error id="msg6"
+                                *ngIf="!personalForm.get('suffix').valid && (personalForm.get('suffix').touched || submitted) && personalForm.get('suffix').hasError(validation.type)">
+                                {{'application.applicant.suffix.validation' | translateValidation:validation}}
+                            </mat-error>
+                        </ng-container>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                        <mat-label>
+                            <label for="firstName">
+                                {{ 'application.applicant.firstName.label' | translate }}
+                                <span class="red" *ngIf="isCoApplicant" aria-label="Mandatory" aria-hidden="true"
+                                    tabindex="-1">*</span>
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <input id="firstName" aria-describedby="msg7" uppercase matInput formControlName="firstName"
+                                style=" text-transform: uppercase !important" aria-invalid="true"
+                                placeholder="First Name" [readonly]="isFirstNameReadOnly && !isCoApplicant">
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of basicDetailValues.firstName">
+                            <mat-error id="msg7"
+                                *ngIf="!personalForm.get('firstName').valid && (personalForm.get('firstName').touched || submitted) && personalForm.get('firstName').hasError(validation.type)">
+                                {{'application.applicant.firstName.validation' | translateValidation:validation}}
+                            </mat-error>
+                        </ng-container>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                        <mat-label>
+                            <label for="middleName">
+                                {{ 'application.applicant.middleName.label' | translate }}
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <input id="middleName" aria-describedby="msg8" uppercase matInput placeholder="Middle Name"
+                                formControlName="middleName" [readonly]="isMiddleNameReadOnly && !isCoApplicant">
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of basicDetailValues.middleName">
+                            <mat-error id="msg8"
+                                *ngIf="!personalForm.get('middleName').valid && (personalForm.get('middleName').touched || submitted) && personalForm.get('middleName').hasError(validation.type)">
+                                {{'application.applicant.middleName.validation' | translateValidation:validation}}
+                            </mat-error>
+                        </ng-container>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                        <mat-label>
+                            <label for="lastName">
+                                {{ 'application.applicant.lastName.label' | translate }}
+                                <span class="red" aria-label="Mandatory" *ngIf="isCoApplicant" aria-hidden="true"
+                                    tabindex="-1">*</span>
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <input id="lastName" aria-describedby="msg9" uppercase matInput formControlName="lastName"
+                                style=" text-transform: uppercase !important" placeholder="Last Name"
+                                [readonly]="isLastNameReadOnly && !isCoApplicant">
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of basicDetailValues.lastName">
+                            <mat-error id="msg9"
+                                *ngIf="!personalForm.get('lastName').valid && (personalForm.get('lastName').touched || submitted) && personalForm.get('lastName').hasError(validation.type)">
+                                {{'application.applicant.lastName.validation' | translateValidation:validation}}
+                            </mat-error>
+                        </ng-container>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                        <div class="mat-grp">
+                            <mat-label>
+                                <label for="gender">{{ 'application.applicant.gender.label' | translate }}
+                                    <span class="red" aria-label="Mandatory" aria-hidden="true" tabindex="-1"> *</span>
+                                </label>
+
+                            </mat-label>
+                            <mat-form-field appearance="outline" class="select-option full-width">
+                                <mat-select role="listbox" aria-describedby="msg12" id="gender" matNativeControl
+                                    formControlName="gender" placeholder="Select Gender"
+                                    (ngModelChange)="isGenderSelected()">
+                                    <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                    <mat-option role="option" *ngFor="let val of genderList" [value]="val.code">
+                                        {{val.label}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <ng-container *ngFor="let validation of basicDetailValues.gender">
+                                <mat-error id="msg12"
+                                    *ngIf="!personalForm.get('gender').valid && (personalForm.get('gender').touched || submitted) && personalForm.get('gender').hasError(validation.type)">
+                                    {{'application.applicant.gender.validation' | translateValidation:validation}}
+                                </mat-error>
+                            </ng-container>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                        <mat-label>
+                            <label for="motherMaidenName">
+                                {{ 'application.applicant.motherMaidenName.label' | translate }}
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <input aria-invalid="true" aria-describedby="msg11" id="motherMaidenName"
+                                placeholder="Mother’s Maiden Name" matInput formControlName="motherMaidenName">
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of basicDetailValues.motherMaidenName">
+                            <mat-error id="msg11"
+                                *ngIf="!personalForm.get('motherMaidenName').valid && (personalForm.get('motherMaidenName').touched || submitted) && personalForm.get('motherMaidenName').hasError(validation.type)">
+                                {{'application.applicant.motherMaidenName.validation' | translateValidation:validation}}
+                            </mat-error>
+                        </ng-container>
+                    </div>
+
+                    <!-- maiden name -->
+                    <div class="col-12 col-sm-6 col-lg-4 margin-b" *ngIf="personalForm.get('gender').value !== 'M'">
+                        <mat-label>
+                            <label for="maidenName">
+                                {{ 'application.applicant.maidenName.label' | translate }}
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <input aria-describedby="msg10" id="maidenName" placeholder="Maiden Name" matInput
+                                formControlName="maidenName">
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of basicDetailValues.maidenName">
+                            <mat-error id="msg10"
+                                *ngIf="!personalForm.get('maidenName').valid && (personalForm.get('maidenName').touched || submitted) && personalForm.get('maidenName').hasError(validation.type)">
+                                {{'application.applicant.maidenName.validation' | translateValidation:validation}}
+                            </mat-error>
+                        </ng-container>
+                    </div>
+
+
+                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                        <mat-label>
+                            <label for="dob">
+                                {{ 'application.applicant.dob.label' | translate }}
+                                <span class="red" aria-label="Mandatory" aria-hidden="true" tabindex="-1"> *</span>
+                                <!-- <span class="red" aria-label="Mandatory" *ngIf="isCoApplicant">*</span> -->
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <input id="dob" aria-describedby="msg13" matInput (keyup)="dateMask($event)"
+                                [matDatepicker]="picker1" placeholder="MM/DD/YYYY" [max]="maxDateid" [min]="minDateid"
+                                formControlName="dob" (dateChange)="calculcateAge($event)" [readonly]="isDOBReadOnly"
+                                (dateInput)="calculcateAgeFromInputChange($event)"
+                                [readonly]="isDobReadOnly && !isCoApplicant">
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1></mat-datepicker>
+                        </mat-form-field>
+                        <mat-error id="msg13"
+                            *ngIf="!personalForm.get('dob').valid && (personalForm.get('dob').touched || submitted) && (personalForm.get('dob').errors?.required || personalForm.get('dob').errors?.matDatepickerParse)">
+                            {{'application.applicant.dob.validation?.required' | translate}}</mat-error>
+                        <mat-error id="msg13"
+                            *ngIf="!personalForm.get('dob').valid && (personalForm.get('dob').touched || submitted) && personalForm.get('dob').errors?.matDatepickerMax">
+                            {{'application.applicant.dob.invalidDate' | translate}}</mat-error>
+                        <mat-error id="msg13"
+                            *ngIf="!personalForm.get('dob').valid && (personalForm.get('dob').touched || submitted) && personalForm.get('dob').errors?.matDatepickerMin">
+                            {{'application.applicant.dob.validation.numberRange' | translate}}</mat-error>
+                        <mat-error *ngIf="showCoApplicantRequiredMsg && personalForm.get('dob').hasError('notValid')">
+                            {{invalidDateMessage}}
+                        </mat-error>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                        <mat-label>
+                            <label for="age">
+                                {{ 'application.applicant.age.label' | translate }}
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <input id="age" matInput formControlName="age" placeholder="Age" [readonly]="true">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                        <mat-label>
+                            <label for="placeOfBirth">{{ 'application.applicant.placeOfBirth.label' | translate }}
+                                <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="select-option full-width">
+                            <mat-select aria-describedby="msg14" role="listbox" id="placeOfBirth" matNativeControl
+                                aria-invalid="true" placeholder="Select Country" formControlName="placeOfBirth">
+                                <mat-option role="option" [value]="null" selected disabled>Please Select</mat-option>
+                                <mat-option role="option" *ngFor="let val of countryList" [value]="val.code">
+                                    {{val.label | uppercase}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of basicDetailValues.placeOfBirth">
+                            <mat-error id="msg14"
+                                *ngIf="!personalForm.get('placeOfBirth').valid  && (personalForm.get('placeOfBirth').touched || submitted) && personalForm.get('placeOfBirth').hasError(validation.type)">
+                                {{'application.applicant.placeOfBirth.validation' | translateValidation:validation}}
+                            </mat-error>
+                        </ng-container>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+
+                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                        <mat-label>
+                            <label for="email">
+                                {{ 'application.applicant.email.label' | translate }}
+                                <span class="red" aria-label="Mandatory" *ngIf="isCoApplicant">*</span>
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <input id="email" aria-invalid="true" aria-describedby="msg15" type="text" matInput
+                                formControlName="email" placeholder="Email" onCopy="return false" onDrag="return false"
+                                onDrop="return false" onPaste="return false" (blur)="checkEmail()"
+                                [readonly]="isEmailReadOnly && !isCoApplicant">
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of basicDetailValues.email">
+                            <mat-error id="msg15"
+                                *ngIf="!personalForm.get('email').valid && (personalForm.get('email').touched || submitted) && personalForm.get('email').hasError(validation.type)">
+                                {{'application.applicant.email.validation' | translateValidation:validation}}
+                            </mat-error>
+                        </ng-container>
+                        <mat-error id="msg15"
+                            *ngIf="!personalForm.get('email').valid && (personalForm.get('email').touched || submitted) && personalForm.get('email').hasError('notUnique')">
+                            {{'application.applicant.email.validation.mismatch' | translate}}</mat-error>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                        <mat-label>
+                            <label for="confirmEmail">
+                                {{ 'application.applicant.confirmEmail.label' | translate }}
+                                <span class="red" aria-label="Mandatory">*</span>
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <input id="confirmEmail" aria-invalid="true" aria-describedby="msg16" type="text"
+                                onCopy="return false" placeholder="Confirm Email" onDrag="return false"
+                                onDrop="return false" onPaste="return false" matInput formControlName="confirmEmail"
+                                (blur)="checkEmail()" [readonly]="isConfirmEmailReadOnly && !isCoApplicant">
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of basicDetailValues.confirmEmail">
+                            <mat-error id="msg16"
+                                *ngIf="!personalForm.get('confirmEmail').valid && (personalForm.get('confirmEmail').touched || submitted) && personalForm.get('confirmEmail').hasError(validation.type)">
+                                {{'application.applicant.confirmEmail.validation' | translateValidation:validation}}
+                            </mat-error>
+                        </ng-container>
+                        <mat-error id="msg16"
+                            *ngIf="!personalForm.get('confirmEmail').valid && (personalForm.get('confirmEmail').touched || submitted) && personalForm.get('confirmEmail').hasError('notUnique')">
+                            {{'application.applicant.confirmEmail.validation.mismatch' | translate}}</mat-error>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                        <mat-label>
+                            <label for="maritalStatus">{{ 'application.applicant.maritalStatus.label' | translate }}
+                                <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="select-option full-width">
+                            <mat-select role="listbox" aria-invalid="true" aria-describedby="msg17" id="maritalStatus"
+                                matNativeControl placeholder="Select Marital Status" formControlName="maritalStatus"
+                                (change)="selectedMaritalStatus($event.target.value)">
+                                <mat-option role="option" [value]="null" selected disabled>Please Select</mat-option>
+                                <mat-option role="option" *ngFor="let val of maritalStatusList" [value]="val.code">
+                                    {{val.label}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of basicDetailValues.maritalStatus">
+                            <mat-error id="msg17"
+                                *ngIf="!personalForm.get('maritalStatus').valid  && (personalForm.get('maritalStatus').touched || submitted) && personalForm.get('maritalStatus').hasError(validation.type)">
+                                {{'application.applicant.maritalStatus.validation' | translateValidation:validation}}
+                            </mat-error>
+                        </ng-container>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 margin-b"
+                        *ngIf="personalForm.get('maritalStatus').value === 'NG_MAR'">
+                        <mat-label>
+                            <label for="howLongInYears">
+                                {{ 'application.applicant.howLongInYears.label' | translate }}
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <input aria-invalid="true" aria-describedby="msg18" id="howLongInYears" inputType="number"
+                                matInput formControlName="howLongInYears">
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of basicDetailValues.howLongInYears">
+                            <mat-error id="msg18"
+                                *ngIf="!personalForm.get('howLongInYears').valid && (personalForm.get('howLongInYears').touched || submitted) && personalForm.get('howLongInYears').hasError(validation.type)">
+                                {{'application.applicant.howLongInYears.validation' | translateValidation:validation}}
+                            </mat-error>
+                        </ng-container>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                        <mat-label>
+                            <label for="isBankEmployee">
+                                {{ 'application.applicant.isBankEmployee.label' | translate }}
+                                <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-select role="listbox" aria-describedby="msg19" id="isBankEmployee" matNativeControl
+                                placeholder="Please Select" formControlName="isBankEmployee">
+                                <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                <mat-option role="option" *ngFor="let val of yesNoList" [value]="val">{{val}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of basicDetailValues.isBankEmployee">
+                            <mat-error id="msg19"
+                                *ngIf="!personalForm.get('isBankEmployee').valid && (personalForm.get('isBankEmployee').touched || submitted) && personalForm.get('isBankEmployee').hasError(validation.type)">
+                                {{'application.applicant.isBankEmployee.validation' | translateValidation:validation}}
+                            </mat-error>
+                        </ng-container>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                        <mat-label>
+                            <label for="isBankEmployeeRelative">
+                                {{ 'application.applicant.isBankEmployeeRelative.label' | translate }}
+                                <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-select role="listbox" aria-describedby="msg19" id="isBankEmployeeRelative"
+                                matNativeControl placeholder="Please Select" formControlName="isBankEmployeeRelative">
+                                <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                <mat-option role="option" *ngFor="let val of yesNoList" [value]="val">{{val}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of basicDetailValues.isBankEmployeeRelative">
+                            <mat-error id="msg19"
+                                *ngIf="!personalForm.get('isBankEmployeeRelative').valid && (personalForm.get('isBankEmployeeRelative').touched || submitted) && personalForm.get('isBankEmployeeRelative').hasError(validation.type)">
+                                {{'application.applicant.isBankEmployeeRelative.validation' |
+                                translateValidation:validation}}</mat-error>
+                        </ng-container>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                        <mat-label>
+                            <label for="bankRelationComment">
+                                {{ 'application.applicant.bankRelationComment.label' | translate }} <span class="red"
+                                    aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <input aria-invalid="true" aria-describedby="msg11" id="bankRelationComment" placeholder=""
+                                matInput formControlName="bankRelationComment" maxlength="20">
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of basicDetailValues.bankRelationComment">
+                            <mat-error id="msg11"
+                                *ngIf="!personalForm.get('bankRelationComment').valid && (personalForm.get('bankRelationComment').touched || submitted) && personalForm.get('bankRelationComment').hasError(validation.type)">
+                                {{'application.applicant.bankRelationComment.validation' |
+                                translateValidation:validation}}
+                            </mat-error>
+                        </ng-container>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                        <mat-label>
+                            <label for="isGovernmentEmployee">
+                                {{ 'application.applicant.isGovernmentEmployee.label' | translate }}
+                                <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-select role="listbox" aria-describedby="msg20" id="isGovernmentEmployee"
+                                matNativeControl placeholder="Please Select" formControlName="isGovernmentEmployee">
+                                <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                <mat-option role="option" *ngFor="let val of yesNoList" [value]="val">{{val}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of basicDetailValues.isGovernmentEmployee">
+                            <mat-error id="msg20"
+                                *ngIf="!personalForm.get('isGovernmentEmployee').valid && (personalForm.get('isGovernmentEmployee').touched || submitted) && personalForm.get('isGovernmentEmployee').hasError(validation.type)">
+                                {{'application.applicant.isGovernmentEmployee.validation' |
+                                translateValidation:validation}}</mat-error>
+                        </ng-container>
+                    </div>
+
+                    <!-- No of Dependents -->
+                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                        <mat-label>
+                            <label for="noOfDependent"> {{ 'application.applicant.familyDetails.noOfdependent.label' |
+                                translate }}
+                            </label>
+                            <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-select role="listbox" id="noOfDependent" aria-describedby="msg21"
+                                placeholder="Please select" formControlName="noOfDependent">
+                                <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                <mat-option role="option" *ngFor="let val of dependentList" [value]="val.code">
+                                    {{val.label}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of basicDetailValues.noOfdependent">
+                            <mat-error id="msg21"
+                                *ngIf="!personalForm.get('noOfDependent').valid && (personalForm.get('noOfDependent').touched || submitted) && personalForm.get('noOfDependent').hasError(validation.type)">
+                                {{'application.applicant.noOfdependent.validation' | translateValidation:validation}}
+                            </mat-error>
+                        </ng-container>
+                    </div>
+                </div>
+
+                <!-- phone numbers in basic details -->
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="mat-grp">
+                            <mat-label>
+                                <label for="cellPhoneNo">{{'application.applicant.cellPhoneNo.label' | translate}}
+                                    <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                        *</span>
+                                </label>
+                            </mat-label>
+
+                            <mat-form-field appearance="outline" class="full-width">
+                                <input [readonly]="isCellPhoneReadOnly && !isCoApplicant" aria-describedby="msg22"
+                                    id="cellPhoneNo" inputType="phonenumber" mask="(000)-000-0000"
+                                    formControlName="cellPhoneNo" placeholder="(xxx)-xxx-xxxx" matInput>
+                            </mat-form-field>
+                            <div class="height-space"
+                                *ngIf="!personalForm.get('cellPhoneNo').valid && (personalForm.get('cellPhoneNo').touched || submitted) && personalForm.get('cellPhoneNo').hasError('required')">
+                                <mat-error id="msg22">
+                                    {{'application.applicant.cellPhoneNo.validation?.required' | translate}}
+                                </mat-error>
+                            </div>
+                            <div class="height-space"
+                                *ngIf="!personalForm.get('cellPhoneNo').valid && (personalForm.get('cellPhoneNo').touched || submitted) && personalForm.get('cellPhoneNo').hasError('minlength')">
+                                <mat-error id="msg22">
+                                    {{'application.applicant.cellPhoneNo.validation.minlength' | translate}}
+                                </mat-error>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="mat-grp">
+                            <mat-label>
+                                <label for="homePhoneNo">{{'application.applicant.homePhoneNo.label' | translate}}
+                                </label>
+                            </mat-label>
+
+                            <mat-form-field appearance="outline" class="full-width">
+                                <input id="homePhoneNo" aria-describedby="msg23" inputType="phonenumber"
+                                    mask="(000)-000-0000" formControlName="homePhoneNo" placeholder="(xxx)-xxx-xxxx"
+                                    matInput>
+                            </mat-form-field>
+                            <div class="height-space"
+                                *ngIf="!personalForm.get('homePhoneNo').valid && (personalForm.get('homePhoneNo').touched || submitted) && personalForm.get('homePhoneNo').hasError('minlength')">
+                                <mat-error id="msg23">
+                                    {{'application.applicant.homePhoneNo.validation.minlength' | translate}}
+                                </mat-error>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="mat-grp">
+                            <mat-label>
+                                <label for="workPhoneNo">{{'application.applicant.workPhoneNo.label' | translate}}
+                                </label>
+                            </mat-label>
+
+                            <mat-form-field appearance="outline" class="full-width">
+                                <input id="workPhoneNo" aria-describedby="msg24" inputType="phonenumber"
+                                    mask="(000)-000-0000" formControlName="workPhoneNo" placeholder="(xxx)-xxx-xxxx"
+                                    matInput>
+                            </mat-form-field>
+                            <div class="height-space"
+                                *ngIf="!personalForm.get('workPhoneNo').valid && (personalForm.get('workPhoneNo').touched || submitted) && personalForm.get('workPhoneNo').hasError('minlength')">
+                                <mat-error id="msg24">
+                                    {{'application.applicant.workPhoneNo.validation.minlength' | translate}}
+                                </mat-error>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <span class="bold"> {{ 'application.applicant.secondaryHeader' | translate }}</span>
+                    </div>
+                </div>
+
+                <div class="col-md-12" formArrayName="idDetails">
+
+                    <div *ngFor="let idDetail of formControls.idDetails.controls; let i = index;" [formGroupName]="i">
+                        <div class="form-group">
+                            <div class="row">
+                                <span class="sub-heading">ID Type {{i +1}}</span>
+                                <div class="row" style="width:100%">
+                                    <div class="col-12 col-sm-6 col-lg-4 margin-b">
+                                        <div class="mat-grp">
+                                            <mat-label>
+                                                <label for="idType">{{ 'application.applicant.idType.label' | translate
+                                                    }}
+                                                    <span class="red" aria-label="Mandatory" aria-hidden="true"
+                                                        tabindex="-1"> *</span>
+                                                </label>
+                                            </mat-label>
+                                            <mat-form-field appearance="outline" class="select-option full-width">
+                                                <mat-select role="listbox" id="idType" aria-describedby="msg25"
+                                                    id="idType" matNativeControl formControlName="idType"
+                                                    placeholder="Select ID Type"
+                                                    (ngModelChange)="idTypeChanged(idDetail)">
+                                                    <mat-option role="option" value=null selected disabled>Please Select
+                                                    </mat-option>
+                                                    <mat-option role="option" *ngFor="let val of idTypeList"
+                                                        [value]="val.code">{{val.label}}</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                            <ng-container *ngFor="let validation of basicDetailValues.idType">
+                                                <mat-error id="msg25"
+                                                    *ngIf="!idDetail.get('idType').valid && (idDetail.get('idType').touched || submitted) && idDetail.get('idType').hasError(validation.type)">
+                                                    {{'application.applicant.idType.validation' |
+                                                    translateValidation:validation}}</mat-error>
+                                            </ng-container>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-lg-4">
+                                        <div class="mat-grp">
+                                            <mat-label>
+                                                <label for="idNumber"> {{ 'application.applicant.idNumber.label' |
+                                                    translate }}
+                                                    <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                        aria-hidden="true">
+                                                        *</span>
+                                                </label>
+                                            </mat-label>
+
+                                            <mat-form-field appearance="outline" class="full-width">
+                                                <input id="idNumber" aria-describedby="msg26" formControlName="idNumber"
+                                                    placeholder="ID Number" matInput>
+                                            </mat-form-field>
+                                            <ng-container *ngFor="let validation of basicDetailValues.idNumber">
+                                                <mat-error id="msg26"
+                                                    *ngIf="!idDetail.get('idNumber').valid && (idDetail.get('idNumber').touched || submitted) && idDetail.get('idNumber').hasError(validation.type)">
+                                                    {{'application.applicant.idNumber.validation' |
+                                                    translateValidation:validation}}</mat-error>
+                                            </ng-container>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-lg-4"
+                                        [ngStyle]="{'visibility': idDetail.get('idType').value != 'NG_NIB' ? 'visible' : 'hidden'}">
+                                        <div class="mat-grp">
+                                            <mat-label>
+                                                <label for="idIssueDate"> {{ 'application.applicant.idIssueDate.label' |
+                                                    translate }}
+                                                    <span
+                                                        *ngIf="idDetail.get('idType').value != 'NG_NIB' && idDetail.get('idType').value != null"
+                                                        class="red" aria-label="Mandatory" tabindex="-1"
+                                                        aria-hidden="true">*</span>
+                                                </label>
+                                            </mat-label>
+                                            <mat-form-field appearance="outline" class="full-width">
+                                                <input id="idIssueDate" aria-describedby="msg27" matInput
+                                                    (keyup)="dateMask($event)" [matDatepicker]="picker1"
+                                                    placeholder="MM/DD/YYYY" [max]="maxDateid" [min]="minDateid"
+                                                    formControlName="idIssueDate"
+                                                    (dateChange)="checkIdDatesValidity(idDetail)">
+                                                <mat-datepicker-toggle matSuffix [for]="picker1">
+                                                </mat-datepicker-toggle>
+                                                <mat-datepicker #picker1></mat-datepicker>
+                                            </mat-form-field>
+                                            <mat-error id="msg27"
+                                                *ngIf="!idDetail.get('idIssueDate').valid && (idDetail.get('idIssueDate').touched || submitted) && (idDetail.get('idIssueDate').errors?.required || idDetail.get('idIssueDate').errors?.matDatepickerParse)">
+                                                {{'application.applicant.idIssueDate.validation?.required' | translate}}
+                                            </mat-error>
+                                            <mat-error id="msg27"
+                                                *ngIf="!idDetail.get('idIssueDate').valid && (idDetail.get('idIssueDate').touched || submitted) && (idDetail.get('idIssueDate').errors?.matDatepickerMin)">
+                                                {{'application.applicant.idIssueDate.invalidDate' | translate}}
+                                            </mat-error>
+                                            <mat-error id="msg27"
+                                                *ngIf="!idDetail.get('idIssueDate').valid && (idDetail.get('idIssueDate').touched || submitted) && (idDetail.get('idIssueDate').errors?.matDatepickerMax )">
+                                                {{'application.applicant.idIssueDate.invalidDate' | translate}}
+                                            </mat-error>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-lg-4">
+                                        <div class="mat-grp">
+                                            <mat-label>
+                                                <label for="idExpDate">
+                                                    {{ 'application.applicant.idExpDate.label' | translate }}
+                                                    <span class="red" aria-label="Mandatory">*</span>
+                                                </label>
+                                            </mat-label>
+                                            <mat-form-field appearance="outline" class="full-width">
+                                                <input id="idExpDate" aria-describedby="msg28" matInput
+                                                    (keyup)="dateMask($event)" [matDatepicker]="picker2"
+                                                    placeholder="MM/DD/YYYY" formControlName="idExpDate"
+                                                    (dateChange)="checkIdDatesValidity(idDetail)">
+                                                <mat-datepicker-toggle matSuffix [for]="picker2">
+                                                </mat-datepicker-toggle>
+                                                <mat-datepicker #picker2></mat-datepicker>
+                                            </mat-form-field>
+                                            <mat-error id="msg28"
+                                                *ngIf="!idDetail.get('idExpDate').valid && (idDetail.get('idExpDate').touched || submitted) && (idDetail.get('idExpDate').errors?.required || idDetail.get('idExpDate').errors?.matDatepickerParse)">
+                                                {{'application.applicant.idExpDate.validation.required' | translate}}
+                                            </mat-error>
+                                            <mat-error id="msg28"
+                                                *ngIf="!idDetail.get('idIssueDate').valid && (idDetail.get('idIssueDate').touched || submitted) && (idDetail.get('idIssueDate').errors?.matDatepickerMin)">
+                                                {{'application.applicant.idIssueDate.invalidDate' | translate}}
+                                            </mat-error>
+                                            <mat-error id="msg28"
+                                                *ngIf="!idDetail.get('idExpDate').valid && (idDetail.get('idExpDate').touched || submitted) && (idDetail.get('idExpDate').errors?.matDatepickerMax)">
+                                                {{'application.applicant.idExpDate.invalidDate' | translate}}
+                                            </mat-error>
+                                            <mat-error id="msg28"
+                                                *ngIf="!idDetail.get('idExpDate').valid && (idDetail.get('idExpDate').touched || submitted) && (idDetail.get('idExpDate').errors.expDateLessThanIssueDate)">
+                                                {{'application.applicant.idExpDate.expDateLessThanIssueDate' |
+                                                translate}}</mat-error>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-lg-4">
+                                        <div class="mat-grp">
+                                            <mat-label>
+                                                <label for="idIssuingCountry">
+                                                    {{ 'application.applicant.idIssuingCountry.label' | translate }}
+                                                    <span class="red" aria-label="Mandatory">*</span>
+                                                </label>
+                                            </mat-label>
+                                            <mat-form-field appearance="outline" class="full-width">
+                                                <mat-select role="listbox" aria-describedby="msg29"
+                                                    id="idIssuingCountry" uppercase matNativeControl aria-invalid="true"
+                                                    formControlName="idIssuingCountry" placeholder="Select Country"
+                                                    (change)="selectedIssuingCountry($event.target.value)">
+                                                    <mat-option role="option" value=null selected disabled>Please Select
+                                                    </mat-option>
+                                                    <mat-option role="option" *ngFor="let val of countryList"
+                                                        [value]="val.code">{{val.label}}</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                            <ng-container *ngFor="let validation of basicDetailValues.idIssuingCountry">
+                                                <mat-error id="msg29"
+                                                    *ngIf="!idDetail.get('idIssuingCountry').valid && (idDetail.get('idIssuingCountry').touched || submitted) && idDetail.get('idIssuingCountry').hasError(validation.type)">
+                                                    {{'application.applicant.idIssuingCountry.validation' |
+                                                    translateValidation:validation}}</mat-error>
+                                            </ng-container>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-lg-4">
+                                        <div style="padding-top: 5px; float: right;">
+                                            <button type="button" class="add-btn pull-right" *ngIf="i>0"
+                                                (click)="removeAsset(idDetail,i)" mat-raised-button>Remove</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="button" mat-raised-button color="primary" class="add-btn pull-right"
+                                (click)="addIDDetails()">{{'application.buttons.addIdentificationDetails' | translate
+                                }}</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="row">
+                    <div class="col-12">
+                        <span class="bold" *ngIf="!isCoApplicant"> {{ 'application.applicant.thirdHeader' | translate
+                            }}</span>
+                    </div>
+                </div> -->
+
+                <!-- <div class="row">
+
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <mat-label>
+                            <label for="lifeInsuranceRequired">
+                                {{ 'application.applicant.lifeInsuranceRequired.label' | translate }}
+                                <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-select role="listbox" aria-describedby="msg30" id="lifeInsuranceRequired"
+                                matNativeControl placeholder="Please Select" (ngModelChange)="basicvalidation()"
+                                formControlName="lifeInsuranceRequired">
+                                <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                <mat-option role="option" *ngFor="let val of yesNoList" [value]="val">{{val}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of basicDetailValues.lifeInsuranceRequired">
+                            <mat-error id="msg30"
+                                *ngIf="!personalForm.get('lifeInsuranceRequired').valid && (personalForm.get('lifeInsuranceRequired').touched || submitted) && personalForm.get('lifeInsuranceRequired').hasError(validation.type)">
+                                {{'application.applicant.lifeInsuranceRequired.validation' |
+                                translateValidation:validation}}
+                            </mat-error>
+                        </ng-container>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4 margin-b"
+                        *ngIf=" personalForm.get('lifeInsuranceRequired').value === 'No'">
+                        <mat-label>
+                            <label for="lifeInsuranceAlreadyPresent">
+                                {{ 'application.applicant.lifeInsuranceAlreadyPresent.label' | translate }}
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-select role="listbox" aria-describedby="msg31" id="lifeInsuranceAlreadyPresent"
+                                matNativeControl placeholder="Please Select"
+                                formControlName="lifeInsuranceAlreadyPresent" (ngModelChange)="basicvalidation()">
+                                <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                <mat-option role="option" *ngFor="let val of yesNoList" [value]="val">{{val}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of basicDetailValues.lifeInsuranceAlreadyPresent">
+                            <mat-error id="msg31"
+                                *ngIf="!personalForm.get('lifeInsuranceAlreadyPresent').valid && (personalForm.get('lifeInsuranceAlreadyPresent').touched || submitted) && personalForm.get('lifeInsuranceAlreadyPresent').hasError(validation.type)">
+                                {{'application.applicant.lifeInsuranceAlreadyPresent.validation' |
+                                translateValidation:validation}}
+                            </mat-error>
+                        </ng-container>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4"
+                        *ngIf=" personalForm.get('lifeInsuranceAlreadyPresent').value === 'Yes'">
+                        <mat-label>
+                            <label for="lifeInsuranceProviderName">
+                                {{ 'application.applicant.lifeInsuranceProviderName.label' | translate }}
+                            </label>
+                        </mat-label>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <input id="lifeInsuranceProviderName" aria-describedby="msg32" type="text" matInput
+                                placeholder="Life Insuarnce Provider Name" formControlName="lifeInsuranceProviderName">
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of basicDetailValues.lifeInsuranceProviderName">
+                            <mat-error id="msg32"
+                                *ngIf="!personalForm.get('lifeInsuranceProviderName').valid && (personalForm.get('lifeInsuranceProviderName').touched || submitted) && personalForm.get('lifeInsuranceProviderName').hasError(validation.type)">
+                                {{'application.applicant.lifeInsuranceProviderName.validation' |
+                                translateValidation:validation}}
+                            </mat-error>
+                        </ng-container>
+                    </div>
+                </div> -->
+
+                <hr tabindex="-1" aria-hidden="true" />
+                <div class="row">
+                    <div class="col-12">
+                        <div id="buttons-container">
+                            <button mat-raised-button color="primary">{{ 'application.buttons.nextSection' | translate
+                                }}</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<ng-container *ngIf="isComponentReadOnly">
+    <basic-details-readonly [model]="tabData" [isCoApplicant]="isCoApplicant"></basic-details-readonly>
+</ng-container>

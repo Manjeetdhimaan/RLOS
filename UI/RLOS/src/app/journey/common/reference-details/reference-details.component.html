@@ -1,0 +1,462 @@
+<div class="reference-details-container container-body" *ngIf="!isComponentReadOnly">
+    <div class="row">
+        <div class="no-padding-lr col-md-12">
+            <form [formGroup]="referenceForm" autocomplete="off" (ngSubmit)="continue()">
+                <div class="col-md-12" formArrayName="referenceDetails">
+                    <div>
+                        <span class="bold">{{ 'application.applicant.referenceDetails.header' | translate }}</span>
+                        <br />
+                    </div>
+                    <div *ngFor="let referenceDetail of formControls.referenceDetails.controls; let i = index;" [formGroupName]="i">
+                        <div>
+                            <span class="sub-heading">{{ 'application.applicant.referenceDetails.refenceLabel' | translate }}
+                                {{i +1}}</span>
+                            <div class="pull-right">
+                                <button type="button" color="warn" class="add-btn" *ngIf="i>2" (click)="removeReference(referenceDetail,i)" mat-raised-button>{{ 'application.buttons.remove' | translate }}</button>
+                            </div>
+                        </div>
+                        <!-- <br /> -->
+                        <div class="form-group">
+                            <div class="row">
+                                <!-- <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                    <mat-label>
+                                        <label for="title">
+                      {{ 'application.applicant.referenceDetails.title.label' | translate }}
+                      <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+
+                    </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" appearance="outline" class="full-width">
+                                        <mat-select role="listbox" id="title" matNativeControl aria-describedby="" formControlName="title" >
+                      <mat-option role="option" value=null selected>Please Select</mat-option>
+                      <mat-option role="option" *ngFor="let val of titleList" [value]="val">{{val}}</mat-option>
+                    </mat-select>
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of referenceValues.title">
+                                        <mat-error id="msg4" *ngIf="!referenceDetail.get('title').valid && (referenceDetail.get('title').touched || submitted) && referenceDetail.get('title').hasError(validation.type)">{{'application.applicant.referenceDetails.title.validation' | translateValidation:validation}}</mat-error>
+                                    </ng-container>
+                                </div> -->
+
+                                <!-- first name -->
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <mat-label>
+                                        <label for="firstName">
+                                            {{ 'application.applicant.referenceDetails.firstName.label' | translate }}
+                                            <!-- <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span> -->
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="firstName" uppercase matInput aria-describedby="firstNameErrorMsg" formControlName="firstName" placeholder="First Name">
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of referenceValues.firstName">
+                                        <mat-error id="firstNameErrorMsg" *ngIf="!referenceDetail.get('firstName').valid && (referenceDetail.get('firstName').touched || submitted) && referenceDetail.get('firstName').hasError(validation.type)">
+                                            {{'application.applicant.referenceDetails.firstName.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+
+                                <!-- middle name -->
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                    <mat-label>
+                                        <label for="middleName">
+                                            {{ 'application.applicant.referenceDetails.middleName.label' | translate }}
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="middleName" uppercase matInput aria-describedby="middleNameErrorMsg" formControlName="middleName" placeholder="Middle Name">
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of referenceValues.middleName">
+                                        <mat-error id="middleNameErrorMsg" *ngIf="!referenceDetail.get('middleName').valid && (referenceDetail.get('middleName').touched || submitted) && referenceDetail.get('middleName').hasError(validation.type)">
+                                            {{'application.applicant.referenceDetails.middleName.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+
+                                <!-- last name -->
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                    <mat-label>
+                                        <label for="lastName">
+                                            {{ 'application.applicant.referenceDetails.lastName.label' | translate }}
+                                            <!-- <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span> -->
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="lastName" uppercase matInput aria-describedby="lastNameErrorMsg" formControlName="lastName" placeholder="Last Name">
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of referenceValues.lastName">
+                                        <mat-error id="lastNameErrorMsg" *ngIf="!referenceDetail.get('lastName').valid && (referenceDetail.get('lastName').touched || submitted) && referenceDetail.get('lastName').hasError(validation.type)">
+                                            {{'application.applicant.referenceDetails.lastName.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+
+                                <!-- employer name -->
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                    <mat-label>
+                                        <label for="employer">
+                                            {{ 'application.applicant.referenceDetails.employer.label' | translate }}
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="employer" matInput aria-describedby="employerErrorMsg" formControlName="employer" placeholder="Employer Name">
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of referenceValues.employer">
+                                        <mat-error id="employerErrorMsg" *ngIf="!referenceDetail.get('employer').valid && (referenceDetail.get('employer').touched || submitted) && referenceDetail.get('employer').hasError(validation.type)">
+                                            {{'application.applicant.referenceDetails.employer.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+
+                            <!-- Current Address -->
+                            <div formGroupName="currentAddress">
+                                <div class="row">
+
+                                    <!-- Apartment/ Suite Number -->
+                                    <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                        <mat-label>
+                                            <label for="addressLine2">
+                                                {{ 'application.applicant.referenceDetails.addressLine2.label' | translate }}
+                                                <!-- <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                    aria-hidden="true">
+                                                    *</span>  -->
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="addressLine2" matInput aria-describedby="addressLine2ErrorMsg" formControlName="addressLine2" placeholder="Apartment/Suite Number">
+                                        </mat-form-field>
+                                        <ng-container *ngFor="let validation of referenceValues.addressLine2">
+                                            <mat-error id="addressLine2ErrorMsg" *ngIf="!referenceDetail.get('currentAddress.addressLine2').valid && (referenceDetail.get('currentAddress.addressLine2').touched || submitted) && referenceDetail.get('currentAddress.addressLine2').hasError(validation.type)">
+                                                {{'application.applicant.referenceDetails.addressLine2.validation' | translateValidation:validation}}
+                                            </mat-error>
+                                        </ng-container>
+                                    </div>
+
+                                    <!-- P.O. Box Number -->
+                                    <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                        <mat-label>
+                                            <label for="poBoxNo">
+                                                {{ 'application.applicant.referenceDetails.POBoxNo.label' | translate }}
+                                                <!-- <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                    aria-hidden="true"> *</span> -->
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="poBoxNo" uppercase matInput aria-describedby="poBoxNoErrorMsg" formControlName="poBoxNo" placeholder="Enter NIL if No P.O. Box Number available">
+                                        </mat-form-field>
+                                        <ng-container *ngFor="let validation of referenceValues.POBoxNo">
+                                            <mat-error id="poBoxNoErrorMsg" *ngIf="!referenceDetail.get('currentAddress.poBoxNo').valid && (referenceDetail.get('currentAddress.poBoxNo').touched || submitted) && referenceDetail.get('currentAddress.poBoxNo').hasError(validation.type)">
+                                                {{'application.applicant.referenceDetails.POBoxNo.validation' | translateValidation:validation}}
+                                            </mat-error>
+                                        </ng-container>
+                                    </div>
+
+                                    <!-- Street Name -->
+                                    <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                        <mat-label>
+                                            <label for="addressLine1">
+                                                {{ 'application.applicant.referenceDetails.addressLine1.label' | translate }}
+                                                <!-- <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                    aria-hidden="true"> *</span> -->
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="addressLine1" uppercase matInput aria-describedby="addressLine1ErrorMsg" formControlName="addressLine1" placeholder="Street Address">
+                                        </mat-form-field>
+                                        <ng-container *ngFor="let validation of referenceValues.addressLine1">
+                                            <mat-error id="addressLine1ErrorMsg" *ngIf="!referenceDetail.get('currentAddress.addressLine1').valid && (referenceDetail.get('currentAddress.addressLine1').touched || submitted) && referenceDetail.get('currentAddress.addressLine1').hasError(validation.type)">
+                                                {{'application.applicant.referenceDetails.addressLine1.validation' | translateValidation:validation}}
+                                            </mat-error>
+                                        </ng-container>
+                                    </div>
+
+                                    <!-- Parish -->
+                                    <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                        <mat-label>
+                                            <label for="state">
+                                                {{ 'application.applicant.addressDetails.address.state.label' | translate }}
+                                                <!-- <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                    aria-hidden="true"> *</span> -->
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="state" matInput aria-describedby="stateErrorMsg" formControlName="state" placeholder="Parish " aria-labelledby="msg21">
+                                        </mat-form-field>
+                                        <ng-container *ngFor="let validation of referenceValues.state">
+                                            <mat-error id="stateErrorMsg" *ngIf="!referenceDetail.get('currentAddress.state').valid && (referenceDetail.get('currentAddress.state').touched || submitted) && referenceDetail.get('currentAddress.state').hasError(validation.type)">
+                                                {{'application.applicant.addressDetails.address.state.validation' | translateValidation:validation}}
+                                            </mat-error>
+                                        </ng-container>
+                                    </div>
+
+                                    <!-- City -->
+                                    <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                        <mat-label>
+                                            <label for="city">
+                                                {{ 'application.applicant.addressDetails.address.city.label' | translate }}
+                                                <!-- <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                    aria-hidden="true"> *</span> -->
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <input id="city" matInput aria-describedby="cityErrorMsg" formControlName="city" placeholder="City">
+                                        </mat-form-field>
+                                        <ng-container *ngFor="let validation of referenceValues.city">
+                                            <mat-error id="cityErrorMsg" *ngIf="!referenceDetail.get('currentAddress.city').valid && (referenceDetail.get('currentAddress.city').touched || submitted) && referenceDetail.get('currentAddress.city').hasError(validation.type)">
+                                                {{'application.applicant.addressDetails.address.city.validation' | translateValidation:validation}}
+                                            </mat-error>
+                                        </ng-container>
+                                    </div>
+
+                                    <!-- Country -->
+                                    <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                        <mat-label>
+                                            <label for="country">
+                                                {{ 'application.applicant.addressDetails.address.country.label' | translate }}
+                                                <!-- <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                    aria-hidden="true"> *</span> -->
+
+                                            </label>
+                                        </mat-label>
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <mat-select role="listbox" id="country" uppercase matNativeControl aria-describedby="countryErrorMsg" formControlName="country" placeholder="Select Country" aria-placeholder="County" aria-labelledby="msg21">
+                                                <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                                <mat-option role="option" *ngFor="let val of countryList" [value]="val.code">
+                                                    {{val.label}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                        <ng-container *ngFor="let validation of referenceValues.country">
+                                            <mat-error id="countryErrorMsg" *ngIf="!referenceDetail.get('currentAddress.country').valid && (referenceDetail.get('currentAddress.country').touched || submitted) && referenceDetail.get('currentAddress.country').hasError(validation.type)">
+                                                {{'application.applicant.addressDetails.address.country.validation' | translateValidation:validation}}
+                                            </mat-error>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12 margin-b">
+                                    <span class="bold">{{ 'application.applicant.addressDetails.mailingAdd' | translate }}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-6 col-lg-6">
+                                    <div class="mat-grp">
+                                        <mat-label>
+                                            <label for="isMailingAndResidentialAddDifferent">
+                                                {{ 'application.applicant.addressDetails.diffAddMail' | translate }}
+                                                <!-- <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                    aria-hidden="true">
+                                                    *</span> -->
+                                                </label>
+                                        </mat-label>
+                                        <br />
+                                        <br />
+
+                                        <mat-button-toggle-group aria-describedby="isMailingAndResidentialAddDifferentErrorMsg" formControlName="isMailingAndResidentialAddDifferent" aria-label="Font Style" value="YES">
+                                            <mat-button-toggle selected value="YES" (change)="checkIfAddressDiff()">YES
+                                            </mat-button-toggle>
+                                            <mat-button-toggle value="NO" (change)="checkIfAddressDiff()">NO
+                                            </mat-button-toggle>
+                                        </mat-button-toggle-group>
+                                    </div>
+                                    <div class="height-space" *ngIf="!referenceDetail.get('isMailingAndResidentialAddDifferent').valid && (referenceDetail.get('isMailingAndResidentialAddDifferent').touched ) && referenceDetail.get('isMailingAndResidentialAddDifferent').hasError('required')">
+                                        <mat-error id="isMailingAndResidentialAddDifferentErrorMsg"> Please select Is your mailing address same as your current address
+                                        </mat-error>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div>
+                                <!-- Mailing Address -->
+                                <div formGroupName="mailingAddress" *ngIf="referenceDetail.get('isMailingAndResidentialAddDifferent').value==='NO'">
+                                    <div class="row">
+
+                                        <!-- apartment suite number -->
+                                        <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                            <mat-label>
+                                                <label for="addressLine2">
+                                                    {{ 'application.applicant.referenceDetails.addressLine2.label' | translate }}
+                                                    <!-- <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                        aria-hidden="true">
+                                                        *</span> -->
+                                                </label>
+                                            </mat-label>
+                                            <mat-form-field appearance="outline" class="full-width">
+                                                <input id="addressLine2" matInput aria-describedby="addressLine2ErrorMsg2" formControlName="addressLine2" placeholder="Apartment/Suite Number">
+                                            </mat-form-field>
+                                            <ng-container *ngFor="let validation of referenceValues.addressLine2">
+                                                <mat-error id="addressLine2ErrorMsg2" *ngIf="!referenceDetail.get('mailingAddress.addressLine2').valid && (referenceDetail.get('mailingAddress.addressLine2').touched || submitted) && referenceDetail.get('mailingAddress.addressLine2').hasError(validation.type)">
+                                                    {{'application.applicant.referenceDetails.addressLine2.validation' | translateValidation:validation}}
+                                                </mat-error>
+                                            </ng-container>
+                                        </div>
+
+                                        <!-- P.O. Box Number -->
+                                        <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                            <mat-label>
+                                                <label for="poBoxNo">
+                                                    {{ 'application.applicant.referenceDetails.POBoxNo.label' | translate }}
+                                                    <!-- <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                        aria-hidden="true"> *</span> -->
+                                                </label>
+                                            </mat-label>
+                                            <mat-form-field appearance="outline" class="full-width">
+                                                <input id="poBoxNo" uppercase matInput aria-describedby="poBoxNoErrorMsg2" formControlName="poBoxNo" placeholder="Enter NIL if No P.O. Box Number available">
+                                            </mat-form-field>
+                                            <ng-container *ngFor="let validation of referenceValues.POBoxNo">
+                                                <mat-error id="poBoxNoErrorMsg2" *ngIf="!referenceDetail.get('mailingAddress.poBoxNo').valid && (referenceDetail.get('mailingAddress.poBoxNo').touched || submitted) && referenceDetail.get('mailingAddress.poBoxNo').hasError(validation.type)">
+                                                    {{'application.applicant.referenceDetails.POBoxNo.validation' | translateValidation:validation}}
+                                                </mat-error>
+                                            </ng-container>
+                                        </div>
+
+                                        <!-- street name -->
+                                        <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                            <mat-label>
+                                                <label for="addressLine1">
+                                                    {{ 'application.applicant.referenceDetails.addressLine1.label' | translate }}
+                                                    <!-- <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                        aria-hidden="true"> *</span> -->
+                                                </label>
+                                            </mat-label>
+                                            <mat-form-field appearance="outline" class="full-width">
+                                                <input id="addressLine1" uppercase matInput aria-describedby="addressLine1ErrorMsg2" formControlName="addressLine1" placeholder="Street Address">
+                                            </mat-form-field>
+                                            <ng-container *ngFor="let validation of referenceValues.addressLine1">
+                                                <mat-error id="addressLine1ErrorMsg2" *ngIf="!referenceDetail.get('mailingAddress.addressLine1').valid && (referenceDetail.get('mailingAddress.addressLine1').touched || submitted) && referenceDetail.get('mailingAddress.addressLine1').hasError(validation.type)">
+                                                    {{'application.applicant.referenceDetails.addressLine1.validation' | translateValidation:validation}}
+                                                </mat-error>
+                                            </ng-container>
+                                        </div>
+
+                                        <!-- Parish -->
+                                        <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                            <mat-label>
+                                                <label for="state">
+                                                    {{ 'application.applicant.addressDetails.address.state.label' | translate }}
+                                                    <!-- <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                        aria-hidden="true"> *</span> -->
+                                                </label>
+                                            </mat-label>
+
+                                            <mat-form-field appearance="outline" class="full-width">
+                                                <input id="state" matInput aria-describedby="stateErrorMsg2" formControlName="state" aria-invalid="true" placeholder="Parish ">
+                                            </mat-form-field>
+                                            <ng-container *ngFor="let validation of referenceValues.state">
+                                                <mat-error id="stateErrorMsg2" *ngIf="!referenceDetail.get('mailingAddress.state').valid && (referenceDetail.get('mailingAddress.state').touched || submitted) && referenceDetail.get('mailingAddress.state').hasError(validation.type)">
+                                                    {{'application.applicant.referenceDetails.state.validation' | translateValidation:validation}}
+                                                </mat-error>
+                                            </ng-container>
+                                        </div>
+
+                                        <!-- city -->
+                                        <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                            <mat-label>
+                                                <label for="city">
+                                                    {{ 'application.applicant.addressDetails.address.city.label' | translate }}
+                                                    <!-- <span class="red" aria-label="Mandatory" aria-hidden="true"
+                                                        tabindex="-1">
+                                                        *</span> -->
+                                                </label>
+                                            </mat-label>
+                                            <mat-form-field appearance="outline" class="full-width">
+
+                                                <input id="city" matInput aria-describedby="cityErrorMsg2" formControlName="city" placeholder="City">
+                                            </mat-form-field>
+                                            <ng-container *ngFor="let validation of referenceValues.city">
+                                                <mat-error id="cityErrorMsg2" *ngIf="!referenceDetail.get('mailingAddress.city').valid && (referenceDetail.get('mailingAddress.city').touched || submitted) && referenceDetail.get('mailingAddress.city').hasError(validation.type)">
+                                                    {{'application.applicant.addressDetails.address.city.validation' | translateValidation:validation}}
+                                                </mat-error>
+                                            </ng-container>
+                                        </div>
+
+                                        <!-- country -->
+                                        <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                            <mat-label>
+                                                <label for="country">
+                                                    {{ 'application.applicant.addressDetails.address.country.label' | translate }}
+                                                    <!-- <span class="red" aria-label="Mandatory" tabindex="-1"
+                                                        aria-hidden="true"> *</span> -->
+                                                </label>
+                                            </mat-label>
+                                            <mat-form-field appearance="outline" class="full-width">
+                                                <mat-select role="listbox" id="country" matNativeControl aria-describedby="countryErrorMsg2" formControlName="country" placeholder="Select Country" aria-labelledby="msg21">
+                                                    <mat-option role="option" value=null selected disabled>Please Select</mat-option>
+                                                    <mat-option role="option" *ngFor="let val of countryList" [value]="val.code">
+                                                        {{val.label}}</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                            <ng-container *ngFor="let validation of referenceValues.country">
+                                                <mat-error id="countryErrorMsg2" *ngIf="!referenceDetail.get('mailingAddress.country').valid && (referenceDetail.get('mailingAddress.country').touched || submitted) && referenceDetail.get('mailingAddress.country').hasError(validation.type)">
+                                                    {{'application.applicant.addressDetails.address.country.validation' | translateValidation:validation}}
+                                                </mat-error>
+                                            </ng-container>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <br> -->
+                            <div class="row">
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                    <mat-label>
+                                        <label for="relationship">
+                                            {{ 'application.applicant.referenceDetails.relationship.label' | translate }}
+                                            <!-- <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span> -->
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="relationship" matInput aria-describedby="relationshipErrorMsg" formControlName="relationship" placeholder="Relationship">
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of referenceValues.relationship">
+                                        <mat-error id="relationshipErrorMsg" *ngIf="!referenceDetail.get('relationship').valid && (referenceDetail.get('relationship').touched || submitted) && referenceDetail.get('relationship').hasError(validation.type)">
+                                            {{'application.applicant.referenceDetails.relationship.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                    <mat-label>
+                                        <label for="phoneNo">
+                                            {{ 'application.applicant.referenceDetails.phoneNo.label' | translate }}
+                                            <!-- <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span> -->
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="phoneNo" inputType="phonenumber" matInput aria-invalid="true" aria-describedby="phoneNoErrorMsg" formControlName="phoneNo" placeholder="(xxx)–xxx-xxxx" mask="(000)-000-0000">
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of referenceValues.phoneNo">
+                                        <mat-error id="phoneNoErrorMsg" *ngIf="!referenceDetail.get('phoneNo').valid && (referenceDetail.get('phoneNo').touched || submitted) && referenceDetail.get('phoneNo').hasError(validation.type)">
+                                            {{'application.applicant.referenceDetails.phoneNo.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                        <hr aria-hidden="true" tabindex="-1" />
+                    </div>
+
+                    <div class="row" *ngIf="showAddReference">
+                        <div class="col-12">
+                            <button type="button" mat-raised-button  class="add-btn pull-right" (click)="addReference()">{{ 'application.buttons.addReferenceDetails' | translate }}</button>
+                        </div>
+                    </div>
+                    <hr aria-hidden="true" tabindex="-1" />
+                    <div id="buttons-container">
+                        <button type="button" mat-raised-button  id="prev-btn" (click)="back()">{{ 'application.buttons.prevSection' | translate }}</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<ng-container *ngIf="isComponentReadOnly">
+    <reference-details-readonly [model]="referenceInfo"></reference-details-readonly>
+</ng-container>

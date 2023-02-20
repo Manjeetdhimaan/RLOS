@@ -1,0 +1,12 @@
+{
+    "local": {
+        "application": "http://192.168.35.92:8090/applications/",
+        "applicant": "http://192.168.35.92:8090/applicants/",
+        "idScan": "http://192.168.35.92:8090/idscan/extract"
+    },
+    "prod": {
+        "application": "",
+        "applicant": "",
+        "idScan": ""
+    }
+}

@@ -1,0 +1,25 @@
+<div id="add-coapplicant-dialog-container" modal-focus aria-modal="true" role="dialog" aria-labelledby="docUploadModal" class="add-coapplicant-container">
+    <div class="dialog-title-container col-md-12">
+        <i class="material-icons close-icon" (click)="onNoClick()" tabindex="0">close</i>
+    </div>
+    <div>
+        <div mat-dialog-content>
+            <div class="document-panel">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12 margin-b" tabindex="0">
+                        An Application with this 'TRN' and 'Date of Birth' already exists. Please click on Resume to continue with the application.
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div mat-dialog-actions class="modal-btns">
+                    <button mat-raised-button class="margin-r" (click)="resumeApplication()">Resume</button>
+                    <button mat-raised-button class="margin-r" (click)="resetApplication()">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

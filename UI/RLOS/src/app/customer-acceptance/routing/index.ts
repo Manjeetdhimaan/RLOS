@@ -1,0 +1,1 @@
+export * from './customer-acceptance-routing.module';

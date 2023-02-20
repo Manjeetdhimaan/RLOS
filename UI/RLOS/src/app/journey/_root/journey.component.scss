@@ -1,0 +1,50 @@
+@mixin desktop {
+    @media (min-width: #{960px}) and (max-width: #{3000px - 1px}) {
+      @content;
+    }
+  }
+
+  @mixin lg-desktop {
+    @media (min-width: #{3000px}) {
+      @content;
+    }
+  }
+
+.steps-header-large {
+    ul {
+        margin-bottom: em(20px);
+        padding: 15px;
+        display: table;
+        width: 100%;
+    }
+    li {
+        box-sizing: border-box;
+        display: table-cell;
+        font-weight: bold;
+        color: #4C4C4C;
+        @include desktop {
+            font-size: 13px;
+        }
+        @include lg-desktop {
+            font-size: 13px;
+        }
+        &:first-of-type {
+            padding-left: 0;
+        }
+        &:last-of-type {
+            padding-right: 0;
+        }
+        padding: 0.5em;
+        border-bottom: 4px solid #EDEDED;
+        &.active {
+            border-bottom: 4px solid #249fce;
+            color: #000000;
+        }
+        div {
+            display: table-cell;
+            &:first-of-type {
+                padding-right: 5px;
+            }
+        }
+    }
+}

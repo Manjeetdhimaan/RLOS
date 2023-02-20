@@ -1,0 +1,26 @@
+{
+  "application": {
+    "login": {
+      "header": "How do we get in touch with you?"
+    },
+    "resume": {
+      "header": "Resume Application"
+
+    },
+    "buttons": {
+      "submit": "Submit",
+      "continue": "Continue",
+      "back": "Back",
+      "nextSection": "Next Section",
+      "next": "Next",
+      "prevSection": "Previous Section",
+      "prev": "Previous",
+      "chooseFile": "Select File",
+      "editFile": "Edit ID Document",
+      "remove": "Remove",
+      "addEmpDetails": "Add Additional Employment",
+      "addIncomeDetails": "Add Income details",
+      "addAssetDetails": "Add Asset details"
+    }
+  }
+}

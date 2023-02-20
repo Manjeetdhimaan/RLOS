@@ -1,0 +1,232 @@
+<div class="container-fluid">
+    <br *ngIf="showAlert" />
+    <div class="row" *ngIf="showAlert">
+        <div class="col-12" role="alert" aria-live="assertive" aria-atomic="true">
+            <error-alert [errorObject]="alert" (close)="closeError()"></error-alert>
+        </div>
+    </div>
+    <br *ngIf="!showAlert" />
+    <div class="row">
+        <div class="col-12">
+            <h3 style="font-size: 14px;">Please fill in your particulars</h3>
+        </div>
+        <div class="col-12">
+            <div class="personal-details-container">
+                <div class="row">
+                    <div class="col-12">
+                        <form role="main" [formGroup]="personalForm" autocomplete="off" (ngSubmit)="continue()" novalidate>
+                            <!-- <div class="row">
+                <div class="col-12">
+                  <span class="bold"> {{ 'application.applicant.primaryHeader' | translate }}</span>
+                </div>
+              </div> -->
+                            <br />
+                            <div class="row">
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                    <mat-label>
+                                        <label for="firstName">
+                                            {{ 'application.applicant.firstName.label' | translate }}
+                                            <span class="red" aria-label="Mandatory"> *</span>
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="firstName" aria-invalid="true" aria-describedby="msg" aria-labelledby="msg" matInput formControlName="firstName" [readonly]="isReadOnly">
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of basicDetailValues.firstName">
+                                        <mat-error id="msg" *ngIf="!personalForm.get('firstName').valid && (personalForm.get('firstName').touched || submitted) && personalForm.get('firstName').hasError(validation.type)">
+                                            {{'application.applicant.firstName.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                    <mat-label>
+                                        <label for="middleName">
+                                            {{ 'application.applicant.middleName.label' | translate }}
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input aria-invalid="true" id="middleName" aria-describedby="msg1" aria-labelledby="msg1" matInput formControlName="middleName" [readonly]="isReadOnly">
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of basicDetailValues.middleName">
+                                        <mat-error id="msg1" *ngIf="!personalForm.get('middleName').valid && (personalForm.get('middleName').touched || submitted) && personalForm.get('middleName').hasError(validation.type)">
+                                            {{'application.applicant.middleName.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                    <mat-label>
+                                        <label for="lastName">
+                                            {{ 'application.applicant.lastName.label' | translate }}
+                                            <span class="red" aria-label="Mandatory"> *</span>
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input aria-invalid="true" id="lastName" aria-describedby="msg2" aria-labelledby="msg2" matInput formControlName="lastName" [readonly]="isReadOnly">
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of basicDetailValues.lastName">
+                                        <mat-error id="msg2" *ngIf="!personalForm.get('lastName').valid && (personalForm.get('lastName').touched || submitted) && personalForm.get('lastName').hasError(validation.type)">
+                                            {{'application.applicant.lastName.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                    <mat-label>
+                                        <label for="dob">
+                                            {{ 'application.applicant.dob.label' | translate }}
+                                            <span class="red" aria-label="Mandatory"> *</span>
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input aria-invalid="true" id="dob" matInput [matDatepicker]="picker" aria-describedby="msg3" aria-labelledby="msg3" [max]="maxDateDob" [min]="minDateDob" formControlName="dob" (input)="calculcateAgeFromInputChange($event)" (dateChange)="calculcateAge($event)">
+                                        <!-- <input aria-invalid="true" id="dob" matInput mask="M0/d0/0000" aria-describedby="msg3" aria-labelledby="msg3" [max]="maxDateDob"
+                      [min]="minDateDob" formControlName="dob" (input)="calculcateAgeFromInputChange($event)"> -->
+                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker></mat-datepicker>
+                                    </mat-form-field>
+                                    <mat-error *ngIf="!personalForm.get('dob').valid && (personalForm.get('dob').touched || submitted) && (personalForm.get('dob').errors.required || personalForm.get('dob').errors.matDatepickerParse)" id="msg3">Please enter Date of Birth</mat-error>
+                                    <mat-error *ngIf="!personalForm.get('dob').valid && (personalForm.get('dob').touched || submitted) && personalForm.get('dob').errors.matDatepickerMax" id="msg3">Please select valid date</mat-error>
+                                    <mat-error *ngIf="!personalForm.get('dob').valid && (personalForm.get('dob').touched || submitted) && personalForm.get('dob').errors.matDatepickerMin" id="msg3">Date of Birth should not be 100 years old</mat-error>
+                                    <!-- <mat-error id="msg3" *ngIf="invalidDateMessage">{{invalidDateMessage}}</mat-error> -->
+                                    <mat-error *ngIf="showCoApplicantRequiredMsg">
+                                        {{ 'application.applicant.dob.note' | translate }}</mat-error>
+                                </div>
+
+
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                    <mat-label>
+                                        <label for="email">
+                                            {{ 'application.applicant.email.label' | translate }}
+                                            <span class="red" aria-label="Mandatory"> *</span>
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input aria-invalid="true" id="email" type="text" matInput formControlName="email" onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false" (blur)="checkEmail()" [readonly]="isReadOnly" aria-describedby="msg5" aria-labelledby="msg5">
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of basicDetailValues.email">
+                                        <mat-error id="msg5" *ngIf="!personalForm.get('email').valid && (personalForm.get('email').touched || submitted) && personalForm.get('email').hasError(validation.type)">
+                                            {{'application.applicant.email.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                    <mat-error id="msg5" *ngIf="!personalForm.get('email').valid && (personalForm.get('email').touched || submitted) && personalForm.get('email').hasError('notUnique')">
+                                        {{'application.applicant.email.validation.mismatch' | translate}}</mat-error>
+                                </div>
+
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b" *ngIf="!haveId">
+                                    <mat-label>
+                                        <label for="confirmEmail">
+                                            {{ 'application.applicant.confirmEmail.label' | translate }}
+                                            <span class="red" aria-label="Mandatory" aria-hidden="true" tabindex="-1">
+                                                *</span>
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input aria-invalid="true" id="confirmEmail" type="text" onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false" matInput formControlName="confirmEmail" (blur)="checkEmail()" aria-describedby="msg6" aria-labelledby="msg6">
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of basicDetailValues.confirmEmail" id="msg6">
+                                        <mat-error *ngIf="!personalForm.get('confirmEmail').valid && (personalForm.get('confirmEmail').touched || submitted) && personalForm.get('confirmEmail').hasError(validation.type)">
+                                            {{'application.applicant.confirmEmail.validation' | translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                    <mat-error *ngIf="!personalForm.get('confirmEmail').valid && (personalForm.get('confirmEmail').touched || submitted) && personalForm.get('confirmEmail').hasError('notUnique')">
+                                        {{'application.applicant.confirmEmail.validation.mismatch' | translate}}
+                                    </mat-error>
+                                </div>
+                                <!-- <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                  <mat-label>
+                    <label for="state">
+                      Island/State of Residence
+                      <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+                    </label>
+                  </mat-label>
+                  <mat-form-field appearance="outline" class="full-width">
+                    <select id="state" matNativeControl formControlName="state" aria-invalid="true" aria-describedby="msg21" aria-labelledby="msg21">
+                      <option value=null selected disabled>Please Select</option>
+                      <option *ngFor="let val of stateList" [value]="val.code">{{val.label}}</option>
+                    </select>
+                  </mat-form-field>
+                  <mat-error id="msg21" *ngIf="!personalForm.get('state').valid && (personalForm.get('state').touched || submitted) && personalForm.get('state').hasError('required')">{{'application.applicant.addressDetails.address.state.validation.required' | translate}}</mat-error>
+                </div> -->
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                    <mat-label>
+                                        <label for="ssn">
+                                            {{ 'application.applicant.ssn.label' | translate }}
+                                            <!-- <span class="red" aria-label="Mandatory"> *</span> -->
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width" *ngIf="showssn">
+                                        <input aria-invalid="true" id="ssn" matInput inputType="ssn" aria-describedby="msg4" aria-labelledby="msg4" formControlName="ssn" placeholder="xxx-xx-xxxx" mask="000-00-0000" (input)="onSearchChange(1)" (blur)="maskSSN($event.target.value)" [readonly]="isSSNReadOnly">
+                                    </mat-form-field>
+                                    <div (click)="enableInputBox()" class="encryptedssn" *ngIf="showEvent">
+                                        <mat-label>
+                                            <label for="encryptedSSN">{{ encryptedSSN | translate }}</label>
+                                        </mat-label>
+                                    </div>
+                                    <!-- <ng-container *ngFor="let validation of basicDetailValues.ssn"> -->
+                                    <mat-error *ngIf="!personalForm.get('ssn').valid && (personalForm.get('ssn').touched || submitted) && personalForm.get('ssn').hasError('required')" id="msg4">{{'application.applicant.ssn.validation.required' | translate}}
+                                    </mat-error>
+                                    <mat-error *ngIf="!personalForm.get('ssn').valid && (personalForm.get('ssn').touched || submitted) && personalForm.get('ssn').hasError('minlength')" id="msg4"> {{'application.applicant.ssn.validation.minlength' | translate}}
+                                    </mat-error>
+                                    <!-- </ng-container> -->
+                                </div>
+
+
+
+
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="full-width">By entering your email address, you agree to receiving
+                                        email communication regarding your loan application.</label>
+                                </div>
+                            </div>
+                            <div class="col-12 note-i">
+                            </div>
+
+                            <!-- <mat-form-field style="text-align: center;">
+                <input matInput [matDatepicker]="picker10" placeholder="Desired Delivery Date" [matDatepickerFilter]="myFilter" formControlName="deliveryDate"
+                  style="font-family: 'Open Sans Condensed', sans-serif; color:white;">
+                <mat-datepicker-toggle matSuffix [for]="picker10" style="color:gold;outline:none;"></mat-datepicker-toggle>
+                <mat-datepicker touchUi #picker10 disabled="false"></mat-datepicker>
+              </mat-form-field> -->
+                            <!-- <hr/>
+              <div class="row">
+                <div class="col-12">
+                  <div id="buttons-container">
+                    <button mat-stroked-button>{{ 'application.buttons.nextSection' | translate }}</button>
+                  </div>
+                </div>
+              </div> -->
+                        </form>
+                    </div>
+                </div>
+
+                <div id="step-footer">
+
+                    <hr aria-hidden="true" tabindex="-1" />
+                    <!-- <i>fields marked with <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span> are mandatory</i> -->
+                    <div id="footer-container">
+
+                        <!-- <div id="back-link-container" aria-label="Back">
+                  <button color="primary" (click)="back()" mat-raised-button>{{ 'application.buttons.back' | translate }}</button>
+                </div> -->
+
+                        <div id="buttons-container">
+                            <!-- <button color="primary" mat-stroked-button (click)="saveAndExitApp()" *ngIf="isArnAvalible">Save and Exit</button> -->
+                            <span class="mr-10"></span>
+                            <button color="primary" (click)="continue()" mat-raised-button style="font-size: 10px;">{{ 'application.buttons.continue' | translate }}</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

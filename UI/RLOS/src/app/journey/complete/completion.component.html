@@ -1,0 +1,65 @@
+<!-- <div id="application-completion-container" class="container-fluid">
+  
+  <div class="text-center align-center container-body">
+    <h3 tabindex="0">
+      Application Submitted
+    </h3>
+    <div tabindex="0">
+      Thank you! We are reviewing your application and will have a decision to you shortly. Please check your email and for questions,
+      contact 800.837.6584.
+    </div>
+    <div tabindex="0">Your Loan Application Number is {{arn}}.</div>  
+      
+  </div> 
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="row">
+      <div class="col-12">
+        <div id="buttons-container">
+            <button color="primary" class="pull-right" type="button" mat-raised-button  (click)="exit()">Exit</button>
+        </div>
+      </div>
+  </div>
+  
+</div> -->
+
+
+<!-- <div class="container thankyou-container">
+  <div class="row">
+      <div class="col-12">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="text-left">
+                      <p style="color: black;">Your application is saved! We have sent a link through email address
+                          updated with this application. Please click on the link to complete your application as per
+                          your convenience.</p>
+                  </div>
+                  <p class="acc-num" style="text-align: center;">Your Loan Application Number is {{arn}}.</p><br><br><br><br><br>
+                  <button type="button" style="float: right;"  mat-raised-button  (click)="exit()">Exit</button>
+              </div>
+          </div>
+          <br>
+      </div>
+  </div>
+</div> -->
+<div class="container thankyou-container">
+  <div class="row">
+      <div class="col-12">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="text-left">
+                      <p style="color: black;">Your application is saved! We have sent a link through email address
+                          updated with this application. Please click on the link to complete your application as per
+                          your convenience.{{'application.applicant.thankyou.label' | translate}}: <b>{{arn}}</b></p>
+                  </div>
+                  <br><br><br><br><br><hr>
+                  <button type="button" style="float: right;"  mat-raised-button (click)="exit()">Exit</button><br><br><br><br><br>
+              </div>
+          </div>
+          <br>
+      </div>
+  </div>
+</div>

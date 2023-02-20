@@ -1,0 +1,335 @@
+<div class="container-fluid personal-details-container">
+    <br *ngIf="showAlert" />
+    <div class="row" *ngIf="showAlert">
+        <div class="col-12" role="alert" aria-live="assertive" aria-atomic="true">
+            <error-alert [errorObject]="alert" (close)="closeError()"></error-alert>
+        </div>
+    </div>
+    <br *ngIf="!showAlert" />
+    <div class="row">
+        <div class="col-12">
+            <div class="personal-details-container">
+                <div class="row">
+                    <div class="col-12">
+                        <form role="form" id="personal-info" aria-label="Personal Information"
+                            [formGroup]="personalForm" autocomplete="off" (ngSubmit)="continue()" novalidate>
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12 col-sm-12">
+                                    <table>
+                                        <tr>
+                                            <th class="bold">
+                                                {{ 'application.productDetails.loanProduct.header' | translate }}</th>
+                                        </tr>
+                                        <tr>
+                                            <td>{{prodType}}</td>
+                                        </tr>
+                                        <br>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b">
+                                    <mat-label>
+                                        <label for="territory">Territory
+                                            <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span>
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <mat-select role="listbox" placeholder="Please Select"
+                                            formControlName="territory" (selectionChange)="storeTerritory($event)">
+                                            <mat-option role="option" value=null selected disabled>Please Select
+                                            </mat-option>
+                                            <mat-option role="option" *ngFor="let val of territoryList"
+                                                [value]="val.code">
+                                                {{val.label}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <mat-error>
+                                        <span id="msg18"
+                                            *ngIf="(personalForm.get('territory').touched)  && personalForm.get('territory').hasError('required')">
+                                            Please select Territory
+                                        </span>
+                                    </mat-error>
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-12 margin-b"
+                                    *ngIf="personalForm.get('territory') && personalForm.get('territory').value ">
+                                    <mat-label>
+                                        <label for="branch">Preferred Banking Center
+                                            <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span>
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <mat-select role="listbox" placeholder="Please Select" formControlName="branch">
+                                            <mat-option role="option" value=null selected disabled>Please Select
+                                            </mat-option>
+                                            <mat-option role="option" *ngFor="let val of branchList" [value]="val.code">
+                                                {{val.label}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <mat-error>
+                                        <span id="msg18"
+                                            *ngIf="(personalForm.get('branch').touched)  && personalForm.get('branch').hasError('required')">
+                                            Please select preferred banking center
+                                        </span>
+                                    </mat-error>
+                                </div>
+
+
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <h4 class="custom-legend">Please Confirm</h4>
+                                    <hr aria-hidden="true" tabindex="-1" />
+                                    <ul>
+                                        <li>
+                                            First, you must be 18 years or older to complete this application.
+                                        </li>
+                                    </ul>
+                                    <p class="margin-b">Before you continue, you will require the following:</p>
+                                    <ul>
+                                        <li>
+                                            An identification proof (Drivers License, National ID, etc.)
+                                        </li>
+                                        <li>
+                                            Proof of Address (should be no older than 3 months)
+                                        </li>
+                                        <li>
+                                            Proof of Income
+                                        </li>
+                                        <li>
+                                            I will provide consent to T&C first, you must be 18 years or older to
+                                            complete this application
+                                        </li>
+                                        <li>
+                                            You are a resident of Jamaica and legally entitled to be in Jamaica
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <section class="example-section padding-l20">
+                                        <mat-checkbox class="example-margin" formControlName="isMeetingRequirements">
+                                            {{'application.applicant.meetRequirements.label' | translate }}
+                                        </mat-checkbox>
+                                    </section>
+                                    <mat-error class="padding-l20">
+                                        <span id="msg18"
+                                            *ngIf="!personalForm.get('isMeetingRequirements').valid && (personalForm.get('isMeetingRequirements').touched ) && personalForm.get('isMeetingRequirements').hasError('required')">
+                                            {{'application.applicant.meetRequirements.validation.required' | translate
+                                            }}
+                                        </span>
+                                    </mat-error>
+                                </div>
+                            </div>
+                            <div class="row height-space verticalAlign"></div>
+                            <div class="col-md-12 col-xs-12 col-sm-12">
+                            </div>
+                            <br>
+
+                            <h1 class="custom">Please fill in your particulars</h1>
+                            <hr aria-hidden="true" tabindex="-1" />
+
+                            <div class="row">
+                                <div class="col-12 col-sm-6 col-lg-4">
+                                    <mat-label>
+                                        <label for="firstName">
+                                            {{ 'application.applicant.firstName.label' | translate }}
+                                            <span class="red" aria-label="Mandatory"> *</span>
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="firstName" uppercase placeholder="First Name"
+                                            aria-labelledby="firstName" matInput formControlName="firstName"
+                                            [readonly]="isReadOnly">
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of basicDetailValues.firstName">
+                                        <mat-error id="msg"
+                                            *ngIf="!personalForm.get('firstName').valid && (personalForm.get('firstName').touched || submitted) && personalForm.get('firstName').hasError(validation.type)">
+                                            {{'application.applicant.firstName.validation' |
+                                            translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                                <div class="col-12 col-sm-6 col-lg-4">
+                                    <mat-label>
+                                        <label for="lastName">
+                                            {{ 'application.applicant.lastName.label' | translate }}
+                                            <span class="red" aria-label="Mandatory"> *</span>
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width" style="line-height: 20px;">
+                                        <input aria-invalid="true" id="lastName" uppercase placeholder="Last Name"
+                                            aria-describedby="lastName" aria-labelledby="lastName" matInput
+                                            formControlName="lastName" [readonly]="isReadOnly">
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of basicDetailValues.lastName">
+                                        <mat-error id="msg2"
+                                            *ngIf="!personalForm.get('lastName').valid && (personalForm.get('lastName').touched || submitted) && personalForm.get('lastName').hasError(validation.type)">
+                                            {{'application.applicant.lastName.validation' |
+                                            translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                                <div class="col-12 col-sm-6 col-lg-4">
+                                    <mat-label>
+                                        <label for="dob">
+                                            {{ 'application.applicant.dob.label' | translate }}
+                                            <span class="red" aria-label="Mandatory" aria-hidden="true" tabindex="-1">
+                                                *</span>
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <input id="dob" aria-describedby="msg13" matInput (keyup)="dateMask($event)"
+                                            [matDatepicker]="picker1" placeholder="MM/DD/YYYY" [max]="maxDateDob"
+                                            [min]="minDateDob" formControlName="dob" [readonly]="isDOBReadOnly"
+                                            (input)="calculcateAgeFromInputChange($event)">
+                                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker1></mat-datepicker>
+                                    </mat-form-field>
+                                    <mat-error id="msg13"
+                                        *ngIf="!personalForm.get('dob').valid && (personalForm.get('dob').touched || submitted) && (personalForm.get('dob').errors.required || personalForm.get('dob').errors.matDatepickerParse)">
+                                        {{'application.applicant.dob.validation.required' | translate}}</mat-error>
+                                    <mat-error id="msg13"
+                                        *ngIf="!personalForm.get('dob').valid && (personalForm.get('dob').touched || submitted) && personalForm.get('dob').errors.matDatepickerMax">
+                                        {{'application.applicant.dob.invalidDate' | translate}}</mat-error>
+                                    <mat-error id="msg13"
+                                        *ngIf="!personalForm.get('dob').valid && (personalForm.get('dob').touched || submitted) && personalForm.get('dob').errors.matDatepickerMin">
+                                        {{'application.applicant.dob.validation.numberRange' | translate}}</mat-error>
+                                </div>
+
+                            </div>
+                            <br>
+
+                            <div class="row">
+                                <div class="col-12 col-sm-6 col-lg-4">
+                                    <mat-label>
+                                        <label for="areaCode">Area Code
+                                            <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span>
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width">
+                                        <mat-select role="listbox" placeholder="Please Select"
+                                            formControlName="areaCode" (selectionChange)="storeTerritory($event)">
+                                            <mat-option role="option" value=null selected disabled>Please Select
+                                            </mat-option>
+                                            <mat-option role="option" *ngFor="let val of areaCodeList"
+                                                [value]="val.code">
+                                                {{val.label}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <mat-error>
+                                        <span id="msg18"
+                                            *ngIf="(personalForm.get('areaCode').touched)  && personalForm.get('areaCode').hasError('required')">
+                                            Please select Area Code
+                                        </span>
+                                    </mat-error>
+                                </div>
+                                <div class="col-12 col-sm-6 col-lg-4">
+                                    <mat-label>
+                                        <label for="primaryPhoneNumber">
+                                            {{ 'application.applicant.primaryPhoneNumber.label' | translate }}
+                                            <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true">
+                                                *</span>
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width" style="line-height: 20px;">
+                                        <input aria-invalid="true" id="primaryPhoneNumber" aria-describedby="msg1"
+                                            aria-labelledby="primaryPhoneNumber" matInput mask="(000)-000-0000"
+                                            formControlName="primaryPhoneNumber" [readonly]="isReadOnly"
+                                            placeholder="(xxx)-xxx-xxxx">
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of basicDetailValues.primaryPhoneNumber">
+                                        <mat-error id="msg"
+                                            *ngIf="!personalForm.get('primaryPhoneNumber').valid && (personalForm.get('primaryPhoneNumber').touched || submitted) && personalForm.get('primaryPhoneNumber').hasError(validation.type)">
+                                            {{'application.applicant.primaryPhoneNumber.validation' |
+                                            translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                </div>
+                                <div class="col-12 col-sm-6 col-lg-4">
+                                    <mat-label>
+                                        <label for="email">
+                                            {{ 'application.applicant.email.label' | translate }}
+                                            <span class="red" aria-label="Mandatory"> *</span>
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width" style="line-height: 20px;">
+                                        <input aria-invalid="true" placeholder="Email" id="email" type="text" matInput
+                                            formControlName="email" onCopy="return false" onDrag="return false"
+                                            onDrop="return false" onPaste="return false" (blur)="checkEmail()"
+                                            [readonly]="isReadOnly" aria-describedby="msg5" aria-labelledby="email">
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of basicDetailValues.email">
+                                        <mat-error id="msg5"
+                                            *ngIf="!personalForm.get('email').valid && (personalForm.get('email').touched || submitted) && personalForm.get('email').hasError(validation.type)">
+                                            {{'application.applicant.email.validation' |
+                                            translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                    <mat-error id="msg5"
+                                        *ngIf="!personalForm.get('email').valid && (personalForm.get('email').touched || submitted) && personalForm.get('email').hasError('notUnique')">
+                                        {{'application.applicant.email.validation.mismatch' | translate}}</mat-error>
+                                </div>
+
+
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-12 col-sm-6 col-lg-4">
+                                    <mat-label>
+                                        <label for="confirmEmail">
+                                            {{ 'application.applicant.confirmEmail.label' | translate }}
+                                            <span class="red" aria-label="Mandatory" aria-hidden="true" tabindex="-1">
+                                                *</span>
+                                        </label>
+                                    </mat-label>
+                                    <mat-form-field appearance="outline" class="full-width" style="line-height: 20px;">
+                                        <input aria-invalid="true" id="confirmEmail" placeholder="Confirm Email"
+                                            type="text" onCopy="return false" onDrag="return false"
+                                            onDrop="return false" onPaste="return false" matInput
+                                            formControlName="confirmEmail" (blur)="checkEmail()" aria-describedby="msg6"
+                                            aria-labelledby="confirmEmail">
+                                    </mat-form-field>
+                                    <ng-container *ngFor="let validation of basicDetailValues.confirmEmail" id="msg6">
+                                        <mat-error
+                                            *ngIf="!personalForm.get('confirmEmail').valid && (personalForm.get('confirmEmail').touched || submitted) && personalForm.get('confirmEmail').hasError(validation.type)">
+                                            {{'application.applicant.confirmEmail.validation' |
+                                            translateValidation:validation}}
+                                        </mat-error>
+                                    </ng-container>
+                                    <mat-error
+                                        *ngIf="!personalForm.get('confirmEmail').valid && (personalForm.get('confirmEmail').touched || submitted) && personalForm.get('confirmEmail').hasError('notUnique')">
+                                        {{'application.applicant.confirmEmail.validation.mismatch' | translate}}
+                                    </mat-error>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="full-width bold-note">{{ 'application.applicant.landingNote' |
+                                        translate }}</label>
+                                </div>
+                            </div>
+                            <div class="col-12 note-i">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="step-footer">
+                    <hr aria-hidden="true" tabindex="-1" />
+                    <div id="footer-container">
+                        <div id="buttons-container">
+                            <span class="mr-10"></span>
+                            <button color="primary" (click)="continue()" mat-raised-button>{{
+                                'application.buttons.continue' | translate }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

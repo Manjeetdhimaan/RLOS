@@ -1,0 +1,69 @@
+.reference-details-container {
+    #back-link-container {
+        float: left;
+    } // #buttons-container {
+    //   float: right;
+    // }
+    #prev-btn {
+        float: left;
+    }
+    .mat-button-toggle {
+        background: #f0f2f7;
+        color: #a8a9ad;
+        font-size: 14px;
+    }
+    .mat-button-toggle-checked {
+        background-color: #000795;
+        color: #fff;
+        font-size: 14px;
+    }
+    #next-btn {
+        float: right;
+    }
+    .add-btn {
+        float: right;
+    }
+    .bold {
+        color: #000795 !important;
+        font-size: 18px;
+        padding: 0px 0px 0px;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #FFDC5B;
+    }
+    .sub-heading {
+        color: #000795;
+        font-size: 16px;
+        padding: 0px 0px 0px;
+        font-weight: normal;
+        display: inline-block;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #FFDC5B;
+    }
+    .no-padding-lr {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .mat-input-element {
+        font: inherit;
+        background: 0 0;
+        color: currentColor;
+        border: none;
+        outline: 0;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
+        vertical-align: bottom;
+        text-align: inherit;
+        height: 20px;
+        padding-bottom: 6px !important;
+    }
+    label {
+        font-family: 'open-sans_regular' !important;
+    }
+    mat-label {
+        font-family: 'open-sans_regular' !important;
+    }
+}

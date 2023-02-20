@@ -1,0 +1,93 @@
+<div class="container-fluid">
+    <div class="row" *ngIf="showAlert">
+        <div class="col-12" role="alert" aria-live="assertive" aria-atomic="true">
+            <error-alert [errorObject]="alert" (close)="closeError()"></error-alert>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h3 class="heading-footer" tabindex="0">{{ 'application.applicant.header' | translate }}</h3>
+        </div>
+        <div class="col-12">
+            <div class="personal-details-container">
+                <!-- (selectedTabChange)="tabChanged($event)" -->
+                <mat-tab-group [selectedIndex]="selectedTab" #tabs>
+                    <div *ngIf="tabDataList">
+                        <mat-tab label="Basic Information" aria-label="basic information">
+                            <div class="tab-content-container">
+                                <!--<ng-template matTabContent>-->
+                                <basic-info #tab1 [tabData]="tabDataList.basicDetails" [listItems]="listItems" [isCoApplicant]="false" [isComponentReadOnly]="false" (saveTabData)="saveData($event)" (deleteTabData)="deleteData($event)" (extractIdScanData)="extractIdScanData($event)"></basic-info>
+                                <!--</ng-template>-->
+                            </div>
+                        </mat-tab>
+
+                        <mat-tab label="Contact Information" aria-label="address details">
+                            <div class="tab-content-container">
+                                <!--<ng-template matTabContent>-->
+                                <address-details #tab2 [tabData]="tabDataList.addressDetails" [uspsAddress]="uspsAddress" [isCoApplicant]="false" [isComponentReadOnly]="false" [listItems]="listItems" (saveTabData)="saveData($event)" (goBack)="goBack($event)">
+                                </address-details>
+                                <!--</ng-template>-->
+                            </div>
+                        </mat-tab>
+
+                        <mat-tab label="Employment Details" aria-label="employment details">
+                            <div class="tab-content-container">
+                                <!--<ng-template matTabContent>-->
+                                <emp-details #tab3 [tabData]="tabDataList.empDetails" [applicantCitizenship]="(tabDataList.basicDetails && tabDataList.basicDetails.citizenship) ? tabDataList.basicDetails.citizenship : null" [listItems]="listItems" [isCoApplicant]="false" (saveTabData)="saveData($event)" [employerNumber]="(tabDataList.basicDetails && tabDataList.basicDetails.workPhoneNo) ? tabDataList.basicDetails.workPhoneNo : null"
+                                    (goBack)="goBack($event)" [isComponentReadOnly]="false" (showError)="showError($event)"></emp-details>
+                                <!--</ng-template>-->
+                            </div>
+                        </mat-tab>
+
+                        <mat-tab label="Income Details" aria-label="income details">
+                            <div class="tab-content-container">
+                                <income-details #tab4 [tabData]="tabDataList.incomeDetails" [listItems]="listItems" [isCoApplicant]="false" (saveTabData)="saveData($event)" (deleteTabData)="deleteData($event)" (goBack)="goBack($event)"></income-details>
+                            </div>
+                        </mat-tab>
+
+                        <mat-tab label="PEP Declaration (Politically Exposed Person)" aria-label="politically-exposed-person">
+                            <div class="tab-content-container">
+                                <!-- <ng-template matTabContent> -->
+                                <app-politically-exposed-person #tab5 [tabData]="tabDataList.politicallyExposedPersonDetails" [listItems]="listItems" (saveTabData)="saveData($event)" (deleteTabData)="deleteData($event)" (goBack)="goBack($event)" [isComponentReadOnly]="false" (showError)="showError($event)">
+                                </app-politically-exposed-person>
+                                <!-- </ng-template> -->
+                            </div>
+                        </mat-tab>
+
+                        <!-- <mat-tab label="Family Details" aria-label="Family details">
+                            <div class="tab-content-container">
+                                <app-family-details #tab6 [tabData]="tabDataList.familyDetails" [listItems]="listItems" (saveTabData)="saveData($event)" (goBack)="goBack($event)" (deleteTabData)="deleteData($event)" [isComponentReadOnly]="false" (showError)="showError($event)"></app-family-details>
+                            </div>
+                        </mat-tab> -->
+
+
+                        <mat-tab label="Other Contact Details" aria-label="References">
+                            <div class="tab-content-container">
+                                <reference-details #tab7 [tabData]="tabDataList.referenceDetails" [listItems]="listItems" [isCoApplicant]="false" (saveTabData)="saveData($event)" (deleteTabData)="deleteData($event)" (goBack)="goBack($event)">
+                                </reference-details>
+                            </div>
+                        </mat-tab>
+
+                    </div>
+                </mat-tab-group>
+
+
+                <div id="step-footer">
+                    <div class="col-12 note-i">
+                        <label class="full-width">fields marked with <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span> are mandatory</label>
+                    </div>
+                    <hr aria-hidden="true" tabindex="-1" />
+                    <div id="footer-container">
+                        <div id="buttons-container">
+                            <button  mat-raised-button (click)="saveAndExitApp()" *ngIf="isArnAvalible">{{ 'application.buttons.saveAndExit' | translate }}</button>
+                            <span class="mr-10"></span>
+                            <button (click)="continue()" mat-raised-button> {{ 'application.buttons.continue' | translate }}</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

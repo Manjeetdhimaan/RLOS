@@ -1,0 +1,111 @@
+<div class="container-fluid" id="resume-container">
+  <div class="row" *ngIf="alert">
+    <div class="col-12" role="alert" aria-live="assertive" aria-atomic="true">
+      <br/>
+      <error-alert [errorObject]=alert (close)="closeError()">
+      </error-alert>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="absolute-center">
+        <form [formGroup]="resumeForm" class="resume-form" (ngSubmit)="continue()">
+          <h3 tabindex="0">Resume Application</h3>
+          <hr aria-hidden="true" tabindex="-1" />
+          <h5 tabindex="0"> Please enter the details below to retrieve your application.</h5>
+          <br/>
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="mat-grp">
+                <mat-label>
+                  <label for="arn">
+                    {{'application.applicant.arn.label' | translate}}
+                    <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+                  </label>
+                </mat-label>
+                <mat-form-field appearance="outline" class="full-width">
+
+                  <input id="arn" aria-invalid="true" aria-describedby="msg" aria-labelledby="msg" mask="00000000-0000" matInput formControlName="arn"
+                    [readonly]="isReadOnly">
+                </mat-form-field>
+                <ng-container id="msg">
+                    <mat-error *ngIf="!resumeForm.get('arn').valid && (resumeForm.get('arn').touched || submitted) && resumeForm.get('arn').hasError('required')">{{'application.applicant.arn.validation.required' | translate}}</mat-error>
+                    <mat-error *ngIf="!resumeForm.get('arn').valid && (resumeForm.get('arn').touched || submitted) && resumeForm.get('arn').hasError('minlength')">{{'application.applicant.arn.validation.minlength' | translate}}</mat-error>
+                    <mat-error *ngIf="!resumeForm.get('arn').valid && (resumeForm.get('arn').touched || submitted) && resumeForm.get('arn').hasError('maxlength')">{{'application.applicant.arn.validation.maxlength' | translate}}</mat-error>
+                </ng-container>
+                <!-- <mat-error>
+                  <span *ngIf="!resumeForm.get('arn').valid && (resumeForm.get('arn').touched || submitted)">Please enter Loan Application Number</span>
+                </mat-error> -->
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="mat-grp">
+
+                <mat-label>
+                  <label for="ssn">{{'application.applicant.ssn.label' | translate}}
+                    <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+                  </label>
+                </mat-label>
+                <mat-form-field appearance="outline" class="full-width" *ngIf="showssn">
+                  <input id="ssn" matInput inputType="ssn" aria-invalid="true" aria-describedby="msg1" aria-labelledby="msg1" formControlName="ssn"
+                    mask="000-00-0000" (blur)="maskSSN($event.target.value)" (input)="onSearchChange($event.target.value, 12)">
+                </mat-form-field>
+                <div (click)="enableInputBox()" class="encryptedssn" *ngIf="showEvent">
+                  <mat-label>
+                    <label for="ssn">
+                      {{ encryptedSSN | translate }}
+                    </label>
+                  </mat-label>
+                </div>
+                <!-- <ng-container *ngFor="let validation of resumeValues.ssn" id="msg1">
+                  <mat-error *ngIf="!resumeForm.get('ssn').valid && (resumeForm.get('ssn').touched || submitted) && resumeForm.get('ssn').hasError(validation.type)">{{'application.applicant.ssn.validation' | translateValidation:validation}}</mat-error>
+                </ng-container> -->
+                <mat-error id="msg19" *ngIf="!resumeForm.get('ssn').valid && (resumeForm.get('ssn').touched || submitted) && resumeForm.get('ssn').hasError('required')">{{'application.applicant.ssn.validation.required' | translate}}</mat-error>
+                <mat-error id="msg19" *ngIf="!resumeForm.get('ssn').valid && (resumeForm.get('ssn').touched || submitted) && resumeForm.get('ssn').hasError('minlength')">{{'application.applicant.ssn.validation.minlength' | translate}}</mat-error>
+
+                <!-- <mat-error>
+                  <span *ngIf="!resumeForm.get('ssn').valid && (resumeForm.get('ssn').touched || submitted)">Please enter TRN</span>
+                </mat-error> -->
+
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="mat-grp">
+                <mat-label>
+                  <label for="dob">{{'application.applicant.dob.label' | translate}}
+                    <span class="red" aria-label="Mandatory" tabindex="-1" aria-hidden="true"> *</span>
+                  </label>
+                </mat-label>
+                <mat-form-field appearance="outline" class="full-width">
+                  <input id="dob" aria-invalid="true" aria-describedby="msg2" aria-labelledby="msg2" matInput [matDatepicker]="picker" [max]="maxDateDob"
+                    [min]="minDateDob" formControlName="dob" (input)="checkDateChange($event)">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <!-- <mat-error *ngFor="let validation of resumeValues.dob">
+                  <mat-error *ngIf="!resumeForm.get('dob').valid && (resumeForm.get('dob').touched || submitted) && resumeForm.get('dob').hasError(validation.type)">{{'application.applicant.dob.validation' | translateValidation:validation}}</mat-error>
+                </mat-error>
+                <mat-error *ngIf="!resumeForm.get('dob').valid && (resumeForm.get('dob').touched || submitted) && resumeForm.get('dob').errors.required">Please enter Stock Issue Date.</mat-error>
+                <mat-error *ngIf="!resumeForm.get('dob').valid && (resumeForm.get('dob').touched || submitted) && resumeForm.get('dob').errors.matDatepickerMax">Please select valid date.</mat-error>
+                <mat-error *ngIf="!resumeForm.get('dob').valid && (resumeForm.get('dob').touched || submitted) && resumeForm.get('dob').errors.matDatepickerMin">Stock Issue Date should not be 100 years old.</mat-error> -->
+
+                <mat-error>
+                  <span id="msg2" *ngIf="!resumeForm.get('dob').valid && (resumeForm.get('dob').touched || submitted) && resumeForm.get('dob').errors.required">Please enter Date of Birth</span>
+                  <span id="msg2" *ngIf="!resumeForm.get('dob').valid && (resumeForm.get('dob').touched || submitted) && resumeForm.get('dob').errors.matDatepickerMax">Please select valid date</span>
+                  <span id="msg2" *ngIf="!resumeForm.get('dob').valid && (resumeForm.get('dob').touched || submitted) && resumeForm.get('dob').errors.matDatepickerMin">Date should not be 100 years old</span>
+                </mat-error>
+              </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <hr aria-hidden="true" tabindex="-1" />
+              <div class="mat-grp">
+                <button mat-raised-button color="primary" class="pull-right">Submit</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

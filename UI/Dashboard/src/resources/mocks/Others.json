@@ -1,0 +1,64 @@
+
+[
+  {
+  "code":"004",
+  "label":" BOB Stock"
+},
+{
+  "code":"027",
+  "label":"Life Insurance"
+},
+{
+  "code":"025",
+  "label":"Investment Accounts"
+},
+{
+  "code":"006",
+  "label":"CD/Savings"
+},
+{
+  "code":"012",
+  "label":"Farm Equipment"
+},
+{
+  "code":"031",
+  "label":"Marketable Stock"
+},
+{
+  "code":"034",
+  "label":"Non-Marketable Stock"
+},
+{
+  "code":"015",
+  "label":"Household Goods"
+},
+{
+  "code":"028",
+  "label":"Livestock"
+},
+{
+  "code":"030",
+  "label":"Marine Equipment"
+},
+{
+  "code":"049",
+  "label":"Annuity Payment Streams"
+},
+{
+  "code":"037",
+  "label":"Other Equipment"
+},
+{
+  "code":"054",
+  "label":"Piano(s)"
+},
+{
+  "code":"000",
+  "label":"PLOC"
+},
+{
+  "code":"036",
+  "label":"Others"
+}
+
+]

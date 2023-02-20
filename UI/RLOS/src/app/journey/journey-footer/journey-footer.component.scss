@@ -1,0 +1,57 @@
+
+@import './src/assets/styles/sass/theme/cwb/_cwb-variables.scss';
+@import './src/assets/styles/sass/global/_mixins.scss';
+
+#step-footer{
+    hr{
+        margin-top:5px;
+        margin-bottom: 5px;
+        border-top: 1px solid #D9D9D9;
+    }
+#footer-container{
+    display: table;
+    width: 100%;
+    #back-link-container{
+        // cursor: pointer;
+        text-align: left;
+        font-size: em(16px);
+
+        @include mobile{
+            display: table-row;
+            line-height: 30px;
+            font-size: 16px;
+        }
+
+        @include tablet-desktop{
+            display: table-cell;
+        }
+    }
+
+    #buttons-container{
+
+        text-align: right;
+
+        @include mobile{
+            display: table-row;
+        }
+
+        @include tablet-desktop{
+            // display: table-cell;
+        }
+    }
+}
+    button {
+        @include lg-desktop{
+            margin-left: 16px;
+        }
+        @include desktop{
+            margin-left: 16px;
+        }
+        @include tablet{
+            margin-left: 16px;
+        }
+        @include mobile{
+            width: 100%;
+        }
+    }
+}
